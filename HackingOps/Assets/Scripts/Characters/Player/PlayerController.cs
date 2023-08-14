@@ -1,14 +1,18 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using HackingOps.Characters.Common;
+using HackingOps.Input;
 
-namespace HackingOps.Characters
+namespace HackingOps.Characters.Player
 {
     public class PlayerController : MonoBehaviour, IMovementReadable
     {
-        [Header("Movement info")]
-        [SerializeField] private float _speedWalking = 1f;      // m/s
-        [SerializeField] private float _speedRunning = 2.5f;    // m/s
-        [SerializeField] private float _jumpSpeed = 6f;         // m/s
+        [Header("Bindings")]
+        [SerializeField] Input.PlayerInputManager _inputManager;
+
+        [Header("Locomotion properties")]
+        [SerializeField] LocomotionPropertiesSO _standingProperties;
+        [SerializeField] LocomotionPropertiesSO _crouchingProperties;
 
         public enum MovementMode
         {
@@ -19,8 +23,6 @@ namespace HackingOps.Characters
         [SerializeField] private MovementMode _movementMode = MovementMode.Local;
         [SerializeField] private Transform _movementCamera;
 
-        [Header("Orientation info")]
-        [SerializeField] private float _angularSpeed = 360f;    // degrees/s
         public enum OrientationMode
         {
             MovementForward,
@@ -37,24 +39,43 @@ namespace HackingOps.Characters
         [SerializeField] private Transform _camera;
 
 
-        // Bindings
+        // Internal bindings
         private CharacterController _characterController;
-
-        // Inputs
-        private bool _inputJump;
-        private bool _inputRun;
-        private Vector2 _inputMovement;
 
         // Movement
         private Vector3 _lastVelocity;
+        private bool _mustJump;
+
+        // Current locomotion properties
+        private LocomotionPropertiesSO _currentLocomotionProperties;
+        [SerializeField] private bool _isCrouched;
 
         // Falling physics
         float _currentVerticalSpeed = 0f;
-        readonly float _gravity = -9.8f;     // m/s2
+        readonly float _gravity = -9.8f;            // m/s2
 
         private void Awake()
         {
             _characterController = GetComponent<CharacterController>();
+        }
+
+        private void OnEnable()
+        {
+            _inputManager.OnJump += OnJump;
+            _inputManager.OnStartCrouching += OnStartCrouching;
+            _inputManager.OnStopCrouching += OnStopCrouching;
+        }
+
+        private void OnDisable()
+        {
+            _inputManager.OnJump -= OnJump;
+            _inputManager.OnStartCrouching -= OnStartCrouching;
+            _inputManager.OnStopCrouching -= OnStopCrouching;
+        }
+
+        private void Start()
+        {
+            _currentLocomotionProperties = _standingProperties;
         }
 
         private void Update()
@@ -77,9 +98,9 @@ namespace HackingOps.Characters
 
         private Vector3 UpdateMovementOnPlane()
         {
-            float speed = _inputRun ? _speedRunning : _speedWalking;
+            float speed = _inputManager.IsRunning ? _currentLocomotionProperties.SpeedAccelerated : _currentLocomotionProperties.SpeedNormal;
 
-            Vector3 localVelocity = _inputMovement * speed;
+            Vector3 localVelocity = _inputManager.MoveInput * speed;
             localVelocity.z = localVelocity.y;
             localVelocity.y = 0f;
 
@@ -105,12 +126,12 @@ namespace HackingOps.Characters
             if (_characterController.isGrounded)
                 _currentVerticalSpeed = 0f;
 
-            if (_inputJump && _characterController.isGrounded)
-                _currentVerticalSpeed = _jumpSpeed;
+            if (_mustJump && _characterController.isGrounded)
+                _currentVerticalSpeed = _currentLocomotionProperties.SpeedJump;
             else
                 _currentVerticalSpeed += _gravity * Time.deltaTime;
 
-            _inputJump = false;
+            _mustJump = false;
 
             return _currentVerticalSpeed;
         }
@@ -148,7 +169,7 @@ namespace HackingOps.Characters
                 float angularDistanceWithSign = Vector3.SignedAngle(transform.forward, desiredForward, Vector3.up);
                 float angularDistanceWithoutSign = Mathf.Abs(angularDistanceWithSign);
 
-                float angleToApply = _angularSpeed * Time.deltaTime;
+                float angleToApply = _currentLocomotionProperties.SpeedAngular * Time.deltaTime;
                 angleToApply = Mathf.Min(angularDistanceWithoutSign, angleToApply);
                 angleToApply *= Mathf.Sign(angularDistanceWithSign);
 
@@ -178,9 +199,22 @@ namespace HackingOps.Characters
         }
 
         #region Input system implementation
-        void OnJump() => _inputJump = true;
-        void OnMove(InputValue value) => _inputMovement = value.Get<Vector2>();
-        void OnRun(InputValue value) => _inputRun = value.Get<float>() > 0f;
+        void OnJump()
+        {
+            Debug.Log("Must Jump");
+            _mustJump = true;
+        }
+        void OnStartCrouching()
+        {
+            _currentLocomotionProperties = _crouchingProperties;
+            _isCrouched = true;
+        }
+
+        void OnStopCrouching()
+        {
+            _currentLocomotionProperties = _standingProperties;
+            _isCrouched = false;
+        }
         #endregion
 
         #region IMovementReadable implementation
@@ -189,24 +223,29 @@ namespace HackingOps.Characters
             return _lastVelocity;
         }
 
-        public float GetWalkSpeed()
+        public float GetNormalSpeed()
         {
-            return _speedWalking;
+            return _currentLocomotionProperties.SpeedNormal;
         }
 
-        public float GetRunSpeed()
+        public float GetAcceleratedSpeed()
         {
-            return _speedRunning;
+            return _currentLocomotionProperties.SpeedAccelerated;
         }
 
         public float GetJumpSpeed()
         {
-            return _jumpSpeed;
+            return _currentLocomotionProperties.SpeedJump;
         }
 
         public bool GetIsGrounded()
         {
             return _characterController.isGrounded;
+        }
+
+        public bool GetIsCrouched()
+        {
+            return _isCrouched;
         }
         #endregion
     }

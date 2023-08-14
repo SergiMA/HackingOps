@@ -1,10 +1,12 @@
 using UnityEngine;
 
-public class CursorLocker : MonoBehaviour
+namespace HackingOps.Utilities
 {
-    // Start is called before the first frame update
-    void Start()
+    public class CursorLocker : MonoBehaviour
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        void Start()
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 }

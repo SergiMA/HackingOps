@@ -42,10 +42,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8357458370111457380}
-  - component: {fileID: 2355740210963142457}
   - component: {fileID: 6178630959888144710}
   - component: {fileID: 3565818712471872435}
   - component: {fileID: 3601402458111625337}
+  - component: {fileID: 208535555297123790}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -70,37 +70,6 @@ Transform:
   m_Father: {fileID: 2519306398448378178}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2355740210963142457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 741957048695079361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: e05538d35db284349bdc61bff2d93d61,
-    type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: ThirdPersonCharacter_ActionMap
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!143 &6178630959888144710
 CharacterController:
   m_ObjectHideFlags: 0
@@ -139,16 +108,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8847f89eae00c5a41891f25b652d6381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speedWalking: 1.5
-  _speedRunning: 4
-  _jumpSpeed: 6
+  _inputManager: {fileID: 208535555297123790}
+  _standingProperties: {fileID: 11400000, guid: a4dae81fbbb25f34a950c415012fde38,
+    type: 2}
+  _crouchingProperties: {fileID: 11400000, guid: 17373bd646ef9fe4e93e92fb06734753,
+    type: 2}
   _movementMode: 0
   _movementCamera: {fileID: 7864607187731230627}
-  _angularSpeed: 360
   _orientationMode: 1
   _orientationCamera: {fileID: 7864607187731230627}
   _orientationTarget: {fileID: 0}
   _camera: {fileID: 7864607187731230627}
+  _isCrouched: 0
 --- !u!114 &3601402458111625337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +133,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSmoothingSpeed: 7.5
+  _crouchingTransitionDuration: 0.5
+--- !u!114 &208535555297123790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741957048695079361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19f59c1f197ffe141832f37749501089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4581343756367170476
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,7 +833,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7851407371596130670}
-  m_LocalRotation: {x: -0.18972561, y: -0.000000025636265, z: -0.000000004953832,
+  m_LocalRotation: {x: -0.18972561, y: -0.000000025636266, z: -0.0000000049538325,
     w: 0.98183715}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -936,7 +920,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8050290440294103199}
-  m_LocalRotation: {x: -0.17183511, y: -1e-45, z: -0, w: 0.9851257}
+  m_LocalRotation: {x: -0.17183511, y: -0, z: -0, w: 0.9851257}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

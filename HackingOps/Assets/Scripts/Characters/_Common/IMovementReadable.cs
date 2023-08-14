@@ -1,10 +1,14 @@
 using UnityEngine;
 
-public interface IMovementReadable
+namespace HackingOps.Characters.Common
 {
-    Vector3 GetVelocity();
-    float GetWalkSpeed();
-    float GetRunSpeed();
-    float GetJumpSpeed();
-    bool GetIsGrounded();
+    public interface IMovementReadable
+    {
+        Vector3 GetVelocity();
+        float GetNormalSpeed();
+        float GetAcceleratedSpeed();
+        float GetJumpSpeed();
+        bool GetIsGrounded();
+        bool GetIsCrouched();
+    }
 }
