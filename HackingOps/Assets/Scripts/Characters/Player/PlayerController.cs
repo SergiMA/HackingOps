@@ -201,7 +201,6 @@ namespace HackingOps.Characters.Player
         #region Input system implementation
         void OnJump()
         {
-            Debug.Log("Must Jump");
             _mustJump = true;
         }
         void OnStartCrouching()
