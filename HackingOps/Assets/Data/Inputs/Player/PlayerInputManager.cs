@@ -9,15 +9,18 @@ namespace HackingOps.Input
         public event Action OnJump;
         public event Action OnStartCrouching;
         public event Action OnStopCrouching;
+        public event Action<Vector2> OnChangeWeaponDeltaUpdated;
+        public event Action<int> OnSelectWeapon;
+        public event Action<float> OnShoot;
 
         public Vector2 MoveInput { get; private set; }
         public bool IsRunning { get; private set; }
 
-        Player_InputActions _inputActions;
+        PlayerInputActions _inputActions;
 
         private void Awake()
         {
-            _inputActions = new Player_InputActions();
+            _inputActions = new PlayerInputActions();
         }
 
         private void OnEnable()
@@ -34,6 +37,23 @@ namespace HackingOps.Input
 
             _inputActions.ThirdPersonCharacter_ActionMap.Crouch.performed += StartCrouching;
             _inputActions.ThirdPersonCharacter_ActionMap.Crouch.canceled += StopCrouching;
+
+            _inputActions.ThirdPersonCharacter_ActionMap.Shoot.performed += Shoot;
+            _inputActions.ThirdPersonCharacter_ActionMap.Shoot.canceled += Shoot;
+
+            _inputActions.ThirdPersonCharacter_ActionMap.ChangeWeapon.performed += ChangeWeapon;
+            _inputActions.ThirdPersonCharacter_ActionMap.ChangeWeapon.canceled += ChangeWeapon;
+
+            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon0.performed += SelectWeapon0;
+            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon1.performed += SelectWeapon1;
+            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon2.performed += SelectWeapon2;
+            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon3.performed += SelectWeapon3;
+            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon4.performed += SelectWeapon4;
+            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon5.performed += SelectWeapon5;
+            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon6.performed += SelectWeapon6;
+            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon7.performed += SelectWeapon7;
+            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon8.performed += SelectWeapon8;
+            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon9.performed += SelectWeapon9;
         }
 
         private void OnDisable()
@@ -48,6 +68,23 @@ namespace HackingOps.Input
 
             _inputActions.ThirdPersonCharacter_ActionMap.Crouch.performed -= StartCrouching;
             _inputActions.ThirdPersonCharacter_ActionMap.Crouch.canceled -= StopCrouching;
+
+            _inputActions.ThirdPersonCharacter_ActionMap.Shoot.performed -= Shoot;
+            _inputActions.ThirdPersonCharacter_ActionMap.Shoot.canceled -= Shoot;
+
+            _inputActions.ThirdPersonCharacter_ActionMap.ChangeWeapon.performed -= ChangeWeapon;
+            _inputActions.ThirdPersonCharacter_ActionMap.ChangeWeapon.canceled -= ChangeWeapon;
+
+            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon0.performed -= SelectWeapon0;
+            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon1.performed -= SelectWeapon1;
+            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon2.performed -= SelectWeapon2;
+            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon3.performed -= SelectWeapon3;
+            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon4.performed -= SelectWeapon4;
+            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon5.performed -= SelectWeapon5;
+            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon6.performed -= SelectWeapon6;
+            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon7.performed -= SelectWeapon7;
+            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon8.performed -= SelectWeapon8;
+            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon9.performed -= SelectWeapon9;
 
             _inputActions.Disable();
         }
@@ -76,5 +113,67 @@ namespace HackingOps.Input
         {
             OnStopCrouching?.Invoke();
         }
+
+        private void Shoot(InputAction.CallbackContext ctx)
+        {
+            OnShoot?.Invoke(ctx.ReadValue<float>());
+        }
+
+        #region Switch weapon
+        private void ChangeWeapon(InputAction.CallbackContext ctx)
+        {
+            OnChangeWeaponDeltaUpdated?.Invoke(ctx.ReadValue<Vector2>());
+        }
+
+        private void SelectWeapon0(InputAction.CallbackContext ctx)
+        {
+            OnSelectWeapon?.Invoke(-1);
+        }
+
+        private void SelectWeapon1(InputAction.CallbackContext ctx)
+        {
+            OnSelectWeapon?.Invoke(0);
+        }
+
+        private void SelectWeapon2(InputAction.CallbackContext ctx)
+        {
+            OnSelectWeapon?.Invoke(1);
+        }
+
+        private void SelectWeapon3(InputAction.CallbackContext ctx)
+        {
+            OnSelectWeapon?.Invoke(2);
+        }
+
+        private void SelectWeapon4(InputAction.CallbackContext ctx)
+        {
+            OnSelectWeapon?.Invoke(3);
+        }
+
+        private void SelectWeapon5(InputAction.CallbackContext ctx)
+        {
+            OnSelectWeapon?.Invoke(4);
+        }
+
+        private void SelectWeapon6(InputAction.CallbackContext ctx)
+        {
+            OnSelectWeapon?.Invoke(5);
+        }
+
+        private void SelectWeapon7(InputAction.CallbackContext ctx)
+        {
+            OnSelectWeapon?.Invoke(6);
+        }
+
+        private void SelectWeapon8(InputAction.CallbackContext ctx)
+        {
+            OnSelectWeapon?.Invoke(7);
+        }
+
+        private void SelectWeapon9(InputAction.CallbackContext ctx)
+        {
+            OnSelectWeapon?.Invoke(8);
+        }
+        #endregion
     }
 }
