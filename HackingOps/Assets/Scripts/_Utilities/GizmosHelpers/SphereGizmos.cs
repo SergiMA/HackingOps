@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace HackingsOps.Utilities.GizmosHelpers
+namespace HackingOps.Utilities.GizmosHelpers
 {
     public class SphereGizmos : MonoBehaviour
     {

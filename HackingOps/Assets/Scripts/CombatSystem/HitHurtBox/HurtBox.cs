@@ -10,7 +10,7 @@ namespace HackingOps.CombatSystem.HitHurtBox
 
         public virtual void NotifyHit(float damage = 1f)
         {
-            Debug.Log($"<color=cyan>{name}</color> has been hit!");
+            Debug.Log($"<color=cyan>{name}</color> has been hit!", gameObject);
             OnNotifyHit.Invoke();
             OnNotifyHitWithDamage.Invoke(damage);
         }

@@ -2,10 +2,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using HackingOps.Characters.Common;
 using HackingOps.Input;
+using HackingOps.Characters.NPC.Senses;
 
 namespace HackingOps.Characters.Player
 {
-    public class PlayerController : MonoBehaviour, IMovementReadable
+    public class PlayerController : MonoBehaviour, IMovementReadable, IVisible
     {
         [Header("Bindings")]
         [SerializeField] Input.PlayerInputManager _inputManager;
@@ -38,6 +39,9 @@ namespace HackingOps.Characters.Player
         [Header("Camera info")]
         [SerializeField] private Transform _camera;
 
+        [Header("AI Visibility")]
+        [SerializeField] private Transform _visibilityCheckpointsParent;
+        private Transform[] _visibilityCheckpoints;
 
         // Internal bindings
         private CharacterController _characterController;
@@ -57,6 +61,12 @@ namespace HackingOps.Characters.Player
         private void Awake()
         {
             _characterController = GetComponent<CharacterController>();
+
+            _visibilityCheckpoints = new Transform[_visibilityCheckpointsParent.childCount];
+            for (int i = 0; i < _visibilityCheckpoints.Length; i++)
+            {
+                _visibilityCheckpoints[i] = _visibilityCheckpointsParent.GetChild(i).transform;
+            }
         }
 
         private void OnEnable()
@@ -246,6 +256,21 @@ namespace HackingOps.Characters.Player
         {
             return _isCrouched;
         }
+        #endregion
+
+        #region IVisible implementation
+        Vector3[] IVisible.GetCheckpoints()
+        {
+            Vector3[] checkpoints = new Vector3[_visibilityCheckpoints.Length];
+            for (int i = 0; i < _visibilityCheckpoints.Length; i++)
+            {
+                checkpoints[i] = _visibilityCheckpoints[i].position;
+            }
+
+            return checkpoints;
+        }
+
+        public Transform GetTransform() => transform;
         #endregion
     }
 }
