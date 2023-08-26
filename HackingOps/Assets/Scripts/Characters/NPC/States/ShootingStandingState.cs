@@ -1,6 +1,5 @@
 ﻿using HackingOps.Characters.Entities;
 using HackingOps.Characters.NPC.Senses;
-using System.Collections;
 using UnityEngine;
 
 namespace HackingOps.Characters.NPC.States
@@ -18,6 +17,11 @@ namespace HackingOps.Characters.NPC.States
         {
             _entity.Agent.destination = _entity.transform.position;
             _entityWeapons.MustShoot();
+        }
+
+        protected override void StateOnDisable()
+        {
+            _entityWeapons.MustNotShoot();
         }
 
         private void Update()

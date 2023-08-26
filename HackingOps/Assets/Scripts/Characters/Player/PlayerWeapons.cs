@@ -80,7 +80,11 @@ namespace HackingOps.Characters.Player
         {
             if (newWeaponIndex < _weapons.Length)
             {
-                if (_currentWeaponIndex != -1) { _weapons[_currentWeaponIndex].gameObject.SetActive(false); }
+                if (_currentWeaponIndex != -1)
+                {
+                    _weapons[_currentWeaponIndex].ResetWeapon();
+                    _weapons[_currentWeaponIndex].gameObject.SetActive(false);
+                }
 
                 _currentWeaponIndex = newWeaponIndex;
 

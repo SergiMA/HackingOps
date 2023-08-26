@@ -4,6 +4,9 @@ namespace HackingOps.Weapons.WeaponFoundations
 {
     public abstract class Weapon : MonoBehaviour
     {
+        [field: Header("Settings")]
+        [HideInInspector] public bool IsUsedByAI;
+
         [Header("Debug")]
         [SerializeField] private bool _debugUse;
         [SerializeField] private bool _debugStartUsing;
@@ -40,6 +43,7 @@ namespace HackingOps.Weapons.WeaponFoundations
         public virtual void Use() { }
         public virtual void StartUsing() { }
         public virtual void StopUsing() { }
+        public virtual void ResetWeapon() { }
 
         public abstract bool CanUse();
         public abstract bool CanContinuouslyUse();

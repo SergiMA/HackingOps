@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d18f6721e9e060d48a0167a4432ad301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsUsedByAI: 0
   _debugUse: 0
   _debugStartUsing: 0
   _debugStopUsing: 0
@@ -226,14 +227,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 294e61da1b1d39141914ce52077afed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AmmoType: {fileID: 11400000, guid: f3dafd1da2c77a94cac79cd2f5f9d7eb, type: 2}
   Cadence: 3
   MaxAmmo: 12
   CurrentAmmo: 12
   RechargeTime: 2.5
   EffectiveRange: 15
-  AmmoType: {fileID: 11400000, guid: f3dafd1da2c77a94cac79cd2f5f9d7eb, type: 2}
   _range: 100
-  _spread: 1
+  _spread: 0.01
   _shootPoint: {fileID: 6138029032794123972}
   _shotLayerMask:
     serializedVersion: 2
@@ -560,14 +561,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6242839144993640121}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0267, y: -0.0244, z: -0.0249}
+  m_LocalRotation: {x: 0.46438324, y: 0.50594956, z: 0.57565314, w: 0.44383195}
+  m_LocalPosition: {x: 0.0238, y: -0.0244, z: -0.1229}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4955588448134577812}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -9.804, y: 86.7, z: 95.477}
 --- !u!114 &4131168183239255441
 MonoBehaviour:
   m_ObjectHideFlags: 0

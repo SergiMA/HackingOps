@@ -7,11 +7,14 @@ namespace HackingOps.Weapons.Barrels
 {
     public class BarrelByRaycasting : Barrel
     {
+        [Header("Raycast bindings")]
+        [SerializeField] GameObject _shotTracePrefab;
+        [SerializeField] Transform _shootPoint;
+
+        [Header("Raycast settings")]
         [SerializeField] private float _range = 100f;
         [Range(0f, 1f)][SerializeField] float _spread = 0.2f;   // In degrees
-        [SerializeField] Transform _shootPoint;
         [SerializeField] LayerMask _shotLayerMask = Physics.DefaultRaycastLayers;
-        [SerializeField] GameObject _shotTracePrefab;
 
         protected override void InternalShot()
         {

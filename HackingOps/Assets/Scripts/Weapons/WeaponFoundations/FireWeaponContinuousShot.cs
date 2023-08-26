@@ -1,8 +1,4 @@
-﻿using HackingOps.Weapons.Barrels;
-using System.Collections;
-using UnityEngine;
-
-namespace HackingOps.Weapons.WeaponFoundations
+﻿namespace HackingOps.Weapons.WeaponFoundations
 {
     public class FireWeaponContinuousShot : FireWeapon
     {

@@ -19,6 +19,12 @@ namespace HackingOps.Weapons.WeaponFoundations
         protected override void InternalAwake()
         {
             _barrels = GetComponentsInChildren<Barrel>();
+            {
+                foreach (Barrel barrel in _barrels)
+                {
+                    barrel.IsControlledByAI(IsUsedByAI);
+                }
+            }
         }
 
         public override void Use()
@@ -45,6 +51,14 @@ namespace HackingOps.Weapons.WeaponFoundations
             }
         }
 
+        public override void ResetWeapon()
+        {
+            foreach (Barrel barrel in _barrels)
+            {
+                barrel.ResetBarrel();
+            }
+        }
+
         public bool IsShotReady()
         {
             bool anyBarrelIsReady = false;
@@ -59,7 +73,7 @@ namespace HackingOps.Weapons.WeaponFoundations
         public override float GetEffectiveRange()
         {
             float effectiveRange = 0f;
-            foreach (Barrel b in _barrels )
+            foreach (Barrel b in _barrels)
             {
                 effectiveRange = Mathf.Max(effectiveRange, b.EffectiveRange);
             }

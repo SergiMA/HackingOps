@@ -5,12 +5,17 @@ namespace HackingOps.Weapons.Barrels
 {
     public abstract class Barrel : MonoBehaviour
     {
+        [Header("Barrel bindings")]
+        [SerializeField] public AmmunitionTypeBase AmmoType;
+
+        [Header("Barrel firing settings")]
         [SerializeField] public float Cadence = 3f;
         [SerializeField] public int MaxAmmo = 12;
         [SerializeField] public int CurrentAmmo = 12;
         [SerializeField] public float RechargeTime = 2.5f;
         [SerializeField] public float EffectiveRange = 15f;
-        [SerializeField] public AmmunitionTypeBase AmmoType;
+
+        protected bool _isUsedByAI;
 
         private float _remainingRechargeTime = 0f;
         private double _lastShotTime = 0f;
@@ -50,6 +55,7 @@ namespace HackingOps.Weapons.Barrels
         protected abstract void InternalShot();
         protected abstract void InternalStartShooting();
         protected abstract void InternalStopShooting();
+        public virtual void ResetBarrel() { }
 
         protected void ConsumeAmmo()
         {
@@ -67,6 +73,11 @@ namespace HackingOps.Weapons.Barrels
                 (CurrentAmmo > 0) &&
                 (Time.time - _lastShotTime) > (1f / Cadence) &&
                 ((Time.time - _remainingRechargeTime) > RechargeTime);
+        }
+
+        public void IsControlledByAI(bool isUsedByAI)
+        {
+            _isUsedByAI = isUsedByAI;
         }
     }
 }

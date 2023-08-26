@@ -1,6 +1,4 @@
-﻿using HackingOps.Weapons.Barrels;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace HackingOps.Weapons.Barrels
 {

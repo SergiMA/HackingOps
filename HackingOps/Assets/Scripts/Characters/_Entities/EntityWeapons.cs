@@ -4,6 +4,7 @@ using UnityEngine.Animations.Rigging;
 
 namespace HackingOps.Characters.Entities
 {
+    [DefaultExecutionOrder(-1)]
     public class EntityWeapons : MonoBehaviour
     {
         [Header("Bindings - Weapons")]
@@ -17,6 +18,9 @@ namespace HackingOps.Characters.Entities
         [SerializeField] private Transform _leftArmTarget;
         [SerializeField] private Transform _rightArmHint;
         [SerializeField] private Transform _rightArmTarget;
+
+        [Header("Settings")]
+        [SerializeField] private bool _isUsedByAI = false;
 
         private Weapon[] _weapons;
         private int _currentWeaponIndex = 0;
@@ -32,6 +36,11 @@ namespace HackingOps.Characters.Entities
         private void Awake()
         {
             _weapons = _weaponsParent.GetComponentsInChildren<Weapon>();
+
+            foreach (Weapon weapon in _weapons)
+            {
+                weapon.IsUsedByAI = _isUsedByAI;
+            }
         }
 
         private bool _oldMustShoot = false;

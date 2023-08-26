@@ -662,51 +662,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LookAtRig
       objectReference: {fileID: 0}
-    - target: {fileID: 952597699600124874, guid: 3924f2e29499b1545974a3d460b189dd,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.0238
-      objectReference: {fileID: 0}
-    - target: {fileID: 952597699600124874, guid: 3924f2e29499b1545974a3d460b189dd,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.1229
-      objectReference: {fileID: 0}
-    - target: {fileID: 952597699600124874, guid: 3924f2e29499b1545974a3d460b189dd,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.44383195
-      objectReference: {fileID: 0}
-    - target: {fileID: 952597699600124874, guid: 3924f2e29499b1545974a3d460b189dd,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.46438324
-      objectReference: {fileID: 0}
-    - target: {fileID: 952597699600124874, guid: 3924f2e29499b1545974a3d460b189dd,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.50594956
-      objectReference: {fileID: 0}
-    - target: {fileID: 952597699600124874, guid: 3924f2e29499b1545974a3d460b189dd,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.57565314
-      objectReference: {fileID: 0}
-    - target: {fileID: 952597699600124874, guid: 3924f2e29499b1545974a3d460b189dd,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -9.804
-      objectReference: {fileID: 0}
-    - target: {fileID: 952597699600124874, guid: 3924f2e29499b1545974a3d460b189dd,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 86.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 952597699600124874, guid: 3924f2e29499b1545974a3d460b189dd,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 95.477
-      objectReference: {fileID: 0}
     - target: {fileID: 1024735710141289930, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -825,17 +780,17 @@ PrefabInstance:
     - target: {fileID: 3496492493708928595, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.17183512
+      value: -0.17183514
       objectReference: {fileID: 0}
     - target: {fileID: 3496492493708928595, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000015078163
+      value: 0.000000021043743
       objectReference: {fileID: 0}
     - target: {fileID: 3496492493708928595, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000026300786
+      value: 0.000000003670653
       objectReference: {fileID: 0}
     - target: {fileID: 3709650561714268912, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
@@ -1010,12 +965,12 @@ PrefabInstance:
     - target: {fileID: 7864607187731230627, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000020614735
+      value: 0.00000001457682
       objectReference: {fileID: 0}
     - target: {fileID: 7864607187731230627, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00000000437287
+      value: 0.0000000030920864
       objectReference: {fileID: 0}
     - target: {fileID: 8103574703315971211, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
@@ -1030,12 +985,12 @@ PrefabInstance:
     - target: {fileID: 9113528961634374684, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000001457682
+      value: 7.732945e-17
       objectReference: {fileID: 0}
     - target: {fileID: 9113528961634374684, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000030920861
+      value: -7.107697e-17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -1553,7 +1508,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 31100
+    surfaceParameter: 31110
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: -6628916704027936421
