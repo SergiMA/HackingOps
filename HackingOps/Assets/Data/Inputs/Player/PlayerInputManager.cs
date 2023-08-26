@@ -7,8 +7,7 @@ namespace HackingOps.Input
     public class PlayerInputManager : MonoBehaviour
     {
         public event Action OnJump;
-        public event Action OnStartCrouching;
-        public event Action OnStopCrouching;
+        public event Action OnCrouchPressed;
         public event Action<Vector2> OnChangeWeaponDeltaUpdated;
         public event Action<int> OnSelectWeapon;
         public event Action<float> OnShoot;
@@ -35,8 +34,7 @@ namespace HackingOps.Input
 
             _inputActions.ThirdPersonCharacter_ActionMap.Jump.performed += Jump;
 
-            _inputActions.ThirdPersonCharacter_ActionMap.Crouch.performed += StartCrouching;
-            _inputActions.ThirdPersonCharacter_ActionMap.Crouch.canceled += StopCrouching;
+            _inputActions.ThirdPersonCharacter_ActionMap.Crouch.performed += Crouch;
 
             _inputActions.ThirdPersonCharacter_ActionMap.Shoot.performed += Shoot;
             _inputActions.ThirdPersonCharacter_ActionMap.Shoot.canceled += Shoot;
@@ -66,8 +64,7 @@ namespace HackingOps.Input
 
             _inputActions.ThirdPersonCharacter_ActionMap.Jump.performed -= Jump;
 
-            _inputActions.ThirdPersonCharacter_ActionMap.Crouch.performed -= StartCrouching;
-            _inputActions.ThirdPersonCharacter_ActionMap.Crouch.canceled -= StopCrouching;
+            _inputActions.ThirdPersonCharacter_ActionMap.Crouch.performed -= Crouch;
 
             _inputActions.ThirdPersonCharacter_ActionMap.Shoot.performed -= Shoot;
             _inputActions.ThirdPersonCharacter_ActionMap.Shoot.canceled -= Shoot;
@@ -104,14 +101,9 @@ namespace HackingOps.Input
             OnJump?.Invoke();
         }
 
-        private void StartCrouching(InputAction.CallbackContext ctx)
+        private void Crouch(InputAction.CallbackContext ctx)
         {
-            OnStartCrouching?.Invoke();
-        }
-
-        private void StopCrouching(InputAction.CallbackContext ctx)
-        {
-            OnStopCrouching?.Invoke();
+            OnCrouchPressed?.Invoke();
         }
 
         private void Shoot(InputAction.CallbackContext ctx)

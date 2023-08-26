@@ -1,13 +1,15 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using HackingOps.Characters.Common;
-using HackingOps.Input;
 using HackingOps.Characters.NPC.Senses;
+using UnityEngine.Events;
 
 namespace HackingOps.Characters.Player
 {
     public class PlayerController : MonoBehaviour, IMovementReadable, IVisible
     {
+        public UnityEvent OnStartCrouchingEvent;
+        public UnityEvent OnStopCrouchingEvent;
+
         [Header("Bindings")]
         [SerializeField] Input.PlayerInputManager _inputManager;
 
@@ -45,6 +47,7 @@ namespace HackingOps.Characters.Player
 
         // Internal bindings
         private CharacterController _characterController;
+        private CrouchController _crouchController;
 
         // Movement
         private Vector3 _lastVelocity;
@@ -61,6 +64,7 @@ namespace HackingOps.Characters.Player
         private void Awake()
         {
             _characterController = GetComponent<CharacterController>();
+            _crouchController = GetComponent<CrouchController>();
 
             _visibilityCheckpoints = new Transform[_visibilityCheckpointsParent.childCount];
             for (int i = 0; i < _visibilityCheckpoints.Length; i++)
@@ -72,15 +76,13 @@ namespace HackingOps.Characters.Player
         private void OnEnable()
         {
             _inputManager.OnJump += OnJump;
-            _inputManager.OnStartCrouching += OnStartCrouching;
-            _inputManager.OnStopCrouching += OnStopCrouching;
+            _inputManager.OnCrouchPressed += SwitchCrouch;
         }
 
         private void OnDisable()
         {
             _inputManager.OnJump -= OnJump;
-            _inputManager.OnStartCrouching -= OnStartCrouching;
-            _inputManager.OnStopCrouching -= OnStopCrouching;
+            _inputManager.OnCrouchPressed += SwitchCrouch;
         }
 
         private void Start()
@@ -208,21 +210,38 @@ namespace HackingOps.Characters.Player
             return desiredForward;
         }
 
+        void StartCrouching()
+        {
+            if (_crouchController.TryCrouchDown())
+            {
+                _currentLocomotionProperties = _crouchingProperties;
+                _isCrouched = _crouchController.TryCrouchDown();
+
+                OnStartCrouchingEvent.Invoke();
+            }
+        }
+
+        void StopCrouching()
+        {
+            if (_crouchController.TryStandUp())
+            {
+                _currentLocomotionProperties = _standingProperties;
+                _isCrouched = false;
+
+                OnStopCrouchingEvent.Invoke();
+            }
+        }
+
         #region Input system implementation
         void OnJump()
         {
             _mustJump = true;
         }
-        void OnStartCrouching()
-        {
-            _currentLocomotionProperties = _crouchingProperties;
-            _isCrouched = true;
-        }
 
-        void OnStopCrouching()
+        void SwitchCrouch()
         {
-            _currentLocomotionProperties = _standingProperties;
-            _isCrouched = false;
+            if (_isCrouched) StopCrouching();
+            else StartCrouching();
         }
         #endregion
 

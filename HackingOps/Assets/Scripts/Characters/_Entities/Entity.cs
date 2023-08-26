@@ -25,7 +25,7 @@ namespace HackingOps.Characters.Entities
         [Header("Settings - Hiding points")]
         [SerializeField] float _hidingPointFindRadius = 30f;
         [SerializeField] LayerMask _hidingPointLayerMask = Physics.DefaultRaycastLayers;
-        [SerializeField] LayerMask occludersLayerMask = Physics.DefaultRaycastLayers;
+        [SerializeField] LayerMask _occludersLayerMask = Physics.DefaultRaycastLayers;
 
         State[] _states;
 
@@ -77,7 +77,7 @@ namespace HackingOps.Characters.Entities
                     target.GetTransform().position,
                     c.transform.position,
                     out RaycastHit hit,
-                    occludersLayerMask))
+                    _occludersLayerMask))
                 {
                     if (hit.collider != c) { newHidingPointCandidates.Add(c); }
                 }

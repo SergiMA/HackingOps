@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 6391643969590825789}
   - component: {fileID: 4447745349528878143}
   - component: {fileID: 5196334484452409726}
+  - component: {fileID: 1881371989578528094}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -208,6 +209,7 @@ Transform:
   - {fileID: 8729929391533563994}
   - {fileID: 8660152142972234088}
   - {fileID: 844871206629419447}
+  - {fileID: 3951559506597011498}
   m_Father: {fileID: 2519306398448378178}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -249,6 +251,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8847f89eae00c5a41891f25b652d6381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnStartCrouchingEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3601402458111625337}
+        m_TargetAssemblyTypeName: HackingOps.Characters.Common.CharacterAnimator,
+          Assembly-CSharp
+        m_MethodName: OnStartCrouching
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnStopCrouchingEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3601402458111625337}
+        m_TargetAssemblyTypeName: HackingOps.Characters.Common.CharacterAnimator,
+          Assembly-CSharp
+        m_MethodName: OnStopCrouching
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _inputManager: {fileID: 208535555297123790}
   _standingProperties: {fileID: 11400000, guid: a4dae81fbbb25f34a950c415012fde38,
     type: 2}
@@ -358,6 +392,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ragdollParent: {fileID: 8729929391533563994}
+--- !u!114 &1881371989578528094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741957048695079361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9354d8d0441abea4d820664985ea9d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _headPosition: {fileID: 3407644302772056793}
+  _capsuleCollider: {fileID: 0}
+  _characterController: {fileID: 6178630959888144710}
+  _weaponHeightReference: {fileID: 3951559506597011498}
+  _ceilingCheckerRayDistance: 1
+  _obstaclesLayerMask:
+    serializedVersion: 2
+    m_Bits: 115
+  _useCharacterControllerCollider: 1
+  _colliderStandingHeight: 1.8
+  _colliderStandingCenter: {x: 0, y: 0.9, z: 0}
+  _colliderCrouchingHeight: 1.14
+  _colliderCrouchingCenter: {x: 0, y: 0.57, z: 0.13}
+  _weaponReferenceStandingHeight: {x: 0, y: 1.417, z: 0.17}
+  _weaponReferenceCrouchingHeight: {x: 0, y: 0.609, z: 0.551}
 --- !u!1 &811179225154860921
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,6 +513,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _radius: 0.05
   _color: {r: 0, g: 0.65690804, b: 1, a: 1}
+  _showWireframed: 0
+--- !u!1 &2332020389121046231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3951559506597011498}
+  - component: {fileID: 7274668400041572362}
+  m_Layer: 0
+  m_Name: WeaponHeightReference
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3951559506597011498
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2332020389121046231}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.417, z: 0.17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8357458370111457380}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7274668400041572362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2332020389121046231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f885c45707063046902643009652d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radius: 0.05
+  _color: {r: 1, g: 1, b: 1, a: 0.5019608}
   _showWireframed: 0
 --- !u!1 &2560026266369041166
 GameObject:
@@ -1874,7 +1982,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7851407371596130670}
-  m_LocalRotation: {x: -0.18972562, y: -0.0000000038810186, z: -7.499501e-10, w: 0.98183715}
+  m_LocalRotation: {x: -0.18972561, y: 0.000000025636265, z: 0.000000004953832, w: 0.98183715}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2496,10 +2604,10 @@ ParentConstraint:
   m_Enabled: 1
   serializedVersion: 2
   m_Weight: 1
-  m_TranslationAtRest: {x: 0.092, y: 1.507, z: 0.062}
+  m_TranslationAtRest: {x: 0.09200001, y: 1.507, z: 0.062000036}
   m_RotationAtRest: {x: 0, y: 0, z: 0}
   m_TranslationOffsets:
-  - {x: 0.09200001, y: 1.507, z: 0.062000036}
+  - {x: 0.09200001, y: 0.089999914, z: -0.10799992}
   m_RotationOffsets:
   - {x: 0, y: 0, z: 0}
   m_AffectTranslationX: 1
@@ -2511,7 +2619,7 @@ ParentConstraint:
   m_Active: 1
   m_IsLocked: 1
   m_Sources:
-  - sourceTransform: {fileID: 8357458370111457380}
+  - sourceTransform: {fileID: 3951559506597011498}
     weight: 1
 --- !u!1 &5383669437229239631 stripped
 GameObject:
@@ -2529,10 +2637,10 @@ ParentConstraint:
   m_Enabled: 1
   serializedVersion: 2
   m_Weight: 1
-  m_TranslationAtRest: {x: 0, y: 1.407, z: 0.386}
+  m_TranslationAtRest: {x: 0, y: 1.407, z: 0.38600004}
   m_RotationAtRest: {x: 0, y: 0, z: 0}
   m_TranslationOffsets:
-  - {x: 0, y: 1.407, z: 0.38600004}
+  - {x: 0, y: -0.01000011, z: 0.21600008}
   m_RotationOffsets:
   - {x: 0, y: 0, z: 0}
   m_AffectTranslationX: 1
@@ -2544,7 +2652,7 @@ ParentConstraint:
   m_Active: 1
   m_IsLocked: 1
   m_Sources:
-  - sourceTransform: {fileID: 8357458370111457380}
+  - sourceTransform: {fileID: 3951559506597011498}
     weight: 1
 --- !u!1 &6156945780290763955 stripped
 GameObject:
@@ -2562,10 +2670,10 @@ ParentConstraint:
   m_Enabled: 1
   serializedVersion: 2
   m_Weight: 1
-  m_TranslationAtRest: {x: 0.095, y: 1.529, z: 0.086}
+  m_TranslationAtRest: {x: 0.09499979, y: 1.529, z: 0.085999966}
   m_RotationAtRest: {x: 0, y: 0, z: 0}
   m_TranslationOffsets:
-  - {x: 0.09499979, y: 1.529, z: 0.085999966}
+  - {x: 0.09499979, y: 0.11199999, z: -0.08399999}
   m_RotationOffsets:
   - {x: 0, y: 0, z: 0}
   m_AffectTranslationX: 1
@@ -2577,7 +2685,7 @@ ParentConstraint:
   m_Active: 1
   m_IsLocked: 1
   m_Sources:
-  - sourceTransform: {fileID: 8357458370111457380}
+  - sourceTransform: {fileID: 3951559506597011498}
     weight: 1
 --- !u!1 &6453088605796798817 stripped
 GameObject:
@@ -2595,10 +2703,10 @@ ParentConstraint:
   m_Enabled: 1
   serializedVersion: 2
   m_Weight: 1
-  m_TranslationAtRest: {x: 0.09, y: 1.482, z: 0.056}
+  m_TranslationAtRest: {x: 0.09000015, y: 1.482, z: 0.055999994}
   m_RotationAtRest: {x: 0, y: 0, z: 0}
   m_TranslationOffsets:
-  - {x: 0.09000015, y: 1.482, z: 0.055999994}
+  - {x: 0.09000015, y: 0.06499994, z: -0.11399996}
   m_RotationOffsets:
   - {x: 0, y: 0, z: 0}
   m_AffectTranslationX: 1
@@ -2610,7 +2718,7 @@ ParentConstraint:
   m_Active: 1
   m_IsLocked: 1
   m_Sources:
-  - sourceTransform: {fileID: 8357458370111457380}
+  - sourceTransform: {fileID: 3951559506597011498}
     weight: 1
 --- !u!4 &8350453253349093619 stripped
 Transform:

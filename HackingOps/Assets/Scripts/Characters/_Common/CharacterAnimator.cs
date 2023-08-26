@@ -5,20 +5,20 @@ namespace HackingOps.Characters.Common
 {
     public class CharacterAnimator : MonoBehaviour
     {
-        [SerializeField] float _movementSmoothingSpeed = 1f;
+        [SerializeField] private float _movementSmoothingSpeed = 1f;
         [SerializeField] float _crouchingTransitionDuration = 0.5f;
 
         Animator _animator;
         IMovementReadable _movementReadable;
+        CrouchController _crouchController;
 
         int _crouchingLayerIndex;
-
-        bool _previousIsCrouching;
 
         private void Awake()
         {
             _animator = GetComponentInChildren<Animator>();
             _movementReadable = GetComponent<IMovementReadable>();
+            _crouchController = GetComponent<CrouchController>();
         }
 
         private void Start()
@@ -31,13 +31,6 @@ namespace HackingOps.Characters.Common
         {
             UpdatePlaneMovementAnimation();
             UpdateVerticalMovementAnimation();
-
-            if (_previousIsCrouching != _movementReadable.GetIsCrouched())
-            {
-                UpdateCrouchingAnimation();
-            }
-
-            _previousIsCrouching = _movementReadable.GetIsCrouched();
         }
 
         private void UpdatePlaneMovementAnimation()
@@ -102,6 +95,22 @@ namespace HackingOps.Characters.Common
             {
                 _animator.SetLayerWeight(_crouchingLayerIndex, weight);
             });
+        }
+
+        public void OnStartCrouching()
+        {
+            if (_crouchController.TryCrouchDown(true))
+            {
+                UpdateCrouchingAnimation();
+            }
+        }
+
+        public void OnStopCrouching()
+        {
+            if (_crouchController.TryStandUp(true))
+            {
+                UpdateCrouchingAnimation();
+            }
         }
     }
 }
