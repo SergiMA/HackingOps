@@ -1,6 +1,7 @@
 ﻿using HackingOps.Characters.NPC.DecisionMaking;
 using HackingOps.Characters.NPC.States;
 using HackingOps.Characters.Player;
+using HackingOps.CombatSystem.HitHurtBox;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -21,7 +22,7 @@ namespace HackingOps.Characters.Common
 
         private void Awake()
         {
-            // TODO: Add component HurtBoxWithLife and add a listener to OnNotifyWithWithLife, executing this.OnNotifyHitWithLife()
+            GetComponent<HurtBoxWithLife>()?.OnNotifyHitWithLife.AddListener(OnNotifyHitWithLife);
         }
 
         private float _lastNotifiedLife = Mathf.Infinity;
