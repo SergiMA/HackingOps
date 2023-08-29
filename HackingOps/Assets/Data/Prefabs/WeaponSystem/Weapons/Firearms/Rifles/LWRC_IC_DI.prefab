@@ -542,6 +542,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c124ffb2102d9ee4998b2ed8f121b4c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot: 0
+  IsUsedByAI: 0
   _debugUse: 0
   _debugStartUsing: 0
   _debugStopUsing: 0
@@ -795,21 +797,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b8159f75b23b3147973e131e601df60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AmmoType: {fileID: 11400000, guid: f3dafd1da2c77a94cac79cd2f5f9d7eb, type: 2}
   Cadence: 5
   MaxAmmo: 12
   CurrentAmmo: 12
   RechargeTime: 2.5
   EffectiveRange: 15
-  AmmoType: {fileID: 11400000, guid: f3dafd1da2c77a94cac79cd2f5f9d7eb, type: 2}
+  _shotTracePrefab: {fileID: 6770684411390280707, guid: 2cd4ad6c3aebf3f4ba24e0511393d49f,
+    type: 3}
+  _shootPoint: {fileID: 7701666520267743330}
   _range: 100
   _spread: 0.021
-  _shootPoint: {fileID: 7701666520267743330}
   _shotLayerMask:
     serializedVersion: 2
     m_Bits: 51
-  _shotTracePrefab: {fileID: 6770684411390280707, guid: 2cd4ad6c3aebf3f4ba24e0511393d49f,
-    type: 3}
-  _burstSize: 3
+  _roundsAmount: 3
+  _delayBetweenBursts: 1
 --- !u!1 &5091633515794690591
 GameObject:
   m_ObjectHideFlags: 0

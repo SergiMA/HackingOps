@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d18f6721e9e060d48a0167a4432ad301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot: 2
   IsUsedByAI: 0
   _debugUse: 0
   _debugStartUsing: 0
@@ -233,14 +234,14 @@ MonoBehaviour:
   CurrentAmmo: 12
   RechargeTime: 2.5
   EffectiveRange: 15
+  _shotTracePrefab: {fileID: 6770684411390280707, guid: 2cd4ad6c3aebf3f4ba24e0511393d49f,
+    type: 3}
+  _shootPoint: {fileID: 6138029032794123972}
   _range: 100
   _spread: 0.01
-  _shootPoint: {fileID: 6138029032794123972}
   _shotLayerMask:
     serializedVersion: 2
     m_Bits: 51
-  _shotTracePrefab: {fileID: 6770684411390280707, guid: 2cd4ad6c3aebf3f4ba24e0511393d49f,
-    type: 3}
 --- !u!1 &4136021456762431679
 GameObject:
   m_ObjectHideFlags: 0
