@@ -6,6 +6,7 @@ namespace HackingOps.CombatSystem.HitHurtBox
     public class HurtBoxWithLife : HurtBox
     {
         public UnityEvent<float, float> OnNotifyHitWithLife;
+        public UnityEvent<float, float, Vector3> OnNotifyHitWithLifeAndDirection;
 
         [SerializeField] private float _maxLife = 1f;
         [SerializeField] private float _healthRegeneration = 1f;
@@ -48,12 +49,21 @@ namespace HackingOps.CombatSystem.HitHurtBox
             _currentLife = Mathf.Min(_currentLife, _maxLife);
         }
 
-        public override void NotifyHit(float damage = 1f)
+        public override void NotifyHit(float damage = 1f, Transform byWhom = null)
         {
             _currentHealthRegenerationCooldown = _healthRegenerationCooldown;
 
             _currentLife -= damage;
-            base.NotifyHit(damage);
+            base.NotifyHit(damage, byWhom);
+
+            if (byWhom != null)
+            {
+                OnNotifyHitWithLifeAndDirection.Invoke(_currentLife, _maxLife, (transform.position - byWhom.position).normalized);
+            }
+            else
+            {
+                OnNotifyHitWithLifeAndDirection.Invoke(_currentLife, _maxLife, Vector3.zero);
+            }
 
             if (_currentLife <= 0)
                 _isDead = true;

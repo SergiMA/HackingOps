@@ -32,7 +32,7 @@ namespace HackingOps.Weapons.Barrels
 
             if (Physics.Raycast(_shootPoint.position, shootingDirection, out RaycastHit hit, _range, _shotLayerMask))
             {
-                hit.collider.GetComponent<HurtBox>()?.NotifyHit();
+                hit.collider.GetComponent<HurtBox>()?.NotifyHit(1f, transform);
                 shotTrace?.Init(_shootPoint.position, _shootPoint.position + (shootingDirection * hit.distance));
             }
             else

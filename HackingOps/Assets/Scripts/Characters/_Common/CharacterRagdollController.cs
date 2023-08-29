@@ -23,9 +23,13 @@ namespace HackingOps.Characters.Common
             foreach (Collider c in _colliders) { c.enabled = false; }
         }
 
-        public void ActivateRagdoll()
+        public void ActivateRagdoll(Vector3 force)
         {
-            foreach (Rigidbody rb in _rigidbodies) { rb.isKinematic = false; }
+            foreach (Rigidbody rb in _rigidbodies) 
+            { 
+                rb.isKinematic = false;
+                rb.AddForce(force, ForceMode.Impulse);
+            }
             foreach (Collider c in _colliders) { c.enabled = true; }
         }
     }

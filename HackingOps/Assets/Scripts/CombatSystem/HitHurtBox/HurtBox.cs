@@ -8,7 +8,7 @@ namespace HackingOps.CombatSystem.HitHurtBox
         public UnityEvent OnNotifyHit;
         public UnityEvent<float> OnNotifyHitWithDamage;
 
-        public virtual void NotifyHit(float damage = 1f)
+        public virtual void NotifyHit(float damage = 1f, Transform byWhom = null)
         {
             Debug.Log($"<color=cyan>{name}</color> has been hit!", gameObject);
             OnNotifyHit.Invoke();

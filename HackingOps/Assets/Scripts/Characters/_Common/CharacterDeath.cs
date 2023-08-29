@@ -10,32 +10,44 @@ namespace HackingOps.Characters.Common
     public class CharacterDeath : MonoBehaviour
     {
         [SerializeField] private bool _debugDie;
+        [SerializeField] private Vector3 _debugDieDirection;
+        [SerializeField] private float pushForce = 10f;
 
         private void OnValidate()
         {
             if (_debugDie)
             {
                 _debugDie = false;
-                Die();
+                Die(_debugDieDirection);
             }
         }
 
         private void Awake()
         {
-            GetComponent<HurtBoxWithLife>()?.OnNotifyHitWithLife.AddListener(OnNotifyHitWithLife);
+            //GetComponent<HurtBoxWithLife>()?.OnNotifyHitWithLife.AddListener(OnNotifyHitWithLife);
+            GetComponent<HurtBoxWithLife>()?.OnNotifyHitWithLifeAndDirection.AddListener(OnNotifyHitWithLifeAndDirection);
         }
 
         private float _lastNotifiedLife = Mathf.Infinity;
-        private void OnNotifyHitWithLife(float currentLife, float maxLife)
+        //private void OnNotifyHitWithLife(float currentLife, float maxLife)
+        //{
+        //    if (_lastNotifiedLife > 0)
+        //    {
+        //        if (currentLife <= 0f){ Die(); } 
+        //        _lastNotifiedLife = currentLife;
+        //    }
+        //}
+
+        private void OnNotifyHitWithLifeAndDirection(float currentLife, float maxLife, Vector3 direction)
         {
             if (_lastNotifiedLife > 0)
             {
-                if (currentLife <= 0f) { Die(); }
+                if (currentLife <= 0f) { Die(direction); }
                 _lastNotifiedLife = currentLife;
             }
         }
 
-        public void Die()
+        public void Die(Vector3 direction)
         {
             if (TryGetComponent<NavMeshAgent>(out NavMeshAgent agent)) { agent.enabled = false; }
             if (TryGetComponent<Collider>(out Collider collider)) { collider.enabled = false; }
@@ -53,7 +65,7 @@ namespace HackingOps.Characters.Common
             Animator animator = GetComponentInChildren<Animator>();
             if (animator) { animator.enabled = false; }
 
-            GetComponentInChildren<CharacterRagdollController>()?.ActivateRagdoll();
+            GetComponentInChildren<CharacterRagdollController>()?.ActivateRagdoll(direction * pushForce);
         }
     }
 }
