@@ -193,6 +193,12 @@ namespace HackingOps.Characters.Player
                     case OrientationMode.CameraForward:
                         desiredForward = Vector3.ProjectOnPlane(_camera.transform.forward, Vector3.up);
                         break;
+                    case OrientationMode.LookAtTarget:
+                        desiredForward = Vector3.ProjectOnPlane(_orientationTarget.position - transform.position, Vector3.up);
+                        break;
+                    default: Debug.LogWarning("You're using an Orientation Mode not " +
+                        "yet implemented. Some things might not work as expected");
+                        break;
                 }
 
                 float angularDistanceWithSign = Vector3.SignedAngle(transform.forward, desiredForward, Vector3.up);

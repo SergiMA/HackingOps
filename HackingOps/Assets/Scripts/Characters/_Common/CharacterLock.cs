@@ -36,8 +36,8 @@ namespace HackingOps.Characters.Common
 
         private void Update()
         {
-            //ProjectRaycastAtScreenCenter();
-            ProjectRaycastAtWeaponForward();
+            ProjectRaycastAtScreenCenter();
+            //ProjectRaycastAtWeaponForward();
 
             if (_inputManager.IsLocking)
             {

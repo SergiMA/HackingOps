@@ -416,7 +416,7 @@ MonoBehaviour:
     type: 2}
   _movementCamera: {fileID: 7864607187731230627}
   _orientationCamera: {fileID: 7864607187731230627}
-  _orientationTarget: {fileID: 0}
+  _orientationTarget: {fileID: 8969392012296668652}
   _camera: {fileID: 7864607187731230627}
   _visibilityCheckpointsParent: {fileID: 844871206629419447}
   _behaviourProfile: {fileID: 11400000, guid: 98b9749ddb5bb3645b962ea3babb8d56, type: 2}
@@ -571,7 +571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputManager: {fileID: 208535555297123790}
   _lockOnCamera: {fileID: 4035095865627596552}
-  _lockOnBehaviourProfile: {fileID: 11400000, guid: e12dfaf0be7bd1b46906fd6aa6caf8b4,
+  _lockOnBehaviourProfile: {fileID: 11400000, guid: 0a1671e1a7f54de48a691fdcb6184571,
     type: 2}
   _aimTarget: {fileID: 8969392012296668652}
   _maxAimDistance: 99999
@@ -2935,7 +2935,7 @@ MonoBehaviour:
   m_YAxis:
     Value: 1
     m_SpeedMode: 0
-    m_MaxSpeed: 1
+    m_MaxSpeed: 0.5
     m_AccelTime: 0
     m_DecelTime: 0
     m_InputAxisName: Mouse Y
@@ -2959,7 +2959,7 @@ MonoBehaviour:
   m_XAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 100
+    m_MaxSpeed: 50
     m_AccelTime: 0
     m_DecelTime: 0
     m_InputAxisName: Mouse X
@@ -2987,11 +2987,11 @@ MonoBehaviour:
   m_BindingMode: 5
   m_SplineCurvature: 0.2
   m_Orbits:
-  - m_Height: 2.27
+  - m_Height: 2.48
     m_Radius: 1.77
   - m_Height: 1.58
     m_Radius: 2.52
-  - m_Height: 0.4
+  - m_Height: 0.2
     m_Radius: 1.84
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
@@ -3042,7 +3042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _updateMode: 1
-  _angularSpeed: 360
+  _angularSpeed: Infinity
 --- !u!1 &7633452171240436478
 GameObject:
   m_ObjectHideFlags: 0
@@ -3509,10 +3509,10 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_YAxis:
-    Value: 0
+    Value: 0.5
     m_SpeedMode: 0
     m_MaxSpeed: 2
-    m_AccelTime: 0.5
+    m_AccelTime: 0.05
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
     m_InputAxisValue: 0
@@ -3535,7 +3535,7 @@ MonoBehaviour:
   m_XAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 300
+    m_MaxSpeed: 250
     m_AccelTime: 0.5
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
