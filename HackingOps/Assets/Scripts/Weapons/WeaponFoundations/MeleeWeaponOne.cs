@@ -1,0 +1,14 @@
+﻿using UnityEngine;
+
+namespace HackingOps.Weapons.WeaponFoundations
+{
+    public class MeleeWeaponOne : Weapon
+    {
+        [SerializeField] private float _effectiveRange = 1f;
+
+        public override void Use() { }
+        public override bool CanUse() => true;
+        public override bool CanContinuouslyUse() => false;
+        public override float GetEffectiveRange() => _effectiveRange;
+    }
+}

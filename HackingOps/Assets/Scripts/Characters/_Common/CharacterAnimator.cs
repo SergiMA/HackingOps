@@ -11,6 +11,7 @@ namespace HackingOps.Characters.Common
         Animator _animator;
         IMovementReadable _movementReadable;
         CrouchController _crouchController;
+        IAttackReadable _attackReadable;
 
         int _crouchingLayerIndex;
 
@@ -19,6 +20,7 @@ namespace HackingOps.Characters.Common
             _animator = GetComponentInChildren<Animator>();
             _movementReadable = GetComponent<IMovementReadable>();
             _crouchController = GetComponent<CrouchController>();
+            _attackReadable = GetComponent<IAttackReadable>();
         }
 
         private void Start()
@@ -31,6 +33,7 @@ namespace HackingOps.Characters.Common
         {
             UpdatePlaneMovementAnimation();
             UpdateVerticalMovementAnimation();
+            UpdateAttackAnimation();
         }
 
         private void UpdatePlaneMovementAnimation()
@@ -60,6 +63,14 @@ namespace HackingOps.Characters.Common
 
             _animator.SetBool("IsGrounded", _movementReadable.GetIsGrounded());
             _animator.SetFloat("JumpProgress", jumpProgress);
+        }
+
+        private void UpdateAttackAnimation()
+        {
+            if (_attackReadable != null && _attackReadable.MustAttack())
+            {
+                _animator.SetTrigger("Attack");
+            }
         }
 
         private float NormalizeSpeed(float s)
