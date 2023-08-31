@@ -10,7 +10,7 @@ namespace HackingOps.Characters.Utilities
         [SerializeField] private float _angularSpeed = 360f;
 
         public enum UpdateMode
-        { 
+        {
             Always,
             OnlyOnActivation
         }
@@ -28,8 +28,8 @@ namespace HackingOps.Characters.Utilities
         {
             if (_updateMode == UpdateMode.OnlyOnActivation)
             {
-                if (_updateMode == UpdateMode.Always)
-                    PerformRotation(Mathf.Infinity);
+                PerformRotation(Mathf.Infinity);
+                _freeLook.m_YAxis.Value = 0.35f;
             }
         }
 
