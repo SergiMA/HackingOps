@@ -13,7 +13,9 @@ namespace HackingOps.Input
         public event Action<float> OnShoot;
 
         public Vector2 MoveInput { get; private set; }
+        public Vector2 MouseInput { get; private set; }
         public bool IsRunning { get; private set; }
+        public bool IsLocking { get; private set; }
 
         PlayerInputActions _inputActions;
 
@@ -29,6 +31,9 @@ namespace HackingOps.Input
             _inputActions.ThirdPersonCharacter_ActionMap.Move.performed += Move;
             _inputActions.ThirdPersonCharacter_ActionMap.Move.canceled += Move;
 
+            _inputActions.ThirdPersonCharacter_ActionMap.Look.performed += Look;
+            _inputActions.ThirdPersonCharacter_ActionMap.Look.canceled += Look;
+
             _inputActions.ThirdPersonCharacter_ActionMap.Run.performed += Run;
             _inputActions.ThirdPersonCharacter_ActionMap.Run.canceled += Run;
 
@@ -38,6 +43,9 @@ namespace HackingOps.Input
 
             _inputActions.ThirdPersonCharacter_ActionMap.Shoot.performed += Shoot;
             _inputActions.ThirdPersonCharacter_ActionMap.Shoot.canceled += Shoot;
+
+            _inputActions.ThirdPersonCharacter_ActionMap.Lock.performed += Lock;
+            _inputActions.ThirdPersonCharacter_ActionMap.Lock.canceled += Lock;
 
             _inputActions.ThirdPersonCharacter_ActionMap.ChangeWeapon.performed += ChangeWeapon;
             _inputActions.ThirdPersonCharacter_ActionMap.ChangeWeapon.canceled += ChangeWeapon;
@@ -59,6 +67,9 @@ namespace HackingOps.Input
             _inputActions.ThirdPersonCharacter_ActionMap.Move.performed -= Move;
             _inputActions.ThirdPersonCharacter_ActionMap.Move.canceled -= Move;
 
+            _inputActions.ThirdPersonCharacter_ActionMap.Look.performed -= Look;
+            _inputActions.ThirdPersonCharacter_ActionMap.Look.canceled -= Look;
+
             _inputActions.ThirdPersonCharacter_ActionMap.Run.performed -= Run;
             _inputActions.ThirdPersonCharacter_ActionMap.Run.canceled -= Run;
 
@@ -68,6 +79,9 @@ namespace HackingOps.Input
 
             _inputActions.ThirdPersonCharacter_ActionMap.Shoot.performed -= Shoot;
             _inputActions.ThirdPersonCharacter_ActionMap.Shoot.canceled -= Shoot;
+
+            _inputActions.ThirdPersonCharacter_ActionMap.Lock.performed -= Lock;
+            _inputActions.ThirdPersonCharacter_ActionMap.Lock.canceled -= Lock;
 
             _inputActions.ThirdPersonCharacter_ActionMap.ChangeWeapon.performed -= ChangeWeapon;
             _inputActions.ThirdPersonCharacter_ActionMap.ChangeWeapon.canceled -= ChangeWeapon;
@@ -91,6 +105,11 @@ namespace HackingOps.Input
             MoveInput = ctx.ReadValue<Vector2>();
         }
 
+        private void Look(InputAction.CallbackContext ctx)
+        {
+            MouseInput = ctx.ReadValue<Vector2>();
+        }
+
         private void Run(InputAction.CallbackContext ctx)
         {
             IsRunning = ctx.ReadValue<float>() > 0.1f;
@@ -109,6 +128,11 @@ namespace HackingOps.Input
         private void Shoot(InputAction.CallbackContext ctx)
         {
             OnShoot?.Invoke(ctx.ReadValue<float>());
+        }
+
+        private void Lock(InputAction.CallbackContext ctx)
+        {
+            IsLocking = ctx.ReadValue<float>() > 0f;
         }
 
         #region Switch weapon

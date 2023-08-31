@@ -1,11 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
 using HackingOps.Characters.Common;
 using HackingOps.Characters.NPC.Senses;
 using UnityEngine.Events;
 
 namespace HackingOps.Characters.Player
 {
-    public class PlayerController : MonoBehaviour, IMovementReadable, IVisible
+    public class ThirdPersonController : MonoBehaviour, IMovementReadable, IVisible
     {
         public UnityEvent OnStartCrouchingEvent;
         public UnityEvent OnStopCrouchingEvent;
@@ -23,8 +23,6 @@ namespace HackingOps.Characters.Player
             Local,
         }
 
-        //[SerializeField] private MovementMode _movementMode = MovementMode.Local;
-        [SerializeField] private Transform _movementCamera;
 
         public enum OrientationMode
         {
@@ -32,8 +30,6 @@ namespace HackingOps.Characters.Player
             CameraForward,
             LookAtTarget,
         }
-
-        //[SerializeField] private OrientationMode _orientationMode = OrientationMode.MovementForward;
 
         [SerializeField] private Transform _orientationCamera;
         [SerializeField] private Transform _orientationTarget;
@@ -124,15 +120,17 @@ namespace HackingOps.Characters.Player
             localVelocity.y = 0f;
 
             Vector3 worldVelocity = Vector3.zero;
-            switch (_behaviourProfile.MovementMode)
-            {
-                case MovementMode.RelativeToCamera:
-                    worldVelocity = _movementCamera.TransformDirection(localVelocity);
-                    break;
-                case MovementMode.Local:
-                    worldVelocity = transform.TransformDirection(localVelocity);
-                    break;
-            }
+
+            // Uncomment when PlayerBehaviourProfileSO uses the MovementMode from ThirdPersonController
+            //switch (_behaviourProfile.MovementMode)
+            //{
+            //    case MovementMode.RelativeToCamera:
+            //        worldVelocity = _camera.TransformDirection(localVelocity);
+            //        break;
+            //    case MovementMode.Local:
+            //        worldVelocity = transform.TransformDirection(localVelocity);
+            //        break;
+            //}
 
             worldVelocity = Vector3.ProjectOnPlane(worldVelocity, Vector3.up);
             worldVelocity = worldVelocity.normalized * localVelocity.magnitude;
@@ -185,15 +183,19 @@ namespace HackingOps.Characters.Player
             {
                 Vector3 desiredForward = Vector3.zero;
 
-                switch (_behaviourProfile.OrientationMode)
-                {
-                    case OrientationMode.MovementForward:
-                        desiredForward = velocityOnPlane.normalized;
-                        break;
-                    case OrientationMode.CameraForward:
-                        desiredForward = Vector3.ProjectOnPlane(_camera.transform.forward, Vector3.up);
-                        break;
-                }
+                // Uncomment when PlayerBehaviourProfileSO uses the OrientationMode from ThirdPersonController
+                //switch (_behaviourProfile.OrientationMode)
+                //{
+                //    case OrientationMode.MovementForward:
+                //        desiredForward = velocityOnPlane.normalized;
+                //        break;
+                //    case OrientationMode.CameraForward:
+                //        desiredForward = Vector3.ProjectOnPlane(_camera.transform.forward, Vector3.up);
+                //        break;
+                //    case OrientationMode.LookAtTarget:
+                //        desiredForward = Vector3.ProjectOnPlane(_orientationTarget.position - transform.position, Vector3.up);
+                //        break;
+                //}
 
                 float angularDistanceWithSign = Vector3.SignedAngle(transform.forward, desiredForward, Vector3.up);
                 float angularDistanceWithoutSign = Mathf.Abs(angularDistanceWithSign);

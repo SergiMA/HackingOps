@@ -15,6 +15,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Look",
+                    "type": "Value",
+                    "id": "54ab6e7f-ddfa-49c8-b5da-c4eef84ad3f9",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Jump",
                     "type": "Button",
                     "id": "6853d0a2-12f2-4ba1-b78d-a9f829952170",
@@ -150,7 +159,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Locking",
+                    "name": "Lock",
                     "type": "Value",
                     "id": "25776f52-0aa3-41da-88d8-9c5edf0d36a0",
                     "expectedControlType": "",
@@ -409,7 +418,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Locking",
+                    "action": "Lock",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2e669340-4855-4b69-9ba5-e6d3fe0b29d6",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -37,6 +37,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""Look"",
+                    ""type"": ""Value"",
+                    ""id"": ""54ab6e7f-ddfa-49c8-b5da-c4eef84ad3f9"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""6853d0a2-12f2-4ba1-b78d-a9f829952170"",
@@ -172,7 +181,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Locking"",
+                    ""name"": ""Lock"",
                     ""type"": ""Value"",
                     ""id"": ""25776f52-0aa3-41da-88d8-9c5edf0d36a0"",
                     ""expectedControlType"": """",
@@ -431,7 +440,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Locking"",
+                    ""action"": ""Lock"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2e669340-4855-4b69-9ba5-e6d3fe0b29d6"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -443,6 +463,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         // ThirdPersonCharacter_ActionMap
         m_ThirdPersonCharacter_ActionMap = asset.FindActionMap("ThirdPersonCharacter_ActionMap", throwIfNotFound: true);
         m_ThirdPersonCharacter_ActionMap_Move = m_ThirdPersonCharacter_ActionMap.FindAction("Move", throwIfNotFound: true);
+        m_ThirdPersonCharacter_ActionMap_Look = m_ThirdPersonCharacter_ActionMap.FindAction("Look", throwIfNotFound: true);
         m_ThirdPersonCharacter_ActionMap_Jump = m_ThirdPersonCharacter_ActionMap.FindAction("Jump", throwIfNotFound: true);
         m_ThirdPersonCharacter_ActionMap_Run = m_ThirdPersonCharacter_ActionMap.FindAction("Run", throwIfNotFound: true);
         m_ThirdPersonCharacter_ActionMap_Crouch = m_ThirdPersonCharacter_ActionMap.FindAction("Crouch", throwIfNotFound: true);
@@ -458,7 +479,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_ThirdPersonCharacter_ActionMap_SelectWeapon7 = m_ThirdPersonCharacter_ActionMap.FindAction("SelectWeapon7", throwIfNotFound: true);
         m_ThirdPersonCharacter_ActionMap_SelectWeapon8 = m_ThirdPersonCharacter_ActionMap.FindAction("SelectWeapon8", throwIfNotFound: true);
         m_ThirdPersonCharacter_ActionMap_SelectWeapon9 = m_ThirdPersonCharacter_ActionMap.FindAction("SelectWeapon9", throwIfNotFound: true);
-        m_ThirdPersonCharacter_ActionMap_Locking = m_ThirdPersonCharacter_ActionMap.FindAction("Locking", throwIfNotFound: true);
+        m_ThirdPersonCharacter_ActionMap_Lock = m_ThirdPersonCharacter_ActionMap.FindAction("Lock", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -521,6 +542,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_ThirdPersonCharacter_ActionMap;
     private List<IThirdPersonCharacter_ActionMapActions> m_ThirdPersonCharacter_ActionMapActionsCallbackInterfaces = new List<IThirdPersonCharacter_ActionMapActions>();
     private readonly InputAction m_ThirdPersonCharacter_ActionMap_Move;
+    private readonly InputAction m_ThirdPersonCharacter_ActionMap_Look;
     private readonly InputAction m_ThirdPersonCharacter_ActionMap_Jump;
     private readonly InputAction m_ThirdPersonCharacter_ActionMap_Run;
     private readonly InputAction m_ThirdPersonCharacter_ActionMap_Crouch;
@@ -536,12 +558,13 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_ThirdPersonCharacter_ActionMap_SelectWeapon7;
     private readonly InputAction m_ThirdPersonCharacter_ActionMap_SelectWeapon8;
     private readonly InputAction m_ThirdPersonCharacter_ActionMap_SelectWeapon9;
-    private readonly InputAction m_ThirdPersonCharacter_ActionMap_Locking;
+    private readonly InputAction m_ThirdPersonCharacter_ActionMap_Lock;
     public struct ThirdPersonCharacter_ActionMapActions
     {
         private @PlayerInputActions m_Wrapper;
         public ThirdPersonCharacter_ActionMapActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_ThirdPersonCharacter_ActionMap_Move;
+        public InputAction @Look => m_Wrapper.m_ThirdPersonCharacter_ActionMap_Look;
         public InputAction @Jump => m_Wrapper.m_ThirdPersonCharacter_ActionMap_Jump;
         public InputAction @Run => m_Wrapper.m_ThirdPersonCharacter_ActionMap_Run;
         public InputAction @Crouch => m_Wrapper.m_ThirdPersonCharacter_ActionMap_Crouch;
@@ -557,7 +580,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @SelectWeapon7 => m_Wrapper.m_ThirdPersonCharacter_ActionMap_SelectWeapon7;
         public InputAction @SelectWeapon8 => m_Wrapper.m_ThirdPersonCharacter_ActionMap_SelectWeapon8;
         public InputAction @SelectWeapon9 => m_Wrapper.m_ThirdPersonCharacter_ActionMap_SelectWeapon9;
-        public InputAction @Locking => m_Wrapper.m_ThirdPersonCharacter_ActionMap_Locking;
+        public InputAction @Lock => m_Wrapper.m_ThirdPersonCharacter_ActionMap_Lock;
         public InputActionMap Get() { return m_Wrapper.m_ThirdPersonCharacter_ActionMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -570,6 +593,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Look.started += instance.OnLook;
+            @Look.performed += instance.OnLook;
+            @Look.canceled += instance.OnLook;
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
@@ -615,9 +641,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @SelectWeapon9.started += instance.OnSelectWeapon9;
             @SelectWeapon9.performed += instance.OnSelectWeapon9;
             @SelectWeapon9.canceled += instance.OnSelectWeapon9;
-            @Locking.started += instance.OnLocking;
-            @Locking.performed += instance.OnLocking;
-            @Locking.canceled += instance.OnLocking;
+            @Lock.started += instance.OnLock;
+            @Lock.performed += instance.OnLock;
+            @Lock.canceled += instance.OnLock;
         }
 
         private void UnregisterCallbacks(IThirdPersonCharacter_ActionMapActions instance)
@@ -625,6 +651,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Look.started -= instance.OnLook;
+            @Look.performed -= instance.OnLook;
+            @Look.canceled -= instance.OnLook;
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
@@ -670,9 +699,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @SelectWeapon9.started -= instance.OnSelectWeapon9;
             @SelectWeapon9.performed -= instance.OnSelectWeapon9;
             @SelectWeapon9.canceled -= instance.OnSelectWeapon9;
-            @Locking.started -= instance.OnLocking;
-            @Locking.performed -= instance.OnLocking;
-            @Locking.canceled -= instance.OnLocking;
+            @Lock.started -= instance.OnLock;
+            @Lock.performed -= instance.OnLock;
+            @Lock.canceled -= instance.OnLock;
         }
 
         public void RemoveCallbacks(IThirdPersonCharacter_ActionMapActions instance)
@@ -693,6 +722,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     public interface IThirdPersonCharacter_ActionMapActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnLook(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
@@ -708,6 +738,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnSelectWeapon7(InputAction.CallbackContext context);
         void OnSelectWeapon8(InputAction.CallbackContext context);
         void OnSelectWeapon9(InputAction.CallbackContext context);
-        void OnLocking(InputAction.CallbackContext context);
+        void OnLock(InputAction.CallbackContext context);
     }
 }

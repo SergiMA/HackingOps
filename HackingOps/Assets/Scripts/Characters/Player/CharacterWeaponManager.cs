@@ -1,4 +1,4 @@
-using HackingOps.Characters.NPC.Senses;
+﻿using HackingOps.Characters.NPC.Senses;
 using HackingOps.Weapons.WeaponFoundations;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 namespace HackingOps.Characters.Player
 {
-    public class PlayerWeapons : MonoBehaviour
+    public class CharacterWeaponManager : MonoBehaviour
     {
         public UnityEvent<Weapon> OnWeaponSelected;
 
@@ -31,17 +31,17 @@ namespace HackingOps.Characters.Player
 
         [Header("Settings - Aiming")]
         [SerializeField] private LayerMask _targetLayerMask = Physics.DefaultRaycastLayers;
-        [SerializeField] private float _aimingAngularVelocity = 360f;
+        //[SerializeField] private float _aimingAngularVelocity = 360f;
 
         // Weapons properties
-        public Weapon[] _weapons { get; private set; }
-        public int _currentWeaponIndex { get; private set; } = -1;
+        private Weapon[] _weapons;
+        private int _currentWeaponIndex = -1;
 
         // Aiming properties
         private Transform _aimingTarget;
         private IVisible _aimingTargetVisible;
-        private float _currentAimingAngle;
-        private float _desiredAimingAngle;
+        //private float _currentAimingAngle;
+        //private float _desiredAimingAngle;
 
         private void Awake()
         {
@@ -73,31 +73,31 @@ namespace HackingOps.Characters.Player
         {
             Weapon currentWeapon = _currentWeaponIndex != -1 ? _weapons[_currentWeaponIndex] : null;
 
-            Vector3 aimPosition;
-            bool hasAimingPosition = CalcBestAimingPosition(currentWeapon, out aimPosition);
+            //Vector3 aimPosition;
+            //bool hasAimingPosition = CalcBestAimingPosition(currentWeapon, out aimPosition);
 
-            if (hasAimingPosition)
-            {
-                Vector3 rotationPosition = currentWeapon.GetRotationPointPosition();
-                Vector3 direction = aimPosition - rotationPosition;
-                _desiredAimingAngle = CalcAimingAngle(direction);
-            }
-            else
-            {
-                _desiredAimingAngle = CalcAimingAngle(Camera.main.transform.forward);
-            }
+            //if (hasAimingPosition)
+            //{
+            //    Vector3 rotationPosition = currentWeapon.GetRotationPointPosition();
+            //    Vector3 direction = aimPosition - rotationPosition;
+            //    _desiredAimingAngle = CalcAimingAngle(direction);
+            //}
+            //else
+            //{
+            //    _desiredAimingAngle = CalcAimingAngle(Camera.main.transform.forward);
+            //}
 
-            float angleDifference = _desiredAimingAngle - _currentAimingAngle;
-            float angleToApply =
-                Mathf.Sign(angleDifference) *
-                Mathf.Min(
-                    Mathf.Abs(angleDifference),
-                    _aimingAngularVelocity * Time.deltaTime
-                    );
-            _currentAimingAngle += angleToApply;
+            //float angleDifference = _desiredAimingAngle - _currentAimingAngle;
+            //float angleToApply =
+            //    Mathf.Sign(angleDifference) *
+            //    Mathf.Min(
+            //        Mathf.Abs(angleDifference),
+            //        _aimingAngularVelocity * Time.deltaTime
+            //        );
+            //_currentAimingAngle += angleToApply;
 
-            if (_currentWeaponIndex != -1)
-                _weapons[_currentWeaponIndex].NotifyAimingAngle(_currentAimingAngle);
+            //if (_currentWeaponIndex != -1)
+            //    _weapons[_currentWeaponIndex].NotifyAimingAngle(_currentAimingAngle);
         }
 
         private void LateUpdate()

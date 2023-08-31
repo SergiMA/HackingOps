@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace HackingOps.Characters.Common
 {
-    [CreateAssetMenu(fileName = "New Locomotion Properties", menuName = "Scriptable Object/Characters/LocomotionProperties")]
+    [CreateAssetMenu(fileName = "New Locomotion Properties", menuName = "Hacking Ops/Characters/LocomotionProperties")]
     public class LocomotionPropertiesSO : ScriptableObject
     {
         [Header("Movement info")]
