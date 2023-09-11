@@ -424,7 +424,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6808443374084751628}
+  - component: {fileID: 859207536918469028}
+  - component: {fileID: 6549927931252809946}
   - component: {fileID: 2826326388904131210}
+  - component: {fileID: 2968150062780612940}
   m_Layer: 0
   m_Name: 1944_M3
   m_TagString: Untagged
@@ -446,8 +449,56 @@ Transform:
   m_Children:
   - {fileID: 4901594973082934945}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &859207536918469028
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915302312928653885}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &6549927931252809946
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915302312928653885}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.061386406, y: 0.26195818, z: 0.6256769}
+  m_Center: {x: -0.00078347325, y: -0.018020123, z: 0.3001654}
 --- !u!114 &2826326388904131210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,6 +511,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c124ffb2102d9ee4998b2ed8f121b4c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Slot: 3
+  IsUsedByAI: 0
   _debugUse: 0
   _debugStartUsing: 0
   _debugStopUsing: 0
@@ -468,6 +521,37 @@ MonoBehaviour:
   _leftArmTarget: {fileID: 2586519527941481890}
   _rightArmHint: {fileID: 2662824730844387033}
   _rightArmTarget: {fileID: 5557981908238481046}
+--- !u!1773428102 &2968150062780612940
+ParentConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915302312928653885}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 1
+  m_TranslationAtRest: {x: 0, y: 0, z: 0}
+  m_RotationAtRest: {x: 0, y: 0, z: 0}
+  m_TranslationOffsets:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  m_RotationOffsets:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_AffectRotationX: 1
+  m_AffectRotationY: 1
+  m_AffectRotationZ: 1
+  m_Active: 0
+  m_IsLocked: 0
+  m_Sources:
+  - sourceTransform: {fileID: 0}
+    weight: 1
+  - sourceTransform: {fileID: 0}
+    weight: 1
 --- !u!1 &1916931766819109080
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,20 +1290,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 406870f0271869d4d8f6769599198511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AmmoType: {fileID: 11400000, guid: f3dafd1da2c77a94cac79cd2f5f9d7eb, type: 2}
   Cadence: 7.5
   MaxAmmo: 12
   CurrentAmmo: 12
   RechargeTime: 2.5
   EffectiveRange: 15
-  AmmoType: {fileID: 11400000, guid: f3dafd1da2c77a94cac79cd2f5f9d7eb, type: 2}
+  _shotTracePrefab: {fileID: 6770684411390280707, guid: 2cd4ad6c3aebf3f4ba24e0511393d49f,
+    type: 3}
+  _shootPoint: {fileID: 2909618782761730661}
   _range: 100
   _spread: 0.082
-  _shootPoint: {fileID: 2909618782761730661}
   _shotLayerMask:
     serializedVersion: 2
     m_Bits: 51
-  _shotTracePrefab: {fileID: 6770684411390280707, guid: 2cd4ad6c3aebf3f4ba24e0511393d49f,
-    type: 3}
 --- !u!1 &7143472828209481416
 GameObject:
   m_ObjectHideFlags: 0

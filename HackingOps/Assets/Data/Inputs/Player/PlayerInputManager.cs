@@ -11,6 +11,7 @@ namespace HackingOps.Input
         public event Action<Vector2> OnChangeWeaponDeltaUpdated;
         public event Action<int> OnSelectWeapon;
         public event Action<float> OnShoot;
+        public event Action OnInteract;
 
         public Vector2 MoveInput { get; private set; }
         public Vector2 MouseInput { get; private set; }
@@ -60,6 +61,8 @@ namespace HackingOps.Input
             _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon7.performed += SelectWeapon7;
             _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon8.performed += SelectWeapon8;
             _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon9.performed += SelectWeapon9;
+
+            _inputActions.ThirdPersonCharacter_ActionMap.Interact.performed += Interact;
         }
 
         private void OnDisable()
@@ -97,6 +100,8 @@ namespace HackingOps.Input
             _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon8.performed -= SelectWeapon8;
             _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon9.performed -= SelectWeapon9;
 
+            _inputActions.ThirdPersonCharacter_ActionMap.Interact.performed -= Interact;
+
             _inputActions.Disable();
         }
 
@@ -133,6 +138,11 @@ namespace HackingOps.Input
         private void Lock(InputAction.CallbackContext ctx)
         {
             IsLocking = ctx.ReadValue<float>() > 0f;
+        }
+
+        private void Interact(InputAction.CallbackContext ctx)
+        {
+            OnInteract?.Invoke();
         }
 
         #region Switch weapon

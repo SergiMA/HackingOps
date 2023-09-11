@@ -2,7 +2,7 @@
 
 namespace HackingOps.Weapons.WeaponFoundations
 {
-    public class MeleeWeaponOne : Weapon
+    public class MeleeWeaponOneUse : MeleeWeapon
     {
         [SerializeField] private float _effectiveRange = 1f;
 
@@ -10,5 +10,9 @@ namespace HackingOps.Weapons.WeaponFoundations
         public override bool CanUse() => true;
         public override bool CanContinuouslyUse() => false;
         public override float GetEffectiveRange() => _effectiveRange;
+        public override void ResetRotation()
+        {
+            base.ResetRotation();
+        }
     }
 }

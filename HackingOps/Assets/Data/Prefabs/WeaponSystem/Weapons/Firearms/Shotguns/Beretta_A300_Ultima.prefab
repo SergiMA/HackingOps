@@ -1238,7 +1238,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3486631063450398861}
+  - component: {fileID: 2241306000544938341}
+  - component: {fileID: 6513731413582499803}
   - component: {fileID: 8072998678970146387}
+  - component: {fileID: 4495031029397293173}
   m_Layer: 0
   m_Name: Beretta_A300_Ultima
   m_TagString: Untagged
@@ -1260,8 +1263,56 @@ Transform:
   m_Children:
   - {fileID: 4807918600402911469}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &2241306000544938341
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4111153632558900440}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &6513731413582499803
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4111153632558900440}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.06383875, y: 0.1945481, z: 0.9682059}
+  m_Center: {x: 0.0017663091, y: 0.03356053, z: 0.43098736}
 --- !u!114 &8072998678970146387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1274,7 +1325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d18f6721e9e060d48a0167a4432ad301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slot: 0
+  Slot: 4
   IsUsedByAI: 0
   _debugUse: 0
   _debugStartUsing: 0
@@ -1284,6 +1335,37 @@ MonoBehaviour:
   _leftArmTarget: {fileID: 1323800402734027901}
   _rightArmHint: {fileID: 985656436177196696}
   _rightArmTarget: {fileID: 2018954496325656828}
+--- !u!1773428102 &4495031029397293173
+ParentConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4111153632558900440}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 1
+  m_TranslationAtRest: {x: 0, y: 0, z: 0}
+  m_RotationAtRest: {x: 0, y: 0, z: 0}
+  m_TranslationOffsets:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  m_RotationOffsets:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_AffectRotationX: 1
+  m_AffectRotationY: 1
+  m_AffectRotationZ: 1
+  m_Active: 0
+  m_IsLocked: 0
+  m_Sources:
+  - sourceTransform: {fileID: 0}
+    weight: 1
+  - sourceTransform: {fileID: 0}
+    weight: 1
 --- !u!1 &6505758701966553991
 GameObject:
   m_ObjectHideFlags: 0

@@ -102,5 +102,10 @@ namespace HackingOps.Weapons.WeaponFoundations
 
         public override Vector3 GetRotationPointPosition() => _rotationPoint.position;
         public Transform GetRotationPoint() => _rotationPoint;
+
+        public override void ResetRotation()
+        {
+            _rotationPoint.localRotation = Quaternion.identity;
+        }
     }
 }

@@ -1,16 +1,28 @@
-﻿using UnityEngine;
+﻿using HackingOps.InteractionSystem;
+using HackingOps.Weapons.Common;
+using UnityEngine;
 
 namespace HackingOps.Weapons.WeaponFoundations
 {
-    public abstract class Weapon : MonoBehaviour
+    public abstract class Weapon : MonoBehaviour, IInteractable
     {
         [field: Header("Settings")]
+
+        [Tooltip("Slot is the space the weapon will occupy in the inventory.")]
+        [SerializeField] public WeaponSlot Slot;
+
         [HideInInspector] public bool IsUsedByAI;
+
 
         [Header("Debug")]
         [SerializeField] private bool _debugUse;
         [SerializeField] private bool _debugStartUsing;
         [SerializeField] private bool _debugStopUsing;
+
+        private MeshRenderer[] _renderers;
+        private Rigidbody[] _rigidbodies;
+        private Collider[] _colliders;
+        private bool _canBeInteracted = true;
 
         private void OnValidate()
         {
@@ -35,7 +47,15 @@ namespace HackingOps.Weapons.WeaponFoundations
 
         private void Awake()
         {
+            GetWeaponEssentials();
             InternalAwake();
+        }
+
+        private void GetWeaponEssentials()
+        {
+            _renderers = GetComponentsInChildren<MeshRenderer>();
+            _rigidbodies = GetComponentsInChildren<Rigidbody>();
+            _colliders = GetComponentsInChildren<Collider>();
         }
 
         protected virtual void InternalAwake() { }
@@ -58,5 +78,76 @@ namespace HackingOps.Weapons.WeaponFoundations
         public virtual Transform GetLeftArmTarget() { return null; }
         public virtual Transform GetRightArmHint() { return null; }
         public virtual Transform GetRightArmTarget() { return null; }
+        public virtual void ResetRotation() { transform.localRotation = Quaternion.identity; }
+
+        public virtual void Drop()
+        {
+            foreach (MeshRenderer renderer in _renderers)
+            {
+                renderer.enabled = true;
+            }
+
+            foreach (Collider collider in _colliders)
+            {
+                collider.enabled = true;
+            }
+
+            foreach (Rigidbody rigidbody in _rigidbodies)
+            {
+                rigidbody.isKinematic = false;
+            }
+
+            _canBeInteracted = true;
+        }
+        public virtual void Grab()
+        {
+            foreach (MeshRenderer renderer in _renderers)
+            {
+                renderer.enabled = true;
+            }
+
+            foreach (Collider collider in _colliders)
+            {
+                collider.enabled = false;
+            }
+
+            foreach (Rigidbody rigidbody in _rigidbodies)
+            {
+                rigidbody.isKinematic = true;
+            }
+
+            _canBeInteracted = false;
+        }
+        public virtual void Store() 
+        {
+            foreach (MeshRenderer renderer in _renderers)
+            {
+                renderer.enabled = true;
+            }
+
+            foreach (Collider collider in _colliders)
+            {
+                collider.enabled = false;
+            }
+
+            foreach (Rigidbody rigidbody in _rigidbodies)
+            {
+                rigidbody.isKinematic = true;
+            }
+
+            ResetRotation();
+
+            _canBeInteracted = false;
+        }
+
+        #region IInteractable implementation
+        public void Interact()
+        {
+        }
+
+        public bool CanBeInteracted() => _canBeInteracted;
+
+        public Transform GetTransform() => transform;
+        #endregion
     }
 }
