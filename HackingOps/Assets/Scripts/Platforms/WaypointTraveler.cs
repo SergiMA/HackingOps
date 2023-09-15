@@ -12,6 +12,7 @@ namespace HackingOps.Platforms
         [SerializeField] private Transform _objectToMove;
         [SerializeField] private float _speed = 3f;
         [SerializeField] private Transform _waypointsParent;
+        [SerializeField] private float _distanceThreshold = 0.1f;
 
         private Transform[] _waypoints;
         private int _currentWaypointIndex;
@@ -19,7 +20,7 @@ namespace HackingOps.Platforms
 
         private void Awake()
         {
-            _waypoints = _waypointsParent.GetComponentsInChildren<Transform>()
+            _waypoints = _waypointsParent.GetComponentsInChildren<Transform>(false)
                 .Where(t => t != _waypointsParent)
                 .ToArray();
         }
@@ -33,7 +34,7 @@ namespace HackingOps.Platforms
                     _waypoints[_currentWaypointIndex].position, 
                     _speed * Time.deltaTime);
 
-                if (Vector3.Distance(_objectToMove.position, _waypoints[_currentWaypointIndex].position) == 0)
+                if (Vector3.Distance(_objectToMove.position, _waypoints[_currentWaypointIndex].position) <= _distanceThreshold)
                 {
                     _isMoving = false;
                     OnDestinationReached.Invoke();

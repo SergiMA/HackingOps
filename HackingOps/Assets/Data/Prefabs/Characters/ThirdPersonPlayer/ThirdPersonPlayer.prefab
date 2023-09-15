@@ -359,6 +359,7 @@ GameObject:
   - component: {fileID: 6612676245602431583}
   - component: {fileID: 2240497498994029778}
   - component: {fileID: 812392854814092363}
+  - component: {fileID: 6995721580934221164}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -695,6 +696,27 @@ MonoBehaviour:
   _inputManager: {fileID: 208535555297123790}
   _interactionPoint: {fileID: 8357458370111457380}
   _interactionRadius: 2
+--- !u!65 &6995721580934221164
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741957048695079361}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.412508, y: 0.0035381317, z: 0.27031326}
+  m_Center: {x: 0.0036935806, y: 0.02473855, z: 0.008012772}
 --- !u!1 &811179225154860921
 GameObject:
   m_ObjectHideFlags: 0

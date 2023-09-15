@@ -1,5 +1,52 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &237087609243669674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 49221304524656518}
+  - component: {fileID: 5973680986596782343}
+  m_Layer: 0
+  m_Name: Waypoint - Plant 04
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &49221304524656518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237087609243669674}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 16, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4270848455881648044}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5973680986596782343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237087609243669674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f885c45707063046902643009652d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radius: 0.1
+  _color: {r: 1, g: 0, b: 0, a: 1}
+  _showWireframed: 0
 --- !u!1 &303278316650116980
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,6 +112,53 @@ Transform:
   m_Father: {fileID: 9066019174746310002}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &596108515592394640
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5462368663943912228}
+  - component: {fileID: 7147364970576089647}
+  m_Layer: 0
+  m_Name: Waypoint - Plant 00
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5462368663943912228
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596108515592394640}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4270848455881648044}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7147364970576089647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596108515592394640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f885c45707063046902643009652d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radius: 0.1
+  _color: {r: 1, g: 0, b: 0, a: 1}
+  _showWireframed: 0
 --- !u!1 &1000403077359405451
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,6 +256,53 @@ Transform:
   m_Father: {fileID: 4960248651336447884}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1358101038383943102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7267784439842845557}
+  - component: {fileID: 5039956483764464517}
+  m_Layer: 0
+  m_Name: Waypoint - Plant 08
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7267784439842845557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358101038383943102}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 32, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4270848455881648044}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5039956483764464517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358101038383943102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f885c45707063046902643009652d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radius: 0.1
+  _color: {r: 1, g: 0, b: 0, a: 1}
+  _showWireframed: 0
 --- !u!1 &1466144459400367007
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,6 +337,53 @@ Transform:
   m_Father: {fileID: 4960248651336447884}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1702480113977113047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8280433603983662832}
+  - component: {fileID: 3167931510840807236}
+  m_Layer: 0
+  m_Name: Waypoint - Plant 07
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &8280433603983662832
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702480113977113047}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 28, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4270848455881648044}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3167931510840807236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702480113977113047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f885c45707063046902643009652d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radius: 0.1
+  _color: {r: 1, g: 0, b: 0, a: 1}
+  _showWireframed: 0
 --- !u!1 &1925660246567379074
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,6 +578,117 @@ Transform:
   m_Father: {fileID: 4960248651336447884}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2690606097107732306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8431288885422480890}
+  - component: {fileID: 7485946057262931422}
+  - component: {fileID: 7299708030500739583}
+  - component: {fileID: 1547181851999465181}
+  m_Layer: 0
+  m_Name: PlatformParenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8431288885422480890
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2690606097107732306}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4960248651336447884}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7485946057262931422
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2690606097107732306}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.1174533, y: 0.111471176, z: 1.6573324}
+  m_Center: {x: 0.024273515, y: 0.09375286, z: 1.4009769}
+--- !u!54 &7299708030500739583
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2690606097107732306}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1547181851999465181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2690606097107732306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dbe4214ef88d8a439f84bba5e65dd8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnScanPerformed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1384128873208754857}
+        m_TargetAssemblyTypeName: HackingOps.Platforms.Elevator, Assembly-CSharp
+        m_MethodName: OnScanPerformed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  _scannerCollider: {fileID: 7485946057262931422}
+  _scanningDuration: 0.1
 --- !u!1 &2747387917747229444
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,6 +764,47 @@ Transform:
   m_Father: {fileID: 9066019174746310002}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3381923681602521568
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4270848455881648044}
+  m_Layer: 0
+  m_Name: Waypoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4270848455881648044
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3381923681602521568}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.23809814}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5462368663943912228}
+  - {fileID: 2168588161502045931}
+  - {fileID: 4373174025604715917}
+  - {fileID: 1328320344424274866}
+  - {fileID: 49221304524656518}
+  - {fileID: 4296251890138245030}
+  - {fileID: 6503824843239690805}
+  - {fileID: 8280433603983662832}
+  - {fileID: 7267784439842845557}
+  - {fileID: 1225872710460562816}
+  m_Father: {fileID: 5376663041680024203}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3422721684584271706
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,6 +872,53 @@ Transform:
   m_Father: {fileID: 3229685515607484285}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3462574850899841430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1225872710460562816}
+  - component: {fileID: 7656907103903476238}
+  m_Layer: 0
+  m_Name: Waypoint - Plant 09
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1225872710460562816
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3462574850899841430}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 36, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4270848455881648044}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7656907103903476238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3462574850899841430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f885c45707063046902643009652d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radius: 0.1
+  _color: {r: 1, g: 0, b: 0, a: 1}
+  _showWireframed: 0
 --- !u!1 &3914455438018619265
 GameObject:
   m_ObjectHideFlags: 0
@@ -672,6 +1059,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5376663041680024203}
+  - component: {fileID: 1384128873208754857}
+  - component: {fileID: 8832379979967911149}
   m_Layer: 0
   m_Name: Elevator
   m_TagString: Untagged
@@ -693,9 +1082,69 @@ Transform:
   m_Children:
   - {fileID: 4311655098654233600}
   - {fileID: 4960248651336447884}
+  - {fileID: 4270848455881648044}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1384128873208754857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4273402954916480045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4425f88267c1f74b91bf2756a83abf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animatedDoors:
+  - {fileID: 5559755759866215953}
+  - {fileID: 5138914754670603838}
+  - {fileID: 4658086753542690945}
+  - {fileID: 868065391230477222}
+  - {fileID: 8617981837523683818}
+  - {fileID: 8556446849672332439}
+  - {fileID: 2187936270400755522}
+  - {fileID: 7042810306264843674}
+  - {fileID: 6197881992660001654}
+  - {fileID: 1059780016231835866}
+  - {fileID: 8238787432562175678}
+  _platformParenter: {fileID: 1547181851999465181}
+  _waypointTraveler: {fileID: 8832379979967911149}
+  _interact: 0
+  _unload: 0
+--- !u!114 &8832379979967911149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4273402954916480045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78eefc8e03bea94409795b87e869d850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnDestinationReached:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1384128873208754857}
+        m_TargetAssemblyTypeName: HackingOps.Platforms.Elevator, Assembly-CSharp
+        m_MethodName: OnDestinationReached
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  _objectToMove: {fileID: 4960248651336447884}
+  _speed: 3
+  _waypointsParent: {fileID: 4270848455881648044}
+  _distanceThreshold: 0.1
 --- !u!1 &4310909147414556326
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,6 +1375,53 @@ Transform:
   m_Father: {fileID: 9131855532866245523}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5799469917459711452
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4296251890138245030}
+  - component: {fileID: 8063213775768214768}
+  m_Layer: 0
+  m_Name: Waypoint - Plant 05
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4296251890138245030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5799469917459711452}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4270848455881648044}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8063213775768214768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5799469917459711452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f885c45707063046902643009652d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radius: 0.1
+  _color: {r: 1, g: 0, b: 0, a: 1}
+  _showWireframed: 0
 --- !u!1 &5980101234681821906
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,6 +1454,100 @@ Transform:
   m_Father: {fileID: 40791157488514115}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6216334515402653051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2168588161502045931}
+  - component: {fileID: 476358744039407757}
+  m_Layer: 0
+  m_Name: Waypoint - Plant 01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2168588161502045931
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6216334515402653051}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4270848455881648044}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &476358744039407757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6216334515402653051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f885c45707063046902643009652d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radius: 0.1
+  _color: {r: 1, g: 0, b: 0, a: 1}
+  _showWireframed: 0
+--- !u!1 &7460504891695525686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1328320344424274866}
+  - component: {fileID: 7655792683191234124}
+  m_Layer: 0
+  m_Name: Waypoint - Plant 03
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1328320344424274866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460504891695525686}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 12, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4270848455881648044}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7655792683191234124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460504891695525686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f885c45707063046902643009652d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radius: 0.1
+  _color: {r: 1, g: 0, b: 0, a: 1}
+  _showWireframed: 0
 --- !u!1 &7517161532932396654
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,6 +1582,53 @@ Transform:
   m_Father: {fileID: 797466189390899919}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7584916247231860134
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4373174025604715917}
+  - component: {fileID: 4636817123644753931}
+  m_Layer: 0
+  m_Name: Waypoint - Plant 02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4373174025604715917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7584916247231860134}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4270848455881648044}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4636817123644753931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7584916247231860134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f885c45707063046902643009652d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radius: 0.1
+  _color: {r: 1, g: 0, b: 0, a: 1}
+  _showWireframed: 0
 --- !u!1 &7993051628529244969
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,6 +1694,7 @@ Transform:
   - {fileID: 8058521144929020550}
   - {fileID: 1346278574426459347}
   - {fileID: 866857225855592021}
+  - {fileID: 8431288885422480890}
   m_Father: {fileID: 5376663041680024203}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1229,6 +1867,53 @@ Transform:
   m_Father: {fileID: 486074344467382606}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9174051182214741702
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6503824843239690805}
+  - component: {fileID: 1132573254952166689}
+  m_Layer: 0
+  m_Name: Waypoint - Plant 06
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6503824843239690805
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9174051182214741702}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 24, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4270848455881648044}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1132573254952166689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9174051182214741702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f885c45707063046902643009652d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radius: 0.1
+  _color: {r: 1, g: 0, b: 0, a: 1}
+  _showWireframed: 0
 --- !u!1001 &57531138057361443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1929,6 +2614,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SciFiDoor with wall
       objectReference: {fileID: 0}
+    - target: {fileID: 8352251657346872380, guid: 57a0727238679924992503e06413b290,
+        type: 3}
+      propertyPath: m_Name
+      value: SciFiDoor Exterior Floor 07
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1940,6 +2630,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 990041114093233600}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6197881992660001654 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6610749823534827190, guid: 57a0727238679924992503e06413b290,
+    type: 3}
+  m_PrefabInstance: {fileID: 990041114093233600}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11e74a194fe1b14eaddd177e1dd6333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1426516397932303768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2027,6 +2729,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2485717982897947638}
     m_Modifications:
+    - target: {fileID: 1209032785487343562, guid: 57a0727238679924992503e06413b290,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1693761105943323264, guid: 57a0727238679924992503e06413b290,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3947419783881013487, guid: 57a0727238679924992503e06413b290,
         type: 3}
       propertyPath: m_RootOrder
@@ -2087,6 +2799,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: SciFiDoor with wall
       objectReference: {fileID: 0}
+    - target: {fileID: 6610749823534827190, guid: 57a0727238679924992503e06413b290,
+        type: 3}
+      propertyPath: OnDoorClosed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6610749823534827190, guid: 57a0727238679924992503e06413b290,
+        type: 3}
+      propertyPath: OnDoorClosed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6610749823534827190, guid: 57a0727238679924992503e06413b290,
+        type: 3}
+      propertyPath: OnDoorClosed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1384128873208754857}
+    - target: {fileID: 6610749823534827190, guid: 57a0727238679924992503e06413b290,
+        type: 3}
+      propertyPath: OnDoorClosed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6610749823534827190, guid: 57a0727238679924992503e06413b290,
+        type: 3}
+      propertyPath: OnDoorClosed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnDoorClosed
+      objectReference: {fileID: 0}
+    - target: {fileID: 6610749823534827190, guid: 57a0727238679924992503e06413b290,
+        type: 3}
+      propertyPath: OnDoorClosed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HackingOps.Platforms.Elevator, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6610749823534827190, guid: 57a0727238679924992503e06413b290,
+        type: 3}
+      propertyPath: OnDoorClosed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8352251657346872380, guid: 57a0727238679924992503e06413b290,
+        type: 3}
+      propertyPath: m_Name
+      value: SciFiDoor Interior
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2098,6 +2850,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1627525253435816103}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5559755759866215953 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6610749823534827190, guid: 57a0727238679924992503e06413b290,
+    type: 3}
+  m_PrefabInstance: {fileID: 1627525253435816103}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11e74a194fe1b14eaddd177e1dd6333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1953085359937576503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2166,6 +2930,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SciFiDoor with wall
       objectReference: {fileID: 0}
+    - target: {fileID: 8352251657346872380, guid: 57a0727238679924992503e06413b290,
+        type: 3}
+      propertyPath: m_Name
+      value: SciFiDoor Exterior Floor 01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2177,6 +2946,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1953085359937576503}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4658086753542690945 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6610749823534827190, guid: 57a0727238679924992503e06413b290,
+    type: 3}
+  m_PrefabInstance: {fileID: 1953085359937576503}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11e74a194fe1b14eaddd177e1dd6333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2084900882576746632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2245,6 +3026,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SciFiDoor with wall
       objectReference: {fileID: 0}
+    - target: {fileID: 8352251657346872380, guid: 57a0727238679924992503e06413b290,
+        type: 3}
+      propertyPath: m_Name
+      value: SciFiDoor Exterior Floor 00
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2256,6 +3042,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2084900882576746632}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5138914754670603838 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6610749823534827190, guid: 57a0727238679924992503e06413b290,
+    type: 3}
+  m_PrefabInstance: {fileID: 2084900882576746632}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11e74a194fe1b14eaddd177e1dd6333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2134660361834340287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2403,6 +3201,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall 2 Half (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4442185270406321607, guid: dea43198b8686a948bb3630fc5fe44d6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2486,6 +3289,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall 2 Half (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442185270406321607, guid: dea43198b8686a948bb3630fc5fe44d6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2803,6 +3611,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SciFiDoor with wall
       objectReference: {fileID: 0}
+    - target: {fileID: 8352251657346872380, guid: 57a0727238679924992503e06413b290,
+        type: 3}
+      propertyPath: m_Name
+      value: SciFiDoor Exterior Floor 09
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2814,6 +3627,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3019686041471100936}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8238787432562175678 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6610749823534827190, guid: 57a0727238679924992503e06413b290,
+    type: 3}
+  m_PrefabInstance: {fileID: 3019686041471100936}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11e74a194fe1b14eaddd177e1dd6333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3181548092891271004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2882,6 +3707,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SciFiDoor with wall
       objectReference: {fileID: 0}
+    - target: {fileID: 8352251657346872380, guid: 57a0727238679924992503e06413b290,
+        type: 3}
+      propertyPath: m_Name
+      value: SciFiDoor Exterior Floor 03
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2893,6 +3723,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3181548092891271004}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8617981837523683818 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6610749823534827190, guid: 57a0727238679924992503e06413b290,
+    type: 3}
+  m_PrefabInstance: {fileID: 3181548092891271004}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11e74a194fe1b14eaddd177e1dd6333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3242735643528249889
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2961,6 +3803,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SciFiDoor with wall
       objectReference: {fileID: 0}
+    - target: {fileID: 8352251657346872380, guid: 57a0727238679924992503e06413b290,
+        type: 3}
+      propertyPath: m_Name
+      value: SciFiDoor Exterior Floor 04
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2972,6 +3819,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3242735643528249889}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8556446849672332439 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6610749823534827190, guid: 57a0727238679924992503e06413b290,
+    type: 3}
+  m_PrefabInstance: {fileID: 3242735643528249889}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11e74a194fe1b14eaddd177e1dd6333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3477311187142176887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3118,6 +3977,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall 2 Half
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442185270406321607, guid: dea43198b8686a948bb3630fc5fe44d6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3356,6 +4220,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SciFiDoor with wall
       objectReference: {fileID: 0}
+    - target: {fileID: 8352251657346872380, guid: 57a0727238679924992503e06413b290,
+        type: 3}
+      propertyPath: m_Name
+      value: SciFiDoor Exterior Floor 06
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3367,6 +4236,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4180201753245205292}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7042810306264843674 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6610749823534827190, guid: 57a0727238679924992503e06413b290,
+    type: 3}
+  m_PrefabInstance: {fileID: 4180201753245205292}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11e74a194fe1b14eaddd177e1dd6333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4326517921346932974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3672,11 +4553,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: SciFiDoor with wall
       objectReference: {fileID: 0}
+    - target: {fileID: 8352251657346872380, guid: 57a0727238679924992503e06413b290,
+        type: 3}
+      propertyPath: m_Name
+      value: SciFiDoor Exterior Floor 05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a0727238679924992503e06413b290, type: 3}
+--- !u!114 &2187936270400755522 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6610749823534827190, guid: 57a0727238679924992503e06413b290,
+    type: 3}
+  m_PrefabInstance: {fileID: 5035874866090938868}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11e74a194fe1b14eaddd177e1dd6333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8298736511075526939 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3947419783881013487, guid: 57a0727238679924992503e06413b290,
@@ -3988,11 +4886,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: SciFiDoor with wall
       objectReference: {fileID: 0}
+    - target: {fileID: 8352251657346872380, guid: 57a0727238679924992503e06413b290,
+        type: 3}
+      propertyPath: m_Name
+      value: SciFiDoor Exterior Floor 08
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a0727238679924992503e06413b290, type: 3}
+--- !u!114 &1059780016231835866 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6610749823534827190, guid: 57a0727238679924992503e06413b290,
+    type: 3}
+  m_PrefabInstance: {fileID: 6127993638846426732}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11e74a194fe1b14eaddd177e1dd6333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7188603578655233667 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3947419783881013487, guid: 57a0727238679924992503e06413b290,
@@ -4146,11 +5061,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: SciFiDoor with wall
       objectReference: {fileID: 0}
+    - target: {fileID: 8352251657346872380, guid: 57a0727238679924992503e06413b290,
+        type: 3}
+      propertyPath: m_Name
+      value: SciFiDoor Exterior Floor 02
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57a0727238679924992503e06413b290, type: 3}
+--- !u!114 &868065391230477222 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6610749823534827190, guid: 57a0727238679924992503e06413b290,
+    type: 3}
+  m_PrefabInstance: {fileID: 6320209645145122064}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11e74a194fe1b14eaddd177e1dd6333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7025026418581757439 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3947419783881013487, guid: 57a0727238679924992503e06413b290,

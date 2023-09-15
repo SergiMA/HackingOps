@@ -7,7 +7,7 @@ namespace HackingOps.Platforms
     public class Elevator : MonoBehaviour
     {
         [Header("Bindings")]
-        [SerializeField] private AnimatedDoor _animatedDoor;
+        [SerializeField] private AnimatedDoor[] _animatedDoors;
         [SerializeField] private PlatformParenter _platformParenter;
         [SerializeField] private WaypointTraveler _waypointTraveler;
 
@@ -20,14 +20,21 @@ namespace HackingOps.Platforms
             if (_interact)
             {
                 _interact = false;
-                _animatedDoor.Close();
+
+                foreach (AnimatedDoor animatedDoor in _animatedDoors)
+                {
+                    animatedDoor.Close();
+                }
             }
 
             if (_unload)
             {
                 _unload = false;
                 _platformParenter.Unload();
-                _animatedDoor.Open();
+                foreach (AnimatedDoor animatedDoor in _animatedDoors)
+                {
+                    animatedDoor.Open();
+                }
             }
         }
 
@@ -44,7 +51,11 @@ namespace HackingOps.Platforms
         public void OnDestinationReached()
         {
             _platformParenter.Unload();
-            _animatedDoor.Open();
+
+            foreach (AnimatedDoor animatedDoor in _animatedDoors)
+            {
+                animatedDoor.Open();
+            }
         }
     }
 }
