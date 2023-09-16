@@ -10,8 +10,11 @@ namespace HackingOps.Weapons.WeaponFoundations
         [SerializeField] private Transform _endPoint;
         [SerializeField] private float _rayMargin = 0.005f;
 
-        Vector3 _lastStartPoint;
-        Vector3 _lastEndPoint;
+        private Vector3 _lastStartPoint;
+        private Vector3 _lastEndPoint;
+
+        private MeleeDamageByRaycastManager _manager;
+        private Transform _wielder;
 
         void Start()
         {
@@ -20,7 +23,10 @@ namespace HackingOps.Weapons.WeaponFoundations
 
         void Update()
         {
-            float distance = Mathf.Max(Vector3.Distance(_startPoint.position, _lastStartPoint), Vector3.Distance(_endPoint.position, _lastEndPoint));
+            float distance =
+                Mathf.Max(
+                    Vector3.Distance(_startPoint.position, _lastStartPoint),
+                    Vector3.Distance(_endPoint.position, _lastEndPoint));
 
             int numRays = 1 + Mathf.CeilToInt(distance / _rayMargin);
 
@@ -32,7 +38,7 @@ namespace HackingOps.Weapons.WeaponFoundations
 
                 if (Physics.Linecast(actualStartPoint, actualEndPoint, out RaycastHit hit))
                 {
-                    hit.collider.GetComponent<HurtBox>()?.NotifyHit(1f, transform);
+                    _manager.RayImpactedOn(hit);
                 }
 
                 Debug.DrawLine(actualStartPoint, actualEndPoint, Color.red, 1f);
@@ -45,6 +51,16 @@ namespace HackingOps.Weapons.WeaponFoundations
         {
             _lastStartPoint = _startPoint.position;
             _lastEndPoint = _endPoint.position;
+        }
+
+        public void SetManager(MeleeDamageByRaycastManager manager)
+        {
+            _manager = manager;
+        }
+
+        public void SetWielder(Transform wielder)
+        {
+            _wielder = wielder;
         }
     }
 }

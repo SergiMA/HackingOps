@@ -1,8 +1,10 @@
 ﻿using DG.Tweening;
 using HackingOps.Characters.Player;
 using HackingOps.Input;
+using HackingOps.Weapons.Common;
 using HackingOps.Weapons.WeaponFoundations;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace HackingOps.Characters.Common
@@ -15,6 +17,9 @@ namespace HackingOps.Characters.Common
 
         bool _mustAttack;
         bool _isCombatWeapon;
+        Weapon weapon;
+
+        MeleeDamageByRaycastManager _meleeDamageByRaycastManager;
 
         private void OnValidate()
         {
@@ -25,18 +30,15 @@ namespace HackingOps.Characters.Common
             }
         }
 
-        private void Awake()
-        {
-            GetComponent<PlayerWeapons>().OnWeaponSelected.AddListener(OnWeaponSelected);
-        }
-
         private void OnEnable()
         {
+            GetComponent<Inventory>().OnWeaponSwitched += OnWeaponSelected;
             _inputManager.OnShoot += OnShoot;
         }
 
         private void OnDisable()
         {
+            GetComponent<Inventory>().OnWeaponSwitched -= OnWeaponSelected;
             _inputManager.OnShoot -= OnShoot;
         }
 
@@ -61,9 +63,15 @@ namespace HackingOps.Characters.Common
             }
         }
 
-        private void OnWeaponSelected(Weapon weapon)
+        private void OnWeaponSelected(Weapon oldWeapon, Weapon newWeapon)
         {
-            _isCombatWeapon = (weapon == null) || (weapon is not FireWeapon);
+            _isCombatWeapon = (newWeapon == null) || (newWeapon is not FireWeapon);
+
+            if (newWeapon != null)
+            {
+                _meleeDamageByRaycastManager = newWeapon.GetComponentInChildren<MeleeDamageByRaycastManager>();
+                _meleeDamageByRaycastManager?.SetWielder(transform);
+            }
         }
 
         public void OnAnimationAttack(string s)
@@ -75,6 +83,20 @@ namespace HackingOps.Characters.Common
                 hitBoxGO.SetActive(true);
                 DOVirtual.DelayedCall(0.2f, () => hitBoxGO.SetActive(false));
             }
+        }
+
+        public void OnAnimationStartAttack()
+        {
+            if (weapon == null && !_isCombatWeapon) return;
+
+            _meleeDamageByRaycastManager?.StartDamageArea();
+        }
+
+        public void OnAnimationFinishAttack()
+        {
+            if (weapon == null && !_isCombatWeapon) return;
+
+            _meleeDamageByRaycastManager?.EndDamageArea();
         }
     }
 }

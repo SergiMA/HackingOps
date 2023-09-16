@@ -16,5 +16,15 @@ namespace HackingOps.Weapons.WeaponFoundations
         {
             _characterCombat.OnAnimationAttack(s);
         }
+
+        void OnAnimationStartAttack()
+        {
+            _characterCombat.OnAnimationStartAttack();
+        }
+
+        void OnAnimationFinishAttack()
+        {
+            _characterCombat.OnAnimationFinishAttack();
+        }
     }
 }
