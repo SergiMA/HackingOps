@@ -7,9 +7,6 @@ namespace HackingOps.Characters.NPC.DecisionMaking
     {
         [SerializeField] private State _state;
 
-        internal override State Execute()
-        {
-            return _state;
-        }
+        internal override State Execute() => _state;
     }
 }

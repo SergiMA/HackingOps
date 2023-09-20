@@ -14,6 +14,7 @@ namespace HackingOps.Weapons.Common
 
         [SerializeField] private Transform _weaponParent;
         [SerializeField] private Weapon[] _startingWeapons;
+        [SerializeField] private bool _startUnarmed;
 
         private List<EquipmentSlot> _equipmentSlots = new();
         public int _currentSlotIndex { get; private set; } = 0;
@@ -36,7 +37,8 @@ namespace HackingOps.Weapons.Common
         private void Start()
         {
             AddStartingWeapons();
-            SwitchSlot(GetCurrentWeaponSlot(), _equipmentSlots[0]);
+            if (_startUnarmed)
+                SwitchSlot(GetCurrentWeaponSlot(), _equipmentSlots[0]);
         }
 
         private void InitializeSlots()

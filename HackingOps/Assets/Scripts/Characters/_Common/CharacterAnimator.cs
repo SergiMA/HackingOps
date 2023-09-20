@@ -23,6 +23,16 @@ namespace HackingOps.Characters.Common
             _attackReadable = GetComponent<IAttackReadable>();
         }
 
+        private void OnEnable()
+        {
+            _attackReadable.OnMustAttack += UpdateAttackAnimation;
+        }
+
+        private void OnDisable()
+        {
+            _attackReadable.OnMustAttack -= UpdateAttackAnimation;
+        }
+
         private void Start()
         {
             _crouchingLayerIndex = _animator.GetLayerIndex("CrouchingLayer");
