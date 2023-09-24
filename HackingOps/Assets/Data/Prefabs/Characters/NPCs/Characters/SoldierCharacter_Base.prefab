@@ -162,6 +162,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementSmoothingSpeed: 1
   _crouchingTransitionDuration: 0.5
+  _blockingTransitionDuration: 0.5
+  _blockAnimationsAmount: 3
 --- !u!114 &4367718595825557907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,15 +265,19 @@ MonoBehaviour:
   OnNotifyHitWithDamage:
     m_PersistentCalls:
       m_Calls: []
-  OnNotifyHitWithLife:
+  OnNotifyHitWithLifeAndDirection:
     m_PersistentCalls:
       m_Calls: []
-  OnNotifyHitWithLifeAndDirection:
+  OnNotifyHitCulprit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnNotifyHitWithLife:
     m_PersistentCalls:
       m_Calls: []
   _maxLife: 10
   _healthRegeneration: 1
   _healthRegenerationCooldown: 5
+  _blockController: {fileID: 0}
 --- !u!114 &8764605804409368590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,7 +335,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62799054ee3650449a9b4a7b6cc103d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnStartBlock:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStopBlock:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStartAiming:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStopAiming:
+    m_PersistentCalls:
+      m_Calls: []
+  OnParried:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7027401546785563472}
+        m_TargetAssemblyTypeName: HackingOps.Characters.Common.CharacterAnimator,
+          Assembly-CSharp
+        m_MethodName: OnParried
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 6973387283377452375}
+        m_TargetAssemblyTypeName: HackingOps.Characters.NPC.DecisionMaking.BehaviourTreeManager,
+          Assembly-CSharp
+        m_MethodName: DisableBehaviour
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  OnStunnedExpired:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6973387283377452375}
+        m_TargetAssemblyTypeName: HackingOps.Characters.NPC.DecisionMaking.BehaviourTreeManager,
+          Assembly-CSharp
+        m_MethodName: EnableBehaviour
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
   _hitBoxesParent: {fileID: 6303249081705952868}
+  _stunnedDuration: 0.5
   _debugAttack: 0
 --- !u!114 &5793736195714251835
 MonoBehaviour:
@@ -527,7 +591,7 @@ Transform:
   - {fileID: 5785845074159591247}
   - {fileID: 4690020247404888228}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &850275089559264791
 GameObject:
@@ -3089,6 +3153,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8687015423802009644}
+  - component: {fileID: 6973387283377452375}
   m_Layer: 0
   m_Name: BehaviourTrees
   m_TagString: Untagged
@@ -3115,6 +3180,20 @@ Transform:
   m_Father: {fileID: 638795730969745335}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6973387283377452375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8912372971581874493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 638ed0790c6862b4c93577c88458a1c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _debugEnableBehaviour: 0
+  _debugDisableBehaviour: 0
 --- !u!1 &8986395047823198614
 GameObject:
   m_ObjectHideFlags: 0

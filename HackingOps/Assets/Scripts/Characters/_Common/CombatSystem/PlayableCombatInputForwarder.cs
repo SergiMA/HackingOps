@@ -13,6 +13,8 @@ namespace HackingOps.Characters.Common.CombatSystem
 
         CharacterCombat _characterCombat;
 
+        private float _previousAnalogValue;
+
         private void OnValidate()
         {
             if (_debugAttack)
@@ -30,11 +32,17 @@ namespace HackingOps.Characters.Common.CombatSystem
         private void OnEnable()
         {
             _inputManager.OnShoot += OnAttack;
+
+            _inputManager.OnStartAiming += OnStartAiming;
+            _inputManager.OnStopAiming += OnStopAiming;
         }
 
         private void OnDisable()
         {
             _inputManager.OnShoot -= OnAttack;
+
+            _inputManager.OnStartAiming -= OnStartAiming;
+            _inputManager.OnStopAiming -= OnStopAiming;
         }
 
 
@@ -44,6 +52,29 @@ namespace HackingOps.Characters.Common.CombatSystem
             {
                 _characterCombat.Attack();
             }
+        }
+
+        private void OnBlock(float analogValue)
+        {
+            if (_previousAnalogValue != analogValue)
+            {
+                if (analogValue > 0)
+                    _characterCombat.OnStartLockReceived();
+                else
+                    _characterCombat.OnStopLockReceived();
+            }
+
+            _previousAnalogValue = analogValue;
+        }
+
+        private void OnStartAiming()
+        {
+            _characterCombat.OnStartLockReceived();
+        }
+
+        private void OnStopAiming()
+        {
+            _characterCombat.OnStopLockReceived();
         }
     }
 }

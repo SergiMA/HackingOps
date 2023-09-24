@@ -1,4 +1,5 @@
-﻿using HackingOps.CombatSystem.HitHurtBox;
+﻿using HackingOps.Characters.Common;
+using HackingOps.CombatSystem.HitHurtBox;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ namespace HackingOps.Weapons.WeaponFoundations
         [SerializeField] private Transform rayParent;
 
         private MeleeDamageByRaycast[] _meleeDamageByRaycast;
-        private Transform _wielder;
+        private CharacterCombat _wielder;
         private HashSet<HurtBox> _damagedHurtBoxes = new();
         private float _damageByHit;
 
@@ -27,7 +28,7 @@ namespace HackingOps.Weapons.WeaponFoundations
             }
         }
 
-        public void SetWielder(Transform wielder)
+        public void SetWielder(CharacterCombat wielder)
         {
             _wielder = wielder;
         }
@@ -52,14 +53,14 @@ namespace HackingOps.Weapons.WeaponFoundations
 
         public void RayImpactedOn(RaycastHit hit)
         {
-            if (hit.transform != _wielder)
+            if (hit.transform != _wielder.transform)
             {
                 if (hit.collider.TryGetComponent(out HurtBox hurtBox))
                 {
                     if (!_damagedHurtBoxes.Contains(hurtBox))
                     {
                         _damagedHurtBoxes.Add(hurtBox);
-                        hurtBox.NotifyHit(_meleeWeapon.GetDamageByHit(), transform);
+                        hurtBox.NotifyHit(_meleeWeapon.GetDamageByHit(), transform, _wielder);
                     }
                 }
             }

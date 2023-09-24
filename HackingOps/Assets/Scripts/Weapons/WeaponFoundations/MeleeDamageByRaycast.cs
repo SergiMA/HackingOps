@@ -9,6 +9,7 @@ namespace HackingOps.Weapons.WeaponFoundations
         [SerializeField] private Transform _startPoint;
         [SerializeField] private Transform _endPoint;
         [SerializeField] private float _rayMargin = 0.005f;
+        [SerializeField] private LayerMask _occludersLayerMask = Physics.DefaultRaycastLayers;
 
         private Vector3 _lastStartPoint;
         private Vector3 _lastEndPoint;
@@ -36,7 +37,7 @@ namespace HackingOps.Weapons.WeaponFoundations
                 Vector3 actualStartPoint = Vector3.Lerp(_startPoint.position, _lastStartPoint, t);
                 Vector3 actualEndPoint = Vector3.Lerp(_endPoint.position, _lastEndPoint, t);
 
-                if (Physics.Linecast(actualStartPoint, actualEndPoint, out RaycastHit hit))
+                if (Physics.Linecast(actualStartPoint, actualEndPoint, out RaycastHit hit, _occludersLayerMask))
                 {
                     _manager.RayImpactedOn(hit);
                 }

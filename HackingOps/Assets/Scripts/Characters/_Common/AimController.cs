@@ -4,7 +4,7 @@ using HackingOps.Input;
 using System.Collections;
 using UnityEngine;
 
-namespace HackingOps.Characters._Common
+namespace HackingOps.Characters.Common
 {
     public class AimController : MonoBehaviour
     {
@@ -30,6 +30,20 @@ namespace HackingOps.Characters._Common
         private float _aimCameraPitch;
         private Quaternion _initialLocalRotation;
 
+        bool _isAiming;
+
+        private void OnEnable()
+        {
+            _inputManager.OnStartAiming += OnStartAiming;
+            _inputManager.OnStopAiming += OnStopAiming;
+        }
+
+        private void OnDisable()
+        {
+            _inputManager.OnStartAiming -= OnStartAiming;
+            _inputManager.OnStopAiming -= OnStopAiming;
+        }
+
         private void Start()
         {
             _initialLocalRotation = _aimCamera.transform.localRotation;
@@ -39,7 +53,7 @@ namespace HackingOps.Characters._Common
         {
             ProjectRaycastAtScreenCenter();
 
-            if (_inputManager.IsLocking)
+            if (_isAiming)
             {
                 _aimCamera.gameObject.SetActive(true);
                 _thirdPersonController.UseBehaviourProfileOverride(_lockOnBehaviourProfile);
@@ -90,6 +104,18 @@ namespace HackingOps.Characters._Common
             if (angle < -360f) angle += 360f;
             else if (angle > 360f) angle -= 360f;
             return Mathf.Clamp(angle, min, max);
+        }
+
+        public void OnStartAiming()
+        {
+            Debug.Log($"AimController --- {name} started aiming");
+            _isAiming = true;
+        }
+
+        public void OnStopAiming()
+        {
+            Debug.Log($"AimController --- {name} finished aiming");
+            _isAiming = false;
         }
     }
 }

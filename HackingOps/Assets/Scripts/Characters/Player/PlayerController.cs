@@ -9,6 +9,8 @@ namespace HackingOps.Characters.Player
     {
         public UnityEvent OnStartCrouchingEvent;
         public UnityEvent OnStopCrouchingEvent;
+        public UnityEvent OnStartBlockingEvent;
+        public UnityEvent OnStopBlockingEvent;
 
         [Header("Bindings")]
         [SerializeField] Input.PlayerInputManager _inputManager;
@@ -51,6 +53,7 @@ namespace HackingOps.Characters.Player
         // Internal bindings
         private CharacterController _characterController;
         private CrouchController _crouchController;
+        private CharacterCombat _characterCombat;
 
         // Movement
         private Vector3 _lastVelocity;
@@ -61,8 +64,11 @@ namespace HackingOps.Characters.Player
         private bool _isCrouched;
 
         // Falling physics
-        float _currentVerticalSpeed = 0f;
-        readonly float _gravity = -9.8f;            // m/s2
+        private float _currentVerticalSpeed = 0f;
+        private readonly float _gravity = -9.8f;            // m/s2
+
+        // Restriction flags
+        private bool _isBlocking;
 
         // Behaviour profiles
         PlayerBehaviourProfileSO _originalBehaviourProfile;
@@ -71,6 +77,7 @@ namespace HackingOps.Characters.Player
         {
             _characterController = GetComponent<CharacterController>();
             _crouchController = GetComponent<CrouchController>();
+            _characterCombat = GetComponent<CharacterCombat>();
 
             _visibilityCheckpoints = new Transform[_visibilityCheckpointsParent.childCount];
             for (int i = 0; i < _visibilityCheckpoints.Length; i++)
@@ -83,12 +90,20 @@ namespace HackingOps.Characters.Player
         {
             _inputManager.OnJump += OnJump;
             _inputManager.OnCrouchPressed += SwitchCrouch;
+            //_inputManager.OnStartAiming += OnStartAimingPressed;
+            //_inputManager.OnStopAiming += OnStopAimingPressed;
+
+            _characterCombat.OnMustAttack += OnAttack;
         }
 
         private void OnDisable()
         {
             _inputManager.OnJump -= OnJump;
-            _inputManager.OnCrouchPressed += SwitchCrouch;
+            _inputManager.OnCrouchPressed -= SwitchCrouch;
+            //_inputManager.OnStartAiming -= OnStartAimingPressed;
+            //_inputManager.OnStopAiming -= OnStopAimingPressed;
+
+            _characterCombat.OnMustAttack -= OnAttack;
         }
 
         private void Start()
@@ -196,7 +211,8 @@ namespace HackingOps.Characters.Player
                     case OrientationMode.LookAtTarget:
                         desiredForward = Vector3.ProjectOnPlane(_orientationTarget.position - transform.position, Vector3.up);
                         break;
-                    default: Debug.LogWarning("You're using an Orientation Mode not " +
+                    default:
+                        Debug.LogWarning("You're using an Orientation Mode not " +
                         "yet implemented. Some things might not work as expected");
                         break;
                 }
@@ -250,6 +266,26 @@ namespace HackingOps.Characters.Player
             }
         }
 
+        public void OnStartAimingPressed()
+        {
+            if (_isCrouched)
+                return;
+
+            _isBlocking = true;
+            OnStartBlockingEvent.Invoke();
+        }
+
+        public void OnStopAimingPressed()
+        {
+            _isBlocking = false;
+            OnStopBlockingEvent.Invoke();
+        }
+
+        public void OnAttack()
+        {
+            OnStopAimingPressed();
+        }
+
         #region Input system implementation
         void OnJump()
         {
@@ -258,8 +294,15 @@ namespace HackingOps.Characters.Player
 
         void SwitchCrouch()
         {
-            if (_isCrouched) StopCrouching();
-            else StartCrouching();
+            if (_isCrouched)
+            {
+                StopCrouching();
+            }
+            else
+            {
+                if (!_isBlocking)
+                    StartCrouching();
+            }
         }
         #endregion
 

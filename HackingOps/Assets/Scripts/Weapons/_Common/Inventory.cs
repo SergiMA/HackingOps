@@ -1,4 +1,5 @@
 ﻿using HackingOps.Common.Events;
+using HackingOps.Common.Services;
 using HackingOps.Weapons.WeaponFoundations;
 using System;
 using System.Collections.Generic;
@@ -26,12 +27,12 @@ namespace HackingOps.Weapons.Common
 
         private void OnEnable()
         {
-            EventQueue.Instance.Subscribe(EventIds.Interaction, this);
+            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.Interaction, this);
         }
 
         public void OnDisable()
         {
-            EventQueue.Instance.Unsubscribe(EventIds.Interaction, this);
+            ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.Interaction, this);
         }
 
         private void Start()

@@ -1,6 +1,7 @@
 ﻿using Cinemachine;
 using HackingOps.Characters.Player;
 using HackingOps.Input;
+using HackingOps.Weapons.Common;
 using HackingOps.Weapons.WeaponFoundations;
 using UnityEngine;
 
@@ -18,6 +19,7 @@ namespace HackingOps.Characters.Common
         [Space]
         [SerializeField] private CinemachineVirtualCameraBase _lockOnCamera;
         [SerializeField] private PlayerBehaviourProfileSO _lockOnBehaviourProfile;
+        [SerializeField] private PlayerBehaviourProfileSO _blockingBehaviourProfile;
 
         [SerializeField] private Transform _aimTarget;
 
@@ -27,19 +29,23 @@ namespace HackingOps.Characters.Common
 
         private PlayerController _playerController;
         private PlayerWeapons _playerWeapons;
+        private Inventory _inventory;
+
+        private bool _isLocking;
+        private bool _isBlocking;
 
         private void Awake()
         {
             _playerController = GetComponent<PlayerController>();
             _playerWeapons = GetComponent<PlayerWeapons>();
+            _inventory = GetComponent<Inventory>();
         }
 
         private void Update()
         {
             ProjectRaycastAtScreenCenter();
-            //ProjectRaycastAtWeaponForward();
 
-            if (_inputManager.IsLocking)
+            if (_isLocking)
             {
                 _lockOnCamera.gameObject.SetActive(true);
                 _playerController.UseBehaviourProfileOverride(_lockOnBehaviourProfile);
@@ -47,6 +53,15 @@ namespace HackingOps.Characters.Common
             else
             {
                 _lockOnCamera.gameObject.SetActive(false);
+                _playerController.RecoverOriginalProfileOverride();
+            }
+
+            if (_isBlocking)
+            {
+                _playerController.UseBehaviourProfileOverride(_blockingBehaviourProfile);
+            }
+            else
+            {
                 _playerController.RecoverOriginalProfileOverride();
             }
         }
@@ -83,5 +98,13 @@ namespace HackingOps.Characters.Common
                 _aimTarget.position = hit.point;
             }
         }
+
+        public void OnStartLocking() => _isLocking = true;
+
+        public void OnStopLocking() => _isLocking = false;
+
+        public void OnStartBlocking() => _isBlocking = true;
+
+        public void OnStopBlocking() => _isBlocking = false;
     }
 }

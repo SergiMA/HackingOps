@@ -3,18 +3,31 @@ using HackingOps.Weapons.Common;
 using HackingOps.Weapons.WeaponFoundations;
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace HackingOps.Characters.Common
 {
     public class CharacterCombat : MonoBehaviour, IAttackReadable
     {
+        public UnityEvent OnStartBlock;
+        public UnityEvent OnStopBlock;
+        public UnityEvent OnStartAiming;
+        public UnityEvent OnStopAiming;
+        public UnityEvent OnParried;
+        public UnityEvent OnStunnedExpired;
+
         public event Action OnMustAttack;
 
         [SerializeField] private Transform _hitBoxesParent;
+        [SerializeField] private float _stunnedDuration = 0.5f;
+
+        [Header("Debug")]
         [SerializeField] private bool _debugAttack;
 
         bool _mustAttack;
+        bool _isBlocking;
         bool _isCombatWeapon;
+
         Weapon weapon;
 
         MeleeDamageByRaycastManager _meleeDamageByRaycastManager;
@@ -66,7 +79,6 @@ namespace HackingOps.Characters.Common
             {
                 _mustAttack = true;
                 OnMustAttack?.Invoke();
-                //DOVirtual.DelayedCall(0.01f, () => _mustAttack = false);
             }
         }
 
@@ -77,8 +89,13 @@ namespace HackingOps.Characters.Common
             if (newWeapon != null)
             {
                 _meleeDamageByRaycastManager = newWeapon.GetComponentInChildren<MeleeDamageByRaycastManager>();
-                _meleeDamageByRaycastManager?.SetWielder(transform);
+                _meleeDamageByRaycastManager?.SetWielder(this);
             }
+        }
+
+        private void UpdateStunnedStatus()
+        {
+            OnStunnedExpired.Invoke();
         }
 
         public void OnAnimationAttack(string s)
@@ -104,6 +121,39 @@ namespace HackingOps.Characters.Common
             if (weapon == null && !_isCombatWeapon) return;
 
             _meleeDamageByRaycastManager?.EndDamageArea();
+        }
+
+        public void OnStartLockReceived()
+        {
+            if (_isCombatWeapon)
+                OnStartBlock.Invoke();
+            else
+                OnStartAiming.Invoke();
+        }
+
+        public void OnStopLockReceived()
+        {
+            if (_isCombatWeapon)
+                OnStopBlock.Invoke();
+            else
+                OnStopAiming.Invoke();
+        }
+
+        public void OnBlockStarted()
+        {
+            _isBlocking = true;
+        }
+
+        public void OnBlockEnded()
+        {
+            _isBlocking = false;
+        }
+
+        public bool IsBlocking() => _isBlocking;
+        public void OnPerfectParryReceived()
+        {
+            Invoke(nameof(UpdateStunnedStatus), _stunnedDuration);
+            OnParried.Invoke();
         }
     }
 }

@@ -12,13 +12,17 @@ namespace HackingOps.Input
         public event Action<int> OnSelectWeapon;
         public event Action<float> OnShoot;
         public event Action OnInteract;
+        public event Action OnStartAiming;
+        public event Action OnStopAiming;
 
         public Vector2 MoveInput { get; private set; }
         public Vector2 MouseInput { get; private set; }
         public bool IsRunning { get; private set; }
         public bool IsLocking { get; private set; }
 
-        PlayerInputActions _inputActions;
+        private PlayerInputActions _inputActions;
+
+        private float _previousAimingInput;
 
         private void Awake()
         {
@@ -138,6 +142,17 @@ namespace HackingOps.Input
         private void Lock(InputAction.CallbackContext ctx)
         {
             IsLocking = ctx.ReadValue<float>() > 0f;
+            float currentAimingInput = ctx.ReadValue<float>();
+
+            if (_previousAimingInput != currentAimingInput)
+            {
+                if (currentAimingInput > 0f)
+                    OnStartAiming?.Invoke();
+                else
+                    OnStopAiming?.Invoke();
+            }
+
+            _previousAimingInput = currentAimingInput;
         }
 
         private void Interact(InputAction.CallbackContext ctx)

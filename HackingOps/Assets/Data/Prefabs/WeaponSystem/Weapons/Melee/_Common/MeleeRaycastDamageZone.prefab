@@ -49,6 +49,9 @@ MonoBehaviour:
   _startPoint: {fileID: 999443368985978097}
   _endPoint: {fileID: 8594017518466425262}
   _rayMargin: 0.05
+  _occludersLayerMask:
+    serializedVersion: 2
+    m_Bits: 115
 --- !u!1 &6604089753624392194
 GameObject:
   m_ObjectHideFlags: 0

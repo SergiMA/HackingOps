@@ -6,14 +6,23 @@ namespace HackingOps.Characters.Common
     public class CharacterAnimator : MonoBehaviour
     {
         [SerializeField] private float _movementSmoothingSpeed = 1f;
-        [SerializeField] float _crouchingTransitionDuration = 0.5f;
+        [SerializeField] private float _crouchingTransitionDuration = 0.5f;
+        [SerializeField] private float _blockingTransitionDuration = 0.5f;
+        [SerializeField] private int _blockAnimationsAmount = 3;
 
-        Animator _animator;
-        IMovementReadable _movementReadable;
-        CrouchController _crouchController;
-        IAttackReadable _attackReadable;
+        private Animator _animator;
+        private IMovementReadable _movementReadable;
+        private CrouchController _crouchController;
+        private IAttackReadable _attackReadable;
 
-        int _crouchingLayerIndex;
+        private int _crouchingLayerIndex;
+        private int _blockingLayerIndex;
+
+        private bool _isCrouching;
+        private bool _isBlocking;
+
+        private int _currentBlockingAnimationIndex;
+        private int _lastBlockingAnimationIndex;
 
         private void Awake()
         {
@@ -36,6 +45,7 @@ namespace HackingOps.Characters.Common
         private void Start()
         {
             _crouchingLayerIndex = _animator.GetLayerIndex("CrouchingLayer");
+            _blockingLayerIndex = _animator.GetLayerIndex("BlockingLayer");
         }
 
         Vector3 currentLocalCharacterVelocity = Vector3.zero;
@@ -118,8 +128,30 @@ namespace HackingOps.Characters.Common
             });
         }
 
+        private void UpdateBlockAnimationIndex()
+        {
+            _currentBlockingAnimationIndex = GetRandomUnrepeatedValue(0, _blockAnimationsAmount, _lastBlockingAnimationIndex);
+            _lastBlockingAnimationIndex = _currentBlockingAnimationIndex;
+
+            _animator.SetInteger("BlockIndex", _currentBlockingAnimationIndex);
+        }
+
+        private int GetRandomUnrepeatedValue(int minValue, int maxValue, int lastValue)
+        {
+            int randomValue;
+            do
+            {
+                randomValue = Random.Range(minValue, maxValue);
+            } while (randomValue == lastValue);
+
+            return randomValue;
+        }
+
         public void OnStartCrouching()
         {
+            if (_isBlocking)
+                return;
+
             if (_crouchController.TryCrouchDown(true))
             {
                 UpdateCrouchingAnimation();
@@ -132,6 +164,44 @@ namespace HackingOps.Characters.Common
             {
                 UpdateCrouchingAnimation();
             }
+        }
+
+        public void OnStartBlocking()
+        {
+            if (_isCrouching)
+                return;
+
+            _isBlocking = true;
+
+            UpdateBlockAnimationIndex();
+
+            _animator.SetBool("IsBlocking", _isBlocking);
+        }
+
+        public void OnStopBlocking()
+        {
+            _isBlocking = false;
+            _animator.SetBool("IsBlocking", _isBlocking);
+        }
+
+        public void OnNormalBlockPerformed()
+        {
+            if (!_isBlocking)
+                return;
+
+            UpdateBlockAnimationIndex();
+            _animator.SetTrigger("OnBlockedHit");
+        }
+
+        public void OnPerfectParryPerformed()
+        {
+            if (_isBlocking)
+                _animator.SetTrigger("OnPerfectParryPerformed");
+        }
+
+        public void OnParried()
+        {
+            _animator.SetTrigger("OnParried");
         }
     }
 }

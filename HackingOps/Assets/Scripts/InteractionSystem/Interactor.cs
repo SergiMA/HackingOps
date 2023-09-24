@@ -1,4 +1,5 @@
 ﻿using HackingOps.Common.Events;
+using HackingOps.Common.Services;
 using HackingOps.Input;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,7 +38,8 @@ namespace HackingOps.InteractionSystem
 
             IInteractable interactable = GetClosestInteractable();
 
-            EventQueue.Instance.EnqueueEvent(new InteractionEventData(interactable, interactable.GetTransform()));
+            //EventQueue.Instance.EnqueueEvent(new InteractionEventData(interactable, interactable.GetTransform()));
+            ServiceLocator.Instance.GetService<IEventQueue>().EnqueueEvent(new InteractionEventData(interactable, interactable.GetTransform()));
         }
 
         private void FillInteractablesList()

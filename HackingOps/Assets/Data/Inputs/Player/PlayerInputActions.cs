@@ -197,6 +197,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Block"",
+                    ""type"": ""Value"",
+                    ""id"": ""7d77fca3-508d-4ad1-bf9d-d6956a66c3a2"",
+                    ""expectedControlType"": ""Analog"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -474,6 +483,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""73cfc8cb-9596-4ce6-8ae5-1193b2ff4a8b"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Block"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -501,6 +521,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_ThirdPersonCharacter_ActionMap_SelectWeapon9 = m_ThirdPersonCharacter_ActionMap.FindAction("SelectWeapon9", throwIfNotFound: true);
         m_ThirdPersonCharacter_ActionMap_Lock = m_ThirdPersonCharacter_ActionMap.FindAction("Lock", throwIfNotFound: true);
         m_ThirdPersonCharacter_ActionMap_Interact = m_ThirdPersonCharacter_ActionMap.FindAction("Interact", throwIfNotFound: true);
+        m_ThirdPersonCharacter_ActionMap_Block = m_ThirdPersonCharacter_ActionMap.FindAction("Block", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -581,6 +602,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_ThirdPersonCharacter_ActionMap_SelectWeapon9;
     private readonly InputAction m_ThirdPersonCharacter_ActionMap_Lock;
     private readonly InputAction m_ThirdPersonCharacter_ActionMap_Interact;
+    private readonly InputAction m_ThirdPersonCharacter_ActionMap_Block;
     public struct ThirdPersonCharacter_ActionMapActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -604,6 +626,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @SelectWeapon9 => m_Wrapper.m_ThirdPersonCharacter_ActionMap_SelectWeapon9;
         public InputAction @Lock => m_Wrapper.m_ThirdPersonCharacter_ActionMap_Lock;
         public InputAction @Interact => m_Wrapper.m_ThirdPersonCharacter_ActionMap_Interact;
+        public InputAction @Block => m_Wrapper.m_ThirdPersonCharacter_ActionMap_Block;
         public InputActionMap Get() { return m_Wrapper.m_ThirdPersonCharacter_ActionMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -670,6 +693,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @Block.started += instance.OnBlock;
+            @Block.performed += instance.OnBlock;
+            @Block.canceled += instance.OnBlock;
         }
 
         private void UnregisterCallbacks(IThirdPersonCharacter_ActionMapActions instance)
@@ -731,6 +757,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @Block.started -= instance.OnBlock;
+            @Block.performed -= instance.OnBlock;
+            @Block.canceled -= instance.OnBlock;
         }
 
         public void RemoveCallbacks(IThirdPersonCharacter_ActionMapActions instance)
@@ -769,5 +798,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnSelectWeapon9(InputAction.CallbackContext context);
         void OnLock(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnBlock(InputAction.CallbackContext context);
     }
 }

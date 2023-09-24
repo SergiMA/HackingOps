@@ -5,10 +5,8 @@ using UnityEngine;
 namespace HackingOps.Common.Events
 {
     [DefaultExecutionOrder(-2)]
-    public class EventQueue : MonoBehaviour
+    public class EventQueue : MonoBehaviour, IEventQueue
     {
-        public static EventQueue Instance { get; private set; }
-
         private Queue<EventData> _currentEvents;
         private Queue<EventData> _nextEvents;
 
@@ -16,8 +14,6 @@ namespace HackingOps.Common.Events
 
         private void Awake()
         {
-            Instance = this;
-
             _currentEvents = new Queue<EventData>();
             _nextEvents = new Queue<EventData>();
             _observers = new Dictionary<EventIds, List<IEventObserver>>();

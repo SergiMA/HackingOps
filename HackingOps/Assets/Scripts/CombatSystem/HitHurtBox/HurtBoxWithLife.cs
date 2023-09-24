@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using HackingOps.Characters.Common;
+using HackingOps.Characters.Common.CombatSystem;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace HackingOps.CombatSystem.HitHurtBox
@@ -6,11 +8,15 @@ namespace HackingOps.CombatSystem.HitHurtBox
     public class HurtBoxWithLife : HurtBox
     {
         public UnityEvent<float, float> OnNotifyHitWithLife;
-        public UnityEvent<float, float, Vector3> OnNotifyHitWithLifeAndDirection;
 
         [SerializeField] private float _maxLife = 1f;
         [SerializeField] private float _healthRegeneration = 1f;
         [SerializeField] private float _healthRegenerationCooldown = 5f;
+
+        [Tooltip("Optional. Used to notify about a hit to the Block Controller if it's not null")]
+        [SerializeField] BlockController _blockController;
+
+        bool _isBlocking;
 
         private float _currentLife;
         private float _currentHealthRegenerationCooldown;
@@ -49,16 +55,24 @@ namespace HackingOps.CombatSystem.HitHurtBox
             _currentLife = Mathf.Min(_currentLife, _maxLife);
         }
 
-        public override void NotifyHit(float damage = 1f, Transform byWhom = null)
+        public override void NotifyHit(float damage = 1f, Transform damageDealerTransform = null, CharacterCombat damageDealer = null)
         {
+            Vector3 directionToDamageDealer = Vector3.Normalize(damageDealerTransform.transform.position - transform.position);
+            float dot = Vector3.Dot(transform.forward, directionToDamageDealer);
+
+            if (_isBlocking && dot > 0f && _blockController != null)
+            {
+                _blockController.OnHitReceived(damageDealerTransform, damageDealer);
+                return;
+            }
             _currentHealthRegenerationCooldown = _healthRegenerationCooldown;
 
             _currentLife -= damage;
-            base.NotifyHit(damage, byWhom);
+            base.NotifyHit(damage, damageDealerTransform);
 
-            if (byWhom != null)
+            if (damageDealerTransform != null)
             {
-                OnNotifyHitWithLifeAndDirection.Invoke(_currentLife, _maxLife, (transform.position - byWhom.position).normalized);
+                OnNotifyHitWithLifeAndDirection.Invoke(_currentLife, _maxLife, (transform.position - damageDealerTransform.position).normalized);
             }
             else
             {
@@ -70,5 +84,8 @@ namespace HackingOps.CombatSystem.HitHurtBox
 
             OnNotifyHitWithLife?.Invoke(_currentLife, _maxLife);
         }
+
+        public void OnBlockStarted() => _isBlocking = true;
+        public void OnBlockFinished() => _isBlocking = false;
     }
 }
