@@ -1,7 +1,6 @@
 ﻿using Cinemachine;
 using HackingOps.Characters.Player;
 using HackingOps.Input;
-using HackingOps.Weapons.Common;
 using HackingOps.Weapons.WeaponFoundations;
 using UnityEngine;
 
@@ -9,12 +8,10 @@ namespace HackingOps.Characters.Common
 {
     public class CharacterLock : MonoBehaviour
     {
-        [Header("Bindings")]
-
-        [SerializeField] PlayerInputManager _inputManager;
+        [field: Header("Bindings")]
 
         [field: Space]
-        [SerializeField] public Transform Target { get; private set; }
+        [field: SerializeField] public Transform Target { get; private set; }
 
         [Space]
         [SerializeField] private CinemachineVirtualCameraBase _lockOnCamera;
@@ -28,42 +25,25 @@ namespace HackingOps.Characters.Common
         [SerializeField] private LayerMask _aimColliderLayerMask = Physics.DefaultRaycastLayers;
 
         private PlayerController _playerController;
-        private PlayerWeapons _playerWeapons;
-        private Inventory _inventory;
 
-        private bool _isLocking;
-        private bool _isBlocking;
+        enum AimState
+        {
+            Free,
+            Locking,
+            Blocking,
+        }
+
+        private AimState _aimState;
 
         private void Awake()
         {
             _playerController = GetComponent<PlayerController>();
-            _playerWeapons = GetComponent<PlayerWeapons>();
-            _inventory = GetComponent<Inventory>();
         }
 
         private void Update()
         {
             ProjectRaycastAtScreenCenter();
-
-            if (_isLocking)
-            {
-                _lockOnCamera.gameObject.SetActive(true);
-                _playerController.UseBehaviourProfileOverride(_lockOnBehaviourProfile);
-            }
-            else
-            {
-                _lockOnCamera.gameObject.SetActive(false);
-                _playerController.RecoverOriginalProfileOverride();
-            }
-
-            if (_isBlocking)
-            {
-                _playerController.UseBehaviourProfileOverride(_blockingBehaviourProfile);
-            }
-            else
-            {
-                _playerController.RecoverOriginalProfileOverride();
-            }
+            UpdateBehaviourProfileOverrides();
         }
 
         private void ProjectRaycastAtScreenCenter()
@@ -79,32 +59,30 @@ namespace HackingOps.Characters.Common
             }
         }
 
-        private void ProjectRaycastAtWeaponForward()
+        private void UpdateBehaviourProfileOverrides()
         {
-            if (_aimTarget == null) return;
-            if (_playerWeapons._currentWeaponIndex == -1) return;
-
-            Weapon weapon = _playerWeapons._weapons[_playerWeapons._currentWeaponIndex];
-
-            if (weapon is not FireWeapon) return;
-
-            FireWeapon fireWeapon = weapon as FireWeapon;
-
-            Transform rotationPoint = fireWeapon.GetRotationPoint();
-            Ray ray = new Ray(rotationPoint.position, rotationPoint.forward);
-
-            if (Physics.Raycast(ray, out RaycastHit hit, _maxAimDistance, _aimColliderLayerMask))
+            switch (_aimState)
             {
-                _aimTarget.position = hit.point;
+                case AimState.Free:
+                    _lockOnCamera.gameObject.SetActive(false);
+                    _playerController.RecoverOriginalProfileOverride();
+                    break;
+                case AimState.Locking:
+                    _lockOnCamera.gameObject.SetActive(true);
+                    _playerController.UseBehaviourProfileOverride(_lockOnBehaviourProfile);
+                    break;
+                case AimState.Blocking:
+                    _playerController.UseBehaviourProfileOverride(_blockingBehaviourProfile);
+                    break;
             }
         }
 
-        public void OnStartLocking() => _isLocking = true;
+        public void OnStartLocking() => _aimState = AimState.Locking;
 
-        public void OnStopLocking() => _isLocking = false;
+        public void OnStopLocking() => _aimState = AimState.Free;
 
-        public void OnStartBlocking() => _isBlocking = true;
+        public void OnStartBlocking() => _aimState = AimState.Blocking;
 
-        public void OnStopBlocking() => _isBlocking = false;
+        public void OnStopBlocking() => _aimState = AimState.Free;
     }
 }

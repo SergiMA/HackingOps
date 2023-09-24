@@ -27,6 +27,11 @@ namespace HackingOps.Weapons.Barrels
         protected override void InternalStartShooting() => _isShooting = true;
 
         protected override void InternalStopShooting() => _isShooting = false;
+        public override void ResetBarrel()
+        {
+            base.ResetBarrel();
+            _isShooting = false;
+        }
         #endregion
     }
 }

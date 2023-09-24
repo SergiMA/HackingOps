@@ -79,6 +79,9 @@ namespace HackingOps.Characters.Entities
         private bool _oldMustShoot = false;
         private void Update()
         {
+            if (_currentWeapon == null)
+                return;
+
             if (_currentWeapon is FireWeapon)
             {
                 FireWeapon fireWeapon = _currentWeapon as FireWeapon;

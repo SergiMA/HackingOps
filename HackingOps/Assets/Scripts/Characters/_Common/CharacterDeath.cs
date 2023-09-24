@@ -4,14 +4,19 @@ using HackingOps.Characters.Player;
 using HackingOps.CombatSystem.HitHurtBox;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 namespace HackingOps.Characters.Common
 {
     public class CharacterDeath : MonoBehaviour
     {
+        public UnityEvent OnDead;
+
+        [SerializeField] private float pushForce = 10f;
+
+        [Header("Debug")]
         [SerializeField] private bool _debugDie;
         [SerializeField] private Vector3 _debugDieDirection;
-        [SerializeField] private float pushForce = 10f;
 
         private void OnValidate()
         {
@@ -24,19 +29,10 @@ namespace HackingOps.Characters.Common
 
         private void Awake()
         {
-            //GetComponent<HurtBoxWithLife>()?.OnNotifyHitWithLife.AddListener(OnNotifyHitWithLife);
             GetComponent<HurtBoxWithLife>()?.OnNotifyHitWithLifeAndDirection.AddListener(OnNotifyHitWithLifeAndDirection);
         }
 
         private float _lastNotifiedLife = Mathf.Infinity;
-        //private void OnNotifyHitWithLife(float currentLife, float maxLife)
-        //{
-        //    if (_lastNotifiedLife > 0)
-        //    {
-        //        if (currentLife <= 0f){ Die(); } 
-        //        _lastNotifiedLife = currentLife;
-        //    }
-        //}
 
         private void OnNotifyHitWithLifeAndDirection(float currentLife, float maxLife, Vector3 direction)
         {
@@ -49,15 +45,15 @@ namespace HackingOps.Characters.Common
 
         public void Die(Vector3 direction)
         {
-            if (TryGetComponent<NavMeshAgent>(out NavMeshAgent agent)) { agent.enabled = false; }
-            if (TryGetComponent<Collider>(out Collider collider)) { collider.enabled = false; }
-            if (TryGetComponent<SeekTargetState>(out SeekTargetState nonPlayableCharacter)) { nonPlayableCharacter.enabled = false; }
-            if (TryGetComponent<PlayerController>(out PlayerController playerController)) { playerController.enabled = false; }
+            if (TryGetComponent(out NavMeshAgent agent)) { agent.enabled = false; }
+            if (TryGetComponent(out Collider collider)) { collider.enabled = false; }
+            if (TryGetComponent(out SeekTargetState nonPlayableCharacter)) { nonPlayableCharacter.enabled = false; }
+            if (TryGetComponent(out PlayerController playerController)) { playerController.enabled = false; }
 
             EntityDecisionMaker entityDecisionMaker = transform.parent.GetComponentInChildren<EntityDecisionMaker>();
             entityDecisionMaker?.gameObject.SetActive(false);
 
-            if (transform.parent.TryGetComponent<EntityDecisionMaker>(out EntityDecisionMaker decisionMaker))
+            if (transform.parent.TryGetComponent(out EntityDecisionMaker decisionMaker))
             {
                 decisionMaker.gameObject.SetActive(false);
             }
@@ -66,6 +62,8 @@ namespace HackingOps.Characters.Common
             if (animator) { animator.enabled = false; }
 
             GetComponentInChildren<CharacterRagdollController>()?.ActivateRagdoll(direction * pushForce);
+
+            OnDead.Invoke();
         }
     }
 }

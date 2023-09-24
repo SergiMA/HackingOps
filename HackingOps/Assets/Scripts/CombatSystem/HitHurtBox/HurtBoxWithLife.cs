@@ -57,13 +57,16 @@ namespace HackingOps.CombatSystem.HitHurtBox
 
         public override void NotifyHit(float damage = 1f, Transform damageDealerTransform = null, CharacterCombat damageDealer = null)
         {
-            Vector3 directionToDamageDealer = Vector3.Normalize(damageDealerTransform.transform.position - transform.position);
-            float dot = Vector3.Dot(transform.forward, directionToDamageDealer);
-
-            if (_isBlocking && dot > 0f && _blockController != null)
+            if (damageDealerTransform != null)
             {
-                _blockController.OnHitReceived(damageDealerTransform, damageDealer);
-                return;
+                Vector3 directionToDamageDealer = Vector3.Normalize(damageDealerTransform.transform.position - transform.position);
+                float dot = Vector3.Dot(transform.forward, directionToDamageDealer);
+
+                if (_isBlocking && dot > 0f && _blockController != null)
+                {
+                    _blockController.OnHitReceived(damageDealerTransform, damageDealer);
+                    return;
+                }
             }
             _currentHealthRegenerationCooldown = _healthRegenerationCooldown;
 

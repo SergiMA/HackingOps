@@ -678,9 +678,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31baba0a9f9667447b12a8ebf0db2385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDead:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2240497498994029778}
+        m_TargetAssemblyTypeName: HackingOps.Weapons.Common.Inventory, Assembly-CSharp
+        m_MethodName: DropAllWeapons
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  pushForce: 20
   _debugDie: 0
   _debugDieDirection: {x: 0, y: 0, z: 0}
-  pushForce: 20
 --- !u!114 &4447745349528878143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1195,7 +1210,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1328811800092129762}
-  m_LocalRotation: {x: 0.21522585, y: 0.668739, z: -0.2118481, w: 0.6794015}
+  m_LocalRotation: {x: 0.21522585, y: 0.66873896, z: -0.21184808, w: 0.6794016}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4098,7 +4113,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8050290440294103199}
-  m_LocalRotation: {x: 0.094326876, y: -0.00000001661082, z: 0.0000000015738643, w: 0.9955413}
+  m_LocalRotation: {x: 0.094326876, y: -0.000000016610821, z: 0.0000000015738644,
+    w: 0.9955413}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

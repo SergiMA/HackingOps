@@ -109,10 +109,19 @@ namespace HackingOps.Weapons.Common
 
             EquipmentSlot equipmentSlot = GetEquipmentSlotByWeaponSlot(slotToEmpty.Slot);
             OnWeaponDropped?.Invoke(equipmentSlot.Weapon);
+            equipmentSlot.Weapon.ResetWeapon();
             equipmentSlot.Weapon.Drop();
             equipmentSlot.Weapon = null;
             if (GetCurrentSlot().Weapon == null)
                 SwitchSlot(GetCurrentSlot(), GetEquipmentSlotByWeaponSlot(WeaponSlot.Unarmed));
+        }
+        
+        public void DropAllWeapons()
+        {
+            foreach (EquipmentSlot slot in _equipmentSlots)
+            {
+                DropWeaponFromSlot(slot);
+            }
         }
 
         public EquipmentSlot GetCurrentWeaponSlot()
