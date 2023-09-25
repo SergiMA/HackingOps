@@ -14,7 +14,7 @@ namespace HackingOps.Platforms
         [Header("Settings")]
         [SerializeField] private float _scanningDuration = 0.1f;
 
-        private List<ObjectOnPlatform> _objectsOnPlatform = new List<ObjectOnPlatform>();
+        private HashSet<ObjectOnPlatform> _objectsOnPlatform = new();
         private float _currentScanningDuration;
 
         private void Start()
@@ -31,7 +31,6 @@ namespace HackingOps.Platforms
 
                 if (_currentScanningDuration <= 0f)
                 {
-                    _scannerCollider.enabled = false;
                     OnScanPerformed.Invoke();
                 }
             }
@@ -40,12 +39,26 @@ namespace HackingOps.Platforms
         private void OnTriggerEnter(Collider other)
         {
             Transform objectDetected = other.transform;
-
             ObjectOnPlatform newObject = new ObjectOnPlatform(objectDetected, objectDetected.parent);
+
+            if (ContainsDetectedObject(newObject))
+                return;
+
             _objectsOnPlatform.Add(newObject);
 
             objectDetected.SetParent(transform);
         }
+
+        private bool ContainsDetectedObject(ObjectOnPlatform newObject)
+        {
+            foreach (ObjectOnPlatform objectOnPlatform in _objectsOnPlatform)
+            {
+                if (objectOnPlatform.ObjectTransform == newObject.ObjectTransform)
+                    return true;
+            }
+
+            return false;
+        }    
 
         public void Load()
         {
@@ -56,6 +69,7 @@ namespace HackingOps.Platforms
 
         public void Unload()
         {
+            _scannerCollider.enabled = false;
             foreach (ObjectOnPlatform objectOnPlatform in _objectsOnPlatform)
             {
                 objectOnPlatform.ObjectTransform.SetParent(objectOnPlatform.PreviousParent);

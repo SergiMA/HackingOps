@@ -13,6 +13,7 @@ namespace HackingOps.Weapons.WeaponFoundations
 
         [HideInInspector] public bool IsUsedByAI;
 
+        [SerializeField] private string _interactionText = "interaction_grab";
 
         [Header("Debug")]
         [SerializeField] private bool _debugUse;
@@ -118,7 +119,7 @@ namespace HackingOps.Weapons.WeaponFoundations
 
             _canBeInteracted = false;
         }
-        public virtual void Store() 
+        public virtual void Store()
         {
             foreach (MeshRenderer renderer in _renderers)
             {
@@ -148,6 +149,11 @@ namespace HackingOps.Weapons.WeaponFoundations
         public bool CanBeInteracted() => _canBeInteracted;
 
         public Transform GetTransform() => transform;
+
+        public string GetInteractableText() => _interactionText;
+
+        public void EnableInteractions() { }
+        public void DisableInteractions() { }
         #endregion
     }
 }

@@ -7,5 +7,8 @@ namespace HackingOps.InteractionSystem
         void Interact();
         Transform GetTransform();
         bool CanBeInteracted();
+        string GetInteractableText();
+        void EnableInteractions();
+        void DisableInteractions();
     }
 }

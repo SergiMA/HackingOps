@@ -1,4 +1,6 @@
+using DG.Tweening;
 using HackingOps.Doors.AnimatedDoors;
+using HackingOps.InteractionSystem;
 using UnityEngine;
 
 namespace HackingOps.Platforms
@@ -10,6 +12,10 @@ namespace HackingOps.Platforms
         [SerializeField] private AnimatedDoor[] _animatedDoors;
         [SerializeField] private PlatformParenter _platformParenter;
         [SerializeField] private WaypointTraveler _waypointTraveler;
+        [SerializeField] private ButtonInteractable _controlPanel;
+
+        [Header("Settings")]
+        [SerializeField] private float _returnInteractionToControlPanelDelay = 2f; // seconds
 
         [Header("Debug")]
         [SerializeField] private bool _interact;
@@ -21,10 +27,7 @@ namespace HackingOps.Platforms
             {
                 _interact = false;
 
-                foreach (AnimatedDoor animatedDoor in _animatedDoors)
-                {
-                    animatedDoor.Close();
-                }
+                Move();
             }
 
             if (_unload)
@@ -35,6 +38,28 @@ namespace HackingOps.Platforms
                 {
                     animatedDoor.Open();
                 }
+            }
+        }
+
+        public void Move()
+        {
+            _controlPanel.DisableInteractions();
+            CloseDoors();
+        }
+
+        public void CloseDoors()
+        {
+            foreach (AnimatedDoor animatedDoor in _animatedDoors)
+            {
+                animatedDoor.Close();
+            }
+        }
+
+        public void OpenDoors()
+        {
+            foreach (AnimatedDoor animatedDoor in _animatedDoors)
+            {
+                animatedDoor.Open();
             }
         }
 
@@ -52,10 +77,8 @@ namespace HackingOps.Platforms
         {
             _platformParenter.Unload();
 
-            foreach (AnimatedDoor animatedDoor in _animatedDoors)
-            {
-                animatedDoor.Open();
-            }
+            OpenDoors();
+            DOVirtual.DelayedCall(_returnInteractionToControlPanelDelay, () => _controlPanel.EnableInteractions());
         }
     }
 }

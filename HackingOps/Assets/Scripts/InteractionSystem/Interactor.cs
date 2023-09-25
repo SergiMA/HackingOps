@@ -9,8 +9,6 @@ namespace HackingOps.InteractionSystem
 {
     public class Interactor : MonoBehaviour
     {
-        public UnityEvent<IInteractable> OnInteractWithObject;
-
         [SerializeField] PlayerInputManager _inputManager;
         [SerializeField] Transform _interactionPoint;
 
@@ -28,6 +26,11 @@ namespace HackingOps.InteractionSystem
             _inputManager.OnInteract -= OnInteract;
         }
 
+        private void OnDrawGizmos()
+        {
+            Gizmos.DrawWireSphere(_interactionPoint.position, _interactionRadius);
+        }
+
         private void OnInteract()
         {
             _interactables.Clear();
@@ -38,7 +41,6 @@ namespace HackingOps.InteractionSystem
 
             IInteractable interactable = GetClosestInteractable();
 
-            //EventQueue.Instance.EnqueueEvent(new InteractionEventData(interactable, interactable.GetTransform()));
             ServiceLocator.Instance.GetService<IEventQueue>().EnqueueEvent(new InteractionEventData(interactable, interactable.GetTransform()));
         }
 
