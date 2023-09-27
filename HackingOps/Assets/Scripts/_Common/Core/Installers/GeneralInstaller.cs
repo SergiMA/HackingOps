@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace HackingOps.Common.Core.Installers
 {
-    [DefaultExecutionOrder(-2)]
+    [DefaultExecutionOrder(-10)]
     public abstract class GeneralInstaller : MonoBehaviour
     {
         [SerializeField] private Installer[] _installers;

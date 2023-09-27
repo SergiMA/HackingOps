@@ -1,7 +1,4 @@
-﻿using HackingOps.InteractionSystem;
-using UnityEngine;
-
-namespace HackingOps.Common.Events
+﻿namespace HackingOps.Common.Events
 {
     public class EventData
     {
@@ -10,18 +7,6 @@ namespace HackingOps.Common.Events
         public EventData(EventIds eventId)
         {
             EventId = eventId;
-        }
-    }
-
-    public class InteractionEventData : EventData
-    {
-        public readonly IInteractable Interactable;
-        public readonly Transform InteractableTransform;
-
-        public InteractionEventData(IInteractable interactable, Transform interactableTransform) : base(EventIds.Interaction)
-        {
-            Interactable = interactable;
-            InteractableTransform = interactableTransform;
         }
     }
 }

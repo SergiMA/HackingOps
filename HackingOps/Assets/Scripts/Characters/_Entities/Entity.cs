@@ -1,7 +1,6 @@
+using HackingOps.Characters.Common;
 using HackingOps.Characters.NPC.Senses;
 using HackingOps.Characters.NPC.States;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;

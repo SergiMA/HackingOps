@@ -2,6 +2,8 @@
 using HackingOps.Characters.NPC.States;
 using HackingOps.Characters.Player;
 using HackingOps.CombatSystem.HitHurtBox;
+using HackingOps.Common.Events;
+using HackingOps.Common.Services;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -64,6 +66,8 @@ namespace HackingOps.Characters.Common
             GetComponentInChildren<CharacterRagdollController>()?.ActivateRagdoll(direction * pushForce);
 
             OnDead.Invoke();
+            if (TryGetComponent(out CharacterIdentification identification))
+                ServiceLocator.Instance.GetService<IEventQueue>().EnqueueEvent(new CharacterDiedData(identification.Id));
         }
     }
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace HackingOps.Common.Core.Installers
 {
-    [DefaultExecutionOrder(-1)]
     public class EventQueueInstaller : Installer
     {
         [SerializeField] private EventQueue _eventQueue;
