@@ -23,14 +23,14 @@ namespace HackingOps.Common.QuestSystem
         {
             base.SubscribeToEvents();
 
-            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.OnZoneStepped, this);
+            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.ZoneStepped, this);
         }
 
         public override void UnsubscribeFromEvents()
         {
             base.UnsubscribeFromEvents();
 
-            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.OnZoneStepped, this);
+            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.ZoneStepped, this);
         }
 
         public override void Process(EventData eventData)
@@ -38,7 +38,7 @@ namespace HackingOps.Common.QuestSystem
             if (IsCompleted)
                 return;
 
-            if (eventData.EventId != EventIds.OnZoneStepped)
+            if (eventData.EventId != EventIds.ZoneStepped)
                 return;
 
             ZoneSteppedData data = eventData as ZoneSteppedData;

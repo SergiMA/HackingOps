@@ -5,6 +5,9 @@
         Interaction,
         CharacterDied,
         QuestCompleted,
-        OnZoneStepped,
+        ZoneStepped,
+        CutsceneStarted,
+        CutsceneFinished,
+        StopUsingLaptop,
     }
 }

@@ -25,7 +25,6 @@ namespace HackingOps.Characters.Player
             Local,
         }
 
-        //[SerializeField] private MovementMode _movementMode = MovementMode.Local;
         [SerializeField] private Transform _movementCamera;
 
         public enum OrientationMode
@@ -35,9 +34,6 @@ namespace HackingOps.Characters.Player
             LookAtTarget,
         }
 
-        //[SerializeField] private OrientationMode _orientationMode = OrientationMode.MovementForward;
-
-        [SerializeField] private Transform _orientationCamera;
         [SerializeField] private Transform _orientationTarget;
 
         [Header("Camera info")]
@@ -90,8 +86,6 @@ namespace HackingOps.Characters.Player
         {
             _inputManager.OnJump += OnJump;
             _inputManager.OnCrouchPressed += SwitchCrouch;
-            //_inputManager.OnStartAiming += OnStartAimingPressed;
-            //_inputManager.OnStopAiming += OnStopAimingPressed;
 
             _characterCombat.OnMustAttack += OnAttack;
         }
@@ -100,8 +94,6 @@ namespace HackingOps.Characters.Player
         {
             _inputManager.OnJump -= OnJump;
             _inputManager.OnCrouchPressed -= SwitchCrouch;
-            //_inputManager.OnStartAiming -= OnStartAimingPressed;
-            //_inputManager.OnStopAiming -= OnStopAimingPressed;
 
             _characterCombat.OnMustAttack -= OnAttack;
         }

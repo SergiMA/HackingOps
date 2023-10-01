@@ -6,7 +6,7 @@ namespace HackingOps.Common.Events
     {
         public readonly Zone Zone;
 
-        public ZoneSteppedData(Zone zone) : base(EventIds.OnZoneStepped)
+        public ZoneSteppedData(Zone zone) : base(EventIds.ZoneStepped)
         {
             Zone = zone;
         }
