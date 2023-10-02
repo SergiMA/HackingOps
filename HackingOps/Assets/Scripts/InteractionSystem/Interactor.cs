@@ -13,6 +13,7 @@ namespace HackingOps.InteractionSystem
         [SerializeField] Transform _interactionPoint;
 
         [SerializeField] private float _interactionRadius = 2f;
+        [SerializeField] private float _dotThreshold = 0.7f;
 
         private List<IInteractable> _interactables = new();
 
@@ -51,7 +52,13 @@ namespace HackingOps.InteractionSystem
             {
                 if (collider.TryGetComponent(out IInteractable interactable))
                 {
-                    _interactables.Add(interactable);
+                    if (Physics.Linecast(_interactionPoint.position, interactable.GetTransform().position))
+                    {
+                        if (IsInteractableInFront(interactable))
+                        {
+                            _interactables.Add(interactable);
+                        }
+                    }
                 }
             }
         }
@@ -75,6 +82,14 @@ namespace HackingOps.InteractionSystem
             }
 
             return closestInteractable;
+        }
+
+        private bool IsInteractableInFront(IInteractable interactable)
+        {
+            Vector3 directionToInteractable = Vector3.Normalize(interactable.GetTransform().position - _interactionPoint.position);
+            float dot = Vector3.Dot(_interactionPoint.forward, directionToInteractable);
+
+            return dot >= _dotThreshold;
         }
     }
 }

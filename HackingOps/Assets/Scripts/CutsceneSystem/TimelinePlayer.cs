@@ -3,6 +3,7 @@ using HackingOps.Common.Events;
 using HackingOps.Common.Services;
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Playables;
 
 namespace HackingOps.CutsceneSystem
@@ -10,7 +11,7 @@ namespace HackingOps.CutsceneSystem
     [RequireComponent(typeof(PlayableDirector))]
     public class TimelinePlayer : MonoBehaviour
     {
-        public event Action OnFinished;
+        public UnityEvent OnFinished;
 
         [SerializeField] private bool _notifyWhenFinished;
 
@@ -35,7 +36,7 @@ namespace HackingOps.CutsceneSystem
             if (_playableDirector.state != PlayState.Playing)
             {
                 _isPlaying = false;
-                OnFinished?.Invoke();
+                OnFinished.Invoke();
 
                 if (!_notifyWhenFinished)
                     return;
