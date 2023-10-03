@@ -4,6 +4,7 @@ using HackingOps.Characters.Player;
 using HackingOps.CombatSystem.HitHurtBox;
 using HackingOps.Common.Events;
 using HackingOps.Common.Services;
+using HackingOps.Weapons.Common;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -68,6 +69,8 @@ namespace HackingOps.Characters.Common
             OnDead.Invoke();
             if (TryGetComponent(out CharacterIdentification identification))
                 ServiceLocator.Instance.GetService<IEventQueue>().EnqueueEvent(new CharacterDiedData(identification.Id));
+
+            if (TryGetComponent(out Inventory inventory)) { inventory.enabled = false; }
         }
     }
 }

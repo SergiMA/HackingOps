@@ -142,8 +142,18 @@ namespace HackingOps.Weapons.WeaponFoundations
         }
 
         #region IInteractable implementation
-        public void Interact()
+        public void Interact(Interactor interactor)
         {
+            if (interactor == null)
+                return;
+
+            if (!CanBeInteracted())
+                return;
+
+            if (interactor.TryGetComponent(out Inventory inventory))
+            {
+                inventory.AddWeapon(this);
+            }
         }
 
         public bool CanBeInteracted() => _canBeInteracted;

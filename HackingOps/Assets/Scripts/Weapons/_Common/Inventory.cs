@@ -1,13 +1,11 @@
-﻿using HackingOps.Common.Events;
-using HackingOps.Common.Services;
-using HackingOps.Weapons.WeaponFoundations;
+﻿using HackingOps.Weapons.WeaponFoundations;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace HackingOps.Weapons.Common
 {
-    public class Inventory : MonoBehaviour, IEventObserver
+    public class Inventory : MonoBehaviour
     {
         public event Action<Weapon> OnWeaponAdded;
         public event Action<Weapon, Weapon> OnWeaponSwitched;
@@ -23,16 +21,6 @@ namespace HackingOps.Weapons.Common
         private void Awake()
         {
             InitializeSlots();
-        }
-
-        private void OnEnable()
-        {
-            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.Interaction, this);
-        }
-
-        public void OnDisable()
-        {
-            ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.Interaction, this);
         }
 
         private void Start()
@@ -208,21 +196,5 @@ namespace HackingOps.Weapons.Common
             Debug.LogError($"Can't get equipment slot's index because no slot named {weaponSlot} has been found in the Equipment Slots.", gameObject);
             return -1;
         }
-
-        #region IInteractable implementation
-        public void Process(EventData eventData)
-        {
-            if (eventData.EventId != EventIds.Interaction) return;
-
-            InteractionEventData data = eventData as InteractionEventData;
-            if (data.InteractableTransform.TryGetComponent(out Weapon weapon))
-            {
-                if (weapon.CanBeInteracted())
-                {
-                    AddWeapon(weapon);
-                }
-            }
-        }
-        #endregion
     }
 }

@@ -4,7 +4,7 @@ namespace HackingOps.InteractionSystem
 {
     public interface IInteractable
     {
-        void Interact();
+        void Interact(Interactor interactor);
         Transform GetTransform();
         bool CanBeInteracted();
         string GetInteractableText();

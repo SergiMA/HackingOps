@@ -42,6 +42,7 @@ namespace HackingOps.InteractionSystem
 
             IInteractable interactable = GetClosestInteractable();
 
+            interactable.Interact(this);
             ServiceLocator.Instance.GetService<IEventQueue>().EnqueueEvent(new InteractionEventData(interactable, interactable.GetTransform()));
         }
 

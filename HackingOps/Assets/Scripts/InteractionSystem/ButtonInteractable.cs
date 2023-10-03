@@ -1,11 +1,9 @@
-﻿using HackingOps.Common.Events;
-using HackingOps.Common.Services;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 namespace HackingOps.InteractionSystem
 {
-    public class ButtonInteractable : MonoBehaviour, IInteractable, IEventObserver
+    public class ButtonInteractable : MonoBehaviour, IInteractable
     {
         public UnityEvent OnInteracted;
 
@@ -13,14 +11,11 @@ namespace HackingOps.InteractionSystem
 
         private bool _isInteractable = true;
 
-        private void OnEnable()
+        private void ProcessInteraction()
         {
-            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.Interaction, this);
-        }
+            if (!_isInteractable) return;
 
-        private void OnDisable()
-        {
-            ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.Interaction, this);
+            OnInteracted.Invoke();
         }
 
         #region IInteractable implementation
@@ -34,23 +29,9 @@ namespace HackingOps.InteractionSystem
 
         public Transform GetTransform() => transform;
 
-        public void Interact()
+        public void Interact(Interactor interactor)
         {
-            if (!_isInteractable) return;
-
-            OnInteracted.Invoke();
-        }
-        #endregion
-
-        #region IEventObserver implementation
-        public void Process(EventData eventData)
-        {
-            if (eventData.EventId != EventIds.Interaction) return;
-
-            InteractionEventData data = eventData as InteractionEventData;
-            if (data.InteractableTransform != transform) return;
-
-            Interact();
+            ProcessInteraction();
         }
         #endregion
     }
