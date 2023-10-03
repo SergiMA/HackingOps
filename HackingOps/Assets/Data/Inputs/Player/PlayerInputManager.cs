@@ -33,6 +33,20 @@ namespace HackingOps.Input
         {
             _inputActions.Enable();
 
+            SubscribeToEvents();
+        }
+
+        private void OnDisable()
+        {
+            ResetInputs();
+
+            UnsubscribeFromEvents();
+
+            _inputActions.Disable();
+        }
+
+        private void SubscribeToEvents()
+        {
             _inputActions.ThirdPersonCharacter_ActionMap.Move.performed += Move;
             _inputActions.ThirdPersonCharacter_ActionMap.Move.canceled += Move;
 
@@ -69,7 +83,7 @@ namespace HackingOps.Input
             _inputActions.ThirdPersonCharacter_ActionMap.Interact.performed += Interact;
         }
 
-        private void OnDisable()
+        private void UnsubscribeFromEvents()
         {
             _inputActions.ThirdPersonCharacter_ActionMap.Move.performed -= Move;
             _inputActions.ThirdPersonCharacter_ActionMap.Move.canceled -= Move;
@@ -105,8 +119,12 @@ namespace HackingOps.Input
             _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon9.performed -= SelectWeapon9;
 
             _inputActions.ThirdPersonCharacter_ActionMap.Interact.performed -= Interact;
+        }
 
-            _inputActions.Disable();
+        private void ResetInputs()
+        {
+            MoveInput = Vector2.zero;
+            IsRunning = false;
         }
 
         private void Move(InputAction.CallbackContext ctx)
