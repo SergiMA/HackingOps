@@ -14,6 +14,8 @@ namespace HackingOps.Characters.Player
         private float _freeLookPreviousXAxisMaxSpeed;
         private float _freeLookPreviousYAxisMaxSpeed;
 
+        private bool _isDisabled;
+
         private void OnEnable()
         {
             ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.CutsceneStarted, this);
@@ -43,12 +45,17 @@ namespace HackingOps.Characters.Player
 
         public void EnableInput()
         {
+            _isDisabled = false;
             _inputManager.enabled = true;
             RestoreFreeLookMaxSpeed();
         }
 
         public void DisableInput()
         {
+            if (_isDisabled)
+                return;
+
+            _isDisabled = true;
             _inputManager.enabled = false;
             ImmobilizeFreeLookMaxSpeed();
         }

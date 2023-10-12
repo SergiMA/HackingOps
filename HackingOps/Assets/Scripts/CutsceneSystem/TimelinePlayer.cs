@@ -65,5 +65,12 @@ namespace HackingOps.CutsceneSystem
                 .GetService<CutsceneCameraController>()
                 .SetCutsceneCamera(cutsceneCamera);
         }
+        
+        public void OnImmediatelyUseCutsceneCameraSignalReceived(CinemachineVirtualCamera cutsceneCamera)
+        {
+            ServiceLocator.Instance
+                .GetService<CutsceneCameraController>()
+                .SetCutsceneCamera(cutsceneCamera, 0f);
+        }
     }
 }

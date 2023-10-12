@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: ChatDialogues Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: ChatDialogues
+  m_TableCollectionNameGuidString: 932affe03ff16ae4e9abd96fc5487491
+  m_Entries:
+  - m_Id: 17551339520
+    m_Key: agent_placeholder_text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111524720640
+    m_Key: employer_placeholder_text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19374893445120
+    m_Key: first_assignment_dialogue_01
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23597353807872
+    m_Key: first_assignment_dialogue_02
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23699040514048
+    m_Key: first_assignment_dialogue_03
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23784163913728
+    m_Key: first_assignment_dialogue_04
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23848588423168
+    m_Key: first_assignment_dialogue_05
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23929911783424
+    m_Key: first_assignment_dialogue_06
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6325621428879097952
+  references:
+    version: 2
+    RefIds:
+    - rid: 6325621428879097952
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1696779771540

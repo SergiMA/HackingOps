@@ -1,0 +1,33 @@
+﻿using HackingOps.Screens.UI.ChatScreen;
+using UnityEngine;
+
+namespace HackingOps.UI.Scrolling
+{
+    public class ChatScroller : MonoBehaviour
+    {
+        [SerializeField] private Dialogue _dialogue;
+        [SerializeField] private ScrollViewAutoScroll _autoScroll;
+
+        private void OnEnable()
+        {
+            _dialogue.OnNewMessageAppeared += OnNewMessageAppeared;
+        }
+
+        private void OnDisable()
+        {
+            _dialogue.OnNewMessageAppeared -= OnNewMessageAppeared;
+        }
+
+        private void OnNewMessageAppeared(MessageBubble[] messageBubbles, int messageIndex)
+        {
+            GameObject[] messageElements = new GameObject[messageBubbles.Length];
+
+            for (int i = 0; i < messageBubbles.Length; i++)
+            {
+                messageElements[i] = messageBubbles[i].gameObject;
+            }
+
+            _autoScroll.ScrollToElement(messageElements, messageIndex);
+        }
+    }
+}

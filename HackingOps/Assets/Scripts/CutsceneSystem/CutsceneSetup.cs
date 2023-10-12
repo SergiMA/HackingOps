@@ -15,12 +15,23 @@ namespace HackingOps.CutsceneSystem
         [SerializeField] private Transform _destination;
 
         [Header("Settings - Moving transform <i>(optional)</i>")]
-        [SerializeField] private float _movingDurationInSeconds = 0.5f; 
+        [SerializeField] private float _movingDurationInSeconds = 0.5f;
+
+        [Header("Settings - Behaviour at the start")]
+        [SerializeField] private bool _startOnAwake;
+
+        private void Start()
+        {
+            if (!_startOnAwake)
+                return;
+
+            Play();
+        }
 
         public void Play()
         {
             if (_transformToPosition == null || _destination == null)
-                _timelinePlayer.Play();
+                StartCutscene();
             else
                 MoveToPosition();
         }
@@ -30,11 +41,11 @@ namespace HackingOps.CutsceneSystem
             Vector3 targetDestination = _destination.position;
             targetDestination.y = _transformToPosition.position.y;
             
-            _transformToPosition.DOMove(targetDestination, _movingDurationInSeconds).onComplete = OnPlayerMoved;
+            _transformToPosition.DOMove(targetDestination, _movingDurationInSeconds).onComplete = StartCutscene;
             _transformToPosition.DORotateQuaternion(_destination.rotation, _movingDurationInSeconds);
         }
 
-        private void OnPlayerMoved()
+        private void StartCutscene()
         {
             _timelinePlayer.Play();
             

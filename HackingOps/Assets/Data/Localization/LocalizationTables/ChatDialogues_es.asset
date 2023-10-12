@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: ChatDialogues_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 932affe03ff16ae4e9abd96fc5487491, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 17551339520
+    m_Localized: "Esto es una burbuja de di\xE1logo del Agente"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111524720640
+    m_Localized: "Esto es una burbuja de di\xE1logo del Empleador"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19374893445120
+    m_Localized: "Estoy dentro. Consegu\xED infiltrarme en una caja de carga que
+      fue entregada al almac\xE9n subterraneo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23597353807872
+    m_Localized: "Buen trabajo, agente. Ahora, necesitas encontrar una manera de
+      llegar a la superficie y encontrar el edificio donde los planos est\xE1n almacenados"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23699040514048
+    m_Localized: "Ya s\xE9 donde est\xE1n los planos. A lo mejor puedo encontrar
+      algunas puertas cerradas, pero puedo abrirlas con mi dispositivo de hackeo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23784163913728
+    m_Localized: "Bien. Ten cuidado. El enemigo puede tener sistemas de seguridad.
+      Recomendar\xEDa discreci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23848588423168
+    m_Localized: "No te preocupes. Conseguir\xE9 los planos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23929911783424
+    m_Localized: Buena suerte, agente
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

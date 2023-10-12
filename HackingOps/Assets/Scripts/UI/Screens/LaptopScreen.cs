@@ -8,7 +8,8 @@ namespace HackingOps.Screens.UI
 {
     public class LaptopScreen : MonoBehaviour
     {
-        public void OnStartButtonPressed()
+        
+        public void OnCloseButtonPressed()
         {
             ServiceLocator.Instance.GetService<CommandQueue>().AddCommand(new StopUsingLaptopCommand());
         }

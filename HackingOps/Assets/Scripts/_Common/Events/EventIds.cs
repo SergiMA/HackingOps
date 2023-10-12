@@ -9,5 +9,6 @@
         CutsceneStarted,
         CutsceneFinished,
         StopUsingLaptop,
+        DialogueCompleted,
     }
 }
