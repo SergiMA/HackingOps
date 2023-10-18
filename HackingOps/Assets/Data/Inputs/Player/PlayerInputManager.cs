@@ -14,6 +14,8 @@ namespace HackingOps.Input
         public event Action OnInteract;
         public event Action OnStartAiming;
         public event Action OnStopAiming;
+        public event Action OnEnterHackingMode;
+        public event Action OnLeaveHackingMode;
 
         public Vector2 MoveInput { get; private set; }
         public Vector2 MouseInput { get; private set; }
@@ -33,19 +35,32 @@ namespace HackingOps.Input
         {
             _inputActions.Enable();
 
-            SubscribeToEvents();
+            SubscribeToEventsFromEachActionMap();
+            SwitchToPlayerActionMap();
         }
 
         private void OnDisable()
         {
             ResetInputs();
 
-            UnsubscribeFromEvents();
+            UnsubscribeFromEventsFromEachActionMap();
 
             _inputActions.Disable();
         }
+        
+        private void SubscribeToEventsFromEachActionMap()
+        {
+            SubscribeToEventsFromThirdPersonCharacterActionMap();
+            SubscribeToEventsFromHackingModeActionMap();
+        }
 
-        private void SubscribeToEvents()
+        private void UnsubscribeFromEventsFromEachActionMap()
+        {
+            UnsubscribeFromEventsFromThirdPersonCharacterActionMap();
+            UnsubscribeFromEventsFromHackingModeActionMap();
+        }
+
+        private void SubscribeToEventsFromThirdPersonCharacterActionMap()
         {
             _inputActions.ThirdPersonCharacter_ActionMap.Move.performed += Move;
             _inputActions.ThirdPersonCharacter_ActionMap.Move.canceled += Move;
@@ -81,9 +96,16 @@ namespace HackingOps.Input
             _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon9.performed += SelectWeapon9;
 
             _inputActions.ThirdPersonCharacter_ActionMap.Interact.performed += Interact;
+
+            _inputActions.ThirdPersonCharacter_ActionMap.EnterHackingMode.performed += BeginHacking;
         }
 
-        private void UnsubscribeFromEvents()
+        private void SubscribeToEventsFromHackingModeActionMap()
+        {
+            _inputActions.HackingMode_ActionMap.LeaveHackingMode.performed += EndHacking;
+        }
+
+        private void UnsubscribeFromEventsFromThirdPersonCharacterActionMap()
         {
             _inputActions.ThirdPersonCharacter_ActionMap.Move.performed -= Move;
             _inputActions.ThirdPersonCharacter_ActionMap.Move.canceled -= Move;
@@ -119,8 +141,16 @@ namespace HackingOps.Input
             _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon9.performed -= SelectWeapon9;
 
             _inputActions.ThirdPersonCharacter_ActionMap.Interact.performed -= Interact;
+
+            _inputActions.ThirdPersonCharacter_ActionMap.EnterHackingMode.performed -= BeginHacking;
         }
 
+        private void UnsubscribeFromEventsFromHackingModeActionMap()
+        {
+            _inputActions.HackingMode_ActionMap.LeaveHackingMode.performed -= EndHacking;
+        }
+
+        #region ThirdPersonCharacter ActionMap
         private void ResetInputs()
         {
             MoveInput = Vector2.zero;
@@ -176,6 +206,11 @@ namespace HackingOps.Input
         private void Interact(InputAction.CallbackContext ctx)
         {
             OnInteract?.Invoke();
+        }
+
+        private void BeginHacking(InputAction.CallbackContext ctx)
+        {
+            OnEnterHackingMode?.Invoke();
         }
 
         #region Switch weapon
@@ -234,5 +269,31 @@ namespace HackingOps.Input
             OnSelectWeapon?.Invoke(8);
         }
         #endregion
+        #endregion
+
+        #region HackingMode Action Map
+        private void EndHacking(InputAction.CallbackContext ctx)
+        {
+            OnLeaveHackingMode?.Invoke();
+        }
+        #endregion
+
+        public void SwitchToPlayerActionMap()
+        {
+            DisableAllActionMaps();
+            _inputActions.ThirdPersonCharacter_ActionMap.Enable();
+        }
+
+        public void SwitchToHackingModeActionMap()
+        {
+            DisableAllActionMaps();
+            _inputActions.HackingMode_ActionMap.Enable();
+        }
+
+        public void DisableAllActionMaps()
+        {
+            _inputActions.ThirdPersonCharacter_ActionMap.Disable();
+            _inputActions.HackingMode_ActionMap.Disable();
+        }
     }
 }

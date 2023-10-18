@@ -64,7 +64,7 @@ namespace HackingOps.Characters.Player
         private readonly float _gravity = -9.8f;            // m/s2
 
         // Restriction flags
-        private bool _isBlocking;
+        private bool _isRestricted;
 
         // Behaviour profiles
         PlayerBehaviourProfileSO _originalBehaviourProfile;
@@ -263,14 +263,24 @@ namespace HackingOps.Characters.Player
             if (_isCrouched)
                 return;
 
-            _isBlocking = true;
+            _isRestricted = true;
             OnStartBlockingEvent.Invoke();
         }
 
         public void OnStopAimingPressed()
         {
-            _isBlocking = false;
+            _isRestricted = false;
             OnStopBlockingEvent.Invoke();
+        }
+
+        public void OnBeginHacking()
+        {
+            _isRestricted = true;
+        }
+
+        public void OnEndHacking()
+        {
+            _isRestricted = false;
         }
 
         public void OnAttack()
@@ -292,7 +302,7 @@ namespace HackingOps.Characters.Player
             }
             else
             {
-                if (!_isBlocking)
+                if (!_isRestricted)
                     StartCrouching();
             }
         }

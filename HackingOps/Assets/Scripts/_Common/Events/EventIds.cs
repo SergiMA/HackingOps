@@ -10,5 +10,7 @@
         CutsceneFinished,
         StopUsingLaptop,
         DialogueCompleted,
+        BeginHackingMode,
+        LeaveHackingMode,
     }
 }

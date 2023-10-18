@@ -80,10 +80,6 @@ namespace HackingOps.Screens.UI.ChatScreen
         {
             _currentDialogueId = dialogueId.Value;
 
-            //DOVirtual.Float(_chatScreenCanvasGroup.alpha, 1f, _fadingChatScreenDurationInSeconds, (alpha) =>
-            //{
-            //    _chatScreenCanvasGroup.alpha = alpha;
-            //});
             ShowUIElementUsingCanvasGroup(_chatScreenCanvasGroup, _fadingChatScreenDurationInSeconds);
             ShowUIElementUsingCanvasGroup(_continueButtonCanvasGroup, _fadingChatScreenDurationInSeconds);
         }
@@ -95,8 +91,6 @@ namespace HackingOps.Screens.UI.ChatScreen
 
         public void Close()
         {
-            // Make dialogue disappear progressively (like LoadDialogue method)
-            // Swap buttons: Close button by Continue button
             DOVirtual.Float(_chatScreenCanvasGroup.alpha, 0f, _fadingChatScreenDurationInSeconds, (alpha) =>
             {
                 _chatScreenCanvasGroup.alpha = alpha;

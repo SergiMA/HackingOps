@@ -206,6 +206,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""EnterHackingMode"",
+                    ""type"": ""Button"",
+                    ""id"": ""1e0e49a3-566a-47d2-a357-5b76aceefe8b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -494,6 +503,45 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Block"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4f28b889-f540-418a-b8a6-c949b7b119b5"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnterHackingMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""HackingMode_ActionMap"",
+            ""id"": ""1bc4b67c-5b2d-4d46-8ecb-07473094d50b"",
+            ""actions"": [
+                {
+                    ""name"": ""LeaveHackingMode"",
+                    ""type"": ""Button"",
+                    ""id"": ""ba9e85cc-7064-4c3e-8973-bd9bc14073d4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""4b9c9bcb-a2ab-448c-86cd-7a6d9b8d076a"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeaveHackingMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -522,6 +570,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_ThirdPersonCharacter_ActionMap_Lock = m_ThirdPersonCharacter_ActionMap.FindAction("Lock", throwIfNotFound: true);
         m_ThirdPersonCharacter_ActionMap_Interact = m_ThirdPersonCharacter_ActionMap.FindAction("Interact", throwIfNotFound: true);
         m_ThirdPersonCharacter_ActionMap_Block = m_ThirdPersonCharacter_ActionMap.FindAction("Block", throwIfNotFound: true);
+        m_ThirdPersonCharacter_ActionMap_EnterHackingMode = m_ThirdPersonCharacter_ActionMap.FindAction("EnterHackingMode", throwIfNotFound: true);
+        // HackingMode_ActionMap
+        m_HackingMode_ActionMap = asset.FindActionMap("HackingMode_ActionMap", throwIfNotFound: true);
+        m_HackingMode_ActionMap_LeaveHackingMode = m_HackingMode_ActionMap.FindAction("LeaveHackingMode", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -603,6 +655,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_ThirdPersonCharacter_ActionMap_Lock;
     private readonly InputAction m_ThirdPersonCharacter_ActionMap_Interact;
     private readonly InputAction m_ThirdPersonCharacter_ActionMap_Block;
+    private readonly InputAction m_ThirdPersonCharacter_ActionMap_EnterHackingMode;
     public struct ThirdPersonCharacter_ActionMapActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -627,6 +680,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Lock => m_Wrapper.m_ThirdPersonCharacter_ActionMap_Lock;
         public InputAction @Interact => m_Wrapper.m_ThirdPersonCharacter_ActionMap_Interact;
         public InputAction @Block => m_Wrapper.m_ThirdPersonCharacter_ActionMap_Block;
+        public InputAction @EnterHackingMode => m_Wrapper.m_ThirdPersonCharacter_ActionMap_EnterHackingMode;
         public InputActionMap Get() { return m_Wrapper.m_ThirdPersonCharacter_ActionMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -696,6 +750,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Block.started += instance.OnBlock;
             @Block.performed += instance.OnBlock;
             @Block.canceled += instance.OnBlock;
+            @EnterHackingMode.started += instance.OnEnterHackingMode;
+            @EnterHackingMode.performed += instance.OnEnterHackingMode;
+            @EnterHackingMode.canceled += instance.OnEnterHackingMode;
         }
 
         private void UnregisterCallbacks(IThirdPersonCharacter_ActionMapActions instance)
@@ -760,6 +817,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Block.started -= instance.OnBlock;
             @Block.performed -= instance.OnBlock;
             @Block.canceled -= instance.OnBlock;
+            @EnterHackingMode.started -= instance.OnEnterHackingMode;
+            @EnterHackingMode.performed -= instance.OnEnterHackingMode;
+            @EnterHackingMode.canceled -= instance.OnEnterHackingMode;
         }
 
         public void RemoveCallbacks(IThirdPersonCharacter_ActionMapActions instance)
@@ -777,6 +837,52 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         }
     }
     public ThirdPersonCharacter_ActionMapActions @ThirdPersonCharacter_ActionMap => new ThirdPersonCharacter_ActionMapActions(this);
+
+    // HackingMode_ActionMap
+    private readonly InputActionMap m_HackingMode_ActionMap;
+    private List<IHackingMode_ActionMapActions> m_HackingMode_ActionMapActionsCallbackInterfaces = new List<IHackingMode_ActionMapActions>();
+    private readonly InputAction m_HackingMode_ActionMap_LeaveHackingMode;
+    public struct HackingMode_ActionMapActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public HackingMode_ActionMapActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @LeaveHackingMode => m_Wrapper.m_HackingMode_ActionMap_LeaveHackingMode;
+        public InputActionMap Get() { return m_Wrapper.m_HackingMode_ActionMap; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(HackingMode_ActionMapActions set) { return set.Get(); }
+        public void AddCallbacks(IHackingMode_ActionMapActions instance)
+        {
+            if (instance == null || m_Wrapper.m_HackingMode_ActionMapActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_HackingMode_ActionMapActionsCallbackInterfaces.Add(instance);
+            @LeaveHackingMode.started += instance.OnLeaveHackingMode;
+            @LeaveHackingMode.performed += instance.OnLeaveHackingMode;
+            @LeaveHackingMode.canceled += instance.OnLeaveHackingMode;
+        }
+
+        private void UnregisterCallbacks(IHackingMode_ActionMapActions instance)
+        {
+            @LeaveHackingMode.started -= instance.OnLeaveHackingMode;
+            @LeaveHackingMode.performed -= instance.OnLeaveHackingMode;
+            @LeaveHackingMode.canceled -= instance.OnLeaveHackingMode;
+        }
+
+        public void RemoveCallbacks(IHackingMode_ActionMapActions instance)
+        {
+            if (m_Wrapper.m_HackingMode_ActionMapActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IHackingMode_ActionMapActions instance)
+        {
+            foreach (var item in m_Wrapper.m_HackingMode_ActionMapActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_HackingMode_ActionMapActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public HackingMode_ActionMapActions @HackingMode_ActionMap => new HackingMode_ActionMapActions(this);
     public interface IThirdPersonCharacter_ActionMapActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -799,5 +905,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnLock(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnBlock(InputAction.CallbackContext context);
+        void OnEnterHackingMode(InputAction.CallbackContext context);
+    }
+    public interface IHackingMode_ActionMapActions
+    {
+        void OnLeaveHackingMode(InputAction.CallbackContext context);
     }
 }

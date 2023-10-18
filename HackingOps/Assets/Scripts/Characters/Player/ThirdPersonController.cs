@@ -84,7 +84,7 @@ namespace HackingOps.Characters.Player
         private void OnDisable()
         {
             _inputManager.OnJump -= OnJump;
-            _inputManager.OnCrouchPressed += SwitchCrouch;
+            _inputManager.OnCrouchPressed -= SwitchCrouch;
         }
 
         private void Start()

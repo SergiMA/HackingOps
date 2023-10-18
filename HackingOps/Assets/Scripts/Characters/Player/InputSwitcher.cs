@@ -20,12 +20,22 @@ namespace HackingOps.Characters.Player
         {
             ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.CutsceneStarted, this);
             ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.CutsceneFinished, this);
+            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.BeginHackingMode, this);
+            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.LeaveHackingMode, this);
         }
 
         private void OnDisable()
         {
             ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.CutsceneStarted, this);
             ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.CutsceneFinished, this);
+            ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.BeginHackingMode, this);
+            ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.LeaveHackingMode, this);
+        }
+
+        private void Start()
+        {
+            _freeLookPreviousXAxisMaxSpeed = _freeLookCamera.m_XAxis.m_MaxSpeed;
+            _freeLookPreviousYAxisMaxSpeed = _freeLookCamera.m_YAxis.m_MaxSpeed;
         }
 
         private void RestoreFreeLookMaxSpeed()
@@ -62,10 +72,21 @@ namespace HackingOps.Characters.Player
 
         public void Process(EventData eventData)
         {
-            if (eventData.EventId == EventIds.CutsceneStarted)
-                DisableInput();
-            else if (eventData.EventId == EventIds.CutsceneFinished)
-                EnableInput();
+            switch (eventData.EventId)
+            {
+                case EventIds.CutsceneStarted:
+                    DisableInput();
+                    break;
+                case EventIds.CutsceneFinished:
+                    EnableInput();
+                    break;
+                case EventIds.BeginHackingMode:
+                    _inputManager.SwitchToHackingModeActionMap();
+                    break;
+                case EventIds.LeaveHackingMode:
+                    _inputManager.SwitchToPlayerActionMap();
+                    break;
+            }
         }
     }
 }

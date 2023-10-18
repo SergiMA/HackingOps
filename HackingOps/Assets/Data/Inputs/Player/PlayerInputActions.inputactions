@@ -184,6 +184,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "EnterHackingMode",
+                    "type": "Button",
+                    "id": "1e0e49a3-566a-47d2-a357-5b76aceefe8b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -470,6 +479,45 @@
                     "processors": "",
                     "groups": "",
                     "action": "Block",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4f28b889-f540-418a-b8a6-c949b7b119b5",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EnterHackingMode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "HackingMode_ActionMap",
+            "id": "1bc4b67c-5b2d-4d46-8ecb-07473094d50b",
+            "actions": [
+                {
+                    "name": "LeaveHackingMode",
+                    "type": "Button",
+                    "id": "ba9e85cc-7064-4c3e-8973-bd9bc14073d4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4b9c9bcb-a2ab-448c-86cd-7a6d9b8d076a",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeaveHackingMode",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
