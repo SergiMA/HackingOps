@@ -184,7 +184,7 @@ MonoBehaviour:
   _verticalAngle: 150
   _occludersLayerMask:
     serializedVersion: 2
-    m_Bits: 51
+    m_Bits: 179
 --- !u!114 &1690102144035853875
 MonoBehaviour:
   m_ObjectHideFlags: 0

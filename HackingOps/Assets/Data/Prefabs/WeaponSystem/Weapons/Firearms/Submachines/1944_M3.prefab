@@ -449,7 +449,7 @@ Transform:
   m_Children:
   - {fileID: 4901594973082934945}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &859207536918469028
 Rigidbody:
@@ -513,6 +513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Slot: 3
   IsUsedByAI: 0
+  _interactionText: interaction_grab
   _debugUse: 0
   _debugStartUsing: 0
   _debugStopUsing: 0
@@ -1303,7 +1304,7 @@ MonoBehaviour:
   _spread: 0.082
   _shotLayerMask:
     serializedVersion: 2
-    m_Bits: 59
+    m_Bits: 187
 --- !u!1 &7143472828209481416
 GameObject:
   m_ObjectHideFlags: 0

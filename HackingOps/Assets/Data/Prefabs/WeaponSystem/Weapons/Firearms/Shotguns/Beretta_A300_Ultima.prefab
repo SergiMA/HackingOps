@@ -1327,6 +1327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Slot: 4
   IsUsedByAI: 0
+  _interactionText: interaction_grab
   _debugUse: 0
   _debugStartUsing: 0
   _debugStopUsing: 0
@@ -1541,7 +1542,7 @@ MonoBehaviour:
   _spread: 0.2
   _shotLayerMask:
     serializedVersion: 2
-    m_Bits: 123
+    m_Bits: 251
   amountOfRaycast: 10
 --- !u!1 &7890461288693351550
 GameObject:

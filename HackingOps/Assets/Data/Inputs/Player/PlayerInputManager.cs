@@ -16,6 +16,7 @@ namespace HackingOps.Input
         public event Action OnStopAiming;
         public event Action OnEnterHackingMode;
         public event Action OnLeaveHackingMode;
+        public event Action OnHack;
 
         public Vector2 MoveInput { get; private set; }
         public Vector2 MouseInput { get; private set; }
@@ -103,6 +104,7 @@ namespace HackingOps.Input
         private void SubscribeToEventsFromHackingModeActionMap()
         {
             _inputActions.HackingMode_ActionMap.LeaveHackingMode.performed += EndHacking;
+            _inputActions.HackingMode_ActionMap.Hack.performed += Hack;
         }
 
         private void UnsubscribeFromEventsFromThirdPersonCharacterActionMap()
@@ -148,6 +150,7 @@ namespace HackingOps.Input
         private void UnsubscribeFromEventsFromHackingModeActionMap()
         {
             _inputActions.HackingMode_ActionMap.LeaveHackingMode.performed -= EndHacking;
+            _inputActions.HackingMode_ActionMap.Hack.performed -= Hack;
         }
 
         #region ThirdPersonCharacter ActionMap
@@ -275,6 +278,11 @@ namespace HackingOps.Input
         private void EndHacking(InputAction.CallbackContext ctx)
         {
             OnLeaveHackingMode?.Invoke();
+        }
+
+        private void Hack(InputAction.CallbackContext ctx)
+        {
+            OnHack?.Invoke();
         }
         #endregion
 

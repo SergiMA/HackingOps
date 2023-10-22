@@ -1,8 +1,10 @@
 ﻿using HackingOps.Common.CommandSystem;
 using HackingOps.Common.Services;
+using UnityEngine;
 
 namespace HackingOps.Common.Core.Installers
 {
+    [DefaultExecutionOrder(-10)]
     public class GlobalInstaller : GeneralInstaller
     {
         protected override void InternalInstallDependencies()

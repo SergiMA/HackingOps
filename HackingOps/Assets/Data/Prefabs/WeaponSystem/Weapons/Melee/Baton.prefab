@@ -247,6 +247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Slot: 1
   IsUsedByAI: 0
+  _interactionText: interaction_grab
   _debugUse: 0
   _debugStartUsing: 0
   _debugStopUsing: 0
@@ -493,6 +494,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.1115
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657334374379711372, guid: 09c1a15ab6173e140acb6abfaaa3dc12,
+        type: 3}
+      propertyPath: _occludersLayerMask.m_Bits
+      value: 243
       objectReference: {fileID: 0}
     - target: {fileID: 3826272759722383266, guid: 09c1a15ab6173e140acb6abfaaa3dc12,
         type: 3}

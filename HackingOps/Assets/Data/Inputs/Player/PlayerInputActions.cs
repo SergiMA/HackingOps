@@ -529,6 +529,24 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Look"",
+                    ""type"": ""Value"",
+                    ""id"": ""098ed0aa-9241-454a-93e7-ac3282920917"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Hack"",
+                    ""type"": ""Button"",
+                    ""id"": ""04525f9f-2bdb-4c35-8fd4-37103cdb7173"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -540,6 +558,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""LeaveHackingMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ad628a57-ccc0-4671-87b4-c1f80799f6fa"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""17f30c39-9572-46b2-85f8-6b34adaf6471"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -574,6 +614,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         // HackingMode_ActionMap
         m_HackingMode_ActionMap = asset.FindActionMap("HackingMode_ActionMap", throwIfNotFound: true);
         m_HackingMode_ActionMap_LeaveHackingMode = m_HackingMode_ActionMap.FindAction("LeaveHackingMode", throwIfNotFound: true);
+        m_HackingMode_ActionMap_Look = m_HackingMode_ActionMap.FindAction("Look", throwIfNotFound: true);
+        m_HackingMode_ActionMap_Hack = m_HackingMode_ActionMap.FindAction("Hack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -842,11 +884,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_HackingMode_ActionMap;
     private List<IHackingMode_ActionMapActions> m_HackingMode_ActionMapActionsCallbackInterfaces = new List<IHackingMode_ActionMapActions>();
     private readonly InputAction m_HackingMode_ActionMap_LeaveHackingMode;
+    private readonly InputAction m_HackingMode_ActionMap_Look;
+    private readonly InputAction m_HackingMode_ActionMap_Hack;
     public struct HackingMode_ActionMapActions
     {
         private @PlayerInputActions m_Wrapper;
         public HackingMode_ActionMapActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @LeaveHackingMode => m_Wrapper.m_HackingMode_ActionMap_LeaveHackingMode;
+        public InputAction @Look => m_Wrapper.m_HackingMode_ActionMap_Look;
+        public InputAction @Hack => m_Wrapper.m_HackingMode_ActionMap_Hack;
         public InputActionMap Get() { return m_Wrapper.m_HackingMode_ActionMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -859,6 +905,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @LeaveHackingMode.started += instance.OnLeaveHackingMode;
             @LeaveHackingMode.performed += instance.OnLeaveHackingMode;
             @LeaveHackingMode.canceled += instance.OnLeaveHackingMode;
+            @Look.started += instance.OnLook;
+            @Look.performed += instance.OnLook;
+            @Look.canceled += instance.OnLook;
+            @Hack.started += instance.OnHack;
+            @Hack.performed += instance.OnHack;
+            @Hack.canceled += instance.OnHack;
         }
 
         private void UnregisterCallbacks(IHackingMode_ActionMapActions instance)
@@ -866,6 +918,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @LeaveHackingMode.started -= instance.OnLeaveHackingMode;
             @LeaveHackingMode.performed -= instance.OnLeaveHackingMode;
             @LeaveHackingMode.canceled -= instance.OnLeaveHackingMode;
+            @Look.started -= instance.OnLook;
+            @Look.performed -= instance.OnLook;
+            @Look.canceled -= instance.OnLook;
+            @Hack.started -= instance.OnHack;
+            @Hack.performed -= instance.OnHack;
+            @Hack.canceled -= instance.OnHack;
         }
 
         public void RemoveCallbacks(IHackingMode_ActionMapActions instance)
@@ -910,5 +968,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     public interface IHackingMode_ActionMapActions
     {
         void OnLeaveHackingMode(InputAction.CallbackContext context);
+        void OnLook(InputAction.CallbackContext context);
+        void OnHack(InputAction.CallbackContext context);
     }
 }

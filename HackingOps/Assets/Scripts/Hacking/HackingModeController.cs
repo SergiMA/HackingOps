@@ -4,7 +4,7 @@ using HackingOps.Input;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Assets.Scripts.Hacking
+namespace HackingOps.Hacking
 {
     public class HackingModeController : MonoBehaviour
     {

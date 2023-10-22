@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cutsceneSetup: {fileID: 7751519484387167670}
+  _timelinePlayer: {fileID: 5491751498883784599}
   _debugStandUp: 0
 --- !u!114 &7751519484387167670
 MonoBehaviour:

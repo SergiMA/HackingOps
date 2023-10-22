@@ -547,6 +547,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Slot: 4
   IsUsedByAI: 0
+  _interactionText: interaction_grab
   _debugUse: 0
   _debugStartUsing: 0
   _debugStopUsing: 0
@@ -613,7 +614,7 @@ ParentConstraint:
   m_Enabled: 1
   serializedVersion: 2
   m_Weight: 1
-  m_TranslationAtRest: {x: 2.093, y: 1.25, z: 0}
+  m_TranslationAtRest: {x: 0, y: 0, z: 0}
   m_RotationAtRest: {x: 0, y: 0, z: 0}
   m_TranslationOffsets:
   - {x: 0, y: 0, z: 0}
@@ -892,7 +893,7 @@ MonoBehaviour:
   _spread: 0.021
   _shotLayerMask:
     serializedVersion: 2
-    m_Bits: 51
+    m_Bits: 179
   _roundsAmount: 3
   _delayBetweenBursts: 1
 --- !u!1 &5091633515794690591

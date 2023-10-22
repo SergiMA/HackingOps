@@ -5,7 +5,7 @@ using UnityEngine.Assertions;
 
 namespace HackingOps.Common.Services
 {
-    [DefaultExecutionOrder(-3)]
+    [DefaultExecutionOrder(-100)]
     public class ServiceLocator
     {
         public static ServiceLocator Instance => _instance ?? (_instance = new ServiceLocator());
