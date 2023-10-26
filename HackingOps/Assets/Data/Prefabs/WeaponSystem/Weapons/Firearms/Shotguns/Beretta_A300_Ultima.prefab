@@ -1542,7 +1542,7 @@ MonoBehaviour:
   _spread: 0.2
   _shotLayerMask:
     serializedVersion: 2
-    m_Bits: 251
+    m_Bits: 507
   amountOfRaycast: 10
 --- !u!1 &7890461288693351550
 GameObject:

@@ -324,7 +324,7 @@ MonoBehaviour:
   _spread: 0.01
   _shotLayerMask:
     serializedVersion: 2
-    m_Bits: 187
+    m_Bits: 443
 --- !u!1 &4136021456762431679
 GameObject:
   m_ObjectHideFlags: 0

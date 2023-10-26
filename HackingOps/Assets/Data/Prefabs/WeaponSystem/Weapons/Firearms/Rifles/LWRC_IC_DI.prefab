@@ -893,7 +893,7 @@ MonoBehaviour:
   _spread: 0.021
   _shotLayerMask:
     serializedVersion: 2
-    m_Bits: 179
+    m_Bits: 435
   _roundsAmount: 3
   _delayBetweenBursts: 1
 --- !u!1 &5091633515794690591

@@ -42,9 +42,9 @@ namespace HackingOps.Common.Events
         {
             if (_observers.TryGetValue(eventData.EventId, out var eventObservers))
             {
-                foreach (IEventObserver eventObserver in eventObservers)
+                for (int i = 0; i < eventObservers.Count; i++)
                 {
-                    eventObserver.Process(eventData);
+                    eventObservers[i].Process(eventData);
                 }
             }
         }

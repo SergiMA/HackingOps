@@ -54,6 +54,24 @@ MonoBehaviour:
     m_Localized: Buena suerte, agente
     m_Metadata:
       m_Items: []
+  - m_Id: 6453144433471488
+    m_Localized: He hackeado sus servidores. Tengo los planos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6453321185636352
+    m_Localized: "Bien. Parece que han notado que alguien ha hackeado sus servidores.
+      He preparado una ruta de escape para ti. Ver\xE1s un helicopter afuera"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6453339003039744
+    m_Localized: "He cortado algunas vallas para que puedas alcanzar el helic\xF3ptero.
+      Ve hacia all\xE1. R\xE1pido"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6453351556591616
+    m_Localized: De acuerdo. Estoy yendo
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -54,6 +54,25 @@ MonoBehaviour:
     m_Localized: Bona sort, agent
     m_Metadata:
       m_Items: []
+  - m_Id: 6453144433471488
+    m_Localized: He hackejat els seus servidors. Tinc els plans
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6453321185636352
+    m_Localized: "B\xE9. Sembla que s'han assebentat de que alg\xFA ha hackejat els
+      servidors. He preparat una ruta d'escapatoria per tu. Veur\xE0s un helicopter
+      fora"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6453339003039744
+    m_Localized: "He tallat algunes valles per a que puguis arribar a l'helicopter.
+      Ves all\xE0. R\xE0pid"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6453351556591616
+    m_Localized: D'acord. Estic anant
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

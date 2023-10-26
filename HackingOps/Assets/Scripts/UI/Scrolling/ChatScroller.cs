@@ -5,17 +5,19 @@ namespace HackingOps.UI.Scrolling
 {
     public class ChatScroller : MonoBehaviour
     {
-        [SerializeField] private Dialogue _dialogue;
+        [SerializeField] private Dialogue[] _dialogues;
         [SerializeField] private ScrollViewAutoScroll _autoScroll;
 
         private void OnEnable()
         {
-            _dialogue.OnNewMessageAppeared += OnNewMessageAppeared;
+            foreach (Dialogue dialogue in _dialogues)
+                dialogue.OnNewMessageAppeared += OnNewMessageAppeared;
         }
 
         private void OnDisable()
         {
-            _dialogue.OnNewMessageAppeared -= OnNewMessageAppeared;
+            foreach (Dialogue dialogue in _dialogues)
+                dialogue.OnNewMessageAppeared -= OnNewMessageAppeared;
         }
 
         private void OnNewMessageAppeared(MessageBubble[] messageBubbles, int messageIndex)

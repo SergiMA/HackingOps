@@ -47,6 +47,22 @@ MonoBehaviour:
     m_Key: first_assignment_dialogue_06
     m_Metadata:
       m_Items: []
+  - m_Id: 6453144433471488
+    m_Key: blueprints_stolen_dialogue_01
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6453321185636352
+    m_Key: blueprints_stolen_dialogue_02
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6453339003039744
+    m_Key: blueprints_stolen_dialogue_03
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6453351556591616
+    m_Key: blueprints_stolen_dialogue_04
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

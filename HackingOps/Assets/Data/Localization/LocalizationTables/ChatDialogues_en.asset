@@ -54,6 +54,24 @@ MonoBehaviour:
     m_Localized: Good luck, agent
     m_Metadata:
       m_Items: []
+  - m_Id: 6453144433471488
+    m_Localized: I had hacked into their servers. I got the blueprints
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6453321185636352
+    m_Localized: Good. Seems like they noticed someone hacking their servers. I've
+      prepared an escape point for you. You will see a helicopter outside
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6453339003039744
+    m_Localized: We've cut some fences in order to help you reach the helicopter.
+      Go there, fast
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6453351556591616
+    m_Localized: Okay. I'm going
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

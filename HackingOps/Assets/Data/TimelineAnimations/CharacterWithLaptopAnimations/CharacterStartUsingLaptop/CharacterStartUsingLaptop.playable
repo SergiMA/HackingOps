@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8297414058091278112
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 5.05
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: 5cba4eae1732e934097908bf81acd3c5, type: 2}
 --- !u!74 &-8246212703801853963
 AnimationClip:
   m_ObjectHideFlags: 0
@@ -4344,22 +4360,6 @@ MonoBehaviour:
   m_Clips: []
   m_Markers:
     m_Objects: []
---- !u!114 &6948513090198220300
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
-  m_Name: LoadFirstAssignmentDialogue
-  m_EditorClassIdentifier: 
-  m_Time: 5.116666666666666
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: 06ab86fb8fa60a746aefb6dc447c0eac, type: 2}
 --- !u!114 &7245863771252019573
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4604,4 +4604,4 @@ MonoBehaviour:
     m_Objects:
     - {fileID: 7835833241312111508}
     - {fileID: 1885171277257288295}
-    - {fileID: 6948513090198220300}
+    - {fileID: -8297414058091278112}
