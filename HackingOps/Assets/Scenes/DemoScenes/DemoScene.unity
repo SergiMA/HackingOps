@@ -1529,7 +1529,7 @@ PrefabInstance:
     - target: {fileID: 2069136590537972935, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.89381003
+      value: 0.8938101
       objectReference: {fileID: 0}
     - target: {fileID: 2069136590537972935, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
@@ -1539,12 +1539,12 @@ PrefabInstance:
     - target: {fileID: 2069136590537972935, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.33392492
+      value: -0.33392495
       objectReference: {fileID: 0}
     - target: {fileID: 2069136590537972935, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.10475645
+      value: 0.10475644
       objectReference: {fileID: 0}
     - target: {fileID: 2519306398448378178, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
@@ -2379,12 +2379,12 @@ PrefabInstance:
     - target: {fileID: 9113528961634374684, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000000015404588
+      value: -0.0000000015404588
       objectReference: {fileID: 0}
     - target: {fileID: 9113528961634374684, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -8.9654624e-11
+      value: 8.9654624e-11
       objectReference: {fileID: 0}
     - target: {fileID: 9213944254761669499, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
@@ -2667,6 +2667,11 @@ PrefabInstance:
       propertyPath: _transformToPosition
       value: 
       objectReference: {fileID: 471832744}
+    - target: {fileID: 6053804204858402935, guid: 941df41c49800d14f8fa0a31aa166931,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0.7604731
+      objectReference: {fileID: 0}
     - target: {fileID: 6687216821146298701, guid: 941df41c49800d14f8fa0a31aa166931,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2755,7 +2760,7 @@ PrefabInstance:
     - target: {fileID: 9143321890385887823, guid: 941df41c49800d14f8fa0a31aa166931,
         type: 3}
       propertyPath: m_Intensity
-      value: 0.76047313
+      value: 0.7604731
       objectReference: {fileID: 0}
     - target: {fileID: 9143321890385887823, guid: 941df41c49800d14f8fa0a31aa166931,
         type: 3}
