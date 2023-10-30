@@ -90,5 +90,6 @@ namespace HackingOps.CombatSystem.HitHurtBox
 
         public void OnBlockStarted() => _isBlocking = true;
         public void OnBlockFinished() => _isBlocking = false;
+        public float GetCurrentHealthPercentage() => _currentLife / _maxLife;
     }
 }

@@ -2256,7 +2256,7 @@
     "m_DefaultRefNameVersion": 1,
     "m_RefNameGeneratedByDisplayName": "Damage intensity",
     "m_DefaultReferenceName": "_Damage_intensity",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "_DamageIntensity",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",
