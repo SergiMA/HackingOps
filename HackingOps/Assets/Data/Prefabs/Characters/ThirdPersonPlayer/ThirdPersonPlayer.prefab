@@ -1201,7 +1201,7 @@ GameObject:
   - component: {fileID: 3228393306980272442}
   m_Layer: 2
   m_Name: Blocking_HurtBox
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1240,8 +1240,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 0.7523532, y: 1.4986149, z: 0.10807279}
-  m_Center: {x: -0.013102293, y: 0.9715012, z: 0.22864102}
+  m_Size: {x: 0.7523532, y: 1.4986149, z: 0.64241076}
+  m_Center: {x: -0.013102294, y: 0.9714984, z: 0.49580914}
 --- !u!114 &3228393306980272442
 MonoBehaviour:
   m_ObjectHideFlags: 0

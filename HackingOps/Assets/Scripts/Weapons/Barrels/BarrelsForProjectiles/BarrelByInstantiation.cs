@@ -24,7 +24,11 @@ namespace HackingOps.Weapons.Barrels.BarrelsForProjectiles
 
             GameObject newInstance = Instantiate(_prefabToInstantiate, _shootPoint.position, shootingRotation);
             newInstance.GetComponent<Rigidbody>()?.AddForce(shootingDirection * _launchSpeed, ForceMode.VelocityChange);
-            newInstance.GetComponent<Projectile>()?.SetOriginTransform(transform);
+            if (newInstance.TryGetComponent(out Projectile projectile))
+            {
+                projectile.SetOriginTransform(transform);
+                projectile.SetLaunchSpeed(_launchSpeed);
+            }
         }
 
         protected override void InternalStartShooting()

@@ -1529,7 +1529,7 @@ PrefabInstance:
     - target: {fileID: 2069136590537972935, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8938101
+      value: 0.89381003
       objectReference: {fileID: 0}
     - target: {fileID: 2069136590537972935, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
@@ -1539,12 +1539,12 @@ PrefabInstance:
     - target: {fileID: 2069136590537972935, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.33392495
+      value: -0.33392492
       objectReference: {fileID: 0}
     - target: {fileID: 2069136590537972935, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.10475644
+      value: 0.10475645
       objectReference: {fileID: 0}
     - target: {fileID: 2240497498994029778, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
@@ -1654,12 +1654,12 @@ PrefabInstance:
     - target: {fileID: 2598757014085270739, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000000042890873
+      value: 0.000000004289088
       objectReference: {fileID: 0}
     - target: {fileID: 2598757014085270739, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 3.27794e-10
+      value: -3.2779404e-10
       objectReference: {fileID: 0}
     - target: {fileID: 2623909092905532692, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
@@ -2404,12 +2404,12 @@ PrefabInstance:
     - target: {fileID: 9113528961634374684, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000000037189976
+      value: -0.0000000037189973
       objectReference: {fileID: 0}
     - target: {fileID: 9113528961634374684, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 2.1644556e-10
+      value: 2.1644554e-10
       objectReference: {fileID: 0}
     - target: {fileID: 9213944254761669499, guid: 3924f2e29499b1545974a3d460b189dd,
         type: 3}
@@ -7816,11 +7816,6 @@ PrefabInstance:
         type: 3}
       propertyPath: _spread
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7240443360125750238, guid: 5ebe572b9b930684db4f26f7ce100a84,
-        type: 3}
-      propertyPath: _launchSpeed
-      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7309383834612352556, guid: 5ebe572b9b930684db4f26f7ce100a84,
         type: 3}

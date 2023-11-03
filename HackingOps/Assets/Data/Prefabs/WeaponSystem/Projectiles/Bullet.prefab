@@ -79,6 +79,10 @@ MonoBehaviour:
       m_Calls: []
   _damage: 1
   _destroyOnCollision: 1
+  _bouncingTags:
+  - Block
+  _bounces: 1
+  _bounceSpread: 0.1
 --- !u!1 &1232136276123444773
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +214,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
