@@ -59,7 +59,7 @@ namespace HackingOps.CombatSystem.HitHurtBox
         {
             if (damageDealerTransform != null)
             {
-                Vector3 directionToDamageDealer = Vector3.Normalize(damageDealerTransform.transform.position - transform.position);
+                Vector3 directionToDamageDealer = Vector3.Normalize(damageDealerTransform.position - transform.position);
                 float dot = Vector3.Dot(transform.forward, directionToDamageDealer);
 
                 if (_isBlocking && dot > 0f && _blockController != null)
@@ -68,6 +68,7 @@ namespace HackingOps.CombatSystem.HitHurtBox
                     return;
                 }
             }
+
             _currentHealthRegenerationCooldown = _healthRegenerationCooldown;
 
             _currentLife -= damage;
