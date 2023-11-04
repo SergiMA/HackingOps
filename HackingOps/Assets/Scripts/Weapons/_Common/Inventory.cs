@@ -196,5 +196,16 @@ namespace HackingOps.Weapons.Common
             Debug.LogError($"Can't get equipment slot's index because no slot named {weaponSlot} has been found in the Equipment Slots.", gameObject);
             return -1;
         }
+
+        public void ChangeToSlot(WeaponSlot slot)
+        {
+            EquipmentSlot newSlot = GetEquipmentSlotByWeaponSlot(slot);
+            SwitchSlot(GetCurrentSlot(), newSlot);
+        }
+
+        public void ChangeToUnarmed()
+        {
+            ChangeToSlot(WeaponSlot.Unarmed);
+        }
     }
 }

@@ -1,4 +1,6 @@
 using HackingOps.Characters.NPC.Senses;
+using HackingOps.Common.Events;
+using HackingOps.Common.Services;
 using HackingOps.Weapons.Common;
 using HackingOps.Weapons.WeaponFoundations;
 using UnityEngine;
@@ -9,9 +11,11 @@ using UnityEngine.InputSystem;
 
 namespace HackingOps.Characters.Player
 {
-    public class PlayerWeapons : MonoBehaviour
+    public class PlayerWeapons : MonoBehaviour, IEventObserver
     {
         public UnityEvent<Weapon> OnWeaponSelected;
+        public UnityEvent OnGotUnarmed;
+        public UnityEvent OnGotArmed;
 
         [Header("Bindings - Weapon")]
         [SerializeField] private Transform _weaponsParent;
@@ -67,6 +71,8 @@ namespace HackingOps.Characters.Player
             _inventory.OnWeaponAdded += OnWeaponAdded;
             _inventory.OnWeaponSwitched += OnWeaponSwitched;
             _inventory.OnWeaponDropped += OnWeaponDropped;
+            
+            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.CutsceneStarted, this);
         }
 
         private void OnDisable()
@@ -74,6 +80,8 @@ namespace HackingOps.Characters.Player
             _inventory.OnWeaponSwitched -= OnWeaponSwitched;
             _inventory.OnWeaponSwitched -= OnWeaponSwitched;
             _inventory.OnWeaponDropped -= OnWeaponDropped;
+
+            ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.CutsceneStarted, this);
         }
 
         private void Update()
@@ -256,6 +264,15 @@ namespace HackingOps.Characters.Player
                 armsRig.weight = 0f;
             }
 
+            if (newWeapon == null)
+            {
+                OnGotUnarmed.Invoke();
+            }
+            else if (oldWeapon == null && newWeapon != null)
+            {
+                OnGotArmed.Invoke();
+            }
+
             _currentWeapon = newWeapon;
         }
 
@@ -364,5 +381,15 @@ namespace HackingOps.Characters.Player
             else
                 _aimingTargetVisible = null;
         }
+
+        #region IEventObserver implementation
+        public void Process(EventData eventData)
+        {
+            if (eventData.EventId == EventIds.CutsceneStarted)
+            {
+                _inventory.ChangeToSlot(WeaponSlot.Unarmed);
+            }
+        }
+        #endregion
     }
 }
