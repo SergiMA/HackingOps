@@ -265,6 +265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 336829379003755673}
   - component: {fileID: 1642306705037294784}
+  - component: {fileID: 1449382203684676676}
   m_Layer: 7
   m_Name: MediumWeaponHolster
   m_TagString: Untagged
@@ -302,6 +303,33 @@ MonoBehaviour:
   _radius: 0.05
   _color: {r: 1, g: 0, b: 0.8985181, a: 1}
   _showWireframed: 0
+--- !u!1773428102 &1449382203684676676
+ParentConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183695925108916876}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 1
+  m_TranslationAtRest: {x: 0.311, y: 1.624, z: -0.164}
+  m_RotationAtRest: {x: 67.304695, y: -89.99997, z: 0.0002743893}
+  m_TranslationOffsets:
+  - {x: 0.31099987, y: 0.32450348, z: -0.119197845}
+  m_RotationOffsets:
+  - {x: 66.612816, y: -103.58923, z: -14.75435}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_AffectRotationX: 1
+  m_AffectRotationY: 1
+  m_AffectRotationZ: 1
+  m_Active: 1
+  m_IsLocked: 0
+  m_Sources:
+  - sourceTransform: {fileID: 8915055345203189726}
+    weight: 1
 --- !u!1 &395461940411343486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1550,6 +1578,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5252263086201903063}
   - component: {fileID: 1713475936680400407}
+  - component: {fileID: 9213105773436141002}
   m_Layer: 7
   m_Name: SmallWeaponHolster
   m_TagString: Untagged
@@ -1565,7 +1594,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780259144784561289}
   m_LocalRotation: {x: 0.7063582, y: 0.032514706, z: 0.032515537, w: 0.7063594}
-  m_LocalPosition: {x: 0.195, y: 0.976, z: 0.0048}
+  m_LocalPosition: {x: 0.195, y: 1.1, z: 0.0048}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1587,6 +1616,33 @@ MonoBehaviour:
   _radius: 0.05
   _color: {r: 1, g: 0, b: 0.8985181, a: 1}
   _showWireframed: 0
+--- !u!1773428102 &9213105773436141002
+ParentConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780259144784561289}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 1
+  m_TranslationAtRest: {x: 0.195, y: 1.1, z: 0.0048}
+  m_RotationAtRest: {x: 84.7288, y: 89.998924, z: 89.99899}
+  m_TranslationOffsets:
+  - {x: 0.1949997, y: 0.055752695, z: -0.0042352676}
+  m_RotationOffsets:
+  - {x: 82.16716, y: 137.61536, z: 137.88272}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_AffectRotationX: 1
+  m_AffectRotationY: 1
+  m_AffectRotationZ: 1
+  m_Active: 1
+  m_IsLocked: 0
+  m_Sources:
+  - sourceTransform: {fileID: 3539367086673212253}
+    weight: 1
 --- !u!1 &1903110398922914614
 GameObject:
   m_ObjectHideFlags: 0
@@ -2638,8 +2694,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5290116712343411565}
-  m_LocalRotation: {x: 0.29041082, y: 0.3484646, z: -0.11450161, w: 0.8838119}
-  m_LocalPosition: {x: -0.5564071, y: 2.3376472, z: -1.6375818}
+  m_LocalRotation: {x: 0.29041082, y: 0.3484645, z: -0.11450157, w: 0.8838119}
+  m_LocalPosition: {x: -0.5564071, y: 2.3376472, z: -1.6375813}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3184,6 +3240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2409597377621443607}
   - component: {fileID: 1297951761557183026}
+  - component: {fileID: 4235993997568627393}
   m_Layer: 7
   m_Name: MeleeWeaponHolster
   m_TagString: Untagged
@@ -3221,6 +3278,33 @@ MonoBehaviour:
   _radius: 0.05
   _color: {r: 1, g: 0, b: 0.8985181, a: 1}
   _showWireframed: 0
+--- !u!1773428102 &4235993997568627393
+ParentConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5806734366059350245}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 1
+  m_TranslationAtRest: {x: -0.138, y: 1.19, z: 0.139}
+  m_RotationAtRest: {x: 74.301125, y: -139.49591, z: -169.209}
+  m_TranslationOffsets:
+  - {x: -0.13800049, y: 0.1317249, z: 0.13837528}
+  m_RotationOffsets:
+  - {x: 69.548164, y: -149.80414, z: 179.96002}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_AffectRotationX: 1
+  m_AffectRotationY: 1
+  m_AffectRotationZ: 1
+  m_Active: 1
+  m_IsLocked: 0
+  m_Sources:
+  - sourceTransform: {fileID: 3539367086673212253}
+    weight: 1
 --- !u!1 &5873939091352501417
 GameObject:
   m_ObjectHideFlags: 0
@@ -3428,7 +3512,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6228039683820750260}
-  m_LocalRotation: {x: 0.29041082, y: 0.34846455, z: -0.114501595, w: 0.8838119}
+  m_LocalRotation: {x: 0.2904108, y: 0.3484645, z: -0.114501566, w: 0.8838119}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3702,7 +3786,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7417303702872778043}
-  m_LocalRotation: {x: 0.05810165, y: 3.0733082e-17, z: 4.5744238e-18, w: 0.9983107}
+  m_LocalRotation: {x: 0.058101647, y: 0.000000001540459, z: -8.965465e-11, w: 0.9983107}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4263,6 +4347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5525087316297725932}
   - component: {fileID: 7977162442802812487}
+  - component: {fileID: 5353369448131423623}
   m_Layer: 7
   m_Name: LargeWeaponHolster
   m_TagString: Untagged
@@ -4300,6 +4385,33 @@ MonoBehaviour:
   _radius: 0.05
   _color: {r: 1, g: 0, b: 0.8985181, a: 1}
   _showWireframed: 0
+--- !u!1773428102 &5353369448131423623
+ParentConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7858220506503567985}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 1
+  m_TranslationAtRest: {x: -0.327, y: 1.719, z: -0.124}
+  m_RotationAtRest: {x: 59.274143, y: 89.99997, z: -179.99979}
+  m_TranslationOffsets:
+  - {x: -0.32700062, y: 0.41497296, z: -0.06979847}
+  m_RotationOffsets:
+  - {x: 58.783833, y: 99.65282, z: -168.75154}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_AffectRotationX: 1
+  m_AffectRotationY: 1
+  m_AffectRotationZ: 1
+  m_Active: 1
+  m_IsLocked: 0
+  m_Sources:
+  - sourceTransform: {fileID: 8915055345203189726}
+    weight: 1
 --- !u!1 &8050290440294103199
 GameObject:
   m_ObjectHideFlags: 3
@@ -4324,8 +4436,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8050290440294103199}
-  m_LocalRotation: {x: 0.094326906, y: 0.000000018191656, z: -0.0000000017236482,
-    w: 0.9955413}
+  m_LocalRotation: {x: 0.09432688, y: -0.00000001661082, z: 0.0000000015738644, w: 0.9955413}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

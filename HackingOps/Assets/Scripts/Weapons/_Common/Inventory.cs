@@ -72,6 +72,8 @@ namespace HackingOps.Weapons.Common
         {
             if (!weapon) return;
 
+            weapon.transform.SetParent(_weaponParent);
+
             if (GetEquipmentSlotByWeaponSlot(weapon.Slot).Weapon != null)
             {
                 DropWeaponFromSlot(GetEquipmentSlotByWeaponSlot(weapon.Slot));
@@ -99,6 +101,7 @@ namespace HackingOps.Weapons.Common
             OnWeaponDropped?.Invoke(equipmentSlot.Weapon);
             equipmentSlot.Weapon.ResetWeapon();
             equipmentSlot.Weapon.Drop();
+            equipmentSlot.Weapon.transform.SetParent(null);
             equipmentSlot.Weapon = null;
             if (GetCurrentSlot().Weapon == null)
                 SwitchSlot(GetCurrentSlot(), GetEquipmentSlotByWeaponSlot(WeaponSlot.Unarmed));

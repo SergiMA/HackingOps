@@ -201,40 +201,49 @@ namespace HackingOps.Characters.Player
         {
             if (weapon.TryGetComponent(out ParentConstraint parentConstraint))
             {
-                if (weapon.Slot != WeaponSlot.MeleeWeapon)
-                {
-                    _currentHolderConstraint.sourceTransform = _firearmHolder;
-                }
-                else
-                {
-                    _currentHolderConstraint.sourceTransform = _rightHandBone;
-                }
-                _currentHolsterConstraint.sourceTransform = GetHolsterSourceTransform(weapon);
-
-                if (_inventory.GetCurrentSlot().Slot == weapon.Slot ||
-                    _inventory.GetCurrentSlot().Slot == WeaponSlot.Unarmed)
-                {
-                    _currentHolderConstraint.weight = 1f;
-                    _currentHolsterConstraint.weight = 0f;
-                }
-                else
-                {
-                    _currentHolderConstraint.weight = 0f;
-                    _currentHolsterConstraint.weight = 1f;
-                }
-
-                parentConstraint.SetTranslationOffset(0, Vector3.zero);
-                parentConstraint.SetRotationOffset(0, Vector3.zero);
-
-                parentConstraint.SetTranslationOffset(1, Vector3.zero);
-                parentConstraint.SetRotationOffset(1, Vector3.zero);
-
-                parentConstraint.SetSource(0, _currentHolderConstraint);
-                parentConstraint.constraintActive = true;
-
-                parentConstraint.SetSource(1, _currentHolsterConstraint);
-                parentConstraint.constraintActive = true;
+                ConfigureWeaponConstraintsPivots(weapon);
+                ConfigureWeaponParentConstraint(parentConstraint);
             }
+        }
+
+        private void ConfigureWeaponConstraintsPivots(Weapon weapon)
+        {
+            if (weapon.Slot != WeaponSlot.MeleeWeapon)
+            {
+                _currentHolderConstraint.sourceTransform = _firearmHolder;
+            }
+            else
+            {
+                _currentHolderConstraint.sourceTransform = _rightHandBone;
+            }
+            _currentHolsterConstraint.sourceTransform = GetHolsterSourceTransform(weapon);
+
+            if (_inventory.GetCurrentSlot().Slot == weapon.Slot ||
+                _inventory.GetCurrentSlot().Slot == WeaponSlot.Unarmed)
+            {
+                _currentHolderConstraint.weight = 1f;
+                _currentHolsterConstraint.weight = 0f;
+            }
+            else
+            {
+                _currentHolderConstraint.weight = 0f;
+                _currentHolsterConstraint.weight = 1f;
+            }
+        }
+
+        private void ConfigureWeaponParentConstraint(ParentConstraint parentConstraint)
+        {
+            parentConstraint.SetTranslationOffset(0, Vector3.zero);
+            parentConstraint.SetRotationOffset(0, Vector3.zero);
+
+            parentConstraint.SetTranslationOffset(1, Vector3.zero);
+            parentConstraint.SetRotationOffset(1, Vector3.zero);
+
+            parentConstraint.SetSource(0, _currentHolderConstraint);
+            parentConstraint.constraintActive = true;
+
+            parentConstraint.SetSource(1, _currentHolsterConstraint);
+            parentConstraint.constraintActive = true;
         }
 
         private void OnWeaponSwitched(Weapon oldWeapon, Weapon newWeapon)
