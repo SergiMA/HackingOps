@@ -20,6 +20,8 @@ namespace HackingOps.Weapons.WeaponFoundations
         [SerializeField] private bool _debugStartUsing;
         [SerializeField] private bool _debugStopUsing;
 
+        [SerializeField] private Vector3 _holderOffset;
+
         private MeshRenderer[] _renderers;
         private Rigidbody[] _rigidbodies;
         private Collider[] _colliders;
@@ -140,6 +142,8 @@ namespace HackingOps.Weapons.WeaponFoundations
 
             _canBeInteracted = false;
         }
+
+        public Vector3 GetHolderOffset() => _holderOffset;
 
         #region IInteractable implementation
         public void Interact(Interactor interactor)

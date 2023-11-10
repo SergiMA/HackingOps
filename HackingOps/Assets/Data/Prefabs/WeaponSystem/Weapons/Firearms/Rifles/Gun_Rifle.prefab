@@ -54,6 +54,7 @@ MonoBehaviour:
   _debugUse: 0
   _debugStartUsing: 0
   _debugStopUsing: 0
+  _holderOffset: {x: 0.143, y: 0, z: -0.139}
   _rotationPoint: {fileID: 5901821088529506375}
   _leftArmHint: {fileID: 7373107406063585270}
   _leftArmTarget: {fileID: 8123467799912789910}

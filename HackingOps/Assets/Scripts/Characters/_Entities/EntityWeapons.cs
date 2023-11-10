@@ -147,7 +147,7 @@ namespace HackingOps.Characters.Entities
             if (weapon.TryGetComponent(out ParentConstraint parentConstraint))
             {
                 ConfigureWeaponConstraintPivots(weapon);
-                ConfigureWeaponParentConstraint(parentConstraint);
+                ConfigureWeaponParentConstraint(parentConstraint, weapon.GetHolderOffset());
             }
         }
 
@@ -176,9 +176,9 @@ namespace HackingOps.Characters.Entities
             }
         }
 
-        private void ConfigureWeaponParentConstraint(ParentConstraint parentConstraint)
+        private void ConfigureWeaponParentConstraint(ParentConstraint parentConstraint, Vector3 holderOffset)
         {
-            parentConstraint.SetTranslationOffset(0, Vector3.zero);
+            parentConstraint.SetTranslationOffset(0, holderOffset);
             parentConstraint.SetRotationOffset(0, Vector3.zero);
 
             parentConstraint.SetTranslationOffset(1, Vector3.zero);
