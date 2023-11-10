@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace HackingOps.Screens.UI.ChatScreen
+namespace HackingOps.Screens.UI.ChatScreenElements
 {
     [CreateAssetMenu(fileName = "New Dialogue ID", menuName = "Hacking Ops/Dialogue ID")]
     public class DialogueId : ScriptableObject

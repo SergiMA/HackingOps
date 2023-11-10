@@ -73,6 +73,24 @@ MonoBehaviour:
     m_Localized: D'acord. Estic anant
     m_Metadata:
       m_Items: []
+  - m_Id: 11955661439250432
+    m_Localized: Estic davant de la sala de servidors, pero no puc obrir la porta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11955817861623808
+    m_Localized: "D'acord. T'estic aconseguint una autoritzaci\xF3 per utilitzar
+      el nostre programa de hackeig. Espera un moment"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11955949696987136
+    m_Localized: "Aqu\xED la tens. Ja est\xE0s autoritzat per utilitzar-lo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11956054122573824
+    m_Localized: "Perfecte. Hackejar\xE9 la terminal de l'ordenador per obrir la
+      porta. Probablemente les c\xE0meres em proporcionen un bon angle per aix\xF2"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

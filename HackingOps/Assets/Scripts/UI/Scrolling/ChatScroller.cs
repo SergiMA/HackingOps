@@ -1,4 +1,4 @@
-﻿using HackingOps.Screens.UI.ChatScreen;
+﻿using HackingOps.Screens.UI.ChatScreenElements;
 using UnityEngine;
 
 namespace HackingOps.UI.Scrolling

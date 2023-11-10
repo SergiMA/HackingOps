@@ -1,14 +1,15 @@
 ﻿using DG.Tweening;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace HackingOps.Screens.UI.ChatScreen
+namespace HackingOps.Screens.UI.ChatScreenElements
 {
     public class ChatScreen : MonoBehaviour
     {
         [SerializeField] private CanvasGroup _chatScreenCanvasGroup;
         [SerializeField] private CanvasGroup _continueButtonCanvasGroup;
         [SerializeField] private CanvasGroup _finishButtonCanvasGroup;
+
+        [SerializeField] private DialogueId _dialogueId;
 
         [Header("UI elements animations settings")]
         [SerializeField] private float _progressiveHideDurationInSeconds = 1f;
@@ -17,7 +18,7 @@ namespace HackingOps.Screens.UI.ChatScreen
 
         [SerializeField] private float _fadingChatScreenDurationInSeconds = 0.3f;
 
-        private Dictionary<string, Dialogue> _dialogues = new();
+        [SerializeField] private Dialogue _dialogue;
         private string _currentDialogueId;
 
         [Header("Debug")]
@@ -32,42 +33,20 @@ namespace HackingOps.Screens.UI.ChatScreen
             }
         }
 
-        private void Awake()
-        {
-            GetDialogues();
-        }
-
         private void OnEnable()
         {
-            foreach (KeyValuePair<string, Dialogue> dialogue in _dialogues)
-            {
-                dialogue.Value.OnLastMessageShown += OnLastMessageShown;
-            }
+            _dialogue.OnLastMessageShown += OnLastMessageShown;
         }
 
         private void OnDisable()
         {
-            foreach (KeyValuePair<string, Dialogue> dialogue in _dialogues)
-            {
-                dialogue.Value.OnLastMessageShown -= OnLastMessageShown;
-            }
+            _dialogue.OnLastMessageShown -= OnLastMessageShown;
         }
 
         private void Start()
         {
-            ShowUIElementUsingCanvasGroup(_chatScreenCanvasGroup);
-            ShowUIElementUsingCanvasGroup(_continueButtonCanvasGroup);
             HideUIElementUsingCanvasGroup(_finishButtonCanvasGroup);
-        }
-
-        private void GetDialogues()
-        {
-            Dialogue[] foundDialogues = GetComponentsInChildren<Dialogue>();
-
-            foreach (Dialogue dialogue in foundDialogues)
-            {
-                _dialogues.Add(dialogue.Id, dialogue);
-            }
+            HideUIElementUsingCanvasGroup(_continueButtonCanvasGroup);
         }
 
         private void OnLastMessageShown()
@@ -86,7 +65,7 @@ namespace HackingOps.Screens.UI.ChatScreen
 
         public void Continue()
         {
-            _dialogues[_currentDialogueId].ShowNextMessage();
+            _dialogue.ShowNextMessage();
         }
 
         public void Close()
@@ -96,7 +75,7 @@ namespace HackingOps.Screens.UI.ChatScreen
                 _chatScreenCanvasGroup.alpha = alpha;
             }).OnComplete(() =>
             {
-                _dialogues[_currentDialogueId].HideAllMessages();
+                _dialogue.HideAllMessages();
                 HideUIElementUsingCanvasGroup(_finishButtonCanvasGroup, 0f);
                 HideUIElementUsingCanvasGroup(_continueButtonCanvasGroup, 0f);
             });
@@ -147,11 +126,14 @@ namespace HackingOps.Screens.UI.ChatScreen
         public void Show()
         {
             ShowUIElementUsingCanvasGroup(_chatScreenCanvasGroup);
+            ShowUIElementUsingCanvasGroup(_continueButtonCanvasGroup);
         }
 
         public void Hide()
         {
             HideUIElementUsingCanvasGroup(_chatScreenCanvasGroup);
         }
+
+        public DialogueId GetDialogue() => _dialogueId;
     }
 }

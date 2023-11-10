@@ -72,6 +72,25 @@ MonoBehaviour:
     m_Localized: De acuerdo. Estoy yendo
     m_Metadata:
       m_Items: []
+  - m_Id: 11955661439250432
+    m_Localized: Estoy en frente de la sala de servidores, pero no puedo abrir la
+      puerta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11955817861623808
+    m_Localized: "De acuerdo. Te estoy consiguiendo una autorizaci\xF3n para usar
+      nuestro programa de hackeo. Espera un momento"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11955949696987136
+    m_Localized: "Aqu\xED la tienes. Ya est\xE1s autorizado para usarlo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11956054122573824
+    m_Localized: "Perfecto. Hackear\xE9 la terminal del ordenador para abrir la puerta.
+      Probablemente las c\xE1maras me proporcionen un buen \xE1ngulo para eso"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

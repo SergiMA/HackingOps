@@ -72,6 +72,24 @@ MonoBehaviour:
     m_Localized: Okay. I'm going
     m_Metadata:
       m_Items: []
+  - m_Id: 11955661439250432
+    m_Localized: I'm in front of the server room, but can't open the door
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11955817861623808
+    m_Localized: Okay, I'm getting you an authorization to our hacking program. Wait
+      a moment
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11955949696987136
+    m_Localized: Here. You are now authorized to use  it.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11956054122573824
+    m_Localized: Perfect. I'll try hack the computer terminal to open the door. Probably
+      the cameras will provide me with a good angle for that
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

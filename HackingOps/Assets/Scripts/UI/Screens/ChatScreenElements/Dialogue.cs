@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace HackingOps.Screens.UI.ChatScreen
+namespace HackingOps.Screens.UI.ChatScreenElements
 {
     public class Dialogue : MonoBehaviour
     {

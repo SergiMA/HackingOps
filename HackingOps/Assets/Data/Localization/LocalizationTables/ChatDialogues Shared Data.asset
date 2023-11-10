@@ -63,6 +63,22 @@ MonoBehaviour:
     m_Key: blueprints_stolen_dialogue_04
     m_Metadata:
       m_Items: []
+  - m_Id: 11955661439250432
+    m_Key: hacking_instructions_dialogue_01
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11955817861623808
+    m_Key: hacking_instructions_dialogue_02
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11955949696987136
+    m_Key: hacking_instructions_dialogue_03
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11956054122573824
+    m_Key: hacking_instructions_dialogue_04
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
