@@ -82,7 +82,7 @@ Transform:
   m_Children:
   - {fileID: 3123280641920851647}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &5185647992212091807
 Rigidbody:
@@ -181,6 +181,7 @@ MonoBehaviour:
   _debugUse: 0
   _debugStartUsing: 0
   _debugStopUsing: 0
+  _holderOffset: {x: 0, y: 0, z: 0}
   _effectiveRange: 1
   _damageByHit: 5
 --- !u!114 &1367157495022154716
@@ -437,17 +438,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cf56454077063ef4f9fa138a7d2b370a, type: 2}
+      objectReference: {fileID: 2100000, guid: 9b8c4c38adf32c340aeefe639302baf2, type: 2}
     - target: {fileID: 23466775066845460, guid: b3bc4acf37a64d645a5b757d00bb5697,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cf56454077063ef4f9fa138a7d2b370a, type: 2}
+      objectReference: {fileID: 2100000, guid: 9b8c4c38adf32c340aeefe639302baf2, type: 2}
     - target: {fileID: 23663720765342848, guid: b3bc4acf37a64d645a5b757d00bb5697,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cf56454077063ef4f9fa138a7d2b370a, type: 2}
+      objectReference: {fileID: 2100000, guid: 9b8c4c38adf32c340aeefe639302baf2, type: 2}
     m_RemovedComponents:
     - {fileID: 64387524289473924, guid: b3bc4acf37a64d645a5b757d00bb5697, type: 3}
     - {fileID: 64644712561998802, guid: b3bc4acf37a64d645a5b757d00bb5697, type: 3}

@@ -588,11 +588,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5357496841199505458}
     m_Modifications:
+    - target: {fileID: 5400280937894562565, guid: 06c813cf854462d4c86a7cd38f98536b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7177e7530655bd34f850310ee7ad9d5c, type: 2}
     - target: {fileID: 5783954524288184859, guid: 06c813cf854462d4c86a7cd38f98536b,
         type: 3}
       propertyPath: m_Name
       value: Sci-Fi Shotgun
       objectReference: {fileID: 0}
+    - target: {fileID: 7274774450867481526, guid: 06c813cf854462d4c86a7cd38f98536b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 199fddfb225ad8448af02982e36d0b53, type: 2}
     - target: {fileID: 7358848969765748744, guid: 06c813cf854462d4c86a7cd38f98536b,
         type: 3}
       propertyPath: m_RootOrder
