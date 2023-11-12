@@ -53,6 +53,9 @@ namespace HackingOps.Weapons.WeaponFoundations
 
         public void RayImpactedOn(RaycastHit hit)
         {
+            if (_wielder == null)
+                return;
+
             if (hit.transform != _wielder.transform)
             {
                 if (hit.collider.TryGetComponent(out HurtBox hurtBox))
