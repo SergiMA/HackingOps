@@ -12,5 +12,7 @@
         DialogueCompleted,
         BeginHackingMode,
         LeaveHackingMode,
+        StartAiming,
+        StopAiming,
     }
 }

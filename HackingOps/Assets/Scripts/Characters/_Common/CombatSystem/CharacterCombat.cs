@@ -1,4 +1,6 @@
 ﻿using DG.Tweening;
+using HackingOps.Common.Events;
+using HackingOps.Common.Services;
 using HackingOps.Weapons.Common;
 using HackingOps.Weapons.WeaponFoundations;
 using System;
@@ -135,7 +137,10 @@ namespace HackingOps.Characters.Common
             if (_isCombatWeapon)
                 OnStartBlock.Invoke();
             else
+            {
                 OnStartAiming.Invoke();
+                ServiceLocator.Instance.GetService<IEventQueue>().EnqueueEvent(new EventData(EventIds.StartAiming));
+            }
         }
 
         public void OnStopLockReceived()
@@ -143,7 +148,10 @@ namespace HackingOps.Characters.Common
             if (_isCombatWeapon)
                 OnStopBlock.Invoke();
             else
+            {
                 OnStopAiming.Invoke();
+                ServiceLocator.Instance.GetService<IEventQueue>().EnqueueEvent(new EventData(EventIds.StopAiming));
+            }
         }
 
         public void OnBlockStarted()
