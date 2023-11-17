@@ -510,11 +510,13 @@ MonoBehaviour:
   CurrentAmmo: 12
   RechargeTime: 2.5
   EffectiveRange: 15
-  _prefabToInstantiate: {fileID: 415117011479209408, guid: 786df7cf7ad071241a62aaedc2587acd,
+  _prefabToInstantiate: {fileID: 8538728098662777744, guid: 786df7cf7ad071241a62aaedc2587acd,
     type: 3}
   _shootPoint: {fileID: 9140232683691777975}
   _launchSpeed: 25
   _spread: 0.033
+  _projectileParticlePrefab: {fileID: 3125916186392176810, guid: 8c134794b514f9d458a6f54ef0072a0f,
+    type: 3}
 --- !u!1 &8340590673758549925
 GameObject:
   m_ObjectHideFlags: 0

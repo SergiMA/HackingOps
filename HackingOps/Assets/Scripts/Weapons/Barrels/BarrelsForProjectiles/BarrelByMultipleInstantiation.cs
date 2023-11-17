@@ -4,6 +4,7 @@ namespace HackingOps.Weapons.Barrels.BarrelsForProjectiles
 {
     public class BarrelByMultipleInstantiation : BarrelByInstantiation 
     {
+        [Header("Multiple instantiation settings")]
         [SerializeField] private float _amountOfProjectiles = 10f;
 
         protected override void InternalShot()
