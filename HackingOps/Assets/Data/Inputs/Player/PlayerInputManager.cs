@@ -17,6 +17,7 @@ namespace HackingOps.Input
         public event Action OnEnterHackingMode;
         public event Action OnLeaveHackingMode;
         public event Action OnHack;
+        public event Action OnCancel;
 
         public Vector2 MoveInput { get; private set; }
         public Vector2 MouseInput { get; private set; }
@@ -99,6 +100,8 @@ namespace HackingOps.Input
             _inputActions.ThirdPersonCharacter_ActionMap.Interact.performed += Interact;
 
             _inputActions.ThirdPersonCharacter_ActionMap.EnterHackingMode.performed += BeginHacking;
+
+            _inputActions.ThirdPersonCharacter_ActionMap.Cancel.performed += Cancel;
         }
 
         private void SubscribeToEventsFromHackingModeActionMap()
@@ -145,6 +148,8 @@ namespace HackingOps.Input
             _inputActions.ThirdPersonCharacter_ActionMap.Interact.performed -= Interact;
 
             _inputActions.ThirdPersonCharacter_ActionMap.EnterHackingMode.performed -= BeginHacking;
+
+            _inputActions.ThirdPersonCharacter_ActionMap.Cancel.performed -= Cancel;
         }
 
         private void UnsubscribeFromEventsFromHackingModeActionMap()
@@ -214,6 +219,11 @@ namespace HackingOps.Input
         private void BeginHacking(InputAction.CallbackContext ctx)
         {
             OnEnterHackingMode?.Invoke();
+        }
+
+        private void Cancel(InputAction.CallbackContext ctx)
+        {
+            OnCancel?.Invoke();
         }
 
         #region Switch weapon
@@ -290,6 +300,12 @@ namespace HackingOps.Input
         {
             DisableAllActionMaps();
             _inputActions.ThirdPersonCharacter_ActionMap.Enable();
+        }
+
+        public void SwitchToMenuActionMap()
+        {
+            DisableAllActionMaps();
+            _inputActions.Menu_ActionMap.Enable();
         }
 
         public void SwitchToHackingModeActionMap()

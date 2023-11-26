@@ -22,6 +22,8 @@ namespace HackingOps.Characters.Player
             ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.CutsceneFinished, this);
             ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.BeginHackingMode, this);
             ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.LeaveHackingMode, this);
+            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.PauseGame, this);
+            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.ResumeGame, this);
         }
 
         private void OnDisable()
@@ -30,6 +32,8 @@ namespace HackingOps.Characters.Player
             ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.CutsceneFinished, this);
             ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.BeginHackingMode, this);
             ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.LeaveHackingMode, this);
+            ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.PauseGame, this);
+            ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.ResumeGame, this);
         }
 
         private void Start()
@@ -84,6 +88,12 @@ namespace HackingOps.Characters.Player
                     _inputManager.SwitchToHackingModeActionMap();
                     break;
                 case EventIds.LeaveHackingMode:
+                    _inputManager.SwitchToPlayerActionMap();
+                    break;
+                case EventIds.PauseGame:
+                    _inputManager.SwitchToMenuActionMap();
+                    break;
+                case EventIds.ResumeGame:
                     _inputManager.SwitchToPlayerActionMap();
                     break;
             }

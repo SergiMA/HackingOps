@@ -1,11 +1,9 @@
-﻿using HackingOps.Characters.Player;
-using HackingOps.Common.Events;
+﻿using HackingOps.Common.Events;
 using HackingOps.Common.Services;
 using HackingOps.CutsceneSystem;
-using System;
 using UnityEngine;
 
-namespace Assets.Scripts.Hacking
+namespace HackingOps.Hacking
 {
     public class HackingTimelineSetup : MonoBehaviour, IEventObserver
     {

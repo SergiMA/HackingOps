@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Hacking;
-using HackingOps.Common.Events;
+﻿using HackingOps.Common.Events;
 using HackingOps.Common.Services;
 using UnityEngine;
 

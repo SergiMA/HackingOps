@@ -14,5 +14,7 @@
         LeaveHackingMode,
         StartAiming,
         StopAiming,
+        PauseGame,
+        ResumeGame,
     }
 }

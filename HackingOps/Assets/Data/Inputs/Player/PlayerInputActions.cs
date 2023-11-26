@@ -215,6 +215,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""fb50ad2f-9a05-443f-bf93-a751bce3c83d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -514,6 +523,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""EnterHackingMode"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""28cb3df1-06d8-435c-bea3-29286c34beee"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -584,6 +604,98 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Menu_ActionMap"",
+            ""id"": ""6fbe3ecd-5a96-4a7a-8dc6-c180bd0995bf"",
+            ""actions"": [
+                {
+                    ""name"": ""Navigate"",
+                    ""type"": ""Value"",
+                    ""id"": ""e79bff18-a166-4835-9c78-082efe3e59c3"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Submit"",
+                    ""type"": ""Button"",
+                    ""id"": ""9536b36f-155f-4634-920e-8475e36b185b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""2D Vector (Keyboard)"",
+                    ""id"": ""f1e3eaf4-b532-4c10-8e4b-c4f6b9efe138"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""fcdd9426-9d70-4f6b-8325-530e96b3e564"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""434a92c9-5b07-48b9-bbc8-dcad94cf9c9c"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""072c674f-2dd9-4301-b0f1-0c6f2ef47abd"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""10fbf337-6cb8-4f0f-ae04-5cb554458f38"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ba2e7f19-e2ef-4c41-94af-13943fb9032f"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -611,11 +723,16 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_ThirdPersonCharacter_ActionMap_Interact = m_ThirdPersonCharacter_ActionMap.FindAction("Interact", throwIfNotFound: true);
         m_ThirdPersonCharacter_ActionMap_Block = m_ThirdPersonCharacter_ActionMap.FindAction("Block", throwIfNotFound: true);
         m_ThirdPersonCharacter_ActionMap_EnterHackingMode = m_ThirdPersonCharacter_ActionMap.FindAction("EnterHackingMode", throwIfNotFound: true);
+        m_ThirdPersonCharacter_ActionMap_Cancel = m_ThirdPersonCharacter_ActionMap.FindAction("Cancel", throwIfNotFound: true);
         // HackingMode_ActionMap
         m_HackingMode_ActionMap = asset.FindActionMap("HackingMode_ActionMap", throwIfNotFound: true);
         m_HackingMode_ActionMap_LeaveHackingMode = m_HackingMode_ActionMap.FindAction("LeaveHackingMode", throwIfNotFound: true);
         m_HackingMode_ActionMap_Look = m_HackingMode_ActionMap.FindAction("Look", throwIfNotFound: true);
         m_HackingMode_ActionMap_Hack = m_HackingMode_ActionMap.FindAction("Hack", throwIfNotFound: true);
+        // Menu_ActionMap
+        m_Menu_ActionMap = asset.FindActionMap("Menu_ActionMap", throwIfNotFound: true);
+        m_Menu_ActionMap_Navigate = m_Menu_ActionMap.FindAction("Navigate", throwIfNotFound: true);
+        m_Menu_ActionMap_Submit = m_Menu_ActionMap.FindAction("Submit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -698,6 +815,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_ThirdPersonCharacter_ActionMap_Interact;
     private readonly InputAction m_ThirdPersonCharacter_ActionMap_Block;
     private readonly InputAction m_ThirdPersonCharacter_ActionMap_EnterHackingMode;
+    private readonly InputAction m_ThirdPersonCharacter_ActionMap_Cancel;
     public struct ThirdPersonCharacter_ActionMapActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -723,6 +841,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_ThirdPersonCharacter_ActionMap_Interact;
         public InputAction @Block => m_Wrapper.m_ThirdPersonCharacter_ActionMap_Block;
         public InputAction @EnterHackingMode => m_Wrapper.m_ThirdPersonCharacter_ActionMap_EnterHackingMode;
+        public InputAction @Cancel => m_Wrapper.m_ThirdPersonCharacter_ActionMap_Cancel;
         public InputActionMap Get() { return m_Wrapper.m_ThirdPersonCharacter_ActionMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -795,6 +914,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @EnterHackingMode.started += instance.OnEnterHackingMode;
             @EnterHackingMode.performed += instance.OnEnterHackingMode;
             @EnterHackingMode.canceled += instance.OnEnterHackingMode;
+            @Cancel.started += instance.OnCancel;
+            @Cancel.performed += instance.OnCancel;
+            @Cancel.canceled += instance.OnCancel;
         }
 
         private void UnregisterCallbacks(IThirdPersonCharacter_ActionMapActions instance)
@@ -862,6 +984,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @EnterHackingMode.started -= instance.OnEnterHackingMode;
             @EnterHackingMode.performed -= instance.OnEnterHackingMode;
             @EnterHackingMode.canceled -= instance.OnEnterHackingMode;
+            @Cancel.started -= instance.OnCancel;
+            @Cancel.performed -= instance.OnCancel;
+            @Cancel.canceled -= instance.OnCancel;
         }
 
         public void RemoveCallbacks(IThirdPersonCharacter_ActionMapActions instance)
@@ -941,6 +1066,60 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         }
     }
     public HackingMode_ActionMapActions @HackingMode_ActionMap => new HackingMode_ActionMapActions(this);
+
+    // Menu_ActionMap
+    private readonly InputActionMap m_Menu_ActionMap;
+    private List<IMenu_ActionMapActions> m_Menu_ActionMapActionsCallbackInterfaces = new List<IMenu_ActionMapActions>();
+    private readonly InputAction m_Menu_ActionMap_Navigate;
+    private readonly InputAction m_Menu_ActionMap_Submit;
+    public struct Menu_ActionMapActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public Menu_ActionMapActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Navigate => m_Wrapper.m_Menu_ActionMap_Navigate;
+        public InputAction @Submit => m_Wrapper.m_Menu_ActionMap_Submit;
+        public InputActionMap Get() { return m_Wrapper.m_Menu_ActionMap; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(Menu_ActionMapActions set) { return set.Get(); }
+        public void AddCallbacks(IMenu_ActionMapActions instance)
+        {
+            if (instance == null || m_Wrapper.m_Menu_ActionMapActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Menu_ActionMapActionsCallbackInterfaces.Add(instance);
+            @Navigate.started += instance.OnNavigate;
+            @Navigate.performed += instance.OnNavigate;
+            @Navigate.canceled += instance.OnNavigate;
+            @Submit.started += instance.OnSubmit;
+            @Submit.performed += instance.OnSubmit;
+            @Submit.canceled += instance.OnSubmit;
+        }
+
+        private void UnregisterCallbacks(IMenu_ActionMapActions instance)
+        {
+            @Navigate.started -= instance.OnNavigate;
+            @Navigate.performed -= instance.OnNavigate;
+            @Navigate.canceled -= instance.OnNavigate;
+            @Submit.started -= instance.OnSubmit;
+            @Submit.performed -= instance.OnSubmit;
+            @Submit.canceled -= instance.OnSubmit;
+        }
+
+        public void RemoveCallbacks(IMenu_ActionMapActions instance)
+        {
+            if (m_Wrapper.m_Menu_ActionMapActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IMenu_ActionMapActions instance)
+        {
+            foreach (var item in m_Wrapper.m_Menu_ActionMapActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_Menu_ActionMapActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public Menu_ActionMapActions @Menu_ActionMap => new Menu_ActionMapActions(this);
     public interface IThirdPersonCharacter_ActionMapActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -964,11 +1143,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnBlock(InputAction.CallbackContext context);
         void OnEnterHackingMode(InputAction.CallbackContext context);
+        void OnCancel(InputAction.CallbackContext context);
     }
     public interface IHackingMode_ActionMapActions
     {
         void OnLeaveHackingMode(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnHack(InputAction.CallbackContext context);
+    }
+    public interface IMenu_ActionMapActions
+    {
+        void OnNavigate(InputAction.CallbackContext context);
+        void OnSubmit(InputAction.CallbackContext context);
     }
 }
