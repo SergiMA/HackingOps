@@ -12,5 +12,10 @@ namespace HackingOps.Common.Core.Installers
         {
             ServiceLocator.Instance.RegisterService(_cursorLocker);
         }
+
+        public override void Uninstall(ServiceLocator serviceLocator)
+        {
+            serviceLocator.DeregisterService(_cursorLocker);
+        }
     }
 }

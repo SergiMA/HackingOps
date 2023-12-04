@@ -18,8 +18,14 @@ namespace HackingOps.Common.Core.Installers
             InternalStart();
         }
 
+        private void OnDestroy()
+        {
+            UninstallDependencies();
+            InternalUninstallDependencies();
+        }
+
         protected abstract void InternalStart();
-        
+
         private void InstallDependencies()
         {
             foreach (Installer installer in _installers)
@@ -28,6 +34,13 @@ namespace HackingOps.Common.Core.Installers
             InternalInstallDependencies();
         }
 
+        private void UninstallDependencies()
+        {
+            foreach (Installer installer in _installers)
+                installer.Uninstall(ServiceLocator.Instance);
+        }
+
         protected abstract void InternalInstallDependencies();
+        protected abstract void InternalUninstallDependencies();
     }
 }

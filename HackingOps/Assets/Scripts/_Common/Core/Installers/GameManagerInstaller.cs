@@ -1,21 +1,21 @@
-﻿using HackingOps.Common.Events;
+﻿using HackingOps.Common.Core.Managers;
 using HackingOps.Common.Services;
 using UnityEngine;
 
 namespace HackingOps.Common.Core.Installers
 {
-    public class EventQueueInstaller : Installer
+    public class GameManagerInstaller : Installer
     {
-        [SerializeField] private EventQueue _eventQueue;
+        [SerializeField] private GameManager _gameManager;
 
         public override void Install(ServiceLocator serviceLocator)
         {
-            serviceLocator.RegisterService<IEventQueue>(_eventQueue);
+            serviceLocator.RegisterService(_gameManager);
         }
 
         public override void Uninstall(ServiceLocator serviceLocator)
         {
-            serviceLocator.DeregisterService<IEventQueue>(_eventQueue);
+            serviceLocator.DeregisterService(_gameManager);
         }
     }
 }

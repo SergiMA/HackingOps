@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 using HackingOps.Common.CommandSystem;
 using HackingOps.Common.CommandSystem.Commands;
+using HackingOps.Common.Core.Managers;
 using HackingOps.Common.Services;
 using HackingOps.Screens.UI.ChatScreenElements;
 using System.Collections.Generic;
@@ -56,6 +57,11 @@ namespace HackingOps.Screens.UI
             ServiceLocator.Instance.GetService<CommandQueue>().AddCommand(new StopUsingLaptopCommand());
             HideAllScreens(_progressiveHideDurationInSeconds);
             OnResumeButtonPressed.Invoke();
+        }
+
+        public void OnExitButtonPressed()
+        {
+            ServiceLocator.Instance.GetService<GameManager>().Exit();
         }
 
         public void OnLeaveHackingMode()

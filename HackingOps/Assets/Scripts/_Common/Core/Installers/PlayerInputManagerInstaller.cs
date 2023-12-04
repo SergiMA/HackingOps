@@ -13,5 +13,10 @@ namespace HackingOps.Common.Core.Installers
         {
             serviceLocator.RegisterService(_playerInputManager);
         }
+
+        public override void Uninstall(ServiceLocator serviceLocator)
+        {
+            serviceLocator.DeregisterService(_playerInputManager);
+        }
     }
 }

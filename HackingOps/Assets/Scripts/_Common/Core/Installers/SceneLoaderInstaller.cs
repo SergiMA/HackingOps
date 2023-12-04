@@ -1,21 +1,21 @@
 ﻿using HackingOps.Common.Services;
-using HackingOps.CutsceneSystem;
+using HackingOps.Utilities;
 using UnityEngine;
 
 namespace HackingOps.Common.Core.Installers
 {
-    public class LaptopCutsceneInstaller : Installer
+    public class SceneLoaderInstaller : Installer
     {
-        [SerializeField] private LaptopCutscene _laptopCutscene;
+        [SerializeField] private SceneLoader _sceneLoader;
 
         public override void Install(ServiceLocator serviceLocator)
         {
-            serviceLocator.RegisterService(_laptopCutscene);
+            ServiceLocator.Instance.RegisterService(_sceneLoader);
         }
 
         public override void Uninstall(ServiceLocator serviceLocator)
         {
-            serviceLocator.DeregisterService(_laptopCutscene);
+            ServiceLocator.Instance.DeregisterService(_sceneLoader);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using HackingOps.Common.Events;
 using HackingOps.Common.Services;
 using HackingOps.Input;
+using HackingOps.Utilities;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,6 +13,11 @@ namespace HackingOps.Common.Core.Managers
         public UnityEvent OnResume;
 
         [SerializeField] private PlayerInputManager _inputManager;
+
+        private void Awake()
+        {
+            Time.timeScale = 1f;
+        }
 
         private void OnEnable()
         {
@@ -34,6 +40,11 @@ namespace HackingOps.Common.Core.Managers
             ReadyToResume();
             ServiceLocator.Instance.GetService<IEventQueue>().EnqueueEvent(new EventData(EventIds.ResumeGame));
             OnResume.Invoke();
+        }
+
+        public void Exit()
+        {
+            ServiceLocator.Instance.GetService<SceneLoader>().LoadNext();
         }
 
         public void ReadyToPause()

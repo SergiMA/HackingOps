@@ -7,5 +7,6 @@ namespace HackingOps.Common.Core.Installers
     public abstract class Installer : MonoBehaviour
     {
         public abstract void Install(ServiceLocator serviceLocator);
+        public abstract void Uninstall(ServiceLocator serviceLocator);
     }
 }

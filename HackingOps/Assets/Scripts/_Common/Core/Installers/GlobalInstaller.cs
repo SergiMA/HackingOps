@@ -12,6 +12,11 @@ namespace HackingOps.Common.Core.Installers
             ServiceLocator.Instance.RegisterService(CommandQueue.Instance);
         }
 
+        protected override void InternalUninstallDependencies()
+        {
+            ServiceLocator.Instance.DeregisterService(CommandQueue.Instance);
+        }
+
         protected override void InternalStart()
         {
             

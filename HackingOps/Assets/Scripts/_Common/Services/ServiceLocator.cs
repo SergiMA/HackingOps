@@ -21,9 +21,19 @@ namespace HackingOps.Common.Services
         public void RegisterService<T>(T service)
         {
             Type type = typeof(T);
-            Assert.IsFalse(_services.ContainsKey(type), $"Service {type} alraedy registered");
+            Assert.IsFalse(_services.ContainsKey(type), $"Service {type} already registered");
 
             _services.Add(type, service);
+        }
+
+        public void DeregisterService<T>(T service)
+        {
+            Type type = typeof(T);
+
+            if (_services.ContainsKey(type))
+            {
+                _services.Remove(type);
+            }
         }
 
         public T GetService<T>()
