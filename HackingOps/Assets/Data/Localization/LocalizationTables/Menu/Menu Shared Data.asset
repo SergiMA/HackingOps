@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Menu Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Menu
+  m_TableCollectionNameGuidString: ec19dad2e435a0d429927a7c8515d38c
+  m_Entries:
+  - m_Id: 79821721600
+    m_Key: play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154144788480
+    m_Key: settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 323225571328
+    m_Key: credits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 778991226880
+    m_Key: exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 975892828160
+    m_Key: game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1036068507648
+    m_Key: video
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1112933322752
+    m_Key: audio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1186421723136
+    m_Key: setting_mouse_sensitivity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1492597526528
+    m_Key: setting_invert_x_axis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1683518050304
+    m_Key: setting_invert_y_axis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1814631993344
+    m_Key: setting_language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1923260272640
+    m_Key: setting_language_english
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2053564715008
+    m_Key: setting_language_spanish
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2193180512256
+    m_Key: setting_language_catalan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2332540456960
+    m_Key: setting_fullscreen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2599726010368
+    m_Key: setting_resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2717950857216
+    m_Key: setting_antialiasing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3025611444224
+    m_Key: setting_music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3151008550912
+    m_Key: setting_sfx
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3222013923328
+    m_Key: close
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3339471212544
+    m_Key: reset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3528768540672
+    m_Key: save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3719138488799232
+    m_Key: resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7702314856927232
+    m_Key: 'setting_master
+
+'
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 451809287728267264
+  references:
+    version: 2
+    RefIds:
+    - rid: 451809287728267264
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1701945809621

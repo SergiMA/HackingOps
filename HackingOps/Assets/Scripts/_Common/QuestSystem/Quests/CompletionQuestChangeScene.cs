@@ -15,7 +15,6 @@ namespace HackingOps.Common.QuestSystem.Quests
 
         public void ExecuteAction()
         {
-            Debug.Log($"Last cutscene quest completed");
             ServiceLocator.Instance.GetService<SceneLoader>().Load(_sceneName);
         }
     }

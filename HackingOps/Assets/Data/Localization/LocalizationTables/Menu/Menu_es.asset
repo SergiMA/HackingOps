@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Menu_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: ec19dad2e435a0d429927a7c8515d38c, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 79821721600
+    m_Localized: Jugar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154144788480
+    m_Localized: "Configuraci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 323225571328
+    m_Localized: "Cr\xE9ditos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 778991226880
+    m_Localized: Salir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 975892828160
+    m_Localized: Juego
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1036068507648
+    m_Localized: "V\xEDdeo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1112933322752
+    m_Localized: Audio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1186421723136
+    m_Localized: "Sensibilidad del rat\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1492597526528
+    m_Localized: Invertir eje X
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1683518050304
+    m_Localized: Inventir eje Y
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1814631993344
+    m_Localized: Idioma
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1923260272640
+    m_Localized: "Ingl\xE9s"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2053564715008
+    m_Localized: "Espa\xF1ol"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2193180512256
+    m_Localized: "Catal\xE1n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2332540456960
+    m_Localized: Pantalla completa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2599726010368
+    m_Localized: "Resoluci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2717950857216
+    m_Localized: Antialiasing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3025611444224
+    m_Localized: "M\xFAsica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3151008550912
+    m_Localized: SFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3222013923328
+    m_Localized: Cerrar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3339471212544
+    m_Localized: Restablecer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3528768540672
+    m_Localized: Guardar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3719138488799232
+    m_Localized: Reanudar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7702314856927232
+    m_Localized: Maestro
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
