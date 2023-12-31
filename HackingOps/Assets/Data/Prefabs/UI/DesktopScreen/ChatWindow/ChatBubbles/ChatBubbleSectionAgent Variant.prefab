@@ -63,6 +63,26 @@ PrefabInstance:
       propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
       value: GUID:932affe03ff16ae4e9abd96fc5487491
       objectReference: {fileID: 0}
+    - target: {fileID: 4161525882733906380, guid: 95c22bd1189ea8c44b33c0bca3723d47,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161525882733906380, guid: 95c22bd1189ea8c44b33c0bca3723d47,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.8818593
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161525882733906380, guid: 95c22bd1189ea8c44b33c0bca3723d47,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161525882733906380, guid: 95c22bd1189ea8c44b33c0bca3723d47,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4612620742387072708, guid: 95c22bd1189ea8c44b33c0bca3723d47,
         type: 3}
       propertyPath: m_Name
@@ -241,7 +261,7 @@ PrefabInstance:
     - target: {fileID: 6850576931385785788, guid: 95c22bd1189ea8c44b33c0bca3723d47,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 1253
       objectReference: {fileID: 0}
     - target: {fileID: 6850576931385785788, guid: 95c22bd1189ea8c44b33c0bca3723d47,
         type: 3}
@@ -261,7 +281,27 @@ PrefabInstance:
     - target: {fileID: 9148132671517419749, guid: 95c22bd1189ea8c44b33c0bca3723d47,
         type: 3}
       propertyPath: m_text
-      value: agent_placeholder_text
+      value: This is a chat bubble from the Agent
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148132671517419749, guid: 95c22bd1189ea8c44b33c0bca3723d47,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148132671517419749, guid: 95c22bd1189ea8c44b33c0bca3723d47,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148132671517419749, guid: 95c22bd1189ea8c44b33c0bca3723d47,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148132671517419749, guid: 95c22bd1189ea8c44b33c0bca3723d47,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4281479730
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1386046737682943408, guid: 95c22bd1189ea8c44b33c0bca3723d47, type: 3}

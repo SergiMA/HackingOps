@@ -253,6 +253,26 @@ PrefabInstance:
       propertyPath: m_text
       value: employer_placeholder_text
       objectReference: {fileID: 0}
+    - target: {fileID: 9148132671517419749, guid: 95c22bd1189ea8c44b33c0bca3723d47,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148132671517419749, guid: 95c22bd1189ea8c44b33c0bca3723d47,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148132671517419749, guid: 95c22bd1189ea8c44b33c0bca3723d47,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148132671517419749, guid: 95c22bd1189ea8c44b33c0bca3723d47,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4281479730
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1386046737682943408, guid: 95c22bd1189ea8c44b33c0bca3723d47, type: 3}
     m_RemovedGameObjects: []

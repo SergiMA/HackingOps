@@ -190,6 +190,7 @@ GameObject:
   - component: {fileID: 8817776355357718484}
   - component: {fileID: 4701682265631015846}
   - component: {fileID: 984514497422589784}
+  - component: {fileID: 1097481093227681865}
   m_Layer: 5
   m_Name: Menu Button
   m_TagString: Untagged
@@ -320,3 +321,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!225 &1097481093227681865
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8944627433036244002}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
