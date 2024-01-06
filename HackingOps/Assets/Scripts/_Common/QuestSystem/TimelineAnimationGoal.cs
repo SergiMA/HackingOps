@@ -8,7 +8,15 @@ namespace HackingOps.Common.QuestSystem
     public class TimelineAnimationGoal : Goal
     {
         [SerializeField] private CutsceneId _cutsceneId;
+        [SerializeField] private AnimationStatusCapture _statusCapture = AnimationStatusCapture.OnFinished;
 
+        enum AnimationStatusCapture
+        {
+            OnStarted,
+            OnFinished,
+        }
+
+        #region Goal overrides
         public override void Init()
         {
             base.Init();
@@ -17,15 +25,35 @@ namespace HackingOps.Common.QuestSystem
         public override void SubscribeToEvents()
         {
             base.SubscribeToEvents();
+            
+            IEventQueue eventQueue = ServiceLocator.Instance.GetService<IEventQueue>();
 
-            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.CutsceneFinished, this);
+            switch (_statusCapture)
+            {
+                case AnimationStatusCapture.OnStarted:
+                    eventQueue.Subscribe(EventIds.CutsceneStarted, this);
+                    break;
+                case AnimationStatusCapture.OnFinished:
+                    eventQueue.Subscribe(EventIds.CutsceneFinished, this);
+                    break;
+            }
         }
 
         public override void UnsubscribeFromEvents()
         {
             base.UnsubscribeFromEvents();
 
-            ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.CutsceneFinished, this);
+            IEventQueue eventQueue = ServiceLocator.Instance.GetService<IEventQueue>();
+
+            switch (_statusCapture)
+            {
+                case AnimationStatusCapture.OnStarted:
+                    eventQueue.Unsubscribe(EventIds.CutsceneStarted, this);
+                    break;
+                case AnimationStatusCapture.OnFinished:
+                    eventQueue.Unsubscribe(EventIds.CutsceneFinished, this);
+                    break;
+            }
         }
 
         public override void Process(EventData eventData)
@@ -33,18 +61,33 @@ namespace HackingOps.Common.QuestSystem
             if (IsCompleted)
                 return;
 
-            if (eventData.EventId != EventIds.CutsceneFinished)
+            bool hasReceivedCutsceneStarted = eventData.EventId == EventIds.CutsceneStarted;
+            bool hasReceivedCutsceneFinished = eventData.EventId == EventIds.CutsceneFinished;
+
+            if (!hasReceivedCutsceneStarted && !hasReceivedCutsceneFinished)
                 return;
 
-            CutsceneFinishedData data = eventData as CutsceneFinishedData;
+            switch (_statusCapture)
+            {
+                case AnimationStatusCapture.OnStarted:
+                    CutsceneStartedData cutsceneStartedData = eventData as CutsceneStartedData;
+                    if (cutsceneStartedData.Id != _cutsceneId.Value)
+                        return;
 
-            if (data.Id != _cutsceneId.Value)
-                return;
+                    base.Process(cutsceneStartedData);
+                    break;
+                case AnimationStatusCapture.OnFinished:
+                    CutsceneFinishedData cutsceneFinishedData = eventData as CutsceneFinishedData;
+                    if (cutsceneFinishedData.Id != _cutsceneId.Value)
+                        return;
 
-            base.Process(data);
+                    base.Process(cutsceneFinishedData);
+                    break;
+            }
 
             CurrentAmount++;
             Evaluate();
         }
+        #endregion
     }
 }
