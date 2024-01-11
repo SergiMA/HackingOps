@@ -7,7 +7,10 @@ namespace HackingOps.Characters.NPC.States
     {
         private void Update()
         {
-            _entity.Agent.destination = _entity.Sight.VisiblesInSight[0].GetTransform().position;
+            if (_entity.DecisionMaker.CurrentTarget == null) 
+                return;
+
+            _entity.Agent.destination = _entity.DecisionMaker.CurrentTarget.GetTransform().position;
         }
 
         public float GetAcceleratedSpeed()

@@ -30,9 +30,9 @@ namespace HackingOps.Characters.NPC.States
 
         private void LookAtTarget()
         {
-            if (_entity.Sight.VisiblesInSight.Count > 0)
+            if (_entity.DecisionMaker.CurrentTarget != null)
             {
-                IVisible currentTarget = _entity.Sight.VisiblesInSight[0];
+                IVisible currentTarget = _entity.DecisionMaker.CurrentTarget;
 
                 Vector3 direction = currentTarget.GetTransform().position - _entity.transform.position;
                 Vector3 directionOnPlane = Vector3.ProjectOnPlane(direction, Vector3.up);

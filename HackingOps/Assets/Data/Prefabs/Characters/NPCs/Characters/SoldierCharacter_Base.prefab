@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 5793736195714251835}
   - component: {fileID: 6132664918445303931}
   - component: {fileID: 7400508396381744396}
+  - component: {fileID: 420154699729394890}
   m_Layer: 0
   m_Name: Soldier
   m_TagString: Untagged
@@ -114,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dcb30c7c2a70bc4397995e06a05a8fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DecisionMaker: {fileID: 8966258058102122935}
   _startState: {fileID: 8604555597140195651}
   _hidingPointFindRadius: 30
   _hidingPointLayerMask:
@@ -122,6 +124,7 @@ MonoBehaviour:
   _occludersLayerMask:
     serializedVersion: 2
     m_Bits: 115
+  AgroDecisionState: 0
 --- !u!114 &6076501791871663327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,6 +453,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _id: {fileID: 11400000, guid: 24dda3d4af970dd49a28d5812ff28744, type: 2}
+--- !u!114 &420154699729394890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123052346440753152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aaba40d80cc39c419fd4ee581877e03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnHitPerformerFound:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2244120538910621500}
+        m_TargetAssemblyTypeName: HackingOps.Characters.Entities.Entity, Assembly-CSharp
+        m_MethodName: OnHitReceived
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  OnAlertDropped:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2244120538910621500}
+        m_TargetAssemblyTypeName: HackingOps.Characters.Entities.Entity, Assembly-CSharp
+        m_MethodName: OnAlertDropped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  _sensingRadius: 20
+  _alertDuration: 10
 --- !u!1 &321979452893224380
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,8 +522,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321979452893224380}
-  m_LocalRotation: {x: 0.61459875, y: -0.34966874, z: 0.6146005, w: 0.3496662}
-  m_LocalPosition: {x: -0.327, y: 1.719, z: -0.124}
+  m_LocalRotation: {x: -0.6145986, y: 0.34966892, z: -0.6146006, w: -0.34966603}
+  m_LocalPosition: {x: -0.32699966, y: 1.7189999, z: -0.12399998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -508,12 +555,12 @@ ParentConstraint:
   m_Enabled: 1
   serializedVersion: 2
   m_Weight: 1
-  m_TranslationAtRest: {x: -0.327, y: 1.719, z: -0.124}
-  m_RotationAtRest: {x: 59.274143, y: 89.99997, z: -179.99979}
+  m_TranslationAtRest: {x: -0.32699966, y: 1.7189999, z: -0.12399998}
+  m_RotationAtRest: {x: 59.27414, y: 89.99995, z: -179.99976}
   m_TranslationOffsets:
-  - {x: -0.3269992, y: 0.3847872, z: -0.010105133}
+  - {x: -0.32699966, y: 0.38478708, z: -0.0101053715}
   m_RotationOffsets:
-  - {x: 55.104546, y: 116.73336, z: -148.44566}
+  - {x: 55.104557, y: 116.73336, z: -148.44563}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -648,7 +695,7 @@ Transform:
   - {fileID: 5785845074159591247}
   - {fileID: 4690020247404888228}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &850275089559264791
 GameObject:
@@ -1447,8 +1494,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2954567749702372816}
-  m_LocalRotation: {x: 0.76412034, y: 0.13780446, z: -0.22140202, w: 0.59000957}
-  m_LocalPosition: {x: -0.138, y: 1.19, z: 0.139}
+  m_LocalRotation: {x: 0.7641203, y: 0.1378045, z: -0.22140199, w: 0.5900096}
+  m_LocalPosition: {x: -0.13800432, y: 1.19, z: 0.13900001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1480,12 +1527,12 @@ ParentConstraint:
   m_Enabled: 1
   serializedVersion: 2
   m_Weight: 1
-  m_TranslationAtRest: {x: -0.138, y: 1.19, z: 0.139}
-  m_RotationAtRest: {x: 74.301125, y: -139.49591, z: -169.209}
+  m_TranslationAtRest: {x: -0.13800432, y: 1.19, z: 0.13900001}
+  m_RotationAtRest: {x: 74.301125, y: -139.49593, z: -169.20901}
   m_TranslationOffsets:
-  - {x: -0.13800025, y: 0.13278449, z: 0.12494421}
+  - {x: -0.13800812, y: 0.13278437, z: 0.12494466}
   m_RotationOffsets:
-  - {x: 73.85293, y: -140.80714, z: -170.5723}
+  - {x: 73.85292, y: -140.80716, z: -170.57233}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -1553,8 +1600,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3183502163468030539}
-  m_LocalRotation: {x: 0.7063582, y: 0.032514706, z: 0.032515537, w: 0.7063594}
-  m_LocalPosition: {x: 0.195, y: 0.976, z: 0.0048}
+  m_LocalRotation: {x: 0.70635825, y: 0.032514006, z: 0.03251499, w: 0.70635945}
+  m_LocalPosition: {x: 0.1949997, y: 0.97599983, z: 0.004799977}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1586,12 +1633,12 @@ ParentConstraint:
   m_Enabled: 1
   serializedVersion: 2
   m_Weight: 1
-  m_TranslationAtRest: {x: 0.195, y: 0.976, z: 0.0048}
-  m_RotationAtRest: {x: 84.7288, y: 89.998924, z: 89.99899}
+  m_TranslationAtRest: {x: 0.1949997, y: 0.97599983, z: 0.004799977}
+  m_RotationAtRest: {x: 84.72898, y: 89.99892, z: 89.99899}
   m_TranslationOffsets:
-  - {x: 0.19500017, y: -0.07983744, z: -0.011427879}
+  - {x: 0.1949997, y: -0.0798378, z: -0.0114274025}
   m_RotationOffsets:
-  - {x: 84.69695, y: 96.30012, z: 96.32728}
+  - {x: 84.69695, y: 96.30033, z: 96.32751}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -1878,7 +1925,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4560566248190698101}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.4109999, z: 0.17}
+  m_LocalPosition: {x: -5.820766e-11, y: 1.4109999, z: 0.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1910,8 +1957,8 @@ PositionConstraint:
   m_Enabled: 1
   serializedVersion: 2
   m_Weight: 1
-  m_TranslationAtRest: {x: 0, y: 1.4109999, z: 0.17}
-  m_TranslationOffset: {x: 0, y: 0.056114316, z: 0.16916506}
+  m_TranslationAtRest: {x: -5.820766e-11, y: 1.4109999, z: 0.17}
+  m_TranslationOffset: {x: 0, y: 0.056114316, z: 0.16916488}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -2983,8 +3030,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8008846307890889491}
-  m_LocalRotation: {x: 0.39184344, y: -0.5886074, z: 0.39184603, w: 0.5886058}
-  m_LocalPosition: {x: 0.311, y: 1.624, z: -0.164}
+  m_LocalRotation: {x: 0.3918436, y: -0.5886071, z: 0.39184624, w: 0.5886058}
+  m_LocalPosition: {x: 0.31100082, y: 1.6239996, z: -0.164}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3016,12 +3063,12 @@ ParentConstraint:
   m_Enabled: 1
   serializedVersion: 2
   m_Weight: 1
-  m_TranslationAtRest: {x: 0.311, y: 1.624, z: -0.164}
-  m_RotationAtRest: {x: 67.304695, y: -89.99997, z: 0.0002743893}
+  m_TranslationAtRest: {x: 0.31100082, y: 1.6239996, z: -0.164}
+  m_RotationAtRest: {x: 67.30472, y: -89.99991, z: 0.00031864623}
   m_TranslationOffsets:
-  - {x: 0.3110006, y: 0.3061186, z: -0.07670879}
+  - {x: 0.31100082, y: 0.3061185, z: -0.07670891}
   m_RotationOffsets:
-  - {x: 61.673405, y: -125.5966, z: -39.1181}
+  - {x: 61.673447, y: -125.5966, z: -39.118126}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -3967,6 +4014,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Weapons
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978143373741154008, guid: 610bda1db756f384f9544bfac191a37a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978143373741154008, guid: 610bda1db756f384f9544bfac191a37a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978143373741154008, guid: 610bda1db756f384f9544bfac191a37a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

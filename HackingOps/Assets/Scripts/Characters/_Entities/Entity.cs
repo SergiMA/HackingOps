@@ -1,6 +1,8 @@
 using HackingOps.Characters.Common;
+using HackingOps.Characters.NPC.DecisionMaking;
 using HackingOps.Characters.NPC.Senses;
 using HackingOps.Characters.NPC.States;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -11,9 +13,15 @@ namespace HackingOps.Characters.Entities
     [DefaultExecutionOrder(-10)]
     public class Entity : MonoBehaviour
     {
+        // Events
+        public event Action<IVisible> OnTargetSet;
+        public event Action<AgroDecision> OnAgroDecisionChanged;
+
         // Public internal bindings
+        public EntityDecisionMaker DecisionMaker;
         public NavMeshAgent Agent { get; set; }
         public Sight Sight { get; set; }
+        public Touching Touching { get; set; }
 
         [Header("Bindings - States")]
         [SerializeField] private State _startState;
@@ -22,13 +30,21 @@ namespace HackingOps.Characters.Entities
         [SerializeField] public float AngularSpeed { get; private set; } = 360f;
 
         [Header("Settings - Hiding points")]
-        [SerializeField] float _hidingPointFindRadius = 30f;
-        [SerializeField] LayerMask _hidingPointLayerMask = Physics.DefaultRaycastLayers;
-        [SerializeField] LayerMask _occludersLayerMask = Physics.DefaultRaycastLayers;
+        [SerializeField] private float _hidingPointFindRadius = 30f;
+        [SerializeField] private LayerMask _hidingPointLayerMask = Physics.DefaultRaycastLayers;
+        [SerializeField] private LayerMask _occludersLayerMask = Physics.DefaultRaycastLayers;
 
-        State[] _states;
+        private State[] _states;
 
-        Transform _currentHidingPoint;
+        private Transform _currentHidingPoint;
+
+        public enum AgroDecision
+        {
+            Alert,
+            Decided,
+        }
+
+        public AgroDecision AgroDecisionState;
 
         private void Awake()
         {
@@ -40,8 +56,10 @@ namespace HackingOps.Characters.Entities
 
             Agent = GetComponent<NavMeshAgent>();
             Sight = GetComponent<Sight>();
+            Touching = GetComponent<Touching>();
         }
 
+        #region Hiding spot processing
         internal Transform GetCurrentHidingDestionationPoint() => _currentHidingPoint;
 
         internal void CurrentHidingPositionReached()
@@ -88,5 +106,24 @@ namespace HackingOps.Characters.Entities
 
             return newHidingPointCandidates;
         }
+        #endregion
+
+        #region Agro processing
+        public void OnHitReceived(IVisible visible)
+        {
+            if (visible == null)
+                return;
+
+            AgroDecisionState = AgroDecision.Decided;
+            OnTargetSet?.Invoke(visible);
+            OnAgroDecisionChanged?.Invoke(AgroDecisionState);
+        }
+
+        public void OnAlertDropped()
+        {
+            AgroDecisionState = AgroDecision.Alert;
+            OnAgroDecisionChanged?.Invoke(AgroDecisionState);
+        }
+        #endregion
     }
 }
