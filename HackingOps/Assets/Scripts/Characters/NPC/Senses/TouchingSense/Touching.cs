@@ -5,11 +5,11 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace HackingOps.Characters.NPC.Senses
+namespace HackingOps.Characters.NPC.Senses.SightSense
 {
     public class Touching : MonoBehaviour
     {
-        public UnityEvent<IVisible> OnHitPerformerFound;
+        public UnityEvent<Transform> OnHitPerformerFound;
         public UnityEvent OnAlertDropped;
 
         [SerializeField] private float _sensingRadius = 1f;
@@ -54,7 +54,7 @@ namespace HackingOps.Characters.NPC.Senses
             var orderedVisibles = _visibles
                 .OrderBy(v => Vector3.Distance(transform.position, v.GetTransform().position));
 
-            OnHitPerformerFound.Invoke(orderedVisibles.FirstOrDefault());
+            OnHitPerformerFound.Invoke(orderedVisibles.FirstOrDefault().GetTransform());
 
             _touchTimer?.Start();
         }

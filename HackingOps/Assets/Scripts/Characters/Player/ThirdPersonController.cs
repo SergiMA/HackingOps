@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using HackingOps.Characters.Common;
-using HackingOps.Characters.NPC.Senses;
 using UnityEngine.Events;
+using HackingOps.Characters.NPC.Senses.SightSense;
 
 namespace HackingOps.Characters.Player
 {

@@ -394,6 +394,8 @@ GameObject:
   - component: {fileID: 7667822955424630319}
   - component: {fileID: 1006462201987940670}
   - component: {fileID: 6943018137382283839}
+  - component: {fileID: 4690499389223168084}
+  - component: {fileID: 2591902134482596560}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -627,6 +629,70 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+  OnStoppedMoving:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2591902134482596560}
+        m_TargetAssemblyTypeName: HackingOps.Characters.NPC.Senses.HearingSense.CharacterSoundController,
+          Assembly-CSharp
+        m_MethodName: OnStoppedMoving
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  OnStartedWalkingWhileCrouching:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2591902134482596560}
+        m_TargetAssemblyTypeName: HackingOps.Characters.NPC.Senses.HearingSense.CharacterSoundController,
+          Assembly-CSharp
+        m_MethodName: OnStartedWalkingWhileCrouching
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  OnStartedWalking:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2591902134482596560}
+        m_TargetAssemblyTypeName: HackingOps.Characters.NPC.Senses.HearingSense.CharacterSoundController,
+          Assembly-CSharp
+        m_MethodName: OnStartedWalking
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  OnStartedRunning:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2591902134482596560}
+        m_TargetAssemblyTypeName: HackingOps.Characters.NPC.Senses.HearingSense.CharacterSoundController,
+          Assembly-CSharp
+        m_MethodName: OnStartedRunning
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
   _inputManager: {fileID: 208535555297123790}
   _standingProperties: {fileID: 11400000, guid: a4dae81fbbb25f34a950c415012fde38,
     type: 2}
@@ -636,6 +702,7 @@ MonoBehaviour:
   _orientationTarget: {fileID: 8969392012296668652}
   _camera: {fileID: 7864607187731230627}
   _visibilityCheckpointsParent: {fileID: 844871206629419447}
+  _allegiance: 0
   _behaviourProfile: {fileID: 11400000, guid: 98b9749ddb5bb3645b962ea3babb8d56, type: 2}
 --- !u!114 &3601402458111625337
 MonoBehaviour:
@@ -1222,6 +1289,44 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 123
+--- !u!114 &4690499389223168084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741957048695079361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a0082b568c1e2f4a8faf6a8234442d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: {fileID: 11400000, guid: 6c76e00f1c0457a439c5d990f536bf3f, type: 2}
+  _range: 10
+  _checksPerSecond: 3
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 4091
+  _startEmittingByDefault: 1
+--- !u!114 &2591902134482596560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741957048695079361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 929776a849df55543b60d4cffab899d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _silenceSoundType: {fileID: 11400000, guid: 6c76e00f1c0457a439c5d990f536bf3f, type: 2}
+  _crouchingStepSoundType: {fileID: 11400000, guid: 8c7649a9573f6be4cbcdbbd85d5cd207,
+    type: 2}
+  _walkingStepSoundType: {fileID: 11400000, guid: 1407ee5a057d49b4c8dbd2b2b475a0ec,
+    type: 2}
+  _runningStepSoundType: {fileID: 11400000, guid: 5b796d51a3e764647844886992aa00e6,
+    type: 2}
 --- !u!1 &811179225154860921
 GameObject:
   m_ObjectHideFlags: 0
@@ -1385,7 +1490,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1328811800092129762}
-  m_LocalRotation: {x: 0.27854705, y: 0.34996703, z: -0.10982405, w: 0.8876223}
+  m_LocalRotation: {x: 0.27854708, y: 0.34996685, z: -0.109824, w: 0.88762236}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2663,6 +2768,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f50b97d5c70fd4896f21b8c17f1054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _camera: {fileID: 0}
+  _laptopScreen: {fileID: 0}
+  _delayCameraTransition: 0
+  _delayToFreeCursor: 0
+  _delayToLoadMenu: 0
 --- !u!114 &7361569726476838335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2917,8 +3027,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5290116712343411565}
-  m_LocalRotation: {x: 0.29041076, y: 0.34846476, z: -0.11450164, w: 0.88381183}
-  m_LocalPosition: {x: -0.5564076, y: 2.3376472, z: -1.6375813}
+  m_LocalRotation: {x: 0.29041082, y: 0.3484645, z: -0.11450157, w: 0.8838119}
+  m_LocalPosition: {x: -0.5564071, y: 2.3376472, z: -1.6375813}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3735,7 +3845,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6228039683820750260}
-  m_LocalRotation: {x: 0.29041076, y: 0.34846467, z: -0.11450161, w: 0.88381183}
+  m_LocalRotation: {x: 0.2904108, y: 0.3484645, z: -0.114501566, w: 0.8838119}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4009,7 +4119,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7417303702872778043}
-  m_LocalRotation: {x: 0.058101654, y: -0.0000000037189973, z: 2.1644554e-10, w: 0.9983107}
+  m_LocalRotation: {x: 0.058101647, y: -0.0000000015404588, z: 8.9654624e-11, w: 0.9983107}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4099,7 +4209,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7588315513968550851}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2218496, y: 2.48, z: -1.2806182}
+  m_LocalPosition: {x: -1.2218491, y: 2.48, z: -1.2806187}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4659,7 +4769,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8050290440294103199}
-  m_LocalRotation: {x: 0.094326906, y: 0.000000018191654, z: -0.000000001723648, w: 0.9955413}
+  m_LocalRotation: {x: 0.09432688, y: -0.00000001661082, z: 0.0000000015738644, w: 0.9955413}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5331,7 +5441,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9099509955399216233}
-  m_LocalRotation: {x: 0.2666505, y: 0.3514046, z: -0.10513356, w: 0.8912684}
+  m_LocalRotation: {x: 0.26665053, y: 0.35140446, z: -0.105133526, w: 0.89126843}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

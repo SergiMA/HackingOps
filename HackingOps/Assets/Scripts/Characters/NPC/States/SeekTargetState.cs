@@ -10,7 +10,7 @@ namespace HackingOps.Characters.NPC.States
             if (_entity.DecisionMaker.CurrentTarget == null) 
                 return;
 
-            _entity.Agent.destination = _entity.DecisionMaker.CurrentTarget.GetTransform().position;
+            _entity.Agent.destination = _entity.DecisionMaker.CurrentTarget.position;
         }
 
         public float GetAcceleratedSpeed()

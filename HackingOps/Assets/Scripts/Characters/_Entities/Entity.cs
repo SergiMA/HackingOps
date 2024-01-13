@@ -1,6 +1,6 @@
-using HackingOps.Characters.Common;
+using HackingOps.Characters.NPC.Allegiance;
 using HackingOps.Characters.NPC.DecisionMaking;
-using HackingOps.Characters.NPC.Senses;
+using HackingOps.Characters.NPC.Senses.SightSense;
 using HackingOps.Characters.NPC.States;
 using System;
 using System.Collections.Generic;
@@ -11,10 +11,10 @@ using UnityEngine.AI;
 namespace HackingOps.Characters.Entities
 {
     [DefaultExecutionOrder(-10)]
-    public class Entity : MonoBehaviour
+    public class Entity : MonoBehaviour, IAllegiance
     {
         // Events
-        public event Action<IVisible> OnTargetSet;
+        public event Action<Transform> OnTargetSet;
         public event Action<AgroDecision> OnAgroDecisionChanged;
 
         // Public internal bindings
@@ -26,8 +26,11 @@ namespace HackingOps.Characters.Entities
         [Header("Bindings - States")]
         [SerializeField] private State _startState;
 
-        [field: Header("Settings - States")]
-        [SerializeField] public float AngularSpeed { get; private set; } = 360f;
+        [Header("Settings - States")]
+        public float AngularSpeed = 360f;
+
+        [Header("Settings - Allegiance")]
+        [SerializeField] private IAllegiance.Allegiance _allegiance = IAllegiance.Allegiance.Enemy;
 
         [Header("Settings - Hiding points")]
         [SerializeField] private float _hidingPointFindRadius = 30f;
@@ -109,13 +112,13 @@ namespace HackingOps.Characters.Entities
         #endregion
 
         #region Agro processing
-        public void OnHitReceived(IVisible visible)
+        public void OnHitReceived(Transform attackerTransform)
         {
-            if (visible == null)
+            if (attackerTransform == null)
                 return;
 
             AgroDecisionState = AgroDecision.Decided;
-            OnTargetSet?.Invoke(visible);
+            OnTargetSet?.Invoke(attackerTransform);
             OnAgroDecisionChanged?.Invoke(AgroDecisionState);
         }
 
@@ -124,6 +127,10 @@ namespace HackingOps.Characters.Entities
             AgroDecisionState = AgroDecision.Alert;
             OnAgroDecisionChanged?.Invoke(AgroDecisionState);
         }
+        #endregion
+
+        #region IAllegiance implementation
+        public IAllegiance.Allegiance GetAllegiance() => _allegiance;
         #endregion
     }
 }

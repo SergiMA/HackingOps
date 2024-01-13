@@ -7,7 +7,7 @@ namespace HackingOps.Characters.NPC.DecisionMaking
         protected override bool CheckCondition()
         {
             return
-                Vector3.Distance(_decisionMaker.CurrentTarget.GetTransform().position,
+                Vector3.Distance(_decisionMaker.CurrentTarget.position,
                 _decisionMaker.GetEntity().transform.position) <
                 _decisionMaker.GetEntityWeapons().GetEffectiveRange();
         }

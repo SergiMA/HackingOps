@@ -1,4 +1,5 @@
 using HackingOps.Characters.NPC.Senses;
+using HackingOps.Characters.NPC.Senses.SightSense;
 using HackingOps.Common.Events;
 using HackingOps.Common.Services;
 using HackingOps.Weapons.Common;

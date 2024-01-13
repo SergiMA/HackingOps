@@ -1,8 +1,9 @@
 ﻿using HackingOps.Characters.Entities;
-using HackingOps.Characters.NPC.Senses;
+using HackingOps.Characters.NPC.Senses.HearingSense;
+using HackingOps.Characters.NPC.Senses.SightSense;
 using HackingOps.Characters.NPC.States;
 using HackingOps.Weapons.Common;
-using System.Diagnostics;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace HackingOps.Characters.NPC.DecisionMaking
@@ -19,9 +20,10 @@ namespace HackingOps.Characters.NPC.DecisionMaking
 
         // Senses
         private Sight _sight;
+        private Hearing _hearing;
 
         // Combat
-        public IVisible CurrentTarget { get; private set; }
+        public Transform CurrentTarget { get; private set; }
 
         DecisionTreeNode _decisionRoot;
 
@@ -30,6 +32,7 @@ namespace HackingOps.Characters.NPC.DecisionMaking
             #region Components setup
             _allStates = _enemy.GetComponents<State>();
             _sight = _enemy.GetComponent<Sight>();
+            _hearing = _enemy.GetComponent<Hearing>();
             _entity = _enemy.GetComponent<Entity>();
             _entityWeapons = _entity.GetComponent<EntityWeapons>();
             _inventory = _entity.GetComponent<Inventory>();
@@ -55,14 +58,59 @@ namespace HackingOps.Characters.NPC.DecisionMaking
             foreach (State s in _allStates) { s.enabled = false; }
         }
 
-        private IVisible DecideCurrentTarget()
+        private Transform DecideCurrentTarget()
         {
-            return _entity.AgroDecisionState switch
+            switch (_entity.AgroDecisionState)
             {
-                Entity.AgroDecision.Alert => _sight.VisiblesInSight.Count > 0 ? _sight.VisiblesInSight[0] : null,
-                Entity.AgroDecision.Decided => CurrentTarget,
-                _ => null,
-            };
+                case Entity.AgroDecision.Alert:
+                    List<Transform> potentialTargets = LookForNewTargets();
+                    return potentialTargets.Count > 0 ? potentialTargets[0] : null;
+                case Entity.AgroDecision.Decided:
+                    return CurrentTarget;
+                default:
+                    return null;
+            }
+        }
+
+        private List<Transform> LookForNewTargets()
+        {
+            List<Transform> potentialTargets = new();
+
+            AddVisiblesToPotentialTargets(potentialTargets);
+            AddSoundEmittersToPotentialTargets(potentialTargets);
+
+            SortByDistance(potentialTargets);
+
+            return potentialTargets;
+        }
+
+        private void AddSoundEmittersToPotentialTargets(List<Transform> potentialTargets)
+        {
+            if (_hearing == null) return;
+
+            foreach (Hearing.PerceivedSound s in _hearing.PerceivedSounds)
+                potentialTargets.Add(s.SoundEmitter.transform);
+        }
+
+        private void AddVisiblesToPotentialTargets(List<Transform> potentialTargets)
+        {
+            if (_sight == null) return;
+
+            foreach (IVisible v in _sight.VisiblesInSight)
+                potentialTargets.Add(v.GetTransform());
+        }
+
+        private List<Transform> SortByDistance(List<Transform> transforms)
+        {
+            transforms.Sort(
+                (x, y) =>
+                (
+                    Vector3.Distance(transform.position, x.position) <
+                    Vector3.Distance(transform.position, y.position)) ?
+                    1 : 0
+                );
+
+            return transforms;
         }
 
         internal void SetState(State state)
@@ -79,6 +127,6 @@ namespace HackingOps.Characters.NPC.DecisionMaking
         internal Inventory GetInventory() => _inventory;
 
         internal Entity GetEntity() => _entity;
-        public void SetCurrentTarget(IVisible target) => CurrentTarget = target;
+        public void SetCurrentTarget(Transform target) => CurrentTarget = target;
     }
 }

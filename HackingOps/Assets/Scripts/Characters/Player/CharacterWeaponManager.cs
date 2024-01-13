@@ -1,9 +1,8 @@
-﻿using HackingOps.Characters.NPC.Senses;
+﻿using HackingOps.Characters.NPC.Senses.SightSense;
 using HackingOps.Weapons.WeaponFoundations;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
 
 namespace HackingOps.Characters.Player
 {

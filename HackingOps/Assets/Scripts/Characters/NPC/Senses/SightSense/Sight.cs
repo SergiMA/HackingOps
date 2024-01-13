@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using HackingOps.Characters.NPC.Allegiance;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace HackingOps.Characters.NPC.Senses
+namespace HackingOps.Characters.NPC.Senses.SightSense
 {
     public class Sight : MonoBehaviour
     {
@@ -16,11 +17,14 @@ namespace HackingOps.Characters.NPC.Senses
         [SerializeField] private float _verticalAngle = 90f;
         [SerializeField] private LayerMask _occludersLayerMask = Physics.DefaultRaycastLayers;
 
+        private IAllegiance _allegiance;
+
         private double _lastCheckTime = 0f;
 
         private void Awake()
         {
             _lastCheckTime = Time.time + Random.Range(0f, 1f / _checksPerSecond);
+            _allegiance = GetComponent<IAllegiance>();
         }
 
         private void Update()
@@ -74,34 +78,45 @@ namespace HackingOps.Characters.NPC.Senses
             {
                 if (c.TryGetComponent(out IVisible visible))
                 {
-                    Vector3 directionToVisible = c.transform.position - _sightPoint.position;
+                    bool isOpponent = false;
 
-                    Vector3 directionOnXZPlane = Vector3.ProjectOnPlane(directionToVisible, Vector3.up);
-                    Vector3 forwardOnXZPlane = Vector3.ProjectOnPlane(_sightPoint.forward, Vector3.up);
-
-                    Vector3 directionOnLocalYZPlane = Vector3.ProjectOnPlane(directionToVisible, _sightPoint.right);
-                    Vector3 forwardOnLocalYZPlane = Vector3.ProjectOnPlane(_sightPoint.forward, _sightPoint.right);
-
-                    if ((Vector3.Angle(directionOnXZPlane, forwardOnXZPlane) < _horizontalAngle / 2f) &&
-                        (Vector3.Angle(directionOnLocalYZPlane, forwardOnLocalYZPlane) < _verticalAngle / 2f))
+                    if (_allegiance != null)
                     {
-                        bool isAnyPointVisible = false;
-                        int i = 0;
-                        while (!isAnyPointVisible && (i < visible.GetCheckpoints().Length))
-                        {
-                            Debug.DrawLine(_sightPoint.position, visible.GetCheckpoints()[i], Color.yellow, 0.5f);
+                        if (c.TryGetComponent(out IAllegiance otherAllegiance))
+                            isOpponent = AllegianceUtilities.AreConfronted(_allegiance, otherAllegiance);
+                    }
 
-                            if (Physics.Linecast(_sightPoint.position, visible.GetCheckpoints()[i], out RaycastHit hit, _occludersLayerMask))
+                    if (isOpponent)
+                    {
+                        Vector3 directionToVisible = c.transform.position - _sightPoint.position;
+
+                        Vector3 directionOnXZPlane = Vector3.ProjectOnPlane(directionToVisible, Vector3.up);
+                        Vector3 forwardOnXZPlane = Vector3.ProjectOnPlane(_sightPoint.forward, Vector3.up);
+
+                        Vector3 directionOnLocalYZPlane = Vector3.ProjectOnPlane(directionToVisible, _sightPoint.right);
+                        Vector3 forwardOnLocalYZPlane = Vector3.ProjectOnPlane(_sightPoint.forward, _sightPoint.right);
+
+                        if ((Vector3.Angle(directionOnXZPlane, forwardOnXZPlane) < _horizontalAngle / 2f) &&
+                            (Vector3.Angle(directionOnLocalYZPlane, forwardOnLocalYZPlane) < _verticalAngle / 2f))
+                        {
+                            bool isAnyPointVisible = false;
+                            int i = 0;
+                            while (!isAnyPointVisible && (i < visible.GetCheckpoints().Length))
                             {
-                                isAnyPointVisible = hit.collider == c;
+                                Debug.DrawLine(_sightPoint.position, visible.GetCheckpoints()[i], Color.yellow, 0.5f);
+
+                                if (Physics.Linecast(_sightPoint.position, visible.GetCheckpoints()[i], out RaycastHit hit, _occludersLayerMask))
+                                {
+                                    isAnyPointVisible = hit.collider == c;
+                                }
+
+                                i++;
                             }
 
-                            i++;
-                        }
-
-                        if (isAnyPointVisible)
-                        {
-                            VisiblesInSight.Add(visible);
+                            if (isAnyPointVisible)
+                            {
+                                VisiblesInSight.Add(visible);
+                            }
                         }
                     }
                 }

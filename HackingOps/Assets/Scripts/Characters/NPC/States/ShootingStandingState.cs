@@ -1,5 +1,5 @@
 ﻿using HackingOps.Characters.Entities;
-using HackingOps.Characters.NPC.Senses;
+using HackingOps.Characters.NPC.Senses.SightSense;
 using UnityEngine;
 
 namespace HackingOps.Characters.NPC.States
@@ -28,11 +28,11 @@ namespace HackingOps.Characters.NPC.States
         {
             InternalPreUpdate();
 
-            if (_entity.Sight.VisiblesInSight.Count > 0)
+            if (_entity.DecisionMaker.CurrentTarget != null)
             {
-                IVisible currentTarget = _entity.Sight.VisiblesInSight[0];
+                //IVisible currentTarget = _entity.Sight.VisiblesInSight[0];
 
-                Vector3 direction = currentTarget.GetTransform().position - _entity.transform.position;
+                Vector3 direction = _entity.DecisionMaker.CurrentTarget.position - _entity.transform.position;
                 Vector3 directionOnPlane = Vector3.ProjectOnPlane(direction, Vector3.up);
                 float angularDistance = Vector3.SignedAngle(_entity.transform.forward, directionOnPlane, Vector3.up);
 

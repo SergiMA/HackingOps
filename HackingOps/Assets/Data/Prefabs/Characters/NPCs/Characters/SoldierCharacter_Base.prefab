@@ -29,6 +29,8 @@ GameObject:
   - component: {fileID: 6132664918445303931}
   - component: {fileID: 7400508396381744396}
   - component: {fileID: 420154699729394890}
+  - component: {fileID: 2981345865020556669}
+  - component: {fileID: 5074174985294276362}
   m_Layer: 0
   m_Name: Soldier
   m_TagString: Untagged
@@ -117,6 +119,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionMaker: {fileID: 8966258058102122935}
   _startState: {fileID: 8604555597140195651}
+  AngularSpeed: 360
+  _allegiance: 1
   _hidingPointFindRadius: 30
   _hidingPointLayerMask:
     serializedVersion: 2
@@ -497,6 +501,38 @@ MonoBehaviour:
         m_CallState: 1
   _sensingRadius: 20
   _alertDuration: 10
+--- !u!114 &2981345865020556669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123052346440753152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47dcca177a52a7c40a16be1ee69aeab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PerceivedSounds: []
+--- !u!114 &5074174985294276362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123052346440753152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a0082b568c1e2f4a8faf6a8234442d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: {fileID: 11400000, guid: 1407ee5a057d49b4c8dbd2b2b475a0ec, type: 2}
+  _range: 10
+  _checksPerSecond: 3
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 4091
+  _startEmittingByDefault: 1
 --- !u!1 &321979452893224380
 GameObject:
   m_ObjectHideFlags: 0

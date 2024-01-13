@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace HackingOps.Characters.NPC.Senses
+namespace HackingOps.Characters.NPC.Senses.SightSense
 {
     public interface IVisible
     {

@@ -1,16 +1,22 @@
 using UnityEngine;
 using HackingOps.Characters.Common;
-using HackingOps.Characters.NPC.Senses;
 using UnityEngine.Events;
+using HackingOps.Characters.NPC.Senses.SightSense;
+using HackingOps.Characters.NPC.Allegiance;
 
 namespace HackingOps.Characters.Player
 {
-    public class PlayerController : MonoBehaviour, IMovementReadable, IVisible
+    public class PlayerController : MonoBehaviour, IMovementReadable, IVisible, IAllegiance
     {
         public UnityEvent OnStartCrouchingEvent;
         public UnityEvent OnStopCrouchingEvent;
         public UnityEvent OnStartBlockingEvent;
         public UnityEvent OnStopBlockingEvent;
+
+        public UnityEvent OnStoppedMoving;
+        public UnityEvent OnStartedWalkingWhileCrouching;
+        public UnityEvent OnStartedWalking;
+        public UnityEvent OnStartedRunning;
 
         [Header("Bindings")]
         [SerializeField] Input.PlayerInputManager _inputManager;
@@ -43,6 +49,8 @@ namespace HackingOps.Characters.Player
         [SerializeField] private Transform _visibilityCheckpointsParent;
         private Transform[] _visibilityCheckpoints;
 
+        [SerializeField] private IAllegiance.Allegiance _allegiance = IAllegiance.Allegiance.Ally;
+
         [Header("Behaviour profiles properties")]
         [SerializeField] PlayerBehaviourProfileSO _behaviourProfile;
 
@@ -58,6 +66,9 @@ namespace HackingOps.Characters.Player
         // Current locomotion properties
         private LocomotionPropertiesSO _currentLocomotionProperties;
         private bool _isCrouched;
+        private bool _previousIsCrouched;
+        private bool _previousIsRunning;
+        private Vector2 _previousMoveInput;
 
         // Falling physics
         private float _currentVerticalSpeed = 0f;
@@ -108,6 +119,10 @@ namespace HackingOps.Characters.Player
         {
             UpdateMovement();
             UpdateOrientation();
+
+            _previousIsCrouched = _isCrouched;
+            _previousIsRunning = _inputManager.IsRunning;
+            _previousMoveInput = _inputManager.MoveInput;
         }
 
         private void UpdateMovement()
@@ -119,8 +134,45 @@ namespace HackingOps.Characters.Player
             Vector3 adaptedVelocity = AdaptVelocityToGround(combinedVelocity);
 
             _characterController.Move(adaptedVelocity * Time.deltaTime);
+
+            CheckForMovementChanges();
+
             _lastVelocity = combinedVelocity;
         }
+
+        private void CheckForMovementChanges()
+        {
+            // On Stopped
+            if (_inputManager.MoveInput.magnitude <= 0 && _inputManager.MoveInput != _previousMoveInput)
+            {
+                OnStoppedMoving.Invoke();
+            }
+
+            if (_inputManager.MoveInput.magnitude > 0)
+            {
+                // OnStartedWalkingWhileCrouching
+                if (_isCrouched && (HasStartedMoving() || HasSwitchedCrouching()))
+                {
+                    OnStartedWalkingWhileCrouching.Invoke();
+                }
+
+                // OnStartedWalking
+                if (!_isCrouched && !_inputManager.IsRunning && (HasSwitchedRunning() || HasStartedMoving() || HasSwitchedCrouching()))
+                {
+                    OnStartedWalking.Invoke();
+                }
+
+                // OnStartedRunning
+                if (!_isCrouched && _inputManager.IsRunning && (HasSwitchedRunning() || HasStartedMoving() || HasSwitchedCrouching()))
+                {
+                    OnStartedRunning.Invoke();
+                }
+            }
+        }
+
+        private bool HasSwitchedRunning() => _previousIsRunning != _inputManager.IsRunning;
+        private bool HasSwitchedCrouching() => _previousIsCrouched != _isCrouched;
+        private bool HasStartedMoving() => _previousMoveInput.magnitude == 0 && _inputManager.MoveInput.magnitude > 0;
 
         private Vector3 UpdateMovementOnPlane()
         {
@@ -353,6 +405,10 @@ namespace HackingOps.Characters.Player
         }
 
         public Transform GetTransform() => transform;
+        #endregion
+
+        #region IAllegiance implementation
+        public IAllegiance.Allegiance GetAllegiance() => _allegiance;
         #endregion
     }
 }
