@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 5206099863005286956}
   - component: {fileID: 6035079132116090988}
   - component: {fileID: 8547359449526210398}
+  - component: {fileID: 9177134602928119710}
   m_Layer: 0
   m_Name: Services
   m_TagString: Untagged
@@ -295,6 +296,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _loadingScreen: {fileID: 0}
+--- !u!114 &9177134602928119710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2829638761527043398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08cc455c0e1e69e44b88c21fbee643ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cooldownDuration: 5
 --- !u!1 &3047654296418627554
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,6 +325,7 @@ GameObject:
   - component: {fileID: 2663477410392122253}
   - component: {fileID: 3567914694690145696}
   - component: {fileID: 6644263884542392235}
+  - component: {fileID: 7788957593997052811}
   m_Layer: 0
   m_Name: Installers
   m_TagString: Untagged
@@ -430,6 +445,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameManager: {fileID: 2202060384802666394}
+--- !u!114 &7788957593997052811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3047654296418627554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb0a466ece470547b9434d54efe51f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _combatMode: {fileID: 9177134602928119710}
 --- !u!1 &7878636204299085882
 GameObject:
   m_ObjectHideFlags: 0

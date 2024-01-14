@@ -2,6 +2,9 @@
 using HackingOps.Characters.NPC.Senses.HearingSense;
 using HackingOps.Characters.NPC.Senses.SightSense;
 using HackingOps.Characters.NPC.States;
+using HackingOps.Common.Events;
+using HackingOps.Common.Events.EventsData;
+using HackingOps.Common.Services;
 using HackingOps.Weapons.Common;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,7 +28,9 @@ namespace HackingOps.Characters.NPC.DecisionMaking
         // Combat
         public Transform CurrentTarget { get; private set; }
 
-        DecisionTreeNode _decisionRoot;
+        private Transform _previousCurrentTarget;
+
+        private DecisionTreeNode _decisionRoot;
 
         private void Awake()
         {
@@ -51,6 +56,9 @@ namespace HackingOps.Characters.NPC.DecisionMaking
         {
             CurrentTarget = DecideCurrentTarget();
             SetState(_decisionRoot.Execute());
+
+            CheckTargetChanges();
+            _previousCurrentTarget = CurrentTarget;
         }
 
         private void OnDisable()
@@ -111,6 +119,18 @@ namespace HackingOps.Characters.NPC.DecisionMaking
                 );
 
             return transforms;
+        }
+
+        private void CheckTargetChanges()
+        {
+            if (CurrentTarget == _previousCurrentTarget) return;
+
+            IEventQueue eventQueue = ServiceLocator.Instance.GetService<IEventQueue>();
+
+            if (CurrentTarget != null)
+                eventQueue.EnqueueEvent(new EntityEngagedCombatData(this));
+            else
+                eventQueue.EnqueueEvent(new EntityLeftCombatData(this));
         }
 
         internal void SetState(State state)

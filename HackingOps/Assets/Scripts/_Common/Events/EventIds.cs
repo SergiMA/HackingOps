@@ -16,5 +16,9 @@
         StopAiming,
         PauseGame,
         ResumeGame,
+        EntityEngageCombat,
+        EntityLeaveCombat,
+        OnEnterCombatMode,
+        OnLeaveCombatMode,
     }
 }

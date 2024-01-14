@@ -1,8 +1,10 @@
-﻿using HackingOps.Characters.NPC.DecisionMaking;
+﻿using HackingOps.Characters.Entities;
+using HackingOps.Characters.NPC.DecisionMaking;
 using HackingOps.Characters.NPC.States;
 using HackingOps.Characters.Player;
 using HackingOps.CombatSystem.HitHurtBox;
 using HackingOps.Common.Events;
+using HackingOps.Common.Events.EventsData;
 using HackingOps.Common.Services;
 using HackingOps.Weapons.Common;
 using UnityEngine;
@@ -67,8 +69,17 @@ namespace HackingOps.Characters.Common
             GetComponentInChildren<CharacterRagdollController>()?.ActivateRagdoll(direction * pushForce);
 
             OnDead.Invoke();
+
+            IEventQueue eventQueue = ServiceLocator.Instance.GetService<IEventQueue>();
+
             if (TryGetComponent(out CharacterIdentification identification))
-                ServiceLocator.Instance.GetService<IEventQueue>().EnqueueEvent(new CharacterDiedData(identification.Id));
+                eventQueue.EnqueueEvent(new CharacterDiedData(identification.Id));
+
+            if (TryGetComponent(out Entity entity))
+            {
+                if (entity.DecisionMaker.CurrentTarget != null)
+                    eventQueue.EnqueueEvent(new EntityLeftCombatData(entity.DecisionMaker));
+            }
 
             if (TryGetComponent(out Inventory inventory)) { inventory.enabled = false; }
         }
