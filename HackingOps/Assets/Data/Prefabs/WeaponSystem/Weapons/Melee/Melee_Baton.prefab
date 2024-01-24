@@ -82,7 +82,7 @@ Transform:
   m_Children:
   - {fileID: 3123280641920851647}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &5185647992212091807
 Rigidbody:
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd134f0d8598d4145bb6135e35988f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slot: 1
+  Slot: 0
   IsUsedByAI: 0
   _interactionText: interaction_grab
   _debugUse: 0

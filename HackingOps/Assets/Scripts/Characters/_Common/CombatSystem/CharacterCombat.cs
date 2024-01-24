@@ -29,7 +29,6 @@ namespace HackingOps.Characters.Common
         bool _mustAttack;
         bool _isBlocking;
         bool _isCombatWeapon;
-        bool _isUnarmed;
 
         Weapon weapon;
 
@@ -78,9 +77,6 @@ namespace HackingOps.Characters.Common
 
         public void Attack()
         {
-            if (_isUnarmed)
-                return;
-
             if (_isCombatWeapon)
             {
                 _mustAttack = true;
@@ -117,23 +113,20 @@ namespace HackingOps.Characters.Common
 
         public void OnAnimationStartAttack()
         {
-            if (weapon == null && !_isCombatWeapon) return;
+            if (!_isCombatWeapon) return;
 
             _meleeDamageByRaycastManager?.StartDamageArea();
         }
 
         public void OnAnimationFinishAttack()
         {
-            if (weapon == null && !_isCombatWeapon) return;
+            if (!_isCombatWeapon) return;
 
             _meleeDamageByRaycastManager?.EndDamageArea();
         }
 
         public void OnStartLockReceived()
         {
-            if (_isUnarmed)
-                return;
-
             if (_isCombatWeapon)
                 OnStartBlock.Invoke();
             else
@@ -169,16 +162,6 @@ namespace HackingOps.Characters.Common
         {
             Invoke(nameof(UpdateStunnedStatus), _stunnedDuration);
             OnParried.Invoke();
-        }
-
-        public void OnGotUnarmed()
-        {
-            _isUnarmed = true;
-        }
-
-        public void OnGotArmed()
-        {
-            _isUnarmed = false;
         }
     }
 }

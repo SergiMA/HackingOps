@@ -12,7 +12,7 @@ namespace HackingOps.CombatSystem
         [Tooltip("Duration in seconds to change to a Peaceful state once there are no enemies in combat")]
         [SerializeField] private float _cooldownDuration = 5f;
 
-        private IEventQueue eventQueue;
+        private IEventQueue _eventQueue;
 
         private HashSet<EntityDecisionMaker> entitiesInCombat = new();
 
@@ -29,19 +29,19 @@ namespace HackingOps.CombatSystem
 
         private void Awake()
         {
-            eventQueue = ServiceLocator.Instance.GetService<IEventQueue>();
+            _eventQueue = ServiceLocator.Instance.GetService<IEventQueue>();
         }
 
         private void OnEnable()
         {
-            eventQueue.Subscribe(EventIds.EntityEngageCombat, this);
-            eventQueue.Subscribe(EventIds.EntityLeaveCombat, this);
+            _eventQueue.Subscribe(EventIds.EntityEngageCombat, this);
+            _eventQueue.Subscribe(EventIds.EntityLeaveCombat, this);
         }
 
         private void OnDisable()
         {
-            eventQueue.Unsubscribe(EventIds.EntityEngageCombat, this);
-            eventQueue.Unsubscribe(EventIds.EntityLeaveCombat, this);
+            _eventQueue.Unsubscribe(EventIds.EntityEngageCombat, this);
+            _eventQueue.Unsubscribe(EventIds.EntityLeaveCombat, this);
         }
 
         private void Start()

@@ -1,4 +1,3 @@
-using HackingOps.Characters.NPC.Senses;
 using HackingOps.Characters.NPC.Senses.SightSense;
 using HackingOps.Common.Events;
 using HackingOps.Common.Services;
@@ -8,15 +7,12 @@ using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
 
 namespace HackingOps.Characters.Player
 {
     public class PlayerWeapons : MonoBehaviour, IEventObserver
     {
         public UnityEvent<Weapon> OnWeaponSelected;
-        public UnityEvent OnGotUnarmed;
-        public UnityEvent OnGotArmed;
 
         [Header("Bindings - Weapon")]
         [SerializeField] private Transform _weaponsParent;
@@ -72,7 +68,7 @@ namespace HackingOps.Characters.Player
             _inventory.OnWeaponAdded += OnWeaponAdded;
             _inventory.OnWeaponSwitched += OnWeaponSwitched;
             _inventory.OnWeaponDropped += OnWeaponDropped;
-            
+
             ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.CutsceneStarted, this);
         }
 
@@ -87,8 +83,7 @@ namespace HackingOps.Characters.Player
 
         private void Update()
         {
-            Vector3 aimPosition;
-            bool hasAimingPosition = CalcBestAimingPosition(_currentWeapon, out aimPosition);
+            bool hasAimingPosition = CalcBestAimingPosition(_currentWeapon, out Vector3 aimPosition);
 
             if (hasAimingPosition)
             {
@@ -110,7 +105,7 @@ namespace HackingOps.Characters.Player
                     );
             _currentAimingAngle += angleToApply;
 
-            if (_currentWeapon != null && _currentWeapon.Slot != WeaponSlot.Unarmed)
+            if (_currentWeapon != null)
                 _currentWeapon.NotifyAimingAngle(_currentAimingAngle);
         }
 
@@ -153,8 +148,6 @@ namespace HackingOps.Characters.Player
 
             if (currentWeapon && currentWeapon is FireWeapon)
             {
-                FireWeapon fireWeapon = currentWeapon as FireWeapon;
-
                 Vector3[] checkpoints;
 
                 if (_aimingTargetVisible != null) checkpoints = _aimingTargetVisible.GetCheckpoints();
@@ -176,7 +169,6 @@ namespace HackingOps.Characters.Player
                         }
                     }
                 }
-
             }
 
             return hasLineOfSight;
@@ -210,26 +202,16 @@ namespace HackingOps.Characters.Player
         private void ConfigureWeaponConstraintsPivots(Weapon weapon)
         {
             if (weapon.Slot != WeaponSlot.MeleeWeapon)
-            {
                 _currentHolderConstraint.sourceTransform = _firearmHolder;
-            }
             else
-            {
                 _currentHolderConstraint.sourceTransform = _rightHandBone;
-            }
+
             _currentHolsterConstraint.sourceTransform = GetHolsterSourceTransform(weapon);
 
-            if (_inventory.GetCurrentSlot().Slot == weapon.Slot ||
-                _inventory.GetCurrentSlot().Slot == WeaponSlot.Unarmed)
-            {
-                _currentHolderConstraint.weight = 1f;
-                _currentHolsterConstraint.weight = 0f;
-            }
+            if (_inventory.GetCurrentSlot().Slot == weapon.Slot)
+                SetWeightToCurrentHolderConstraint();
             else
-            {
-                _currentHolderConstraint.weight = 0f;
-                _currentHolsterConstraint.weight = 1f;
-            }
+                SetWeightToCurrentHolsterConstraint();
         }
 
         private void ConfigureWeaponParentConstraint(ParentConstraint parentConstraint, Vector3 holderOffset)
@@ -263,24 +245,12 @@ namespace HackingOps.Characters.Player
                 {
                     SetNewWeaponConstraints(newWeapon, parentConstraint);
 
-                    if (newWeapon.Slot != WeaponSlot.Unarmed)
-                        armsRig.weight = newWeapon.HasGrabPoints() ? 1f : 0f;
-                    else
-                        armsRig.weight = 0f;
+                    armsRig.weight = newWeapon.HasGrabPoints() ? 1f : 0f;
                 }
             }
             else
             {
                 armsRig.weight = 0f;
-            }
-
-            if (newWeapon == null)
-            {
-                OnGotUnarmed.Invoke();
-            }
-            else if (oldWeapon == null && newWeapon != null)
-            {
-                OnGotArmed.Invoke();
             }
 
             _currentWeapon = newWeapon;
@@ -296,10 +266,10 @@ namespace HackingOps.Characters.Player
             {
                 _currentHolderConstraint.sourceTransform = _rightHandBone;
             }
-            _currentHolderConstraint.weight = 0f;
 
             _currentHolsterConstraint.sourceTransform = GetHolsterSourceTransform(oldWeapon);
-            _currentHolsterConstraint.weight = 1f;
+            SetWeightToCurrentHolsterConstraint();
+
 
             parentConstraint.SetSource(0, _currentHolderConstraint);
             parentConstraint.SetSource(1, _currentHolsterConstraint);
@@ -307,21 +277,23 @@ namespace HackingOps.Characters.Player
 
         private void SetNewWeaponConstraints(Weapon newWeapon, ParentConstraint parentConstraint)
         {
+            _currentHolsterConstraint.sourceTransform = GetHolsterSourceTransform(newWeapon);
+
             if (newWeapon.Slot != WeaponSlot.MeleeWeapon)
             {
                 _currentHolderConstraint.sourceTransform = _firearmHolder;
+                SetWeightToCurrentHolderConstraint();
             }
             else
             {
                 _currentHolderConstraint.sourceTransform = _rightHandBone;
+                SetWeightToCurrentHolsterConstraint();
             }
-            _currentHolderConstraint.weight = 1f;
-
-            _currentHolsterConstraint.sourceTransform = GetHolsterSourceTransform(newWeapon);
-            _currentHolsterConstraint.weight = 0f;
 
             parentConstraint.SetSource(0, _currentHolderConstraint);
             parentConstraint.SetSource(1, _currentHolsterConstraint);
+
+            ConfigureWeaponParentConstraint(parentConstraint, newWeapon.GetHolderOffset());
         }
 
         private Transform GetHolsterSourceTransform(Weapon weapon)
@@ -392,12 +364,44 @@ namespace HackingOps.Characters.Player
                 _aimingTargetVisible = null;
         }
 
+        private void SetWeightToCurrentHolsterConstraint()
+        {
+            _currentHolsterConstraint.weight = 1;
+            _currentHolderConstraint.weight = 0;
+        }
+
+        private void SetWeightToCurrentHolderConstraint()
+        {
+            _currentHolsterConstraint.weight = 0;
+            _currentHolderConstraint.weight = 1;
+        }
+
+        public void Unsheath()
+        {
+            if (_currentWeapon && _currentWeapon.TryGetComponent(out ParentConstraint parentConstraint))
+            {
+                ConfigureWeaponConstraintsPivots(_currentWeapon);
+                SetWeightToCurrentHolderConstraint();
+                ConfigureWeaponParentConstraint(parentConstraint, _currentWeapon.GetHolderOffset());
+            }
+        }
+
+        public void Sheathe()
+        {
+            if (_currentWeapon && _currentWeapon.TryGetComponent(out ParentConstraint parentConstraint))
+            {
+                ConfigureWeaponConstraintsPivots(_currentWeapon);
+                SetWeightToCurrentHolsterConstraint();
+                ConfigureWeaponParentConstraint(parentConstraint, _currentWeapon.GetHolderOffset());
+            }
+        }
+
         #region IEventObserver implementation
         public void Process(EventData eventData)
         {
             if (eventData.EventId == EventIds.CutsceneStarted)
             {
-                _inventory.ChangeToSlot(WeaponSlot.Unarmed);
+                _inventory.ChangeToSlot(WeaponSlot.MeleeWeapon);
             }
         }
         #endregion

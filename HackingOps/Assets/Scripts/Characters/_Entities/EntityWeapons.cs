@@ -163,8 +163,7 @@ namespace HackingOps.Characters.Entities
             }
             _currentHolsterConstraint.sourceTransform = GetHolsterSourceTransform(weapon);
 
-            if (_inventory.GetCurrentSlot().Slot == weapon.Slot ||
-                _inventory.GetCurrentSlot().Slot == WeaponSlot.Unarmed)
+            if (_inventory.GetCurrentSlot().Slot == weapon.Slot)
             {
                 _currentHolderConstraint.weight = 1f;
                 _currentHolsterConstraint.weight = 0f;
@@ -207,10 +206,7 @@ namespace HackingOps.Characters.Entities
                 {
                     SetNewWeaponConstraints(newWeapon, parentConstraint);
 
-                    if (newWeapon.Slot != WeaponSlot.Unarmed)
-                        _armsRig.weight = newWeapon.HasGrabPoints() ? 1f : 0f;
-                    else
-                        _armsRig.weight = 0f;
+                    _armsRig.weight = newWeapon.HasGrabPoints() ? 1f : 0f;
                 }
             }
             else
@@ -251,7 +247,7 @@ namespace HackingOps.Characters.Entities
             parentConstraint.SetSource(0, _currentHolderConstraint);
             parentConstraint.SetSource(1, _currentHolsterConstraint);
         }
-        
+
         private void SetNewWeaponConstraints(Weapon weapon, ParentConstraint parentConstraint)
         {
             if (weapon.Slot != WeaponSlot.MeleeWeapon)

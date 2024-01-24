@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c124ffb2102d9ee4998b2ed8f121b4c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slot: 4
+  Slot: 3
   IsUsedByAI: 0
   _interactionText: interaction_grab
   _debugUse: 0

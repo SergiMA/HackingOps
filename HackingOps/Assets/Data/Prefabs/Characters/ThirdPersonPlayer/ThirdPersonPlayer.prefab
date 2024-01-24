@@ -396,6 +396,7 @@ GameObject:
   - component: {fileID: 6943018137382283839}
   - component: {fileID: 4690499389223168084}
   - component: {fileID: 2591902134482596560}
+  - component: {fileID: 8069417186047320129}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -564,6 +565,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 8069417186047320129}
+        m_TargetAssemblyTypeName: HackingOps.Characters.Player.WeaponSheatherSystem.WeaponSheather,
+          Assembly-CSharp
+        m_MethodName: OnStartBlocking
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
   OnStopBlockingEvent:
     m_PersistentCalls:
       m_Calls:
@@ -619,6 +633,19 @@ MonoBehaviour:
         m_CallState: 1
       - m_Target: {fileID: 6286773908319252241}
         m_TargetAssemblyTypeName: HackingOps.Characters.Common.CharacterLock, Assembly-CSharp
+        m_MethodName: OnStopBlocking
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 8069417186047320129}
+        m_TargetAssemblyTypeName: HackingOps.Characters.Player.WeaponSheatherSystem.WeaponSheather,
+          Assembly-CSharp
         m_MethodName: OnStopBlocking
         m_Mode: 1
         m_Arguments:
@@ -747,36 +774,6 @@ MonoBehaviour:
   OnWeaponSelected:
     m_PersistentCalls:
       m_Calls: []
-  OnGotUnarmed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6612676245602431583}
-        m_TargetAssemblyTypeName: HackingOps.Characters.Common.CharacterCombat, Assembly-CSharp
-        m_MethodName: OnGotUnarmed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
-  OnGotArmed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6612676245602431583}
-        m_TargetAssemblyTypeName: HackingOps.Characters.Common.CharacterCombat, Assembly-CSharp
-        m_MethodName: OnGotArmed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
   _weaponsParent: {fileID: 8350453253349093619}
   _inventory: {fileID: 2240497498994029778}
   armsRig: {fileID: 8802418492833708558}
@@ -1033,6 +1030,8 @@ MonoBehaviour:
   _startingWeapons:
   - {fileID: 2824232883553967626}
   _startUnarmed: 1
+  _defaultSlot: 0
+  _equipmentSlots: []
 --- !u!114 &812392854814092363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1327,6 +1326,19 @@ MonoBehaviour:
     type: 2}
   _runningStepSoundType: {fileID: 11400000, guid: 5b796d51a3e764647844886992aa00e6,
     type: 2}
+--- !u!114 &8069417186047320129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741957048695079361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81766e05b3eac614baf3675ac1f5fb9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coolingDownDuration: 5
 --- !u!1 &811179225154860921
 GameObject:
   m_ObjectHideFlags: 0
@@ -3027,8 +3039,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5290116712343411565}
-  m_LocalRotation: {x: 0.29041082, y: 0.3484645, z: -0.11450157, w: 0.8838119}
-  m_LocalPosition: {x: -0.5564071, y: 2.3376472, z: -1.6375813}
+  m_LocalRotation: {x: 0.29234582, y: -0.3324919, z: 0.109219596, w: 0.88997424}
+  m_LocalPosition: {x: 1.5988201, y: 2.3376825, z: -0.69975567}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4119,7 +4131,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7417303702872778043}
-  m_LocalRotation: {x: 0.058101647, y: -0.0000000015404588, z: 8.9654624e-11, w: 0.9983107}
+  m_LocalRotation: {x: 0.058101654, y: 0.0000000037189973, z: -2.1644554e-10, w: 0.9983107}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4769,7 +4781,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8050290440294103199}
-  m_LocalRotation: {x: 0.09432688, y: -0.00000001661082, z: 0.0000000015738644, w: 0.9955413}
+  m_LocalRotation: {x: 0.094326906, y: 0.000000018191656, z: -0.0000000017236482,
+    w: 0.9955413}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

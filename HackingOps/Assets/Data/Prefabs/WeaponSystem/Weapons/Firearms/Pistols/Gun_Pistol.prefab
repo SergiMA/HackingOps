@@ -385,7 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d18f6721e9e060d48a0167a4432ad301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slot: 2
+  Slot: 1
   IsUsedByAI: 0
   _interactionText: interaction_grab
   _debugUse: 0

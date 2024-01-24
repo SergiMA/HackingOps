@@ -2,6 +2,7 @@
 
 namespace HackingOps.Weapons.Common
 {
+    [System.Serializable]
     public class EquipmentSlot
     {
         public WeaponSlot Slot;

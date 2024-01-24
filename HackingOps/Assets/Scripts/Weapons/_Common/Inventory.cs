@@ -14,8 +14,9 @@ namespace HackingOps.Weapons.Common
         [SerializeField] private Transform _weaponParent;
         [SerializeField] private Weapon[] _startingWeapons;
         [SerializeField] private bool _startUnarmed;
+        [SerializeField] private WeaponSlot _defaultSlot; // Starts using the weapon in this slot
 
-        private List<EquipmentSlot> _equipmentSlots = new();
+        [field: SerializeField] private List<EquipmentSlot> _equipmentSlots = new();
         public int _currentSlotIndex { get; private set; } = 0;
 
         private void Awake()
@@ -26,8 +27,7 @@ namespace HackingOps.Weapons.Common
         private void Start()
         {
             AddStartingWeapons();
-            if (_startUnarmed)
-                SwitchSlot(GetCurrentWeaponSlot(), _equipmentSlots[0]);
+            SwitchSlot(GetCurrentSlot(), GetEquipmentSlotByWeaponSlot(_defaultSlot));
         }
 
         private void InitializeSlots()
@@ -36,7 +36,7 @@ namespace HackingOps.Weapons.Common
 
             foreach (string slotName in Enum.GetNames(typeof(WeaponSlot)))
             {
-                EquipmentSlot equipmentSlot = new EquipmentSlot((WeaponSlot)Enum.Parse(typeof(WeaponSlot), slotName), null);
+                EquipmentSlot equipmentSlot = new((WeaponSlot)Enum.Parse(typeof(WeaponSlot), slotName), null);
                 _equipmentSlots.Add(equipmentSlot);
             }
         }
@@ -53,13 +53,13 @@ namespace HackingOps.Weapons.Common
         {
             OnWeaponSwitched?.Invoke(oldSlot.Weapon, newSlot.Weapon);
 
-            if (oldSlot.Weapon != null)  // Unarmed is considered as a null weapon
+            if (oldSlot.Weapon != null)
             {
                 oldSlot.Weapon.ResetWeapon();
                 oldSlot.Weapon.Store();
             }
 
-            if (newSlot.Weapon != null) // Unarmed is considered as a null weapon
+            if (newSlot.Weapon != null)
             {
                 newSlot.Weapon.ResetWeapon();
                 newSlot.Weapon.Grab();
@@ -85,7 +85,7 @@ namespace HackingOps.Weapons.Common
 
             if (GetCurrentSlot().Weapon == null)
             {
-                SwitchSlot(GetCurrentWeaponSlot(), GetEquipmentSlotByWeaponSlot(weapon.Slot));
+                SwitchSlot(GetCurrentSlot(), GetEquipmentSlotByWeaponSlot(weapon.Slot));
             }
             else
             {
@@ -103,8 +103,9 @@ namespace HackingOps.Weapons.Common
             equipmentSlot.Weapon.Drop();
             equipmentSlot.Weapon.transform.SetParent(null);
             equipmentSlot.Weapon = null;
+
             if (GetCurrentSlot().Weapon == null)
-                SwitchSlot(GetCurrentSlot(), GetEquipmentSlotByWeaponSlot(WeaponSlot.Unarmed));
+                SwitchSlot(GetCurrentSlot(), GetEquipmentSlotByWeaponSlot(WeaponSlot.MeleeWeapon));
         }
         
         public void DropAllWeapons()
@@ -115,17 +116,11 @@ namespace HackingOps.Weapons.Common
             }
         }
 
-        public EquipmentSlot GetCurrentWeaponSlot()
-        {
-            return _equipmentSlots[_currentSlotIndex];
-        }
-
         public void ChangeToNextWeapon()
         {
             int newSlotIndex = _currentSlotIndex;
 
             bool weaponIsNotNull;
-            bool slotIsUnarmed;
             do
             {
                 newSlotIndex++;
@@ -134,8 +129,7 @@ namespace HackingOps.Weapons.Common
                     newSlotIndex = 0;
 
                 weaponIsNotNull = _equipmentSlots[newSlotIndex].Weapon != null;
-                slotIsUnarmed = _equipmentSlots[newSlotIndex].Slot == WeaponSlot.Unarmed;
-            } while (!weaponIsNotNull && !slotIsUnarmed);
+            } while (!weaponIsNotNull);
 
             EquipmentSlot oldSlot = _equipmentSlots[_currentSlotIndex];
             EquipmentSlot newSlot = _equipmentSlots[newSlotIndex];
@@ -150,7 +144,6 @@ namespace HackingOps.Weapons.Common
             int newSlotIndex = _currentSlotIndex;
 
             bool weaponIsNotNull;
-            bool slotIsUnarmed;
             do
             {
                 newSlotIndex--;
@@ -159,8 +152,7 @@ namespace HackingOps.Weapons.Common
                     newSlotIndex = _equipmentSlots.Count - 1;
 
                 weaponIsNotNull = _equipmentSlots[newSlotIndex].Weapon != null;
-                slotIsUnarmed = _equipmentSlots[newSlotIndex].Slot == WeaponSlot.Unarmed;
-            } while (!weaponIsNotNull && !slotIsUnarmed);
+            } while (!weaponIsNotNull);
 
 
             EquipmentSlot oldSlot = _equipmentSlots[_currentSlotIndex];
@@ -204,11 +196,6 @@ namespace HackingOps.Weapons.Common
         {
             EquipmentSlot newSlot = GetEquipmentSlotByWeaponSlot(slot);
             SwitchSlot(GetCurrentSlot(), newSlot);
-        }
-
-        public void ChangeToUnarmed()
-        {
-            ChangeToSlot(WeaponSlot.Unarmed);
         }
     }
 }
