@@ -1,5 +1,6 @@
-using UnityEngine;
 using DG.Tweening;
+using HackingOps.Utilities;
+using UnityEngine;
 
 namespace HackingOps.Characters.Common
 {
@@ -16,7 +17,7 @@ namespace HackingOps.Characters.Common
         private IAttackReadable _attackReadable;
 
         private int _crouchingLayerIndex;
-        private int _blockingLayerIndex;
+        private int _standingLayerIndex;
 
         private bool _isCrouching;
         private bool _isBlocking;
@@ -45,7 +46,7 @@ namespace HackingOps.Characters.Common
         private void Start()
         {
             _crouchingLayerIndex = _animator.GetLayerIndex("CrouchingLayer");
-            _blockingLayerIndex = _animator.GetLayerIndex("BlockingLayer");
+            _standingLayerIndex = _animator.GetLayerIndex("MovementLayer");
         }
 
         Vector3 currentLocalCharacterVelocity = Vector3.zero;
@@ -119,13 +120,21 @@ namespace HackingOps.Characters.Common
         {
             _animator.SetBool("IsCrouching", _movementReadable.GetIsCrouched());
 
-            float startingWeight = _animator.GetLayerWeight(_crouchingLayerIndex);
-            float targetWeight = _movementReadable.GetIsCrouched() ? 1 : 0;
+            float startingCrouchingWeight = _animator.GetLayerWeight(_crouchingLayerIndex);
+            float targetCrouchingWeight = _movementReadable.GetIsCrouched() ? 1 : 0;
+            AnimationUtils.UpdateAnimationWeight(_animator,
+                                                 _crouchingLayerIndex,
+                                                 startingCrouchingWeight,
+                                                 targetCrouchingWeight,
+                                                 _crouchingTransitionDuration);
 
-            DOVirtual.Float(startingWeight, targetWeight, _crouchingTransitionDuration, weight =>
-            {
-                _animator.SetLayerWeight(_crouchingLayerIndex, weight);
-            });
+            float startingStandingWeight = _animator.GetLayerWeight(_standingLayerIndex);
+            float targetStandingWeight = _movementReadable.GetIsCrouched() ? 0 : 1;
+            AnimationUtils.UpdateAnimationWeight(_animator,
+                                                 _standingLayerIndex,
+                                                 startingStandingWeight,
+                                                 targetStandingWeight,
+                                                 _crouchingTransitionDuration);
         }
 
         private void UpdateBlockAnimationIndex()

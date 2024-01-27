@@ -12,5 +12,9 @@ namespace HackingOps.Characters.Common
 
         [Header("Orientation info")]
         public float SpeedAngular = 360f;
+
+        [Header("Audio info")]
+        [Range(0f, 1f)] public float VolumeNormal = 0.7f;
+        [Range(0f, 1f)] public float VolumeAccelerated = 1f;
     }
 }

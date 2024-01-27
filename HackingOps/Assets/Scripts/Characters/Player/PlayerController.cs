@@ -150,23 +150,13 @@ namespace HackingOps.Characters.Player
 
             if (_inputManager.MoveInput.magnitude > 0)
             {
-                // OnStartedWalkingWhileCrouching
-                if (_isCrouched && (HasStartedMoving() || HasSwitchedCrouching()))
-                {
-                    OnStartedWalkingWhileCrouching.Invoke();
-                }
+                bool hasStartedWalkingWhileCrouching = _isCrouched && (HasStartedMoving() || HasSwitchedCrouching());
+                bool hasStartedWalking = !_isCrouched && !_inputManager.IsRunning && (HasSwitchedRunning() || HasStartedMoving() || HasSwitchedCrouching());
+                bool hasStartedRunning = !_isCrouched && _inputManager.IsRunning && (HasSwitchedRunning() || HasStartedMoving() || HasSwitchedCrouching());
 
-                // OnStartedWalking
-                if (!_isCrouched && !_inputManager.IsRunning && (HasSwitchedRunning() || HasStartedMoving() || HasSwitchedCrouching()))
-                {
-                    OnStartedWalking.Invoke();
-                }
-
-                // OnStartedRunning
-                if (!_isCrouched && _inputManager.IsRunning && (HasSwitchedRunning() || HasStartedMoving() || HasSwitchedCrouching()))
-                {
-                    OnStartedRunning.Invoke();
-                }
+                if (hasStartedWalkingWhileCrouching) OnStartedWalkingWhileCrouching.Invoke();
+                if (hasStartedWalking) OnStartedWalking.Invoke();
+                if (hasStartedRunning) OnStartedRunning.Invoke();
             }
         }
 

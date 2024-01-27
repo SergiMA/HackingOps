@@ -16,3 +16,5 @@ MonoBehaviour:
   SpeedAccelerated: 4
   SpeedJump: 6
   SpeedAngular: 360
+  VolumeNormal: 0.7
+  VolumeAccelerated: 1

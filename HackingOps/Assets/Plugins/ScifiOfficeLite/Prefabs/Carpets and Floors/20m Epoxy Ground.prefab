@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1425383010550552499}
   - component: {fileID: 1425383010550552498}
   - component: {fileID: 7742671493767482130}
+  - component: {fileID: 750664488532080913}
   m_Layer: 0
   m_Name: 20m Epoxy Ground
   m_TagString: Untagged
@@ -106,3 +107,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &750664488532080913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425383010550552526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9acf19cc27f868146b283e606f4d089c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SurfaceType: 3
