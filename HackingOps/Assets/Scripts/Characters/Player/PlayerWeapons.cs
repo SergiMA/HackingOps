@@ -51,8 +51,11 @@ namespace HackingOps.Characters.Player
         // Aiming properties
         private Transform _aimingTarget;
         private IVisible _aimingTargetVisible;
-        private float _currentAimingAngle;
-        private float _desiredAimingAngle;
+        private float _currentAimingAngleY = 0f;
+        private float _currentAimingAngleX = 0f;
+        private float _desiredAimingAngleY = 0f;
+        private float _desiredAimingAngleX = 0f;
+        Vector3 _desiredAimingPosition = Vector3.one * Mathf.Infinity;
 
         // Rigging properties (holder and holster)
         private ConstraintSource _currentHolderConstraint = new();
@@ -84,29 +87,27 @@ namespace HackingOps.Characters.Player
         private void Update()
         {
             bool hasAimingPosition = CalcBestAimingPosition(_currentWeapon, out Vector3 aimPosition);
+            Vector3 rotationPosition = _currentWeapon ? _currentWeapon.GetRotationPointPosition() : Vector3.zero;
 
             if (hasAimingPosition)
             {
-                Vector3 rotationPosition = _currentWeapon.GetRotationPointPosition();
-                Vector3 direction = aimPosition - rotationPosition;
-                _desiredAimingAngle = CalcAimingAngle(direction);
+                CalcDesiredAimingAngles(aimPosition, rotationPosition, out _desiredAimingAngleY, out _desiredAimingAngleX);
+            }
+            else if (_desiredAimingPosition.x == Mathf.Infinity)
+            {
+                _desiredAimingAngleY = CalcAimingAngleVertical(Camera.main.transform.forward);
+                _desiredAimingAngleX = 0;
             }
             else
             {
-                _desiredAimingAngle = CalcAimingAngle(Camera.main.transform.forward);
+                CalcDesiredAimingAngles(_desiredAimingPosition, rotationPosition, out _desiredAimingAngleY, out _desiredAimingAngleX);
             }
 
-            float angleDifference = _desiredAimingAngle - _currentAimingAngle;
-            float angleToApply =
-                Mathf.Sign(angleDifference) *
-                Mathf.Min(
-                    Mathf.Abs(angleDifference),
-                    _aimingAngularVelocity * Time.deltaTime
-                    );
-            _currentAimingAngle += angleToApply;
+            RotateAngleTo(ref _currentAimingAngleY, _desiredAimingAngleY, _aimingAngularVelocity);
+            RotateAngleTo(ref _currentAimingAngleX, _desiredAimingAngleX, _aimingAngularVelocity);
 
             if (_currentWeapon != null)
-                _currentWeapon.NotifyAimingAngle(_currentAimingAngle);
+                _currentWeapon.NotifyAimingAngles(_currentAimingAngleY, _currentAimingAngleX);
         }
 
         private void LateUpdate()
@@ -132,13 +133,8 @@ namespace HackingOps.Characters.Player
             }
         }
 
-        private float CalcAimingAngle(Vector3 direction)
-        {
-            Vector3 directionXZ = direction;
-            directionXZ.y = 0f;
-
-            return Mathf.Atan2(-direction.y, directionXZ.magnitude) * Mathf.Rad2Deg;
-        }
+        internal void SetAimingPosition(Vector3 position) => _desiredAimingPosition = position;
+        internal void UnsetAimingPosition() => _desiredAimingPosition = Vector3.one * Mathf.Infinity;
 
         private bool CalcBestAimingPosition(Weapon currentWeapon, out Vector3 bestPosition)
         {
@@ -172,6 +168,38 @@ namespace HackingOps.Characters.Player
             }
 
             return hasLineOfSight;
+        }
+
+        private void CalcDesiredAimingAngles(Vector3 aimPosition, Vector3 rotationPosition, out float desiredAimingAngleV, out float desiredAimingAngleH)
+        {
+            Vector3 direction = aimPosition - rotationPosition;
+            desiredAimingAngleV = CalcAimingAngleVertical(direction);
+            desiredAimingAngleH = CalcAimingAngleHorizontal(direction);
+        }
+
+        private float CalcAimingAngleHorizontal(Vector3 direction)
+        {
+            Vector3 directionXZ = direction;
+            directionXZ.y = 0f;
+            Vector3 forwardXZ = transform.forward;
+            forwardXZ.y = 0f;
+
+            return Vector3.SignedAngle(forwardXZ, directionXZ, Vector3.up);
+        }
+
+        private float CalcAimingAngleVertical(Vector3 direction)
+        {
+            Vector3 directionXZ = direction;
+            directionXZ.y = 0f;
+
+            return Mathf.Atan2(-direction.y, directionXZ.magnitude) * Mathf.Rad2Deg;
+        }
+
+        private void RotateAngleTo(ref float current, float desired, float angularVelocity)
+        {
+            float angleDifference = desired - current;
+            float angleToApply = Mathf.Sign(angleDifference) * Mathf.Min(Mathf.Abs(angleDifference), angularVelocity * Time.deltaTime);
+            current += angleToApply;
         }
 
         private void SelectWeapon(int newWeaponIndex)

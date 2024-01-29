@@ -73,7 +73,7 @@ namespace HackingOps.Weapons.WeaponFoundations
         public abstract float GetEffectiveRange();
 
         public virtual void AdaptToVerticalAngle(Vector3 aimForward) { }
-        public virtual void NotifyAimingAngle(float currentAimingAngle) { }
+        public virtual void NotifyAimingAngles(float angleV, float angleH) { }
         public virtual Vector3 GetRotationPointPosition() { return Vector3.zero; }
 
         public virtual bool HasGrabPoints() { return false; }

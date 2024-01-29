@@ -95,9 +95,9 @@ namespace HackingOps.Weapons.WeaponFoundations
             Quaternion rotateToAimForward = Quaternion.FromToRotation(transform.forward, aimForwardXZ);
         }
 
-        public override void NotifyAimingAngle(float currentAimingAngle)
+        public override void NotifyAimingAngles(float angleV, float angleH)
         {
-            _rotationPoint.localRotation = Quaternion.Euler(currentAimingAngle, 0f, 0f);
+            _rotationPoint.localRotation = Quaternion.Euler(angleV, angleH, 0f);
         }
 
         public override Vector3 GetRotationPointPosition() => _rotationPoint.position;

@@ -25,6 +25,8 @@ namespace HackingOps.Characters.Common
         [SerializeField] private LayerMask _aimColliderLayerMask = Physics.DefaultRaycastLayers;
 
         private PlayerController _playerController;
+        private PlayerWeapons _playerWeapons;
+        private Camera _mainCamera;
 
         enum AimState
         {
@@ -38,6 +40,8 @@ namespace HackingOps.Characters.Common
         private void Awake()
         {
             _playerController = GetComponent<PlayerController>();
+            _playerWeapons = GetComponent<PlayerWeapons>();
+            _mainCamera = Camera.main;
         }
 
         private void Update()
@@ -50,12 +54,20 @@ namespace HackingOps.Characters.Common
         {
             if (_aimTarget == null) return;
 
-            Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
-            Ray ray = Camera.main.ScreenPointToRay(screenCenterPoint);
+            _playerWeapons?.UnsetAimingPosition();
 
-            if (Physics.Raycast(ray, out RaycastHit hit, _maxAimDistance, _aimColliderLayerMask))
+            if (_aimState == AimState.Locking)
             {
-                _aimTarget.position = hit.point;
+                Debug.DrawRay(_mainCamera.transform.position, _mainCamera.transform.forward, Color.magenta, 0.5f);
+                float camToPlayerDistance = (transform.position - _mainCamera.transform.position).magnitude;
+                Vector3 rayStartPosition = _mainCamera.transform.position + (_mainCamera.transform.forward * camToPlayerDistance);
+
+                if (Physics.Raycast(rayStartPosition, _mainCamera.transform.forward, out RaycastHit hit, Mathf.Infinity, _aimColliderLayerMask))
+                {
+                    Debug.DrawRay(rayStartPosition, hit.point - rayStartPosition, Color.cyan, 0.5f);
+                    _playerWeapons?.SetAimingPosition(hit.point);
+                    _aimTarget.position = hit.point;
+                }
             }
         }
 
