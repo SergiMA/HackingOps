@@ -196,6 +196,11 @@ MonoBehaviour:
   _spread: 0.021
   _projectileParticlePrefab: {fileID: 3125916186392176810, guid: 8c134794b514f9d458a6f54ef0072a0f,
     type: 3}
+  _impactAudioPrefab: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _shotSounds: []
+  _basePitch: 1
+  _pitchVariation: 0.2
   _roundsAmount: 3
   _delayBetweenBursts: 1
 --- !u!1 &1336235023801696878
