@@ -1,0 +1,1158 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1141031132032155630
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3268288952409039203}
+  m_Layer: 0
+  m_Name: HolographicSignStripe - Wet floor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3268288952409039203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141031132032155630}
+  m_LocalRotation: {x: -0, y: -0.54436404, z: -0, w: 0.8388491}
+  m_LocalPosition: {x: 3.2859883, y: 42.772, z: 112.58102}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4937617760851177452}
+  - {fileID: 550945858560544179}
+  - {fileID: 2445538000950006430}
+  - {fileID: 2730813148466717673}
+  - {fileID: 3313694997321738699}
+  - {fileID: 7813683751109900722}
+  - {fileID: 3162334084398015507}
+  - {fileID: 571092461300101346}
+  - {fileID: 9202764201233328381}
+  - {fileID: 7140902505404163864}
+  - {fileID: 4191643903719428289}
+  - {fileID: 5767983042149261698}
+  - {fileID: 3455134009822596572}
+  - {fileID: 5627647967169752140}
+  m_Father: {fileID: 0}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 24.038, z: 0}
+--- !u!1001 &209781254050848721
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3268288952409039203}
+    m_Modifications:
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0000042074207
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.676236
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.50000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007275620861889957, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_Name
+      value: HolographicSignStripe - Wet floor - Individual unit (10)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 59c8836ebe06bc1408d5ce4d441eec47, type: 3}
+--- !u!4 &4191643903719428289 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+    type: 3}
+  m_PrefabInstance: {fileID: 209781254050848721}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1378137787772644099
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3268288952409039203}
+    m_Modifications:
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0000010483745
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.1157346
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.50000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007275620861889957, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_Name
+      value: HolographicSignStripe - Wet floor - Individual unit (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 59c8836ebe06bc1408d5ce4d441eec47, type: 3}
+--- !u!4 &3162334084398015507 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+    type: 3}
+  m_PrefabInstance: {fileID: 1378137787772644099}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1530769875453454043
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3268288952409039203}
+    m_Modifications:
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0000007748604
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.3354912
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.50000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007275620861889957, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_Name
+      value: HolographicSignStripe - Wet floor - Individual unit (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 59c8836ebe06bc1408d5ce4d441eec47, type: 3}
+--- !u!4 &3313694997321738699 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+    type: 3}
+  m_PrefabInstance: {fileID: 1530769875453454043}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1671368789599748812
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3268288952409039203}
+    m_Modifications:
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0000016093254
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.456484
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.50000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007275620861889957, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_Name
+      value: HolographicSignStripe - Wet floor - Individual unit (12)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 59c8836ebe06bc1408d5ce4d441eec47, type: 3}
+--- !u!4 &3455134009822596572 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+    type: 3}
+  m_PrefabInstance: {fileID: 1671368789599748812}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1815712365187194254
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3268288952409039203}
+    m_Modifications:
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0000018232349
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5552433
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.50000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007275620861889957, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_Name
+      value: HolographicSignStripe - Wet floor - Individual unit (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 59c8836ebe06bc1408d5ce4d441eec47, type: 3}
+--- !u!4 &2445538000950006430 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+    type: 3}
+  m_PrefabInstance: {fileID: 1815712365187194254}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2100703875480644857
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3268288952409039203}
+    m_Modifications:
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.000001492419
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.9453673
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.50000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007275620861889957, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_Name
+      value: HolographicSignStripe - Wet floor - Individual unit (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 59c8836ebe06bc1408d5ce4d441eec47, type: 3}
+--- !u!4 &2730813148466717673 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+    type: 3}
+  m_PrefabInstance: {fileID: 2100703875480644857}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4552596670716477426
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3268288952409039203}
+    m_Modifications:
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0000007175586
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.5058584
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.50000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007275620861889957, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_Name
+      value: HolographicSignStripe - Wet floor - Individual unit (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 59c8836ebe06bc1408d5ce4d441eec47, type: 3}
+--- !u!4 &571092461300101346 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+    type: 3}
+  m_PrefabInstance: {fileID: 4552596670716477426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4568802087053623971
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3268288952409039203}
+    m_Modifications:
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0000027120113
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.16512379
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.50000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007275620861889957, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_Name
+      value: HolographicSignStripe - Wet floor - Individual unit (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 59c8836ebe06bc1408d5ce4d441eec47, type: 3}
+--- !u!4 &550945858560544179 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+    type: 3}
+  m_PrefabInstance: {fileID: 4568802087053623971}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5148800009003460589
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3268288952409039203}
+    m_Modifications:
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0000011920929
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.8959913
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.50000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007275620861889957, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_Name
+      value: HolographicSignStripe - Wet floor - Individual unit (8)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 59c8836ebe06bc1408d5ce4d441eec47, type: 3}
+--- !u!4 &9202764201233328381 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+    type: 3}
+  m_PrefabInstance: {fileID: 5148800009003460589}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6101595628204848802
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3268288952409039203}
+    m_Modifications:
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.000000029802322
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.7256166
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.50000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007275620861889957, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_Name
+      value: HolographicSignStripe - Wet floor - Individual unit (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 59c8836ebe06bc1408d5ce4d441eec47, type: 3}
+--- !u!4 &7813683751109900722 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+    type: 3}
+  m_PrefabInstance: {fileID: 6101595628204848802}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6619002699521435656
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3268288952409039203}
+    m_Modifications:
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.00000032782555
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.2861164
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.50000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007275620861889957, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_Name
+      value: HolographicSignStripe - Wet floor - Individual unit (9)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 59c8836ebe06bc1408d5ce4d441eec47, type: 3}
+--- !u!4 &7140902505404163864 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+    type: 3}
+  m_PrefabInstance: {fileID: 6619002699521435656}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7550567453723782802
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3268288952409039203}
+    m_Modifications:
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0000038766048
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.06636
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.50000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007275620861889957, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_Name
+      value: HolographicSignStripe - Wet floor - Individual unit (11)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 59c8836ebe06bc1408d5ce4d441eec47, type: 3}
+--- !u!4 &5767983042149261698 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+    type: 3}
+  m_PrefabInstance: {fileID: 7550567453723782802}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8564600873668731740
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3268288952409039203}
+    m_Modifications:
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.000002413988
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.846609
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.50000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007275620861889957, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_Name
+      value: HolographicSignStripe - Wet floor - Individual unit (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007275620861889957, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 59c8836ebe06bc1408d5ce4d441eec47, type: 3}
+--- !u!4 &5627647967169752140 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+    type: 3}
+  m_PrefabInstance: {fileID: 8564600873668731740}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8955141970925052156
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3268288952409039203}
+    m_Modifications:
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.225
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.50000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007275620861889957, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+        type: 3}
+      propertyPath: m_Name
+      value: HolographicSignStripe - Wet floor - Individual unit
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 59c8836ebe06bc1408d5ce4d441eec47, type: 3}
+--- !u!4 &4937617760851177452 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4090111909378674448, guid: 59c8836ebe06bc1408d5ce4d441eec47,
+    type: 3}
+  m_PrefabInstance: {fileID: 8955141970925052156}
+  m_PrefabAsset: {fileID: 0}
