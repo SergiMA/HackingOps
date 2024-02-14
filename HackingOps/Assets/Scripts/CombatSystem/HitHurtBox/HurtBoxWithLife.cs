@@ -76,7 +76,7 @@ namespace HackingOps.CombatSystem.HitHurtBox
 
             if (damageDealerTransform != null)
             {
-                OnNotifyHitWithLifeAndDirection.Invoke(_currentLife, _maxLife, (transform.position - damageDealerTransform.position).normalized);
+                OnNotifyHitWithLifeAndDirection.Invoke(_currentLife, _maxLife, damageDealerTransform.position);
             }
             else
             {

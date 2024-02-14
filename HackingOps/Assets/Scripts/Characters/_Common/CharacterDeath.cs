@@ -43,7 +43,7 @@ namespace HackingOps.Characters.Common
         {
             if (_lastNotifiedLife > 0)
             {
-                if (currentLife <= 0f) { Die(direction); }
+                if (currentLife <= 0f) { Die((transform.position - direction).normalized); }
                 _lastNotifiedLife = currentLife;
             }
         }

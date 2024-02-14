@@ -1,4 +1,4 @@
-using DG.Tweening;
+using HackingOps.CombatSystem.HitHurtBox;
 using HackingOps.Utilities;
 using UnityEngine;
 
@@ -15,6 +15,7 @@ namespace HackingOps.Characters.Common
         private IMovementReadable _movementReadable;
         private CrouchController _crouchController;
         private IAttackReadable _attackReadable;
+        private HurtBox _hurtBox;
 
         private int _crouchingLayerIndex;
         private int _standingLayerIndex;
@@ -31,11 +32,13 @@ namespace HackingOps.Characters.Common
             _movementReadable = GetComponent<IMovementReadable>();
             _crouchController = GetComponent<CrouchController>();
             _attackReadable = GetComponent<IAttackReadable>();
+            _hurtBox = GetComponent<HurtBoxWithLife>();
         }
 
         private void OnEnable()
         {
             _attackReadable.OnMustAttack += UpdateAttackAnimation;
+            _hurtBox.OnNotifyHitWithLifeAndDirection.AddListener(UpdateHitAnimation);
         }
 
         private void OnDisable()
@@ -92,6 +95,36 @@ namespace HackingOps.Characters.Common
             {
                 _animator.SetTrigger("Attack");
             }
+        }
+
+        private void UpdateHitAnimation(float currentLife, float maxLife, Vector3 damageDealerLocation)
+        {
+            Vector3 damageDealerLocationFlatened = new(damageDealerLocation.x, transform.position.y, damageDealerLocation.z);
+            Vector3 directionToDamageDealer = (damageDealerLocationFlatened - transform.position).normalized;
+
+            float theta = CalculateTheta(transform.forward, directionToDamageDealer);
+            theta = ApplyLateralDistinction(theta, directionToDamageDealer);
+
+            if (theta >= -45f && theta < 45f) _animator.SetTrigger("HitFromFront");
+            else if (theta >= -135f && theta < -45f) _animator.SetTrigger("HitFromLeft");
+            else if (theta >= 45f && theta < 135f) _animator.SetTrigger("HitFromRight");
+            else _animator.SetTrigger("HitFromBack");
+        }
+
+        private float CalculateTheta(Vector3 forwardDirection, Vector3 targetDirection)
+        {
+            float cosTheta = Vector3.Dot(forwardDirection, targetDirection);
+            float theta = Mathf.Acos(cosTheta);
+            return Mathf.Rad2Deg * theta;
+        }
+
+        private float ApplyLateralDistinction(float theta, Vector3 targetDirection)
+        {
+            Vector3 crossProduct = Vector3.Cross(transform.forward, targetDirection);
+
+            if (crossProduct.y < 0) theta *= -1f;
+
+            return theta;
         }
 
         private float NormalizeSpeed(float s)
