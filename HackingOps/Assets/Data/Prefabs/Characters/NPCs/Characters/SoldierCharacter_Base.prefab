@@ -172,6 +172,7 @@ MonoBehaviour:
   _crouchingTransitionDuration: 0.5
   _blockingTransitionDuration: 0.5
   _blockAnimationsAmount: 3
+  _locomotionAnimationSmoothness: 10
 --- !u!114 &4367718595825557907
 MonoBehaviour:
   m_ObjectHideFlags: 0

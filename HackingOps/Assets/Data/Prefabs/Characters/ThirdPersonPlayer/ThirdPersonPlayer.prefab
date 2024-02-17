@@ -752,6 +752,7 @@ MonoBehaviour:
     type: 2}
   _crouchingProperties: {fileID: 11400000, guid: 17373bd646ef9fe4e93e92fb06734753,
     type: 2}
+  _velocitySmoothingFactor: 0.2
   _movementCamera: {fileID: 7864607187731230627}
   _orientationTarget: {fileID: 8969392012296668652}
   _camera: {fileID: 7864607187731230627}
@@ -773,7 +774,8 @@ MonoBehaviour:
   _movementSmoothingSpeed: 7.5
   _crouchingTransitionDuration: 0.5
   _blockingTransitionDuration: 0.5
-  _blockAnimationsAmount: 3
+  _blockAnimationsAmount: 5
+  _locomotionAnimationSmoothness: 10
 --- !u!114 &208535555297123790
 MonoBehaviour:
   m_ObjectHideFlags: 0

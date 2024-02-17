@@ -25,6 +25,8 @@ namespace HackingOps.Characters.Player
         [SerializeField] LocomotionPropertiesSO _standingProperties;
         [SerializeField] LocomotionPropertiesSO _crouchingProperties;
 
+        [Range(0, 1)] [SerializeField] private float _velocitySmoothingFactor = 0.2f;
+
         public enum MovementMode
         {
             RelativeToCamera,
@@ -62,6 +64,9 @@ namespace HackingOps.Characters.Player
         // Movement
         private Vector3 _lastVelocity;
         private bool _mustJump;
+
+        private Vector3 _smoothedVelocity = Vector3.zero;
+        Vector3 _smoothInputVector;
 
         // Current locomotion properties
         private LocomotionPropertiesSO _currentLocomotionProperties;
@@ -130,7 +135,12 @@ namespace HackingOps.Characters.Player
             Vector3 planeVelocity = UpdateMovementOnPlane();
             float verticalVelocity = UpdateMovementVertical();
 
-            Vector3 combinedVelocity = planeVelocity + (verticalVelocity * Vector3.up);
+            _smoothedVelocity = Vector3.SmoothDamp(_smoothedVelocity,
+                                                   planeVelocity,
+                                                   ref _smoothInputVector,
+                                                   _velocitySmoothingFactor);
+
+            Vector3 combinedVelocity = _smoothedVelocity + (verticalVelocity * Vector3.up);
             Vector3 adaptedVelocity = AdaptVelocityToGround(combinedVelocity);
 
             _characterController.Move(adaptedVelocity * Time.deltaTime);

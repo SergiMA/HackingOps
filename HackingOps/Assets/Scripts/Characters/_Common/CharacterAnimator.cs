@@ -10,6 +10,7 @@ namespace HackingOps.Characters.Common
         [SerializeField] private float _crouchingTransitionDuration = 0.5f;
         [SerializeField] private float _blockingTransitionDuration = 0.5f;
         [SerializeField] private int _blockAnimationsAmount = 3;
+        [Range(0, 50)] [SerializeField] private float _locomotionAnimationSmoothness = 10f;
 
         private Animator _animator;
         private IMovementReadable _movementReadable;
@@ -25,6 +26,9 @@ namespace HackingOps.Characters.Common
 
         private int _currentBlockingAnimationIndex;
         private int _lastBlockingAnimationIndex;
+
+        private float _smoothedForwardVelocity;
+        private float _smoothedSidewardVelocity;
 
         private void Awake()
         {
@@ -76,8 +80,16 @@ namespace HackingOps.Characters.Common
                 (desiredLocalCharacterVelocity - currentLocalCharacterVelocity).normalized *
                 Mathf.Min(distanceThatWouldNormallyBeApplied, distance);
 
-            _animator.SetFloat("ForwardVelocity", currentLocalCharacterVelocity.z);
-            _animator.SetFloat("SidewardVelocity", currentLocalCharacterVelocity.x);
+            _smoothedForwardVelocity = Mathf.SmoothStep(_smoothedForwardVelocity,
+                                                        currentLocalCharacterVelocity.z,
+                                                        Time.deltaTime * _locomotionAnimationSmoothness);
+
+            _smoothedSidewardVelocity = Mathf.SmoothStep(_smoothedSidewardVelocity,
+                                                         currentLocalCharacterVelocity.x,
+                                                         Time.deltaTime * _locomotionAnimationSmoothness);
+
+            _animator.SetFloat("ForwardVelocity", _smoothedForwardVelocity);
+            _animator.SetFloat("SidewardVelocity", _smoothedSidewardVelocity);
         }
 
         private void UpdateVerticalMovementAnimation()
