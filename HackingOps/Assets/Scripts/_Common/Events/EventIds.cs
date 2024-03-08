@@ -20,5 +20,7 @@
         EntityLeaveCombat,
         OnEnterCombatMode,
         OnLeaveCombatMode,
+        WeaponUnsheathed,
+        WeaponSheathed,
     }
 }

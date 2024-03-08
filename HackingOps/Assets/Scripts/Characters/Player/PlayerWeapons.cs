@@ -411,6 +411,8 @@ namespace HackingOps.Characters.Player
                 ConfigureWeaponConstraintsPivots(_currentWeapon);
                 SetWeightToCurrentHolderConstraint();
                 ConfigureWeaponParentConstraint(parentConstraint, _currentWeapon.GetHolderOffset());
+                
+                ServiceLocator.Instance.GetService<IEventQueue>().EnqueueEvent(new EventData(EventIds.WeaponUnsheathed));
             }
         }
 
@@ -421,6 +423,8 @@ namespace HackingOps.Characters.Player
                 ConfigureWeaponConstraintsPivots(_currentWeapon);
                 SetWeightToCurrentHolsterConstraint();
                 ConfigureWeaponParentConstraint(parentConstraint, _currentWeapon.GetHolderOffset());
+
+                ServiceLocator.Instance.GetService<IEventQueue>().EnqueueEvent(new EventData(EventIds.WeaponSheathed));
             }
         }
 
