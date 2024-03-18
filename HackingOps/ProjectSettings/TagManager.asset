@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Block
+  - WetZone
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Bullet
   - Volume
   - EnvironmentDetector
-  - 
+  - WetZone
   - 
   - 
   - 

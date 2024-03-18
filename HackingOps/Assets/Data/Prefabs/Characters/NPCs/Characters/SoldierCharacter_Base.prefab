@@ -31,6 +31,8 @@ GameObject:
   - component: {fileID: 420154699729394890}
   - component: {fileID: 2981345865020556669}
   - component: {fileID: 5074174985294276362}
+  - component: {fileID: 8168100739927859015}
+  - component: {fileID: 7038916513358872126}
   m_Layer: 0
   m_Name: Soldier
   m_TagString: Untagged
@@ -536,6 +538,43 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4091
   _startEmittingByDefault: 1
+--- !u!114 &8168100739927859015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123052346440753152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 297c2d0c527669d4eb39c95706a2430c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tagToCollide: WetZone
+  _minWetDuration: 3
+  _wettingDuration: 3
+  _dryingDuration: 3
+--- !u!65 &7038916513358872126
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123052346440753152}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 8191
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5, y: 1, z: 0.5}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &321979452893224380
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,7 +636,7 @@ ParentConstraint:
   m_TranslationAtRest: {x: -0.32699966, y: 1.7189999, z: -0.12399998}
   m_RotationAtRest: {x: 59.27414, y: 89.99995, z: -179.99976}
   m_TranslationOffsets:
-  - {x: -0.32699585, y: 0.38478708, z: -0.010105133}
+  - {x: -0.32699895, y: 0.38478708, z: -0.010105133}
   m_RotationOffsets:
   - {x: 55.104546, y: 116.733345, z: -148.44563}
   m_AffectTranslationX: 1
@@ -734,7 +773,7 @@ Transform:
   - {fileID: 5785845074159591247}
   - {fileID: 4690020247404888228}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &850275089559264791
 GameObject:
@@ -1569,9 +1608,9 @@ ParentConstraint:
   m_TranslationAtRest: {x: -0.13800432, y: 1.19, z: 0.13900001}
   m_RotationAtRest: {x: 74.301125, y: -139.49593, z: -169.20901}
   m_TranslationOffsets:
-  - {x: -0.13800049, y: 0.1327858, z: 0.12494469}
+  - {x: -0.13800454, y: 0.13278449, z: 0.12494421}
   m_RotationOffsets:
-  - {x: 73.85294, y: -140.80716, z: -170.57231}
+  - {x: 73.85291, y: -140.80716, z: -170.57231}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -1675,9 +1714,9 @@ ParentConstraint:
   m_TranslationAtRest: {x: 0.1949997, y: 0.97599983, z: 0.004799977}
   m_RotationAtRest: {x: 84.72898, y: 89.99892, z: 89.99899}
   m_TranslationOffsets:
-  - {x: 0.1949997, y: -0.079836845, z: -0.011425018}
+  - {x: 0.19499993, y: -0.07983762, z: -0.011427879}
   m_RotationOffsets:
-  - {x: 84.69699, y: 96.30015, z: 96.327324}
+  - {x: 84.69695, y: 96.3002, z: 96.327385}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -1997,7 +2036,7 @@ PositionConstraint:
   serializedVersion: 2
   m_Weight: 1
   m_TranslationAtRest: {x: -5.820766e-11, y: 1.4109999, z: 0.17}
-  m_TranslationOffset: {x: 0, y: 0.056114793, z: 0.16916458}
+  m_TranslationOffset: {x: 0, y: 0.056114316, z: 0.16916506}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -3105,9 +3144,9 @@ ParentConstraint:
   m_TranslationAtRest: {x: 0.31100082, y: 1.6239996, z: -0.164}
   m_RotationAtRest: {x: 67.30472, y: -89.99991, z: 0.00031864623}
   m_TranslationOffsets:
-  - {x: 0.31100464, y: 0.30611897, z: -0.07670784}
+  - {x: 0.31100154, y: 0.30611825, z: -0.07670879}
   m_RotationOffsets:
-  - {x: 61.67344, y: -125.596596, z: -39.118114}
+  - {x: 61.673462, y: -125.5966, z: -39.11811}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -4246,6 +4285,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4762918844551280760, guid: 940801d8d91881541aac28c0d5247841,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b284d14cbb3cd3f44b4b1cc09844564f, type: 2}
+    - target: {fileID: -4762918844551280760, guid: 940801d8d91881541aac28c0d5247841,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2b7f1ecc6f8867a41934c962b501bfec, type: 2}
+    - target: {fileID: 124902065087601079, guid: 940801d8d91881541aac28c0d5247841,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b284d14cbb3cd3f44b4b1cc09844564f, type: 2}
     - target: {fileID: 919132149155446097, guid: 940801d8d91881541aac28c0d5247841,
         type: 3}
       propertyPath: m_Name

@@ -14,6 +14,7 @@ namespace HackingOps.Weapons.WeaponFoundations
         [HideInInspector] public bool IsUsedByAI;
 
         [SerializeField] private string _interactionText = "interaction_grab";
+        [SerializeField] private Collider[] _colliders;
 
         [Header("Debug")]
         [SerializeField] private bool _debugUse;
@@ -24,7 +25,6 @@ namespace HackingOps.Weapons.WeaponFoundations
 
         private MeshRenderer[] _renderers;
         private Rigidbody[] _rigidbodies;
-        private Collider[] _colliders;
         private bool _canBeInteracted = true;
 
         private void OnValidate()
@@ -58,7 +58,6 @@ namespace HackingOps.Weapons.WeaponFoundations
         {
             _renderers = GetComponentsInChildren<MeshRenderer>();
             _rigidbodies = GetComponentsInChildren<Rigidbody>();
-            _colliders = GetComponentsInChildren<Collider>();
         }
 
         protected virtual void InternalAwake() { }

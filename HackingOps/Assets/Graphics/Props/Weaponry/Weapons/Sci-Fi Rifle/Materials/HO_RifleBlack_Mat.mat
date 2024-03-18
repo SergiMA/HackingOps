@@ -139,6 +139,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _RaindropsTex:
+        m_Texture: {fileID: 2800000, guid: e265b62f845d4bb469ba84e695a5df5f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 2800000, guid: 3a2d1ceedcff94347b17087b7b16a313, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -217,6 +221,8 @@ Material:
     - _DisplacementLockObjectScale: 1
     - _DisplacementLockTilingScale: 1
     - _DisplacementMode: 0
+    - _DistortionPower: 1.22
+    - _DistortionScale: 1.89
     - _DitherSize: 1
     - _DoubleSidedEnable: 0
     - _DoubleSidedGIMode: 0
@@ -249,7 +255,7 @@ Material:
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 0
     - _MaterialID: 4
-    - _Max_Distance: 1
+    - _Max_Distance: 0
     - _Metallic: 0
     - _MetallicRemapMax: 0
     - _MetallicRemapMin: 0
@@ -267,6 +273,8 @@ Material:
     - _PPDPrimitiveLength: 1
     - _PPDPrimitiveWidth: 1
     - _Parallax: 0.02
+    - _RaindropNormalStrength: 0.0006
+    - _RaindropsSpeed: 0.5
     - _RayTracing: 0
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
@@ -281,6 +289,9 @@ Material:
     - _SpecularAAThreshold: 0.2
     - _SpecularHighlights: 1
     - _SpecularOcclusionMode: 1
+    - _SplotchesPower: 0.8
+    - _SplotchesScale: 32.8
+    - _SplotchesSpeed: 3.16
     - _SrcBlend: 1
     - _StencilRef: 0
     - _StencilRefDepth: 8
@@ -313,6 +324,8 @@ Material:
     - _UVSec: 0
     - _UseEmissiveIntensity: 0
     - _UseShadowThreshold: 0
+    - _WetnessProgress: 0
+    - _WetnessSmoothness: 0.752
     - _ZTestDepthEqualForOpaque: 3
     - _ZTestGBuffer: 3
     - _ZTestTransparent: 4
@@ -328,6 +341,7 @@ Material:
     - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
+    - _RaindropsTiling: {r: 8, g: 3, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}

@@ -178,6 +178,8 @@ MonoBehaviour:
   Slot: 0
   IsUsedByAI: 0
   _interactionText: interaction_grab
+  _colliders:
+  - {fileID: 1455690300630569165}
   _debugUse: 0
   _debugStartUsing: 0
   _debugStopUsing: 0
@@ -306,7 +308,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 41464312540934996}
-  m_Layer: 0
+  - component: {fileID: 4767805542903198040}
+  - component: {fileID: 5732635464976580696}
+  m_Layer: 14
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,6 +333,42 @@ Transform:
   m_Father: {fileID: 3123280641920851647}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4767805542903198040
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8464762254255709766}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 8191
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.03862667, y: 0.038042754, z: 0.70371056}
+  m_Center: {x: 0.0007472038, y: 0.0029629022, z: 0.2212305}
+--- !u!114 &5732635464976580696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8464762254255709766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 297c2d0c527669d4eb39c95706a2430c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _minWetDuration: 3
+  _wettingDuration: 3
+  _dryingDuration: 3
 --- !u!1 &8515060626596632081
 GameObject:
   m_ObjectHideFlags: 0
