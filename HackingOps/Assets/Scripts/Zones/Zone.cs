@@ -22,13 +22,13 @@ namespace HackingOps.Zones
         private void OnEnable()
         {
             foreach (Trigger trigger in _triggers)
-                trigger.OnStepped += OnZoneStepped;
+                trigger.OnEnter += OnZoneStepped;
         }
 
         private void OnDisable()
         {
             foreach (Trigger trigger in _triggers)
-                trigger.OnStepped -= OnZoneStepped;
+                trigger.OnEnter -= OnZoneStepped;
         }
 
         private void ActivateTriggers()

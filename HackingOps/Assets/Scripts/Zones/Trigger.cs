@@ -5,12 +5,16 @@ namespace HackingOps.Zones
 {
     public class Trigger : MonoBehaviour
     {
-        public event Action<Trigger> OnStepped;
+        public event Action<Trigger> OnEnter;
+        public event Action<Trigger> OnStay;
+        public event Action<Trigger> OnExit;
 
         [SerializeField] private string[] _targetTags = { "Player" };
 
-        Collider[] _colliders;
+        private Collider[] _colliders;
+        private Collider _other;
 
+        #region Unity methods
         private void Awake()
         {
             _colliders = GetComponents<Collider>();
@@ -22,8 +26,28 @@ namespace HackingOps.Zones
             if (ValidateTag(other.tag) == false)
                 return;
 
-            OnStepped?.Invoke(this);
+            _other = other;
+            OnEnter?.Invoke(this);
         }
+
+        private void OnTriggerStay(Collider other)
+        {
+            if (ValidateTag(other.tag) == false)
+                return;
+
+            _other = other;
+            OnStay?.Invoke(this);
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (ValidateTag(other.tag) == false)
+                return;
+
+            _other = other;
+            OnExit?.Invoke(this);
+        }
+        #endregion
 
         private void SetCollidersAsTrigger()
         {
@@ -41,5 +65,7 @@ namespace HackingOps.Zones
 
             return false;
         }
+
+        public Collider GetOtherCollider() => _other;
     }
 }

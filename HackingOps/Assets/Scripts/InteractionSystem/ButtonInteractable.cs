@@ -1,15 +1,19 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace HackingOps.InteractionSystem
 {
     public class ButtonInteractable : MonoBehaviour, IInteractable
     {
+        public event Action OnReceiveCandidateNotification;
+        
         public UnityEvent OnInteracted;
 
         [SerializeField] private string _interactionText = "interaction_elevator_control_panel";
 
         private bool _isInteractable = true;
+
 
         private void ProcessInteraction()
         {
@@ -32,6 +36,11 @@ namespace HackingOps.InteractionSystem
         public void Interact(Interactor interactor)
         {
             ProcessInteraction();
+        }
+
+        public void ReceiveCandidateNotification()
+        {
+            OnReceiveCandidateNotification?.Invoke();
         }
         #endregion
     }

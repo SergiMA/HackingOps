@@ -1,11 +1,19 @@
 ﻿using HackingOps.InteractionSystem;
 using HackingOps.Weapons.Common;
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace HackingOps.Weapons.WeaponFoundations
 {
     public abstract class Weapon : MonoBehaviour, IInteractable
     {
+        public event Action OnReceiveCandidateNotification;
+
+        public UnityEvent OnStore;
+        public UnityEvent OnGrab;
+        public UnityEvent OnDrop;
+
         [field: Header("Settings")]
 
         [Tooltip("Slot is the space the weapon will occupy in the inventory.")]
@@ -26,6 +34,7 @@ namespace HackingOps.Weapons.WeaponFoundations
         private MeshRenderer[] _renderers;
         private Rigidbody[] _rigidbodies;
         private bool _canBeInteracted = true;
+
 
         private void OnValidate()
         {
@@ -100,6 +109,8 @@ namespace HackingOps.Weapons.WeaponFoundations
             }
 
             _canBeInteracted = true;
+
+            OnDrop.Invoke();
         }
         public virtual void Grab()
         {
@@ -119,6 +130,8 @@ namespace HackingOps.Weapons.WeaponFoundations
             }
 
             _canBeInteracted = false;
+
+            OnGrab.Invoke();
         }
         public virtual void Store()
         {
@@ -140,6 +153,8 @@ namespace HackingOps.Weapons.WeaponFoundations
             ResetRotation();
 
             _canBeInteracted = false;
+
+            OnStore.Invoke();
         }
 
         public Vector3 GetHolderOffset() => _holderOffset;
@@ -167,6 +182,11 @@ namespace HackingOps.Weapons.WeaponFoundations
 
         public void EnableInteractions() { }
         public void DisableInteractions() { }
+
+        public void ReceiveCandidateNotification()
+        {
+            OnReceiveCandidateNotification?.Invoke();
+        }
         #endregion
     }
 }

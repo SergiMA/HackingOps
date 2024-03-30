@@ -9,13 +9,17 @@ namespace HackingOps.InteractionSystem
 {
     public class Interactor : MonoBehaviour
     {
-        [SerializeField] PlayerInputManager _inputManager;
-        [SerializeField] Transform _interactionPoint;
+        [SerializeField] private PlayerInputManager _inputManager;
+        [SerializeField] private Transform _interactionPoint;
+
+        [SerializeField] private LayerMask _layersToInteract = Physics.DefaultRaycastLayers;
 
         [SerializeField] private float _interactionRadius = 2f;
         [SerializeField] private float _dotThreshold = 0.7f;
+        [SerializeField] private float _suggestInteractablesCooldown = 0.2f;
 
         private List<IInteractable> _interactables = new();
+        private float _currentSuggestInteractablesCooldown;
 
         private void OnEnable()
         {
@@ -25,6 +29,15 @@ namespace HackingOps.InteractionSystem
         private void OnDisable()
         {
             _inputManager.OnInteract -= OnInteract;
+        }
+
+        private void Update()
+        {
+            if (Time.time > _currentSuggestInteractablesCooldown)
+            {
+                NotifyInteractionCandidate();
+                _currentSuggestInteractablesCooldown = Time.time + _suggestInteractablesCooldown;
+            }
         }
 
         private void OnDrawGizmos()
@@ -48,7 +61,7 @@ namespace HackingOps.InteractionSystem
 
         private void FillInteractablesList()
         {
-            Collider[] colliders = Physics.OverlapSphere(_interactionPoint.position, _interactionRadius);
+            Collider[] colliders = Physics.OverlapSphere(_interactionPoint.position, _interactionRadius, _layersToInteract);
             foreach (Collider collider in colliders)
             {
                 if (collider.TryGetComponent(out IInteractable interactable))
@@ -91,6 +104,18 @@ namespace HackingOps.InteractionSystem
             float dot = Vector3.Dot(_interactionPoint.forward, directionToInteractable);
 
             return dot >= _dotThreshold;
+        }
+
+        private void NotifyInteractionCandidate()
+        {
+            _interactables.Clear();
+
+            FillInteractablesList();
+
+            if (_interactables.Count == 0) return;
+
+            IInteractable interactable = GetClosestInteractable();
+            interactable.ReceiveCandidateNotification();
         }
     }
 }
