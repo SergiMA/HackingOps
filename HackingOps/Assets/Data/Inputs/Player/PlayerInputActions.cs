@@ -583,6 +583,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""cc8e6557-546e-461a-82df-0818ecfed1c6"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeaveHackingMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""ad628a57-ccc0-4671-87b4-c1f80799f6fa"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",

@@ -318,6 +318,7 @@ namespace HackingOps.Input
         {
             _inputActions.ThirdPersonCharacter_ActionMap.Disable();
             _inputActions.HackingMode_ActionMap.Disable();
+            _inputActions.Menu_ActionMap.Disable();
         }
     }
 }

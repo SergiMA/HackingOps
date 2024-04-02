@@ -7,7 +7,7 @@ using UnityEngine.Events;
 
 namespace HackingOps.Common.Core.Managers
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : MonoBehaviour, IEventObserver
     {
         public UnityEvent OnPause;
         public UnityEvent OnResume;
@@ -21,13 +21,18 @@ namespace HackingOps.Common.Core.Managers
 
         private void OnEnable()
         {
-            _inputManager.OnCancel += Pause;
+            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.BeginHackingMode, this);
+            SubscribeToPauseEvent();
         }
 
         private void OnDisable()
         {
-            _inputManager.OnCancel -= Pause;
+            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.LeaveHackingMode, this);
+            UnsubscribeFromPauseEvent();
         }
+
+        private void SubscribeToPauseEvent() => _inputManager.OnCancel += Pause;
+        private void UnsubscribeFromPauseEvent() => _inputManager.OnCancel -= Pause;
 
         public void Pause()
         {
@@ -55,6 +60,15 @@ namespace HackingOps.Common.Core.Managers
         public void ReadyToResume()
         {
             Time.timeScale = 1f;
+        }
+
+        public void Process(EventData eventData)
+        {
+            switch (eventData.EventId)
+            {
+                case EventIds.BeginHackingMode: UnsubscribeFromPauseEvent(); break;
+                case EventIds.LeaveHackingMode: SubscribeToPauseEvent(); break;
+            }
         }
     }
 }
