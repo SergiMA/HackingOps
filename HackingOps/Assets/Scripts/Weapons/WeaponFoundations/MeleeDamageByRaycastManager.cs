@@ -26,6 +26,24 @@ namespace HackingOps.Weapons.WeaponFoundations
             {
                 meleeDamageByRaycast.SetManager(this);
             }
+
+            DisableDamageArea();
+        }
+
+        private void EnableDamageArea()
+        {
+            foreach (MeleeDamageByRaycast meleeDamageByRaycast in _meleeDamageByRaycast)
+            {
+                meleeDamageByRaycast.enabled = true;
+            }
+        }
+
+        private void DisableDamageArea()
+        {
+            foreach (MeleeDamageByRaycast meleeDamageByRaycast in _meleeDamageByRaycast)
+            {
+                meleeDamageByRaycast.enabled = false;
+            }
         }
 
         public void SetWielder(CharacterCombat wielder)
@@ -35,10 +53,7 @@ namespace HackingOps.Weapons.WeaponFoundations
 
         public void StartDamageArea()
         {
-            foreach (MeleeDamageByRaycast meleeDamageByRaycast in _meleeDamageByRaycast)
-            {
-                meleeDamageByRaycast.enabled = true;
-            }
+            EnableDamageArea();
         }
 
         public void EndDamageArea()

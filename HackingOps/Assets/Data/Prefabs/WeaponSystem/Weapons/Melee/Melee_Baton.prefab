@@ -153,7 +153,7 @@ Transform:
   - {fileID: 314752168795047065}
   - {fileID: 4500487817241940508}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &5185647992212091807
 Rigidbody:
@@ -333,7 +333,6 @@ MonoBehaviour:
   _trigger: {fileID: 1156519109303038548}
   _canUseUI: 1
   _releaseCandidateDuration: 0.3
-  _showDebugLogs: 0
 --- !u!1 &6698145838212355212
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,7 +428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startPoint: {fileID: 236259906092382946}
   _endPoint: {fileID: 5939375499597688145}
-  _rayMargin: 0.005
+  _rayMargin: 0.05
   _occludersLayerMask:
     serializedVersion: 2
     m_Bits: 385

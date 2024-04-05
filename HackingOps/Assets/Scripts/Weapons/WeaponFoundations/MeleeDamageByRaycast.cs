@@ -24,10 +24,16 @@ namespace HackingOps.Weapons.WeaponFoundations
 
         void Update()
         {
+            GenerateImpactRays();
+            StoreLastPoints();
+        }
+
+        private void GenerateImpactRays()
+        {
             float distance =
-                Mathf.Max(
-                    Vector3.Distance(_startPoint.position, _lastStartPoint),
-                    Vector3.Distance(_endPoint.position, _lastEndPoint));
+                            Mathf.Max(
+                                Vector3.Distance(_startPoint.position, _lastStartPoint),
+                                Vector3.Distance(_endPoint.position, _lastEndPoint));
 
             int numRays = 1 + Mathf.CeilToInt(distance / _rayMargin);
 
@@ -44,8 +50,6 @@ namespace HackingOps.Weapons.WeaponFoundations
 
                 Debug.DrawLine(actualStartPoint, actualEndPoint, Color.red, 1f);
             }
-
-            StoreLastPoints();
         }
 
         private void StoreLastPoints()
