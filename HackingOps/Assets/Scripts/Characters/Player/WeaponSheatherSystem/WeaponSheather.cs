@@ -22,6 +22,7 @@ namespace HackingOps.Characters.Player.WeaponSheatherSystem
         private bool _isBlocking;
         private bool _isEngagedInCombat;
         private bool _isUsingMeleeWeapon;
+        private bool _isInCutscene;
 
         // State bindings
         private WeaponSheatherBaseState _currentState;
@@ -35,6 +36,7 @@ namespace HackingOps.Characters.Player.WeaponSheatherSystem
         public bool IsEngagedInCombat { get { return _isEngagedInCombat; } }
         public Inventory Inventory { get { return _inventory; } }
         public bool IsUsingMeleeWeapon { get { return _isUsingMeleeWeapon; } }
+        public bool IsInCutscene {  get { return _isInCutscene; } }
         #endregion
 
         private void Awake()
@@ -49,12 +51,16 @@ namespace HackingOps.Characters.Player.WeaponSheatherSystem
         {
             _eventQueue.Subscribe(EventIds.OnEnterCombatMode, this);
             _eventQueue.Subscribe(EventIds.OnLeaveCombatMode, this);
+            _eventQueue.Subscribe(EventIds.CutsceneStarted, this);
+            _eventQueue.Subscribe(EventIds.CutsceneFinished, this);
         }
 
         private void OnDisable()
         {
             _eventQueue.Unsubscribe(EventIds.OnEnterCombatMode, this);
             _eventQueue.Unsubscribe(EventIds.OnLeaveCombatMode, this);
+            _eventQueue.Unsubscribe(EventIds.CutsceneStarted, this);
+            _eventQueue.Unsubscribe(EventIds.CutsceneFinished, this);
         }
 
         private void Start()
@@ -103,6 +109,12 @@ namespace HackingOps.Characters.Player.WeaponSheatherSystem
                 case EventIds.OnLeaveCombatMode:
                     _isEngagedInCombat = false;
                     _currentState.OnExitCombatMode();
+                    break;
+                case EventIds.CutsceneStarted:
+                    _isInCutscene = true;
+                    break;
+                case EventIds.CutsceneFinished:
+                    _isInCutscene = false;
                     break;
             }
         }

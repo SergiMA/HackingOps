@@ -21,6 +21,9 @@
         {
             if (!_ctx.IsEngagedInCombat && !_ctx.IsBlocking && _ctx.IsUsingMeleeWeapon)
                 SwitchState(_factory.GetState(WeaponSheatherStateFactory.States.Alert));
+
+            if (_ctx.IsInCutscene)
+                SwitchState(_factory.GetState(WeaponSheatherStateFactory.States.Peaceful));
         }
     }
 }

@@ -282,6 +282,7 @@ namespace HackingOps.Characters.Player
             }
 
             _currentWeapon = newWeapon;
+            Unsheath();
         }
 
         private void SetOldWeaponConstraints(Weapon oldWeapon, ParentConstraint parentConstraint)

@@ -43,9 +43,16 @@ namespace HackingOps.Characters.Player.WeaponSheatherSystem.States
             
             if (_needsToSheatheWeapon)
                 SwitchState(_factory.GetState(WeaponSheatherStateFactory.States.Peaceful));
+
+            if (_ctx.IsInCutscene)
+                SwitchState(_factory.GetState(WeaponSheatherStateFactory.States.Peaceful));
         }
 
-        public override void OnEnterAlertMode() => _countdownTimer.Reset();
+        public override void OnEnterAlertMode()
+        {
+            _ctx.PlayerWeapons.Unsheath();
+            _countdownTimer.Reset();
+        }
 
         private void OnTimerEnded() => _needsToSheatheWeapon = true;
     }
