@@ -1,10 +1,13 @@
 ﻿using HackingOps.Doors.AnimatedDoors;
+using System;
 using UnityEngine;
 
 namespace HackingOps.Hacking
 {
     public class HackableDoorControls : MonoBehaviour, IHackable
     {
+        public event Action OnReceiveCandidateNotification;
+
         [SerializeField] private AnimatedDoor[] _doors;
 
         #region IHackable implementation
@@ -16,6 +19,7 @@ namespace HackingOps.Hacking
 
         public void StopHacking() { }
         public bool IsControllable() => false;
+        public void ReceiveCandidateNotification() => OnReceiveCandidateNotification?.Invoke();
         #endregion
     }
 }

@@ -15,10 +15,14 @@ namespace HackingOps.Hacking
         [SerializeField] private float _sphereCastRadius = 1f;
         [SerializeField] private float _sphereCastMaxDistance = 10f;
         [SerializeField] private LayerMask _layerMask = Physics.DefaultRaycastLayers;
+        [SerializeField] private float _suggestHackableCooldown = 0.2f;
 
         private Transform _brainCameraTransform;
         private IHackable _lastTargetHacked;
 
+        private float _currentSuggestHackableCooldown = 0.2f;
+
+        #region Unity methods
         private void Awake()
         {
             _brainCameraTransform = Camera.main.transform;
@@ -34,23 +38,58 @@ namespace HackingOps.Hacking
             _inputManager.OnHack -= OnHack;
         }
 
+        private void Update()
+        {
+            SuggestHackableOverTime();
+        }
+
+        #endregion
+
+        private void SuggestHackableOverTime()
+        {
+            if (Time.time > _currentSuggestHackableCooldown)
+            {
+                NotifyHackableCandidate();
+                _currentSuggestHackableCooldown = Time.time + _suggestHackableCooldown;
+            }
+        }
+
         private void OnHack()
+        {
+            IHackable hackableTarget = LookForHackableTarget();
+
+            if (hackableTarget == null) return;
+
+            if (_lastTargetHacked != null && hackableTarget.IsControllable())
+                _lastTargetHacked.StopHacking();
+
+            _lastTargetHacked = hackableTarget;
+            OnHackingEmitted.Invoke();
+            hackableTarget.BeginHacking();
+        }
+
+        private void NotifyHackableCandidate()
+        {
+            IHackable hackableCandidate = LookForHackableTarget();
+
+            if (hackableCandidate == null) return;
+
+            hackableCandidate.ReceiveCandidateNotification();
+        }
+
+        private IHackable LookForHackableTarget()
         {
             if (Physics.SphereCast(_brainCameraTransform.position, _sphereCastRadius, _brainCameraTransform.forward, out RaycastHit hit, _sphereCastMaxDistance, _layerMask))
             {
                 Debug.DrawLine(_brainCameraTransform.position, hit.point, Color.red, 1f);
+
                 if (hit.transform.TryGetComponent(out IHackable hackableTarget))
                 {
-                    if (_lastTargetHacked != null && hackableTarget.IsControllable())
-                    {
-                        _lastTargetHacked.StopHacking();
-                    }
-
-                    _lastTargetHacked = hackableTarget;
-                    OnHackingEmitted.Invoke();
-                    hackableTarget.BeginHacking();
+                    return hackableTarget;
                 }
             }
+
+            return null;
         }
     }
 }

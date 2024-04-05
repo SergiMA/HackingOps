@@ -3,12 +3,15 @@ using HackingOps.Common.Events;
 using HackingOps.Common.Services;
 using HackingOps.CutsceneSystem;
 using HackingOps.Input;
+using System;
 using UnityEngine;
 
 namespace HackingOps.Hacking
 {
     public class HackableCamera : MonoBehaviour, IHackable, ICameraInput, IEventObserver
     {
+        public event Action OnReceiveCandidateNotification;
+
         [Header("Bindings")]
         [SerializeField] private PlayerInputManager _inputManager;
         [SerializeField] private CinemachineVirtualCamera _virtualCamera;
@@ -81,6 +84,7 @@ namespace HackingOps.Hacking
         }
 
         public bool IsControllable() => true;
+        public void ReceiveCandidateNotification() => OnReceiveCandidateNotification?.Invoke();
         #endregion
 
         #region IEventObserver implementation
