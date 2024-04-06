@@ -27,14 +27,9 @@ namespace HackingOps.CutsceneSystem
 
         private void Awake() => _timelinePlayer = GetComponent<TimelinePlayer>();
 
-        private void OnEnable()
+        private void Start()
         {
             ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.PauseGame, this);
-        }
-
-        private void OnDisable()
-        {
-            ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.PauseGame, this);
         }
 
         public void UseMenu()

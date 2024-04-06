@@ -66,13 +66,16 @@ namespace HackingOps.Characters.Player
             _weapons = _weaponsParent.GetComponentsInChildren<Weapon>();
         }
 
+        private void Start()
+        {
+            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.CutsceneStarted, this);
+        }
+
         private void OnEnable()
         {
             _inventory.OnWeaponAdded += OnWeaponAdded;
             _inventory.OnWeaponSwitched += OnWeaponSwitched;
             _inventory.OnWeaponDropped += OnWeaponDropped;
-
-            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.CutsceneStarted, this);
         }
 
         private void OnDisable()
@@ -80,8 +83,6 @@ namespace HackingOps.Characters.Player
             _inventory.OnWeaponSwitched -= OnWeaponSwitched;
             _inventory.OnWeaponSwitched -= OnWeaponSwitched;
             _inventory.OnWeaponDropped -= OnWeaponDropped;
-
-            ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.CutsceneStarted, this);
         }
 
         private void Update()

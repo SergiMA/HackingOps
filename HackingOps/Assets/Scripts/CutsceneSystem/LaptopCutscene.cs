@@ -20,14 +20,9 @@ namespace HackingOps.CutsceneSystem
             }
         }
 
-        private void OnEnable()
+        private void Start()
         {
             ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.LeaveHackingMode, this);
-        }
-
-        private void OnDisable()
-        {
-            ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.LeaveHackingMode, this);
         }
 
         public void Process(EventData eventData)

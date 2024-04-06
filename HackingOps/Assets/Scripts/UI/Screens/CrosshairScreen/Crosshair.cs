@@ -12,22 +12,17 @@ namespace HackingOps.UI.Screens.CrosshairScreen
         [SerializeField] private float _fadeInDuration = 0.5f;
         [SerializeField] private float _fadeOutDuration = 0.5f;
 
-        private void OnEnable()
-        {
-            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.BeginHackingMode, this);
-            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.LeaveHackingMode, this);
-            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.StartAiming, this);
-            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.StopAiming, this);
-            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.CutsceneStarted, this);
-        }
+        private IEventQueue _eventQueue;
 
-        private void OnDisable()
+        private void Awake() => _eventQueue = ServiceLocator.Instance.GetService<IEventQueue>();
+
+        private void Start()
         {
-            ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.BeginHackingMode, this);
-            ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.LeaveHackingMode, this);
-            ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.StartAiming, this);
-            ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.StopAiming, this);
-            ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.CutsceneStarted, this);
+            _eventQueue.Subscribe(EventIds.BeginHackingMode, this);
+            _eventQueue.Subscribe(EventIds.LeaveHackingMode, this);
+            _eventQueue.Subscribe(EventIds.StartAiming, this);
+            _eventQueue.Subscribe(EventIds.StopAiming, this);
+            _eventQueue.Subscribe(EventIds.CutsceneStarted, this);
         }
 
         public void Show()

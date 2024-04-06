@@ -10,14 +10,9 @@ namespace HackingOps.Hacking
         [Header("Bindings - Dependencies")]
         [SerializeField] private TimelinePlayer _timelinePlayer;
 
-        private void OnEnable()
+        private void Start()
         {
             ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.BeginHackingMode, this);
-        }
-
-        private void OnDisable()
-        {
-            ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.BeginHackingMode, this);
         }
 
         public void BeginHacking()

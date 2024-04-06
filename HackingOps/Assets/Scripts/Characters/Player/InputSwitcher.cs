@@ -14,32 +14,28 @@ namespace HackingOps.Characters.Player
         private float _freeLookPreviousXAxisMaxSpeed;
         private float _freeLookPreviousYAxisMaxSpeed;
 
+        private IEventQueue _eventQueue;
+
         private bool _isDisabled;
 
-        private void OnEnable()
-        {
-            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.CutsceneStarted, this);
-            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.CutsceneFinished, this);
-            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.BeginHackingMode, this);
-            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.LeaveHackingMode, this);
-            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.PauseGame, this);
-            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.ResumeGame, this);
-        }
-
-        private void OnDisable()
-        {
-            ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.CutsceneStarted, this);
-            ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.CutsceneFinished, this);
-            ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.BeginHackingMode, this);
-            ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.LeaveHackingMode, this);
-            ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.PauseGame, this);
-            ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.ResumeGame, this);
-        }
+        private void Awake() => _eventQueue = ServiceLocator.Instance.GetService<IEventQueue>();
 
         private void Start()
         {
+            SubscribeToEvents();
+
             _freeLookPreviousXAxisMaxSpeed = _freeLookCamera.m_XAxis.m_MaxSpeed;
             _freeLookPreviousYAxisMaxSpeed = _freeLookCamera.m_YAxis.m_MaxSpeed;
+        }
+
+        private void SubscribeToEvents()
+        {
+            _eventQueue.Subscribe(EventIds.CutsceneStarted, this);
+            _eventQueue.Subscribe(EventIds.CutsceneFinished, this);
+            _eventQueue.Subscribe(EventIds.BeginHackingMode, this);
+            _eventQueue.Subscribe(EventIds.LeaveHackingMode, this);
+            _eventQueue.Subscribe(EventIds.PauseGame, this);
+            _eventQueue.Subscribe(EventIds.ResumeGame, this);
         }
 
         private void RestoreFreeLookMaxSpeed()
