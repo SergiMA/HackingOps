@@ -1,10 +1,12 @@
-﻿using HackingOps.Input;
+﻿using HackingOps.Common.Events;
+using HackingOps.Common.Services;
+using HackingOps.Input;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace HackingOps.Hacking
 {
-    public class HackingEmitter : MonoBehaviour
+    public class HackingEmitter : MonoBehaviour, IEventObserver
     {
         public UnityEvent OnHackingEmitted;
 
@@ -21,11 +23,15 @@ namespace HackingOps.Hacking
         private IHackable _lastTargetHacked;
 
         private float _currentSuggestHackableCooldown = 0.2f;
+        private bool _isHacking;
 
         #region Unity methods
         private void Awake()
         {
             _brainCameraTransform = Camera.main.transform;
+
+            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.BeginHackingMode, this);
+            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.LeaveHackingMode, this);
         }
 
         private void OnEnable()
@@ -40,6 +46,8 @@ namespace HackingOps.Hacking
 
         private void Update()
         {
+            if (!_isHacking) return;
+
             SuggestHackableOverTime();
         }
 
@@ -91,5 +99,16 @@ namespace HackingOps.Hacking
 
             return null;
         }
+
+        #region IEventObserver implementation
+        public void Process(EventData eventData)
+        {
+            switch (eventData.EventId)
+            {
+                case EventIds.BeginHackingMode: _isHacking = true; break;
+                case EventIds.LeaveHackingMode: _isHacking = false; break;
+            }
+        }
+        #endregion
     }
 }
