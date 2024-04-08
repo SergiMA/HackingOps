@@ -10,6 +10,9 @@ namespace HackingOps.UI
         [Header("Screens")]
         [SerializeField] private List<CanvasGroup> _screens = new();
 
+        [Header("Scene names")]
+        [SerializeField] private string _creditsScene = "CreditsScene";
+
         private SceneLoader _sceneLoader;
 
         private void Start()
@@ -23,7 +26,7 @@ namespace HackingOps.UI
         }
 
         public void OnPlayButtonPressed() => _sceneLoader.LoadNext();
-
+        public void OnCreditsButtonPressed() => _sceneLoader.Load(_creditsScene);
         public void OnExitButtonPressed() => Utils.ExitGame();
     }
 }
