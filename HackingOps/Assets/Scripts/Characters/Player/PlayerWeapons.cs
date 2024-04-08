@@ -383,7 +383,12 @@ namespace HackingOps.Characters.Player
             _inventory.ChangeToNextWeapon();
         }
 
-        public void OnSelectWeaponReceived(int weaponSelectedIndex) => SelectWeapon(weaponSelectedIndex);
+        public void OnSelectWeaponReceived(int weaponSelectedIndex)
+        {
+            WeaponSlot slot = (WeaponSlot)weaponSelectedIndex;
+            _inventory.ChangeToSlot(slot);
+            SelectWeapon(weaponSelectedIndex);
+        }
 
         public void SetAimingTarget(Transform target)
         {

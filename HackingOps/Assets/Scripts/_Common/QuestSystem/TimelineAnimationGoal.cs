@@ -42,18 +42,6 @@ namespace HackingOps.Common.QuestSystem
         public override void UnsubscribeFromEvents()
         {
             base.UnsubscribeFromEvents();
-
-            IEventQueue eventQueue = ServiceLocator.Instance.GetService<IEventQueue>();
-
-            switch (_statusCapture)
-            {
-                case AnimationStatusCapture.OnStarted:
-                    eventQueue.Unsubscribe(EventIds.CutsceneStarted, this);
-                    break;
-                case AnimationStatusCapture.OnFinished:
-                    eventQueue.Unsubscribe(EventIds.CutsceneFinished, this);
-                    break;
-            }
         }
 
         public override void Process(EventData eventData)

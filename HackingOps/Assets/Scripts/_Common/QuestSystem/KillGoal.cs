@@ -24,8 +24,6 @@ namespace HackingOps.Common.QuestSystem
         public override void UnsubscribeFromEvents()
         {
             base.UnsubscribeFromEvents();
-
-            ServiceLocator.Instance.GetService<IEventQueue>().Unsubscribe(EventIds.CharacterDied, this);
         }
 
         private bool ValidateId(string idToCheck)

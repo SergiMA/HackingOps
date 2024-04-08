@@ -29,8 +29,6 @@ namespace HackingOps.Common.QuestSystem
         public override void UnsubscribeFromEvents()
         {
             base.UnsubscribeFromEvents();
-
-            ServiceLocator.Instance.GetService<IEventQueue>().Subscribe(EventIds.ZoneStepped, this);
         }
 
         public override void Process(EventData eventData)

@@ -86,16 +86,10 @@ namespace HackingOps.Input
             _inputActions.ThirdPersonCharacter_ActionMap.ChangeWeapon.performed += ChangeWeapon;
             _inputActions.ThirdPersonCharacter_ActionMap.ChangeWeapon.canceled += ChangeWeapon;
 
-            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon0.performed += SelectWeapon0;
             _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon1.performed += SelectWeapon1;
             _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon2.performed += SelectWeapon2;
             _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon3.performed += SelectWeapon3;
             _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon4.performed += SelectWeapon4;
-            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon5.performed += SelectWeapon5;
-            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon6.performed += SelectWeapon6;
-            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon7.performed += SelectWeapon7;
-            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon8.performed += SelectWeapon8;
-            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon9.performed += SelectWeapon9;
 
             _inputActions.ThirdPersonCharacter_ActionMap.Interact.performed += Interact;
 
@@ -134,16 +128,10 @@ namespace HackingOps.Input
             _inputActions.ThirdPersonCharacter_ActionMap.ChangeWeapon.performed -= ChangeWeapon;
             _inputActions.ThirdPersonCharacter_ActionMap.ChangeWeapon.canceled -= ChangeWeapon;
 
-            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon0.performed -= SelectWeapon0;
             _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon1.performed -= SelectWeapon1;
             _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon2.performed -= SelectWeapon2;
             _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon3.performed -= SelectWeapon3;
             _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon4.performed -= SelectWeapon4;
-            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon5.performed -= SelectWeapon5;
-            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon6.performed -= SelectWeapon6;
-            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon7.performed -= SelectWeapon7;
-            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon8.performed -= SelectWeapon8;
-            _inputActions.ThirdPersonCharacter_ActionMap.SelectWeapon9.performed -= SelectWeapon9;
 
             _inputActions.ThirdPersonCharacter_ActionMap.Interact.performed -= Interact;
 
@@ -255,31 +243,6 @@ namespace HackingOps.Input
         private void SelectWeapon4(InputAction.CallbackContext ctx)
         {
             OnSelectWeapon?.Invoke(3);
-        }
-
-        private void SelectWeapon5(InputAction.CallbackContext ctx)
-        {
-            OnSelectWeapon?.Invoke(4);
-        }
-
-        private void SelectWeapon6(InputAction.CallbackContext ctx)
-        {
-            OnSelectWeapon?.Invoke(5);
-        }
-
-        private void SelectWeapon7(InputAction.CallbackContext ctx)
-        {
-            OnSelectWeapon?.Invoke(6);
-        }
-
-        private void SelectWeapon8(InputAction.CallbackContext ctx)
-        {
-            OnSelectWeapon?.Invoke(7);
-        }
-
-        private void SelectWeapon9(InputAction.CallbackContext ctx)
-        {
-            OnSelectWeapon?.Invoke(8);
         }
         #endregion
         #endregion
