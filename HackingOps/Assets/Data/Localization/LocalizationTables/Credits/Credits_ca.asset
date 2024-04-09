@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Credits_ca
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: ca
+  m_SharedData: {fileID: 11400000, guid: 0b8ed84898033ea40b42b8d06a95ab9e, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 33160089600
+    m_Localized: Desenvolupador Principal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 82745151488
+    m_Localized: "Subcontractaci\xF3 d'Art"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 105268563968
+    m_Localized: "Subcontrataci\xF3 d'\xC0udio"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
