@@ -12,6 +12,7 @@ namespace HackingOps.CutsceneSystem
     public class TimelinePlayer : MonoBehaviour
     {
         public UnityEvent OnFinished;
+        public bool IsPlaying { get => _isPlaying; }
 
         [SerializeField] private bool _notifyWhenFinished;
 

@@ -34,6 +34,8 @@ namespace HackingOps.CutsceneSystem
 
         public void UseMenu()
         {
+            if (_timelinePlayer.IsPlaying) return;
+
             _timelinePlayer.Play();
 
             DOVirtual.DelayedCall(_delayCameraTransition, () => _timelinePlayer.OnUseCutsceneCameraSignalReceived(_camera));
